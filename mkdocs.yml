@@ -4,11 +4,11 @@ site_author: Justin Partain
 pages:
 - Home: 'index.md'
 - Ubuntu:
-  - 'CouchPotato': 'ubuntu/couchpotato.md'
-  - 'DDClient': 'ubuntu/ddlcient.md'
+  - 'CouchPotato': 'ubuntu/couchpotato.rst'
+  - 'DDClient': 'ubuntu/ddclient.md'
   - 'HTPC Manager': 'ubuntu/htpc-manager.md'
   - 'NGINX from Source': 'ubuntu/nginx-from-source.md'
-  - 'NGINX Using Ubuntu's PPA': 'ubuntu/nginx-from-ubuntu-ppa.md'
+  - 'NGINX Using Ubuntu PPA': 'ubuntu/nginx-from-ubuntu-ppa.md'
   - 'OpenVPN': 'ubuntu/openvpn.md'
   - 'PlexPy': 'ubuntu/plexpy.md'
   - 'Sonarr': 'ubuntu/sonarr.md'
@@ -25,3 +25,6 @@ pages:
 - Other Informationals:
   - 'Bash IF Conditionals': 'more_info/bash-if-conditionals.md'
 theme: readthedocs
+markdown_extensions:
+  - admonition
+  - extra
