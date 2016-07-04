@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>None/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>None/ubuntu/couchpotato/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/ubuntu/ddclient/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/ubuntu/htpc-manager/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/ubuntu/nginx-from-source/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/ubuntu/nginx-from-ubuntu-ppa/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/ubuntu/openvpn/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/ubuntu/plexpy/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/ubuntu/sonarr/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/ubuntu/telegram-for-sonarr/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/ubuntu/transmission-daemon/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/rpi/boot-from-usb/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/rpi/domotz-rpi/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/gen_unix/ansible-adhoc/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/gen_unix/transmission-web-gui/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/gen_unix/virtualbox-guest-addition/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/gen_unix/ratom/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/more_info/bash-if-conditionals/</loc>
+     <lastmod>2016-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>
