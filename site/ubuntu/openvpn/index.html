@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Justin Partain">
+  
+  <title>OpenVPN - Software Installation Guides</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "OpenVPN";
+    var mkdocs_page_input_path = "ubuntu/openvpn.md";
+    var mkdocs_page_url = "/ubuntu/openvpn/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-75489042-5', 'jpcdi.com/sig');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Software Installation Guides</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Ubuntu</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../couchpotato/">CouchPotato</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ddclient/">DDClient</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../htpc-manager/">HTPC Manager</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../nginx-from-source/">NGINX from Source</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../nginx-from-ubuntu-ppa/">NGINX Using Ubuntu PPA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">OpenVPN</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#install-the-openvpn-client">Install the OpenVPN client:</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#grab-the-pia-openvpn-profile">Grab the PIA OpenVPN Profile</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#copy-the-files">Copy the Files</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#create-the-login">Create the Login...</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#and-edit-the-conf-file">And Edit the .conf File</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#test-vpn">Test VPN</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#setup-openvpns-autostart-configuration">Setup OpenVPN's Autostart Configuration</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#setup-routing-and-nat">Setup Routing and NAT</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../plexpy/">PlexPy</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Postfix/">PostFix</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sonarr/">Sonarr</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../telegram-for-sonarr/">Telegram for Sonarr</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../transmission-daemon/">Transmission-Daemon</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Raspberry Pi</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../rpi/boot-from-usb/">Run OS from USB</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../rpi/domotz-rpi/">Domotz RPI</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>General UNIX</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gen_unix/ansible-adhoc/">Ansible Adhoc Refresh</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gen_unix/transmission-web-gui/">Transmission Web GUI Change</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gen_unix/virtualbox-guest-addition/">VirtualBox Guest Additions on Ubuntu Guest</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gen_unix/ratom/">Install Ratom or Remote Atom</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Other Informationals</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../more_info/bash-if-conditionals/">Bash IF Conditionals</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Software Installation Guides</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Ubuntu &raquo;</li>
+        
+      
+    
+    <li>OpenVPN</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="install-the-openvpn-client">Install the OpenVPN client:</h1>
+<pre><code class="bash">sudo apt-get install openvpn
+</code></pre>
+
+<h1 id="grab-the-pia-openvpn-profile">Grab the PIA OpenVPN Profile</h1>
+<p>Download and uncompress the PIA OpenVPN profiles:</p>
+<pre><code class="bash">wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
+</code></pre>
+
+<p>If <code>unzip</code> is not installed, go ahead:</p>
+<pre><code class="bash">sudo apt-get install unzip
+</code></pre>
+
+<p>Then:</p>
+<pre><code class="bash">unzip openvpn.zip -d openvpn
+</code></pre>
+
+<h1 id="copy-the-files">Copy the Files</h1>
+<p>Copy the PIA OpenVPN certificates and profile to the OpenVPN configuration location.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I'm using <code>Japan.ovpn</code> as an example location. You can/should change that to whichever location you want to use.</p>
+</div>
+<pre><code class="bash">sudo cp openvpn/ca.crt openvpn/crl.pem /etc/openvpn/
+sudo cp openvpn/Japan.ovpn /etc/openvpn/Japan.conf
+</code></pre>
+
+<h1 id="create-the-login">Create the Login...</h1>
+<p>Create <code>/etc/openvpn/login</code> containing only your username and password, one per line, for example:</p>
+<pre><code class="bash">user12345678
+MyGreatPassword
+</code></pre>
+
+<p>Change the permissions on this file so only the root user can read it:</p>
+<pre><code class="bash">sudo chmod 600 /etc/openvpn/login
+</code></pre>
+
+<h1 id="and-edit-the-conf-file">And Edit the <code>.conf</code> File</h1>
+<p>Setup OpenVPN to use your stored username and password by editing the the config file for the VPN location:</p>
+<pre><code class="bash">sudo nano /etc/openvpn/Japan.conf
+</code></pre>
+
+<p>Change the following lines:</p>
+<table>
+<thead>
+<tr>
+<th>From This</th>
+<th>To This</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ca ca.crt</td>
+<td>ca /etc/openvpn/ca.crt</td>
+</tr>
+<tr>
+<td>auth-user-pass</td>
+<td>auth-user-pass /etc/openvpn/login</td>
+</tr>
+<tr>
+<td>crl-verify crl.pem</td>
+<td>crl-verify /etc/openvpn/crl.pem</td>
+</tr>
+</tbody>
+</table>
+<h1 id="test-vpn">Test VPN</h1>
+<p>At this point you should be able to test the VPN actually works:</p>
+<pre><code class="bash">sudo openvpn --config /etc/openvpn/Japan.conf
+</code></pre>
+
+<p>If all is well, you'll see something like:</p>
+<pre><code class="bash">sudo openvpn --config /etc/openvpn/Japan.conf
+Sat Oct 24 12:10:54 2015 OpenVPN 2.3.4 arm-unknown-linux-gnueabihf [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [IPv6] built on Dec  5 2014
+Sat Oct 24 12:10:54 2015 library versions: OpenSSL 1.0.1k 8 Jan 2015, LZO 2.08
+Sat Oct 24 12:10:54 2015 UDPv4 link local: [undef]
+Sat Oct 24 12:10:54 2015 UDPv4 link remote: [AF_INET]123.123.123.123:1194
+Sat Oct 24 12:10:54 2015 WARNING: this configuration may cache passwords in memory -- use the auth-nocache option to prevent this
+Sat Oct 24 12:10:56 2015 [Private Internet Access] Peer Connection Initiated with [AF_INET]123.123.123.123:1194
+Sat Oct 24 12:10:58 2015 TUN/TAP device tun0 opened
+Sat Oct 24 12:10:58 2015 do_ifconfig, tt-&gt;ipv6=0, tt-&gt;did_ifconfig_ipv6_setup=0
+Sat Oct 24 12:10:58 2015 /sbin/ip link set dev tun0 up mtu 1500
+Sat Oct 24 12:10:58 2015 /sbin/ip addr add dev tun0 local 10.10.10.6 peer 10.10.10.5
+Sat Oct 24 12:10:59 2015 Initialization Sequence Completed
+</code></pre>
+
+<p>With the <code>Initialization Sequence Completed</code> being the most important.</p>
+<p>Exit this with <code>Ctrl+C</code></p>
+<h1 id="setup-openvpns-autostart-configuration">Setup OpenVPN's Autostart Configuration</h1>
+<p>Edit the <code>/etc/default/openvpn</code> file</p>
+<pre><code class="bash">sudo nano /etc/default/openvpn
+</code></pre>
+
+<p>Next, since I use only the one <code>.conf</code> file,  I uncomment the <code>AUTOSTART-"all"</code> line. If you have a different setup, go through and make those changes.</p>
+<p>Then, to start the service:</p>
+<pre><code class="bash">sudo service openvpn start
+</code></pre>
+
+<h1 id="setup-routing-and-nat">Setup Routing and NAT</h1>
+<p>Enable IP Forwarding:</p>
+<pre><code class="bash">sudo /bin/su -c &quot;echo -e '\n#Enable IP Routing\nnet.ipv4.ip_forward = 1' &gt;&gt; /etc/sysctl.conf&quot;
+sudo sysctl -p
+</code></pre>
+
+<p>Setup NAT from the local LAN down the VPN tunnel:</p>
+<pre><code class="bash">sudo iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
+sudo iptables -A FORWARD -i tun0 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i eth0 -o tun0 -j ACCEPT
+</code></pre>
+
+<p>Make the NAT rules persistent across reboot:</p>
+<pre><code class="bash">sudo apt-get install iptables-persistent
+</code></pre>
+
+<p>The installer will ask if you want to save current rules, select <code>Yes</code>. This copies over the above rules to <code>iptables-persistent</code>'s files. Those are located at <code>/etc/iptables</code> if you ever wanna change them.</p>
+<hr />
+<p>Copied from the bottom half of <a href="https://gist.github.com/superjamie/ac55b6d2c080582a3e64">superjamie's gist</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../plexpy/" class="btn btn-neutral float-right" title="PlexPy">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../nginx-from-ubuntu-ppa/" class="btn btn-neutral" title="NGINX Using Ubuntu PPA"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../nginx-from-ubuntu-ppa/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../plexpy/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

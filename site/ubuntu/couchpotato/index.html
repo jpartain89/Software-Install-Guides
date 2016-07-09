@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Justin Partain">
+  
+  <title>CouchPotato - Software Installation Guides</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "CouchPotato";
+    var mkdocs_page_input_path = "ubuntu/couchpotato.rst";
+    var mkdocs_page_url = "/ubuntu/couchpotato/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-75489042-5', 'jpcdi.com/sig');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Software Installation Guides</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Ubuntu</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">CouchPotato</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#base-requirements">Base Requirements:</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#clone-the-repo">Clone the Repo</a></li>
+                
+                    <li><a class="toctree-l4" href="#test-if-it-works">Test if it works:</a></li>
+                
+                    <li><a class="toctree-l4" href="#copyedit-default-file">Copy/Edit Default File</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ddclient/">DDClient</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../htpc-manager/">HTPC Manager</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../nginx-from-source/">NGINX from Source</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../nginx-from-ubuntu-ppa/">NGINX Using Ubuntu PPA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../openvpn/">OpenVPN</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../plexpy/">PlexPy</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../Postfix/">PostFix</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sonarr/">Sonarr</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../telegram-for-sonarr/">Telegram for Sonarr</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../transmission-daemon/">Transmission-Daemon</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Raspberry Pi</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../rpi/boot-from-usb/">Run OS from USB</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../rpi/domotz-rpi/">Domotz RPI</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>General UNIX</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gen_unix/ansible-adhoc/">Ansible Adhoc Refresh</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gen_unix/transmission-web-gui/">Transmission Web GUI Change</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gen_unix/virtualbox-guest-addition/">VirtualBox Guest Additions on Ubuntu Guest</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gen_unix/ratom/">Install Ratom or Remote Atom</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Other Informationals</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../more_info/bash-if-conditionals/">Bash IF Conditionals</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Software Installation Guides</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Ubuntu &raquo;</li>
+        
+      
+    
+    <li>CouchPotato</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="base-requirements">Base Requirements:</h1>
+<pre><code class="bash">sudo apt-get install git-core libffi-dev libssl-dev zlib1g-dev libxslt1-dev libxml2-dev python python-pip python-dev build-essential -y
+sudo -H pip install --upgrade lxml cryptography pyopenssl
+</code></pre>
+
+<h1 id="clone-the-repo">Clone the Repo</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I keep all of my cloned git repos inside of one, singular directory: <code>~/git</code>. This way, I don't have to hunt all over my system for where my repo's are and it makes it easier to keep them updated. Then, I link the library to wherever either the developer wants/requires it or where is easiest.</p>
+</div>
+<pre><code class="bash">git clone https://github.com/RuudBurger/CouchPotatoServer ~/git/couchpotato
+sudo ln -s ~/git/couchpotato /opt/couchpotato
+</code></pre>
+
+<p>Then, make sure that BOTH your <code>~/git/couchpotato</code> and <code>/opt/couchpotato</code> locations are under your main user's ownership.</p>
+<pre><code class="bash">sudo chown -R $USER:$USER ~/git/couchpotato
+sudo chown -R $USER:$USER /opt/couchpotato
+</code></pre>
+
+<h2 id="test-if-it-works">Test if it works:</h2>
+<pre><code class="bash">sudo python /opt/couchpotato/CouchPotato.py
+</code></pre>
+
+<p>This will run only as long as you allow it directly inside the terminal, and it will also give each step that the program runs, so you can see if it gives any errors or what else might need to be changed.</p>
+<p>Hit <code>Ctrl-C</code> to quit the program.</p>
+<h2 id="copyedit-default-file">Copy/Edit Default File</h2>
+<p>Next, copy over the defaut <code>/etc/default</code> file, and then make any necessary changes.</p>
+<pre><code class="bash">sudo cp /opt/couchpotato/init/ubuntu.default /etc/default/couchpotato
+sudo nano /etc/default/couchpotato
+</code></pre>
+
+<p>The below code field is not the entire file, but rather just an excerpt.</p>
+<pre><code class="bash"># COPY THIS FILE TO /etc/default/couchpotato
+# Accepted variables with default values -if any- in parentheses:
+
+# username to run couchpotato under (couchpotato)
+CP_USER= &lt; your main login &gt;
+# directory of CouchPotato.py (/opt/couchpotato)
+CP_HOME=/opt/couchpotato
+
+# directory of couchpotato's db, cache and logs (/var/opt/couchpotato)
+CP_DATA=/var/opt/couchpotato
+# full path of couchpotato.pid (/var/run/couchpotato/couchpotato.pid)
+CP_PIDFILE=/var/run/couchpotato/couchpotato.pid
+# full path of the python binary (/usr/bin/python)
+PYTHON_BIN=/usr/bin/python
+</code></pre>
+
+<p>Next, copy the default CouchPotato init.d file:</p>
+<pre><code class="bash">sudo cp /opt/couchpotato/init/ubuntu /etc/init.d/couchpotato
+</code></pre>
+
+<p>Make it executable and run on boot</p>
+<pre><code class="bash">sudo chmod +x /etc/init.d/couchpotato
+sudo update-rc.d couchpotato defaults
+</code></pre>
+
+<p>Then, you can run <code>sudo service couchpotato start</code>, and access it at <a href="http://127.0.0.1:5050">http://127.0.0.1:5050</a></p>
+<hr />
+<p>Directions copied from <a href="http://www.htpcguides.com/install-couchpotato-ubuntu">HTPC-Guides</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ddclient/" class="btn btn-neutral float-right" title="DDClient">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ddclient/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

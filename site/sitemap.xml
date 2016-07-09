@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>https://jpcdi.com/sig/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>https://jpcdi.com/sig/ubuntu/couchpotato/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/ubuntu/ddclient/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/ubuntu/htpc-manager/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/ubuntu/nginx-from-source/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/ubuntu/nginx-from-ubuntu-ppa/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/ubuntu/openvpn/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/ubuntu/plexpy/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/ubuntu/Postfix/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/ubuntu/sonarr/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/ubuntu/telegram-for-sonarr/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/ubuntu/transmission-daemon/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://jpcdi.com/sig/rpi/boot-from-usb/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/rpi/domotz-rpi/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://jpcdi.com/sig/gen_unix/ansible-adhoc/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/gen_unix/transmission-web-gui/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/gen_unix/virtualbox-guest-addition/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/gen_unix/ratom/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://jpcdi.com/sig/more_info/bash-if-conditionals/</loc>
+     <lastmod>2016-07-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>
