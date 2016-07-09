@@ -1,0 +1,33 @@
+site_name: Software Installation Guides
+site_description: Software Installer Guides for General Unix Systems
+site_author: Justin Partain
+site_url: https://jpcdi.com/sig
+google_analytics: ['UA-75489042-5', 'jpcdi.com/sig']
+pages:
+- Home: 'index.md'
+- Ubuntu:
+  - 'CouchPotato': 'ubuntu/couchpotato.rst'
+  - 'DDClient': 'ubuntu/ddclient.md'
+  - 'HTPC Manager': 'ubuntu/htpc-manager.md'
+  - 'NGINX from Source': 'ubuntu/nginx-from-source.md'
+  - 'NGINX Using Ubuntu PPA': 'ubuntu/nginx-from-ubuntu-ppa.md'
+  - 'OpenVPN': 'ubuntu/openvpn.md'
+  - 'PlexPy': 'ubuntu/plexpy.md'
+  - 'PostFix': 'ubuntu/Postfix.md'
+  - 'Sonarr': 'ubuntu/sonarr.md'
+  - 'Telegram for Sonarr': 'ubuntu/telegram-for-sonarr.md'
+  - 'Transmission-Daemon': 'ubuntu/transmission-daemon.md'
+- Raspberry Pi:
+  - 'Run OS from USB': 'rpi/boot-from-usb.md'
+  - 'Domotz RPI': 'rpi/domotz-rpi.md'
+- General UNIX:
+  - 'Ansible Adhoc Refresh': 'gen_unix/ansible-adhoc.md'
+  - 'Transmission Web GUI Change': 'gen_unix/transmission-web-gui.md'
+  - 'VirtualBox Guest Additions on Ubuntu Guest': 'gen_unix/virtualbox-guest-addition.md'
+  - 'Install Ratom or Remote Atom': 'gen_unix/ratom.md'
+- Other Informationals:
+  - 'Bash IF Conditionals': 'more_info/bash-if-conditionals.md'
+theme: readthedocs
+markdown_extensions:
+  - admonition
+  - extra
