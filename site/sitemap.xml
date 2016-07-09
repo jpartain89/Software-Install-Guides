@@ -3,8 +3,8 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,78 +12,68 @@
     
         
     <url>
-     <loc>None/ubuntu/couchpotato/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/ubuntu/couchpotato/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/ubuntu/ddclient/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/ubuntu/ddclient/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/ubuntu/htpc-manager/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/ubuntu/htpc-manager/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/ubuntu/nginx-from-source/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/ubuntu/nginx-from-source/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/ubuntu/nginx-from-ubuntu-ppa/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/ubuntu/nginx-from-ubuntu-ppa/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/ubuntu/openvpn/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/ubuntu/openvpn/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/ubuntu/plexpy/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/ubuntu/plexpy/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/ubuntu/sonarr/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/ubuntu/Postfix/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/ubuntu/telegram-for-sonarr/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/ubuntu/sonarr/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/ubuntu/transmission-daemon/</loc>
-     <lastmod>2016-07-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/rpi/boot-from-usb/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/ubuntu/telegram-for-sonarr/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/rpi/domotz-rpi/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/ubuntu/transmission-daemon/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -92,26 +82,14 @@
     
         
     <url>
-     <loc>None/gen_unix/ansible-adhoc/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/rpi/boot-from-usb/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/gen_unix/transmission-web-gui/</loc>
-     <lastmod>2016-07-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/gen_unix/virtualbox-guest-addition/</loc>
-     <lastmod>2016-07-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/gen_unix/ratom/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/rpi/domotz-rpi/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -120,8 +98,36 @@
     
         
     <url>
-     <loc>None/more_info/bash-if-conditionals/</loc>
-     <lastmod>2016-07-04</lastmod>
+     <loc>https://jpcdi.com/sig/gen_unix/ansible-adhoc/</loc>
+     <lastmod>2016-07-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/gen_unix/transmission-web-gui/</loc>
+     <lastmod>2016-07-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/gen_unix/virtualbox-guest-addition/</loc>
+     <lastmod>2016-07-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://jpcdi.com/sig/gen_unix/ratom/</loc>
+     <lastmod>2016-07-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://jpcdi.com/sig/more_info/bash-if-conditionals/</loc>
+     <lastmod>2016-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

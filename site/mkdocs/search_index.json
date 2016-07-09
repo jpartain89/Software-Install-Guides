@@ -2,13 +2,18 @@
     "docs": [
         {
             "location": "/", 
-            "text": "My personal Software Installation Guides", 
+            "text": "Software Install Guides\n\n\nMy personal MarkDown files for my Software Installation Guides.\n\n\nThe majority of these guides are the ones that I find myself, time and time again, repeatedly revisiting in order to either build, rebuild or re-aquaint myself with some point of knowledge.\n\n\nObviously, I will be doing my best to source those sites!\n\n\nLayout\n\n\nI have a lot more Ubuntu-Based guides than anything else, but I do also use macOS and have a Raspberry Pi, so the guides I've typed up are over there as well.", 
             "title": "Home"
         }, 
         {
-            "location": "/#my-personal-software-installation-guides", 
-            "text": "", 
-            "title": "My personal Software Installation Guides"
+            "location": "/#software-install-guides", 
+            "text": "My personal MarkDown files for my Software Installation Guides.  The majority of these guides are the ones that I find myself, time and time again, repeatedly revisiting in order to either build, rebuild or re-aquaint myself with some point of knowledge.  Obviously, I will be doing my best to source those sites!", 
+            "title": "Software Install Guides"
+        }, 
+        {
+            "location": "/#layout", 
+            "text": "I have a lot more Ubuntu-Based guides than anything else, but I do also use macOS and have a Raspberry Pi, so the guides I've typed up are over there as well.", 
+            "title": "Layout"
         }, 
         {
             "location": "/ubuntu/couchpotato/", 
@@ -169,6 +174,31 @@
             "location": "/ubuntu/plexpy/#plexpy-instructions", 
             "text": "As always, I keep my git repo's inside of one single, easily found directory,  ~/git . Thus:  git clone https://github.com/drzoidberg33/plexpy.git ~/git/plexpy  Then:  sudo touch /etc/default/plexpy  That will make sure to stop any possible errors or warnings. It also is where you need to make any changes, in case you don't use the default settings that are in the various init scripts. You can see the options inside of  ~/git/plexpy/init-scripts/init.ubuntu  if you're using ubuntu.  Next, I use the plexpy user.  sudo adduser --system --no-create-home plexpy\nsudo chown -R plexpy:nogroup ~/git/plexpy\nsudo ln -s ~/git/plexpy /opt/plexpy\nsudo chmod +x ~/git/plexpy/init-scripts/init.ubuntu\nsudo ln -s ~/git/plexpy/init-scripts/init.ubuntu /etc/init.d/plexpy\nsudo update-rc.d plexpy defaults\nsudo service plexpy start", 
             "title": "PlexPy Instructions"
+        }, 
+        {
+            "location": "/ubuntu/Postfix/", 
+            "text": "Configure Postfix as a \"Send-Only\" SMTP Server\n\n\nIntroduction\n\n\nPostfix is an MTA (Mail Transfer Agent), an application used to send and receive email. In this tutorial, we will install and configure Postfix so that it can be used to send emails by local applications only \u2013 that is, those installed on the same server that Postfix is installed on.\n\n\nInstall Postfix\n\n\nsudo apt-get install mailutils\n\n\n\n\nNow, during this installation, the system will prompt you with a Configuration Option. Since we will be using an outside service to send our mail - aka \nsmtp.gmail.com\n - we will select \nInternet Site\n.\n\n\n\n\nThen, it will continue on with \nSystem Mail Name\n\n\nI like to know which of my Virtual Machines or Unix systems might be messaging me, so I like to set these according to 'os-hostname.webaddress.com', or 'ubuntu-nginx.jpcdi.com\n\n\n\n\n\n\n\n\nsystem-name\n\n\nFQDN Address\n\n\ncom\n\n\n\n\n\n\n\n\n\n\nos-hostname\n\n\nwebaddress\n\n\ncom\n\n\n\n\n\n\nubuntu-nginx\n\n\njpcdi\n\n\ncom\n\n\n\n\n\n\n\n\nConfigure Postfix\n\n\nWe will be setting the system to process emails only from \"the server on which it is running,\" aka the \nlocalhost\n or \nloopback interface\n. That way, when postfix \"receives\" an email from the system - for say, root - it will use Postfix to forward the email off through our specified smtp server.\n\n\nSo, to start:\n\n\nsudo nano /etc/postfix/main.cf\n\n\n\n\nTowards the bottom, find\n\n\nmailbox_size_limit = 0\nrecipient_delimiter = +\ninet_interfaces = all\n\n\n\n\nYou can hit \nctrl + w\n and that will open a search prompt. There, type \ninet_interfaces\n, and it should bring you to the required location. If there are more than one instance of that search string occuring in the document, continue hitting \nctrl + w\n then \nenter\n, as the search function holds the prior search term until a new one is typed in.\n\n\n\n\nCopied liberally from \nDigitalOcean's\n \nHow to Install and Configure Postfix", 
+            "title": "PostFix"
+        }, 
+        {
+            "location": "/ubuntu/Postfix/#configure-postfix-as-a-send-only-smtp-server", 
+            "text": "", 
+            "title": "Configure Postfix as a \"Send-Only\" SMTP Server"
+        }, 
+        {
+            "location": "/ubuntu/Postfix/#introduction", 
+            "text": "Postfix is an MTA (Mail Transfer Agent), an application used to send and receive email. In this tutorial, we will install and configure Postfix so that it can be used to send emails by local applications only \u2013 that is, those installed on the same server that Postfix is installed on.", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/ubuntu/Postfix/#install-postfix", 
+            "text": "sudo apt-get install mailutils  Now, during this installation, the system will prompt you with a Configuration Option. Since we will be using an outside service to send our mail - aka  smtp.gmail.com  - we will select  Internet Site .   Then, it will continue on with  System Mail Name  I like to know which of my Virtual Machines or Unix systems might be messaging me, so I like to set these according to 'os-hostname.webaddress.com', or 'ubuntu-nginx.jpcdi.com     system-name  FQDN Address  com      os-hostname  webaddress  com    ubuntu-nginx  jpcdi  com", 
+            "title": "Install Postfix"
+        }, 
+        {
+            "location": "/ubuntu/Postfix/#configure-postfix", 
+            "text": "We will be setting the system to process emails only from \"the server on which it is running,\" aka the  localhost  or  loopback interface . That way, when postfix \"receives\" an email from the system - for say, root - it will use Postfix to forward the email off through our specified smtp server.  So, to start:  sudo nano /etc/postfix/main.cf  Towards the bottom, find  mailbox_size_limit = 0\nrecipient_delimiter = +\ninet_interfaces = all  You can hit  ctrl + w  and that will open a search prompt. There, type  inet_interfaces , and it should bring you to the required location. If there are more than one instance of that search string occuring in the document, continue hitting  ctrl + w  then  enter , as the search function holds the prior search term until a new one is typed in.   Copied liberally from  DigitalOcean's   How to Install and Configure Postfix", 
+            "title": "Configure Postfix"
         }, 
         {
             "location": "/ubuntu/sonarr/", 
