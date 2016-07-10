@@ -1,4 +1,6 @@
-# Add NGINX's PPA:Repo and Install
+# Install NGINX with their Ubuntu PPA
+
+## Add NGINX's PPA:Repo and Install
 
 For the $nginx variable at the end of the first code line, replace it with either `stable` for their Stable line or `development` for their Mainline.
 

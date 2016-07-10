@@ -1,4 +1,6 @@
-# Install Dependencies
+# HTPC-Manager Installation
+
+## Install Dependencies
 
 !!! note
     The `--upgrade` part for `pip psutil` is in case you already have `psutil` installed. This way, it will go ahead and run the upgrade.
@@ -8,7 +10,7 @@ sudo apt-get install build-essential git python-imaging python-dev python-setupt
 sudo -H pip install --upgrade psutil
 ```
 
-# Cloning and Starting
+## Cloning and Starting
 
 [Hellowlol's](https://github.com/Hellowlol/HTPC-Manager.git) fork of HTPC-Manager is the one that I prefer to use.
 
@@ -30,7 +32,7 @@ sudo python /opt/htpcmanager/Htpc.py
 
 Make sure you hit `Ctrl-C` to stop the program.
 
-# Autostart init.d Copy and Edit
+## Autostart init.d Copy and Edit
 
 You can link over the standard `init.d` file from the repo to `/etc/init.d`.
 
