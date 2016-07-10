@@ -1,4 +1,4 @@
-# DDClient
+# Build DDClient from Source
 
 ## Clone the Github repo
 
