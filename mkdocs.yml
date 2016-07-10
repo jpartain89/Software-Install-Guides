@@ -2,6 +2,7 @@ site_name: Software Installation Guides
 site_description: Software Installer Guides for General Unix Systems
 site_author: Justin Partain
 site_url: https://jpcdi.com/sig
+site_favicon: img/jp_logo_icon.ico
 site_dir: /var/www/html/docs
 google_analytics: ['UA-75489042-5', 'jpcdi.com/sig']
 pages:
