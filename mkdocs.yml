@@ -23,7 +23,7 @@ pages:
   - 'Run OS from USB': 'rpi/boot-from-usb.md'
   - 'Domotz RPI': 'rpi/domotz-rpi.md'
 - General UNIX:
-  - 'Ansible Adhoc Refresh': 'gen_unix/ansible-adhoc.md'
+  - 'Ansible Adhoc Refresh': 'gen_unix/ansible-adhoc.rst'
   - 'Transmission Web GUI Change': 'gen_unix/transmission-web-gui.md'
   - 'VirtualBox Guest Additions on Ubuntu Guest': 'gen_unix/virtualbox-guest-addition.md'
   - 'Install Ratom or Remote Atom': 'gen_unix/ratom.md'
