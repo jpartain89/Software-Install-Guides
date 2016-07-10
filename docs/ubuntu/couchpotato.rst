@@ -1,11 +1,13 @@
-# Base Requirements:
+# CouchPotato Movie Downloader
+
+## Base Requirements:
 
 ```bash
 sudo apt-get install git-core libffi-dev libssl-dev zlib1g-dev libxslt1-dev libxml2-dev python python-pip python-dev build-essential -y
 sudo -H pip install --upgrade lxml cryptography pyopenssl
 ```
 
-# Clone the Repo
+## Clone the Repo
 
 !!! note
     I keep all of my cloned git repos inside of one, singular directory: `~/git`. This way, I don't have to hunt all over my system for where my repo's are and it makes it easier to keep them updated. Then, I link the library to wherever either the developer wants/requires it or where is easiest.
