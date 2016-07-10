@@ -8,8 +8,8 @@ So, here's a repeat, refresher, with screenshots!!
 
 This just runs ansible's `command` module. As in it doesn't support shell variables and things like piping.
 
-![Ansible Basic Command Module](ansible_command_module.png)
+![Ansible Basic Command Module](ansible_command_module.jpg)
 
 # ansible all -m ping
 
-![Ansible Module Ping](img/ansible_ping_all.png)
+![Ansible Module Ping](img/ansible_ping_all.jpg)
