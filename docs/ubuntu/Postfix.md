@@ -41,9 +41,76 @@ recipient_delimiter = +
 inet_interfaces = all
 ```
 
-You can hit `ctrl + w` and that will open a search prompt. There, type `inet_interfaces`, and it should bring you to the required location. If there are more than one instance of that search string occuring in the document, continue hitting `ctrl + w` then `enter`, as the search function holds the prior search term until a new one is typed in.
+Change the line that reads `inet_interfaces = all` to `inet_interfaces = loopback-only`. The text should look like:
 
+```bash
+mailbox_size_limit = 0
+recipient_delimiter = +
+inet_interfaces = loopback-only
+```
 
+You can also use `localhost` if you'd prefer. Make sure to restart Postfix when you're finished.
+
+```bash
+sudo service postfix restart
+```
+
+## Make sure that the SMTP Server can Send Emails
+
+This is testing if the actual forwarding part works.
+
+To send a test email over the command line:
+
+```bash
+echo "This is the body of the email" | mail -s "This is the subject line" user@example.com
+```
+
+Making sure to put your email address in place of `user@example.com`. You should receive the email within a few seconds.
+
+## Forward Root System Email
+
+Now, last big thing.
+
+A lot of the programs in Linux love to send mail to the root user. Which would be why sometimes, when you ssh into your machine, it'll show "New Mail" or "You have Mail".
+
+To configure Postfix so that these system-generated emails are sent to you, edit the `/etc/aliases` file:
+
+```bash
+sudo nano /etc/aliases
+```
+
+The file should be tiny, something like:
+
+```bash
+# See man 5 aliases for format
+postmaster:    root
+```
+
+The `postmaster: root` is the part that tells your system where to send that mail, with `postmaster` being a low-level, unix app.
+
+So, in order to forward the mail to you?
+
+```bash
+# See man 5 aliases for format
+postmaster:    root
+root:       example@example.com
+```
+
+Simple redirection/rerouting. Obviously put in the email address you want to receive the emails at.
+
+Then, once you saved the file,
+
+```bash
+sudo newaliases
+```
+
+And send another email:
+
+```bash
+echo "This is the body of the email" | mail -s "This is the subject line" root
+```
+
+Honestly, when I performed these steps, I actually received about 10 emails to my spam because my root mail was building up so much!
 
 * * *
 
