@@ -12,7 +12,7 @@ sudo apt-get install mailutils
 
 Now, during this installation, the system will prompt you with a Configuration Option. Since we will be using an outside service to send our mail - aka [smtp.gmail.com](smtp.gmail.com) - we will select `Internet Site`.
 
-![PostFix Installation Configuration Question](docs/img/PostFix_Config_Inst.png)
+![PostFix Installation Configuration Question](img/PostFix_Config_Inst.png)
 
 Then, it will continue on with `System Mail Name`
 
