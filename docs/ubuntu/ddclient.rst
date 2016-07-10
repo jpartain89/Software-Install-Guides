@@ -1,4 +1,6 @@
-# Clone the Github repo
+# DDClient
+
+## Clone the Github repo
 
 !!! note:
     I keep all of my cloned git repos inside of one, singular directory: `~/git`. This way, I don't have to hunt all over my system for where my repo's are and it makes it easier to keep them updated. Then, I link the library to wherever either the developer wants/requires it or where is easiest.
@@ -7,7 +9,7 @@
 git clone https://github.com/wimpunk/ddclient.git ~/git/ddclient
 ```
 
-# Copying Files and Creating Directories
+## Copying Files and Creating Directories
 
 Next, its a matter of sticking the ddclient program into the right place  and creating its directories.
 
@@ -18,7 +20,7 @@ sudo mkdir /etc/ddclient/
 sudo mkdir /var/cache/ddclient
 ```
 
-# ddclient.conf
+## ddclient.conf
 
 If you already have a `ddclient.conf` file made, say, using [domains.google.com](domains.google.com)'s support directions, copy that over to:
 
@@ -37,7 +39,7 @@ It doesn't hurt to try to familiarize yourself with the different options. There
 1. Find the specific service you plan to use for your own setup
 2. Make a new `ddclient.conf` file, rename the current one to `ddclient.conf.copy` and move from there
 
-# Autostart
+## Autostart
 
 Now, copy the `init.d` file over and set it up to _always_ run:
 
@@ -49,7 +51,7 @@ sudo update-rc.d ddclient defaults
 
 That sets up the auto-running and registers it as a proper service.
 
-# Perl/CPAN
+## Perl/CPAN
 
 Make sure you have `cpan` installed, that's one of Perl's installation management systems, like `Pip` or `apt-get`.
 
