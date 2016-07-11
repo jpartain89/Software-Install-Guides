@@ -1,4 +1,3 @@
-
 # Bash If Conditional markers
 
 `- a file`

@@ -4,10 +4,10 @@ site_author: Justin Partain
 site_url: https://jpcdi.com/sig
 site_favicon: img/jp_logo_icon.ico
 site_dir: /var/www/html/docs
-google_analytics: ['UA-75489042-5', 'jpcdi.com/sig']
+google_analytics: ['UA-75489042-5', 'jpcdi.com/docs']
 pages:
 - Home: 'index.md'
-- Ubuntu:
+- 'Ubuntu': 'ubuntu/README.md'
   - 'CouchPotato': 'ubuntu/couchpotato.rst'
   - 'DDClient': 'ubuntu/ddclient.rst'
   - 'HTPC Manager': 'ubuntu/htpc-manager.rst'
@@ -19,12 +19,14 @@ pages:
   - 'Sonarr': 'ubuntu/sonarr.md'
   - 'Telegram for Sonarr': 'ubuntu/telegram-for-sonarr.md'
   - 'Transmission-Daemon': 'ubuntu/transmission-daemon.md'
+- macOS:
+  - 'macOS Sierra xcode Updating': 'macOS/macOS-Sierra-xcode-update.md'
 - Raspberry Pi:
   - 'Run OS from USB': 'rpi/boot-from-usb.md'
   - 'Domotz RPI': 'rpi/domotz-rpi.md'
 - General UNIX:
   - 'Ansible Adhoc Refresh': 'gen_unix/ansible-adhoc.rst'
-  - 'Transmission Web GUI Change': 'gen_unix/transmission-web-gui.md'
+  - 'Transmission Web GUI Change': 'gen_unix/transmission-web-gui.rst'
   - 'VirtualBox Guest Additions on Ubuntu Guest': 'gen_unix/virtualbox-guest-addition.md'
   - 'Install Ratom or Remote Atom': 'gen_unix/ratom.md'
 - Other Informationals:

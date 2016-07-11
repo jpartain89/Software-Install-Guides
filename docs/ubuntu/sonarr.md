@@ -1,4 +1,6 @@
-## Sonarr Installation
+# Sonarr Installation
+
+## Prerequisites
 
 Make sure apt-transport-https is installed:
 
