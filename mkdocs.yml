@@ -7,7 +7,7 @@ site_dir: /var/www/html/docs
 google_analytics: ['UA-75489042-5', 'jpcdi.com/docs']
 pages:
 - Home: 'index.md'
-- 'Ubuntu': 'ubuntu/README.md'
+- Ubuntu:
   - 'CouchPotato': 'ubuntu/couchpotato.rst'
   - 'DDClient': 'ubuntu/ddclient.rst'
   - 'HTPC Manager': 'ubuntu/htpc-manager.rst'
