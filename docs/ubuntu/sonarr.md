@@ -13,10 +13,6 @@ echo "deb https://apt.sonarr.tv/ master main" | sudo tee -a /etc/apt/sources.lis
 sudo apt-get update && sudo apt-get install nzbdrone -y
 ```
 
-Remove the custom NzbDrone list to avoid future dependency issues.
-
-`sudo rm /etc/apt/sources.list.d/sonarr.list`
-
 Perform the initial build and make sure it doesn't error:
 
 `sudo mono /opt/NzbDrone/NzbDrone.exe`
