@@ -16,7 +16,7 @@ That will make sure to stop any possible errors or warnings. It also is where yo
 
 Next, I use the plexpy user.
 
-```
+```bash
 sudo adduser --system --no-create-home plexpy
 sudo chown -R plexpy:nogroup ~/git/plexpy
 sudo ln -s ~/git/plexpy /opt/plexpy
