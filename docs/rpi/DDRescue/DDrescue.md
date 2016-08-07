@@ -48,7 +48,7 @@ macOS/OS X?
 diskutil list
 ```
 
-![Diskutil List](../diskutil_List.jpg)
+![Diskutil List](./diskutil_List.jpg)
 
 Which gives you the list of all drives mounted or visible on OS X/macOS. Which, usually your SD Card is last.
 
