@@ -4,7 +4,7 @@ This is my personal, favorite means of imaging an SD Card through the command li
 
 I use the tool `ddrescue` rather than `dd` like most other sites say to. The reason?
 
-![DDRescue Command Line GUI](../img/ddrescue_ex.jpg)
+![DDRescue Command Line GUI](./ddrescue_ex.jpg)
 
 A nice, command line output of its copying progress.... Not to mention ddrescue tends to be a more granular means of copying files over.
 
@@ -48,7 +48,7 @@ macOS/OS X?
 diskutil list
 ```
 
-![Diskutil List](../img/diskutil_List.jpg)
+![Diskutil List](../diskutil_List.jpg)
 
 Which gives you the list of all drives mounted or visible on OS X/macOS. Which, usually your SD Card is last.
 
