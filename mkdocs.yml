@@ -24,7 +24,7 @@ pages:
 - Raspberry Pi:
   - 'Run OS from USB': 'rpi/boot-from-usb.md'
   - 'Domotz RPI': 'rpi/domotz-rpi.md'
-  - 'DDRescue Imaging': 'rpi/DDrescue.md'
+  - 'DDRescue Imaging': 'rpi/DDRescue/DDrescue.md'
 - General UNIX:
   - 'Ansible Adhoc Refresh': 'gen_unix/ansible-adhoc.rst'
   - 'Transmission Web GUI Change': 'gen_unix/transmission-web-gui.rst'
