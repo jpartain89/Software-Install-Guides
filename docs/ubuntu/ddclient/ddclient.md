@@ -1,5 +1,17 @@
 # DDClient
 
+## Software Requirements
+
+Most of what is needed usually comes with Ubuntu, like Perl and CPAN.
+
+But, one program that is needed is `libio-socket-ssl-perl`, specifically to assist with SSL encryptions of the ddclient traffic.
+
+```bash
+sudo apt-get install libio-socket-ssl-perl
+```
+
+## Preface
+
 This guide is a bit more hands on, but is not only a good lesson to get through and learn, but ends up building a nice, very useful and light weight program!
 
 DDClient, specifically, is a Dynamic DNS program. Through its config files, it listens for public IP address changes on the machine its running on - IPv4 specifically - and then relays that information back to your Domain Name Host - [domains.google.com][fc8a4088] for example - so that, if you are self-hosting stuff attached to your url name, and its hosting from an IP address that likes to change - which consumer-based internet access will change that IP address - this handles that issue.
@@ -87,6 +99,14 @@ sudo cpan install Data::Validate::IP
 ```
 
 Since I don't know hardly anything about Perl other than I need it, I simply press enter through the various questions CPAN asks, since it will autofill with the defaults.
+
+## Running DDClient
+
+Once you have all that taken care of, you can run `sudo ddclient` and it'll run it once, it'll talk to the server you have configured, and respond with output. For me, it usually tells me that my IP address is unchanged, and to run DDClient unneccessarily is considered abusive.
+
+Which is why we use Upstart, systemctl or the wrapper script or cron job!
+
+Now, since we added this to Upstart, type `sudo service ddclient start` and that script will take over the management!
 
 * * *
 
