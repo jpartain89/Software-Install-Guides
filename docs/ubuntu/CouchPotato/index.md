@@ -93,14 +93,18 @@ This will run only as long as you allow it directly inside the terminal, and it 
 
 Hit `Ctrl-C` to quit the program.
 
-Copy/Edit Default File
+## Copy/Edit Default File
 
-Next, copy over the defaut /etc/default file, and then make any necessary changes.
+Next, copy over the defaut `/etc/default` file, and then make any necessary changes.
 
+```bash
 sudo cp /opt/couchpotato/init/ubuntu.default /etc/default/couchpotato
 sudo nano /etc/default/couchpotato
+```
+
 The below code field is not the entire file, but rather just an excerpt.
 
+```bash
 # COPY THIS FILE TO /etc/default/couchpotato
 # Accepted variables with default values -if any- in parentheses:
 
@@ -115,6 +119,8 @@ CP_DATA=/var/opt/couchpotato
 CP_PIDFILE=/var/run/couchpotato/couchpotato.pid
 # full path of the python binary (/usr/bin/python)
 PYTHON_BIN=/usr/bin/python
+```
+
 Next, copy the default CouchPotato init.d file:
 
 sudo cp /opt/couchpotato/init/ubuntu /etc/init.d/couchpotato
