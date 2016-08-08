@@ -123,13 +123,20 @@ PYTHON_BIN=/usr/bin/python
 
 Next, copy the default CouchPotato init.d file:
 
+```bash
 sudo cp /opt/couchpotato/init/ubuntu /etc/init.d/couchpotato
+```
+
 Make it executable and run on boot
 
+```bash
 sudo chmod +x /etc/init.d/couchpotato
 sudo update-rc.d couchpotato defaults
-Then, you can run sudo service couchpotato start, and access it at http://127.0.0.1:5050
+```
+
+Then, you can run `sudo service couchpotato start`, and access it at [http://127.0.0.1:5050][3e06e9c6]
 
 Directions copied from HTPC-Guides ↩
 
-[04a25565]: htpcguides.com "HTPCGuides"
+  [04a25565]: htpcguides.com "HTPCGuides"
+  [3e06e9c6]: 127.0.0.1:5050 "CouchPotato Local"
