@@ -28,15 +28,33 @@ sudo pip install --upgrade psutil
 
     The other way of handing this is to clone your PROGRAMS into the /opt directory - so /opt/couchpotato, /opt/NzbDrone, /opt/plexpy and so on. Then clone your working repos for projects into ~/git/[repo]
 
-Make sure that the HTPC Manager files and directories are owned by your user.
+So, as always, on the code below that includes locations for git, you can change as much as you want.
+
+First, the cloning:
 
 ```bash
 git clone https://github.com/Hellowlol/HTPC-Manager ~/git/htpcmanager
+```
+
+Notice, in the location string at the end, I changed the formatting of `./htpcmanager` to a nicer, easier-to-type lowercase and without dashes. This simply tends to make your Command Line Life easier in the long run if you try to manage directories in that manner. Or at least, one that works for your fingers.
+
+Next, I symlink the `~/git` location to `/opt`, and make sure the files are assigned to my primary user.
+
+Now, like in the CouchPotato how-to, the proper, secure-linux way of handling this is to have a locked down system account manage this. So, its up to you.
+
+```bash
 sudo ln -s ~/git/htpcmanager /opt/htpcmanager
 sudo chown -R $USER:$USER /opt/htpcmanager
 sudo chown -R $USER:$USER ~/git/htpcmanager
+```
+
+And, we `python /opt/htpcmanager/Htpc.py` for the first time-running of the program. This way we get the verbose output and see up front if there are any big errors or anything missing.
+
+```bash
 sudo python /opt/htpcmanager/Htpc.py
 ```
+
+Which, you can 
 
 !!! note
     If you see any RED TEXT CherryPy errors, those aren't death. Those are just, nicely, STANDING OUT for you to see what needs to be done.
