@@ -108,46 +108,56 @@ Then, to stop the CL output and control, hit `Ctrl-C` to quit the program.
 
 ## Copy/Edit Default File
 
-Next, copy over the defaut `/etc/default` file, and then make any necessary changes.
+!!! note
+    The `/etc/default` is generally where a lot of programs like to keep their default settings files. Its a nice, centrally located spot that init or systemctl program files can reference when wanting a central place that a user can amend different settings, like the user that is running the program, or the directory location of different files.
+
+So, we want to copy over the defaut `/etc/default` file from the github location, and then make any necessary changes.
 
 ```bash
 sudo cp /opt/couchpotato/init/ubuntu.default /etc/default/couchpotato
 sudo nano /etc/default/couchpotato
 ```
 
-The below code field is not the entire file, but rather just an excerpt.
+The below code field is not the entire file, but rather just an excerpt of items of interest.
 
 ```bash
 # COPY THIS FILE TO /etc/default/couchpotato
 # Accepted variables with default values -if any- in parentheses:
 
 # username to run couchpotato under (couchpotato)
-CP_USER= < your main login >
+CP_USER=couchpotato
 # directory of CouchPotato.py (/opt/couchpotato)
 CP_HOME=/opt/couchpotato
 
 # directory of couchpotato's db, cache and logs (/var/opt/couchpotato)
 CP_DATA=/var/opt/couchpotato
 # full path of couchpotato.pid (/var/run/couchpotato/couchpotato.pid)
-CP_PIDFILE=/var/run/couchpotato/couchpotato.pid
+CP_PIDFILE=/var/run/couchpotato.pid
 # full path of the python binary (/usr/bin/python)
 PYTHON_BIN=/usr/bin/python
 ```
 
-Next, copy the default CouchPotato init.d file:
+So, the `CP_USER` would be the system account we created earlier.
+`CP_HOME` is where it runs from
+`CP_DATA` is where it stores files like the metadata for your movie directory. This one I like to have stored on a mounted, shared drive. This way, if I ever need to reinstall CouchPotato, or the VM fraks up and needs to be spun fresh, the big time stuff is saved elsewhere. So, mine is `/media/sf_Ext1/shared/couchpotato`
+
+## Copy/Edit the init.d file
+
+Now, if you're running Ubuntu, the `./init/ubuntu` script gets copied and amended thusly:
 
 ```bash
 sudo cp /opt/couchpotato/init/ubuntu /etc/init.d/couchpotato
-```
-
-Make it executable and run on boot
-
-```bash
 sudo chmod +x /etc/init.d/couchpotato
 sudo update-rc.d couchpotato defaults
 ```
 
-Then, you can run `sudo service couchpotato start`, and access it at [http://127.0.0.1:5050][3e06e9c6]
+So the `chmod +x` makes the file executable - instead of running a bash script as `bash ./script.sh`,  when you `chmod +x` it, you're able to just say `./script` and remove the .sh from the file name as well. Then, the system pulls the language from the first line, `#!/bin/bash` or `#!/bin/sh` etc.
+
+Then, the `update-rc.d` inputs the startup script into the actual upstart, startup system, telling ubuntu to run it on boot - if the script wants that.
+
+Then, you can run `sudo service couchpotato start`, and so long as it doesn't output errors, you can now access it at [http://127.0.0.1:5050][3e06e9c6]
+
+I will have reverse-proxying stuff posted in the future, but for now you can look at HTPCGuides.com, as they have a lot of those specific how-to's.
 
 [^Sourcing]: [Directions copied - liberally - from HTPC-Guides][eccd07fa]
 
