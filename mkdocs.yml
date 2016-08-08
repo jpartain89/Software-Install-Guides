@@ -9,8 +9,8 @@ google_analytics: ['UA-75489042-5', 'jpcdi.com/docs']
 pages:
 - Home: 'index.md'
 - Ubuntu:
-  - 'CouchPotato': 'ubuntu/couchpotato/index.md'
-  - 'DDClient': 'ubuntu/ddclient.rst'
+  - 'CouchPotato': 'ubuntu/couchpotato/couchpotato.md'
+  - 'DDClient': 'ubuntu/ddclient/ddclient.md'
   - 'HTPC Manager': 'ubuntu/htpc-manager.rst'
   - 'NGINX from Source': 'ubuntu/nginx-from-source.md'
   - 'NGINX Using Ubuntu PPA': 'ubuntu/nginx-from-ubuntu-ppa.rst'
