@@ -30,52 +30,68 @@ sudo pip install --upgrade lxml cryptography pyopenssl
 
 Now, to really kick things off, we're going to first clone the github repo, as this is the - well, only way right now - to install and run the software.
 
-But, the other big plus to this is that for running updates, not only does the program have the ability to simply run git pull or what have you from within itself, but if that isn't pulling a fresher update due to other various settings it has, YOU are able to go in and just run git pull on the CouchPotato directory.
+But, the other big plus to this is that for running updates, not only does the program have the ability to simply run `git pull` or what have you from within itself, but if that isn't pulling a fresher update due to other various settings it has, YOU are able to go in and just run `git pull` on the CouchPotato directory.
 
 Which, is why...
 
-Custom Repo Location
+!!! GithubRepos "Custom Repo Location"
+    I keep all of my cloned git repos inside of one, singular directory:
 
-I keep all of my cloned git repos inside of one, singular directory:
+    `~/git`
 
-~/git
+    This way, I don't have to hunt all over my system for where my repo's are and it makes it easier to keep them updated. Then, I symlink the library to wherever either the developer wants/requires it or where is easiest.
 
-This way, I don't have to hunt all over my system for where my repo's are and it makes it easier to keep them updated. Then, I symlink the library to wherever either the developer wants/requires it or where is easiest.
+    The other way of handing this is to clone your PROGRAMS into the /opt directory - so /opt/couchpotato, /opt/NzbDrone, /opt/plexpy and so on. Then clone your working repos for projects into ~/git/[repo]
 
-The other way of handing this is to clone your PROGRAMS into the /opt directory - so /opt/couchpotato, /opt/NzbDrone, /opt/plexpy and so on. Then clone your working repos for projects into ~/git/[repo]
 Now, onto the cloning:
 
+```bash
 git clone https://github.com/RuudBurger/CouchPotatoServer ~/git/couchpotato
 sudo ln -s ~/git/couchpotato /opt/couchpotato
+```
+
 Which, again, your other option is to:
 
+```bash
 git clone https://github.com/RuudBurger/CouchPotatoServer /opt/couchpotato
-User Management
+```
+
+## User Management
 
 Either way, make sure the directories are marked as owned by the specific user you want to run the actual program. For CouchPotato, I have my main user running it. Technically, for proper security and the Linux Way, you're supposed to have specific, security-neutered, non-home-directory-having users running these programs. Helps stop any random, drive-by-login attempts, or rogue access if your password or keys were to ever get out.
 
 So, if we want to go the right way, we would create a user that has no shell access, isn't allowed to actually log in, but is able to run programs.
 
+```bash
 sudo adduser --system --group --disabled-login couchpotato --home /opt/couchpotato --shell /bin/nologin
+```
+
 So, lets break that down:
 
---system dictates that this is a system-type user account.
---group man document states: "When combined with --system, a group with the same name and ID as the system user is created."
---disabled-login basically means, well, you cannot login to the system using this account.
---home states that the location of the programs files is the users home directory, which if you already have the files there, it will display an error. You can ignore it for now.
---shell /bin/nologin is a special shell that, as the name implys, helps further negate the login capabilities of the user.
+1. `--system` dictates that this is a system-type user account.
+2. `--group` man document states: "When combined with --system, a group with the same name and ID as the system user is created."
+3. `--disabled`-login basically means, well, you cannot login to the system using this account.
+4. `--home` states that the location of the programs files is the users home directory, which if you already have the files there, it will display an error. You can ignore it for now.
+5. `--shell /bin/nologin` is a special shell that, as the name implys, helps further negate the login capabilities of the user.
+
 So now, we want to make sure our directories actually are assigned to this user.:
 
+```bash
 sudo chown -R couchpotato:couchpotato ~/git/couchpotato
 sudo chown -R couchpotato:couchpotato /opt/couchpotato
+```
+
 The other thing we also want to pay attention to is whether we have external drives mounted on our system; if we are running our Linux Software as a VirtualMachine, thus changing the way items might be mounted; and needing to pay attention to what users/groups are assigned those external drives/directories that we might need access to, in order to process/watch/download/etc. properly!
 
-Test if it works:
+## Test if it works:
 
+```bash
 sudo python /opt/couchpotato/CouchPotato.py
+```
+
 This will run only as long as you allow it directly inside the terminal, and it will also give each step that the program runs, so you can see if it gives any errors or what else might need to be changed.
 
-Hit Ctrl-C to quit the program.
+Hit `Ctrl-C` to quit the program.
 
 Copy/Edit Default File
 
