@@ -1,9 +1,10 @@
 site_name: Software Installation Guides
+site_url: https://jpcdi.com/docs
+repo_url: https://github.com/jpartain89/Software-Install-Guides/
 site_description: Software Installer Guides for General Unix Systems
 site_author: Justin Partain
-site_url: https://jpcdi.com/sig
 site_favicon: img/favicon.ico
-#site_dir: /var/www/html/docs
+copyright: © JPCDI and Justin Partain, 2016
 google_analytics: ['UA-75489042-5', 'jpcdi.com/docs']
 pages:
 - Home: 'index.md'

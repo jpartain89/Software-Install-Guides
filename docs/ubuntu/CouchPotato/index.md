@@ -6,7 +6,7 @@ Its a beautifully written program, works amazingly well, and is honestly fun to 
 
 ## Shoutout
 
-First, I'd like to go ahead and say that I wouldn't have been able to learn as much as I have as quickly or easily without the help of [HTPCGuides.com][04a25565]. They are an amazing site, they are slowly getting larger, and they are the real, awesome source. My files are more for me, they are better written for everyone.
+First, I'd like to go ahead and say that I wouldn't have been able to learn as much as I have as quickly or easily without the help of [HTPCGuides.com][04a25565]. They are an amazing site, they are slowly getting larger, and they are the real, awesome source. My files are more for me, they are better written for everyone. [^Sourcing]
 
 ## Base Requirements
 
@@ -17,7 +17,7 @@ sudo apt-get install git-core libffi-dev libssl-dev zlib1g-dev libxslt1-dev libx
 sudo pip install --upgrade lxml cryptography pyopenssl
 ```
 
-!!! python "pip program versions"
+!!! note
     When running pip with sudo, that then installs those specified programs globally, so the entire system has access.
 
     If you are using a more shared environment - where your pip install might interfere with another users python programs - its best to invoke virtualenv from within the directory you are going to save and run the main CouchPotato program from.
@@ -34,7 +34,7 @@ But, the other big plus to this is that for running updates, not only does the p
 
 Which, is why...
 
-!!! GithubRepos "Custom Repo Location"
+!!! note "Custom Repo Location"
     I keep all of my cloned git repos inside of one, singular directory:
 
     `~/git`
@@ -83,7 +83,20 @@ sudo chown -R couchpotato:couchpotato /opt/couchpotato
 
 The other thing we also want to pay attention to is whether we have external drives mounted on our system; if we are running our Linux Software as a VirtualMachine, thus changing the way items might be mounted; and needing to pay attention to what users/groups are assigned those external drives/directories that we might need access to, in order to process/watch/download/etc. properly!
 
-## Test if it works:
+So, for running this inside of a VirtualBox instance locally, using folder mounting through VBox, they have a custom group for the file ownership in the machine, `vboxsf`. So, to allow users to have access to read-write on these directories:
+
+```bash
+sudo usermod -aG vboxsf $USER
+```
+
+So, the `-aG` part is adding a user to a group by addition, not replacing.
+Then, the first name is the group, and the 2nd is the user.
+
+Usually in order to have the addition take in the filesystem, you would log the user out then back in, but the system users normally don't have login/out abilities. So, restart the server instance.
+
+## Test if it works
+
+Now, we'll run the python program just within the Command Line output, which shows all the text output, including any errors and what not.
 
 ```bash
 sudo python /opt/couchpotato/CouchPotato.py
@@ -91,7 +104,7 @@ sudo python /opt/couchpotato/CouchPotato.py
 
 This will run only as long as you allow it directly inside the terminal, and it will also give each step that the program runs, so you can see if it gives any errors or what else might need to be changed.
 
-Hit `Ctrl-C` to quit the program.
+Then, to stop the CL output and control, hit `Ctrl-C` to quit the program.
 
 ## Copy/Edit Default File
 
@@ -136,7 +149,8 @@ sudo update-rc.d couchpotato defaults
 
 Then, you can run `sudo service couchpotato start`, and access it at [http://127.0.0.1:5050][3e06e9c6]
 
-Directions copied from HTPC-Guides ↩
+[^Sourcing]: [Directions copied - liberally - from HTPC-Guides][eccd07fa]
 
   [04a25565]: htpcguides.com "HTPCGuides"
   [3e06e9c6]: 127.0.0.1:5050 "CouchPotato Local"
+  [eccd07fa]: http://www.htpcguides.com/install-couchpotato-ubuntu/ "HTPC Guides CouchPotato Ubuntu Installation"
