@@ -6,24 +6,27 @@ Its a beautifully written program, works amazingly well, and is honestly fun to 
 
 ## Shoutout
 
-First, I'd like to go ahead and say that I wouldn't have been able to learn as much as I have as quickly or easily without the help of HTPCGuides.com. They are an amazing site, they are slowly getting larger, and they are the real, awesome source. My files are more for me, they are better written for everyone. 1
+First, I'd like to go ahead and say that I wouldn't have been able to learn as much as I have as quickly or easily without the help of [HTPCGuides.com][04a25565]. They are an amazing site, they are slowly getting larger, and they are the real, awesome source. My files are more for me, they are better written for everyone.
 
-Base Requirements
+## Base Requirements
 
 First, lets install the basic required programs to help run all-the-things
 
+```bash
 sudo apt-get install git-core libffi-dev libssl-dev zlib1g-dev libxslt1-dev libxml2-dev python python-pip python-dev build-essential -y
 sudo pip install --upgrade lxml cryptography pyopenssl
-pip program versions
+```
 
-When running pip with sudo, that then installs those specified programs globally, so the entire system has access.
+!!! python "pip program versions"
+    When running pip with sudo, that then installs those specified programs globally, so the entire system has access.
 
-If you are using a more shared environment - where your pip install might interfere with another users python programs - its best to invoke virtualenv from within the directory you are going to save and run the main CouchPotato program from.
+    If you are using a more shared environment - where your pip install might interfere with another users python programs - its best to invoke virtualenv from within the directory you are going to save and run the main CouchPotato program from.
 
-This creates a virtual-like environment for installing your python programs within JUST that directory. So, if there are differing versions elsewhere, they wont clash.
+    This creates a virtual-like environment for installing your python programs within JUST that directory. So, if there are differing versions elsewhere, they wont clash.
 
-Currently, I am not using virtualenv, so that is currently outside the scope of this document.
-Clone the Repo
+    Currently, I am not using virtualenv, so that is currently outside the scope of this document.
+
+## Clone the Repo
 
 Now, to really kick things off, we're going to first clone the github repo, as this is the - well, only way right now - to install and run the software.
 
@@ -106,3 +109,5 @@ sudo update-rc.d couchpotato defaults
 Then, you can run sudo service couchpotato start, and access it at http://127.0.0.1:5050
 
 Directions copied from HTPC-Guides ↩
+
+[04a25565]: htpcguides.com "HTPCGuides"
