@@ -8,7 +8,7 @@ google_analytics: ['UA-75489042-5', 'jpcdi.com/docs']
 pages:
 - Home: 'index.md'
 - Ubuntu:
-  - 'CouchPotato': 'ubuntu/couchpotato.md'
+  - 'CouchPotato': 'ubuntu/couchpotato/couchpotato.md'
   - 'DDClient': 'ubuntu/ddclient.rst'
   - 'HTPC Manager': 'ubuntu/htpc-manager.rst'
   - 'NGINX from Source': 'ubuntu/nginx-from-source.md'
