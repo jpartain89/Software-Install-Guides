@@ -10,7 +10,7 @@ But, one program that is needed is `libio-socket-ssl-perl`, specifically to assi
 sudo apt-get install libio-socket-ssl-perl
 ```
 
-## Preface
+## Preface [^Sources]
 
 This guide is a bit more hands on, but is not only a good lesson to get through and learn, but ends up building a nice, very useful and light weight program!
 
@@ -108,9 +108,7 @@ Which is why we use Upstart, systemctl or the wrapper script or cron job!
 
 Now, since we added this to Upstart, type `sudo service ddclient start` and that script will take over the management!
 
-* * *
+[^Sources]: Liberally copied from [wimpunk/ddclient][170193d3] github how-to
 
-These instructions are liberally copied from [wimpunk/ddclient's github page.](https://github.com/wimpunk/ddclient)
-
-
+  [170193d3]: https://github.com/wimpunk/ddclient "wimpunk's DDClient Repo"
   [fc8a4088]: domains.google.com "Google DNS Hosting"
