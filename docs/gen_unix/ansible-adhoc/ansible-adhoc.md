@@ -4,12 +4,12 @@ Yes, I know this is like, the first thing that ansible's [Documentation site](ht
 
 So, here's a repeat, refresher, with screenshots!!
 
-# ansible ubuntu -a "free -m"
+`ansible ubuntu -a "free -m"`
 
 This just runs ansible's `command` module. As in it doesn't support shell variables and things like piping.
 
-![Ansible Basic Command Module](ansible_command_module.jpg)
+![Ansible Basic Command Module](./ansible_command_module.jpg)
 
-# ansible all -m ping
+`ansible all -m ping`
 
-![Ansible Module Ping](img/ansible_ping_all.jpg)
+![Ansible Module Ping](./ansible_ping_all.jpg)

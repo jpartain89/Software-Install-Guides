@@ -11,7 +11,7 @@ pages:
 - Ubuntu:
   - 'CouchPotato': 'ubuntu/couchpotato/couchpotato.md'
   - 'DDClient': 'ubuntu/ddclient/ddclient.md'
-  - 'HTPC Manager': 'ubuntu/htpc-manager.rst'
+  - 'HTPC Manager': 'ubuntu/htpc-manager.md'
   - 'NGINX from Source': 'ubuntu/nginx-from-source.md'
   - 'NGINX Using Ubuntu PPA': 'ubuntu/nginx-from-ubuntu-ppa.rst'
   - 'OpenVPN': 'ubuntu/openvpn.md'
@@ -27,8 +27,8 @@ pages:
   - 'Domotz RPI': 'rpi/domotz-rpi.md'
   - 'DDRescue Imaging': 'rpi/DDRescue/DDrescue.md'
 - General UNIX:
-  - 'Ansible Adhoc Refresh': 'gen_unix/ansible-adhoc.rst'
-  - 'Transmission Web GUI Change': 'gen_unix/transmission-web-gui.rst'
+  - 'Ansible Adhoc Refresh': 'gen_unix/ansible-adhoc/ansible-adhoc.md'
+  - 'Transmission Web GUI Change': 'gen_unix/transmission-web-gui.md'
   - 'VirtualBox Guest Additions on Ubuntu Guest': 'gen_unix/virtualbox-guest-addition.md'
   - 'Install Ratom or Remote Atom': 'gen_unix/ratom.md'
 - Other Informationals:
