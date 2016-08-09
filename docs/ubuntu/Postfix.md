@@ -1,4 +1,8 @@
-# Configure Postfix as a "Send-Only" SMTP Server
+# Use Postfix as relay
+
+So, postfix is a fairly simple mailserver software, that, to be honest, the reason I'm using it is because the most recent, up to date how-to's all use postfix. Which, I'm assuming that means its probably one of the easier mail systems to configure.
+
+But, we will be using it to forward all of the system emails to our personal email address. I use gmail, so my examples will be more geared towards gmails smtp address and port.
 
 ## Introduction
 
