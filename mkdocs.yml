@@ -27,8 +27,8 @@ pages:
   - 'Domotz RPI': 'rpi/domotz-rpi.md'
   - 'DDRescue Imaging': 'rpi/DDRescue/DDrescue.md'
 - General UNIX:
-  - 'Ansible Adhoc Refresh': 'gen_unix/ansible-adhoc.rst'
-  - 'Transmission Web GUI Change': 'gen_unix/transmission-web-gui.rst'
+  - 'Ansible Adhoc Refresh': 'gen_unix/ansible-adhoc/ansible-adhoc.md'
+  - 'Transmission Web GUI Change': 'gen_unix/transmission-web-gui.md'
   - 'VirtualBox Guest Additions on Ubuntu Guest': 'gen_unix/virtualbox-guest-addition.md'
   - 'Install Ratom or Remote Atom': 'gen_unix/ratom.md'
 - Other Informationals:
