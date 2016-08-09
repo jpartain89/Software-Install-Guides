@@ -99,5 +99,4 @@ echo "This is the body of the email" | mail -s "This is the subject line" user@e
 
 Making sure to put your email address in place of `user@example.com`. You should receive the email within a few seconds.
 
-
 [^Sourcing]: Copied very liberally from [HowToForge Postfix How-To](https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/)
