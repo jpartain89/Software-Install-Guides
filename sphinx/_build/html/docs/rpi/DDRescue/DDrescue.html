@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Software Install Guides 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Software Install Guides 1 documentation" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../../_static/favicon.ico" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+    <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/docs/rpi/DDRescue/DDrescue.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p># Imaging SD Card for Raspberry Pi</p>
+<p>This is my personal, favorite means of imaging an SD Card through the command line - which is the easiest, most foolproof means of doing so. Plus, its also learning, which is reason #1 for doing this....</p>
+<p>I use the tool <cite>ddrescue</cite> rather than <cite>dd</cite> like most other sites say to. The reason?</p>
+<p>![DDRescue Command Line GUI](./ddrescue_ex.jpg)</p>
+<p>A nice, command line output of its copying progress.... Not to mention ddrescue tends to be a more granular means of copying files over.</p>
+<p>Plus, sans SD Card? Its a good backup tool to have for, well, backing up filesystems on a more granular, hardware-is-prone-to-fail type of level. Also allowing multiple passes over said data, so that if the sector pooped out the first time, maybe a 2nd or 3rd pass would, maybe not help but increase the odds of that one sector copying.</p>
+<p>## Installing:</p>
+<p>So, if you&#8217;re using macOS? I would assume/hope you have [HomeBrew][a5d30315] installed. If so, do:</p>
+<p>[a5d30315]: brew.sh &#8220;HomeBrew - The Missing Package Manager for OS X&#8221;</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">brew</span> <span class="pre">install</span> <span class="pre">ddrescue</span>
+<span class="pre">`</span></code></p>
+<p>On Linux, the specific, newer and updated tool is called [GDDRescue][39950b63], since its a part of the GNU Library of Tools.</p>
+<blockquote>
+<div>[39950b63]: <a class="reference external" href="https://www.gnu.org/software/ddrescue/ddrescue.html">https://www.gnu.org/software/ddrescue/ddrescue.html</a> &#8220;GDDrescue&#8221;</div></blockquote>
+<p>So you would:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">gddrescue</span>
+<span class="pre">`</span></code>
+&#8211;or&#8211;
+<code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">gddrescue</span>
+<span class="pre">`</span></code></p>
+<p>or whatever your flavor of linux installer is.</p>
+<p>But, to move on...</p>
+<p>## How to use?</p>
+<p>First, do your OS of choices means of discovering the location of the SD card you want to image:</p>
+<p>macOS/OS X?</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">diskutil</span> <span class="pre">list</span>
+<span class="pre">`</span></code></p>
+<p>![Diskutil List](./diskutil_List.jpg)</p>
+<p>Which gives you the list of all drives mounted or visible on OS X/macOS. Which, usually your SD Card is last.</p>
+<p>Then:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">diskutil</span> <span class="pre">umountDisk</span> <span class="pre">/dev/disk##</span>
+<span class="pre">`</span></code></p>
+<p>Replacing ## with the disk drive number you found from before.</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">ddrescue</span> <span class="pre">-f</span> <span class="pre">~/.img/location/to/copy/tosd</span> <span class="pre">/dev/disk##</span>
+<span class="pre">`</span></code></p>
+<p>So, a bit is going on here.</p>
+<p>First, sudo, since we&#8217;re imaging a file onto a drive.</p>
+<p>Second, -f is for Force, telling ddrescue we REALLY want to image this file onto this drive.</p>
+<p>Third, the first file location. This is the source file, or what you want the SD card to look like. Or in the case of backing up a drive, the first location.</p>
+<p>Then, the /dev/disk##. Make sure to replace ## with the drive number, again. This is the final place you want the info copied to. If you were doing the backup, like above, you could specify a specific file location, name and format to output the info into. Which is beyond this documents scope. <cite>man ddrescue</cite>, or <cite>ddrescue &#8211;help</cite> can get you in the right direction.</p>
+<p>Next, sit back and watch as you can watch the timer count down, the length of time passed count up, and plenty of other info while <cite>dd</cite> users have to sit and wait and HOPE it works!</p>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Justin Partain.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

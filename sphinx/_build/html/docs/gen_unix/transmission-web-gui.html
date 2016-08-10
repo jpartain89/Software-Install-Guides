@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Software Install Guides 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Software Install Guides 1 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../_static/favicon.ico" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/docs/gen_unix/transmission-web-gui.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p># Alternate Transmission Web GUI</p>
+<p>The command line tools for transmission also come with a directory that runs a web-based GUI for Transmission. Not only does this allow running a torrent program on a headless server, but say you have hardware that the graphics card isn&#8217;t too quick. Rather than install the GUI Desktop version, install the command line version! Plus, if you run a reverse proxy web server in front of it, you can access it from anywhere!</p>
+<p>## Using Kettu&#8217;s Web GUI for Transmission</p>
+<p>First, clone [endor/kettu custom-built web GUI][35c77f0a].</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/endor/kettu.git</span> <span class="pre">~/git/kettu</span>
+<span class="pre">`</span></code></p>
+<dl class="docutils">
+<dt>!!! note</dt>
+<dd><p class="first">I keep all of my cloned git repos inside of one, singular directory:</p>
+<p><cite>~/git</cite></p>
+<p>This way, I don&#8217;t have to hunt all over my system for where my repo&#8217;s are and it makes it easier to keep them updated. Then, I symlink the library to wherever either the developer wants/requires it or where is easiest.</p>
+<p class="last">The other way of handing this is to clone your PROGRAMS into the /opt directory - so /opt/couchpotato, /opt/NzbDrone, /opt/plexpy and so on. Then clone your working repos for projects into ~/git/[repo]</p>
+</dd>
+</dl>
+<p>So, for the above final location, stick it where ever you would like.</p>
+<p>## Transmission Web GUI File Locations</p>
+<p>Next, we need to put the files in the spot that Transmission expects. Since I don&#8217;t care for the look of the web GUI that comes with the tool, I just delete the entire directory, then symlink the github repo in its place, but naming it <cite>web</cite>.</p>
+<dl class="docutils">
+<dt>!!! note</dt>
+<dd><p class="first">Transmission&#8217;s web GUI is located at <cite>/usr/share/transmission/web</cite> in unix systems.</p>
+<p class="last">If you&#8217;re using macOS and their main Transmission App downloaded from their site - the Transmission GUI app, NOT the Command Line tool - the web files are located at <cite>/Applications/Transmission.app/Contents/Resources/web/</cite>. Because even their full-fledged desktop tool comes with a web GUI.</p>
+</dd>
+</dl>
+<p>First, before making any changes, its always a good idea to stop transmission before doing ANYTHING to it. It not only will revert any changes made to its <cite>config</cite> file if its still running, but if it does that, who knows how mad it&#8217;ll get over its web GUI files going missing!</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">transmission-daemon</span> <span class="pre">stop</span>
+<span class="pre">`</span></code></p>
+<p>Then, we remove the existing <cite>web</cite> directory, and then symlink-in the replacement.</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">/usr/share/transmission/web</span>
+<span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">~/git/kettu</span> <span class="pre">/usr/share/transmission/web</span>
+<span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">transmission-daemon</span> <span class="pre">start</span>
+<span class="pre">`</span></code></p>
+<p>Then, of course, confirm that the web interface has changed over. Of which, it usually is running at [<a class="reference external" href="http://localhost:9091](http://localhost:9091">http://localhost:9091](http://localhost:9091</a>)</p>
+<blockquote>
+<div>[35c77f0a]: <a class="reference external" href="https://github.com/endor/kettu.git">https://github.com/endor/kettu.git</a> &#8220;endor/kettu&#8221;</div></blockquote>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Justin Partain.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

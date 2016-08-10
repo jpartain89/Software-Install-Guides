@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Software Install Guides 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Software Install Guides 1 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../_static/favicon.ico" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/docs/gen_unix/proftpd-and-mysql.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p># ProFTPD</p>
+<p>Using [How To Forge](<a class="reference external" href="https://www.howtoforge.com">https://www.howtoforge.com</a>) [Virtual Hosting with Proftpd and MySQL](<a class="reference external" href="https://www.howtoforge.com/virtual-hosting-with-proftpd-and-mysql-incl-quota-on-ubuntu-14.04-lts">https://www.howtoforge.com/virtual-hosting-with-proftpd-and-mysql-incl-quota-on-ubuntu-14.04-lts</a>).</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">mysql-server</span> <span class="pre">mysql-client</span> <span class="pre">phpmyadmin</span> <span class="pre">apache2</span>
+<span class="pre">`</span></code></p>
+<p>You will be asked for a root MySQL password. This will be valid for the <cite>root&#64;localhost</cite> user.</p>
+<p>You&#8217;ll also be asked:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">Web</span> <span class="pre">server</span> <span class="pre">to</span> <span class="pre">reconfigure</span> <span class="pre">automatically:</span>
+<span class="pre">Configure</span> <span class="pre">database</span> <span class="pre">for</span> <span class="pre">phpmyadmin</span> <span class="pre">with</span> <span class="pre">dbconfig-common</span>
+<span class="pre">`</span></code></p>
+<p>I do not select any item, since I am using NGINX web server, and then I hit <cite>yes</cite>.</p>
+<p>## Install Proftpd with MySQL Support</p>
+<p>There is a pre-configured package for mysql and proftpd available.</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">proftpd-mod-mysql</span>
+<span class="pre">`</span></code></p>
+<p>You&#8217;ll be asked:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">How</span> <span class="pre">do</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">run</span> <span class="pre">proftpd?</span>
+<span class="pre">`</span></code></p>
+<p>Select <cite>Standalone.</cite></p>
+<p>## Create the MySQL Database</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">mysql</span> <span class="pre">-u</span> <span class="pre">root</span> <span class="pre">-p</span>
+<span class="pre">`</span></code></p>
+<p>Make sure to replace <cite>password</cite> with your password you want to use for the user <cite>proftpd</cite>.</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">ftp;</span>
+<span class="pre">GRANT</span> <span class="pre">SELECT,</span> <span class="pre">INSERT,</span> <span class="pre">UPDATE,</span> <span class="pre">DELETE</span> <span class="pre">ON</span> <span class="pre">ftp.*</span> <span class="pre">TO</span> <span class="pre">'proftpd'&#64;'localhost'</span> <span class="pre">IDENTIFIED</span> <span class="pre">BY</span> <span class="pre">'password';</span>
+<span class="pre">GRANT</span> <span class="pre">SELECT,</span> <span class="pre">INSERT,</span> <span class="pre">UPDATE,</span> <span class="pre">DELETE</span> <span class="pre">ON</span> <span class="pre">ftp.*</span> <span class="pre">TO</span> <span class="pre">'proftpd'&#64;'localhost.localdomain'</span> <span class="pre">IDENTIFIED</span> <span class="pre">BY</span> <span class="pre">'password';</span>
+<span class="pre">FLUSH</span> <span class="pre">PRIVILEGES;</span>
+<span class="pre">`</span></code></p>
+<p>Next, we create the MySQL Database:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">USE</span> <span class="pre">ftp;</span>
+<span class="pre">`</span></code>
+<code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">ftpgroup</span> <span class="pre">(</span>
+<span class="pre">groupname</span> <span class="pre">varchar(16)</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'',</span>
+<span class="pre">gid</span> <span class="pre">smallint(6)</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'5500',</span>
+<span class="pre">members</span> <span class="pre">varchar(16)</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'',</span>
+<span class="pre">KEY</span> <span class="pre">groupname</span> <span class="pre">(groupname)</span>
+<span class="pre">)</span> <span class="pre">ENGINE=MyISAM</span> <span class="pre">COMMENT='ProFTP</span> <span class="pre">group</span> <span class="pre">table';</span>
+<span class="pre">`</span></code>
+<code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">ftpquotalimits</span> <span class="pre">(</span>
+<span class="pre">name</span> <span class="pre">varchar(30)</span> <span class="pre">default</span> <span class="pre">NULL,</span>
+<span class="pre">quota_type</span> <span class="pre">enum('user','group','class','all')</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'user',</span>
+<span class="pre">per_session</span> <span class="pre">enum('false','true')</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'false',</span>
+<span class="pre">limit_type</span> <span class="pre">enum('soft','hard')</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'soft',</span>
+<span class="pre">bytes_in_avail</span> <span class="pre">bigint(20)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0',</span>
+<span class="pre">bytes_out_avail</span> <span class="pre">bigint(20)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0',</span>
+<span class="pre">bytes_xfer_avail</span> <span class="pre">bigint(20)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0',</span>
+<span class="pre">files_in_avail</span> <span class="pre">int(10)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0',</span>
+<span class="pre">files_out_avail</span> <span class="pre">int(10)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0',</span>
+<span class="pre">files_xfer_avail</span> <span class="pre">int(10)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0'</span>
+<span class="pre">)</span> <span class="pre">ENGINE=MyISAM;</span>
+<span class="pre">`</span></code>
+<code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">ftpquotatallies</span> <span class="pre">(</span>
+<span class="pre">name</span> <span class="pre">varchar(30)</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'',</span>
+<span class="pre">quota_type</span> <span class="pre">enum('user','group','class','all')</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'user',</span>
+<span class="pre">bytes_in_used</span> <span class="pre">bigint(20)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0',</span>
+<span class="pre">bytes_out_used</span> <span class="pre">bigint(20)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0',</span>
+<span class="pre">bytes_xfer_used</span> <span class="pre">bigint(20)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0',</span>
+<span class="pre">files_in_used</span> <span class="pre">int(10)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0',</span>
+<span class="pre">files_out_used</span> <span class="pre">int(10)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0',</span>
+<span class="pre">files_xfer_used</span> <span class="pre">int(10)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0'</span>
+<span class="pre">)</span> <span class="pre">ENGINE=MyISAM;</span>
+<span class="pre">`</span></code>
+<code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">ftpuser</span> <span class="pre">(</span>
+<span class="pre">id</span> <span class="pre">int(10)</span> <span class="pre">unsigned</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">auto_increment,</span>
+<span class="pre">userid</span> <span class="pre">varchar(32)</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'',</span>
+<span class="pre">passwd</span> <span class="pre">varchar(32)</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'',</span>
+<span class="pre">uid</span> <span class="pre">smallint(6)</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'5500',</span>
+<span class="pre">gid</span> <span class="pre">smallint(6)</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'5500',</span>
+<span class="pre">homedir</span> <span class="pre">varchar(255)</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'',</span>
+<span class="pre">shell</span> <span class="pre">varchar(16)</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'/sbin/nologin',</span>
+<span class="pre">count</span> <span class="pre">int(11)</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0',</span>
+<span class="pre">accessed</span> <span class="pre">datetime</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0000-00-00</span> <span class="pre">00:00:00',</span>
+<span class="pre">modified</span> <span class="pre">datetime</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">default</span> <span class="pre">'0000-00-00</span> <span class="pre">00:00:00',</span>
+<span class="pre">PRIMARY</span> <span class="pre">KEY</span> <span class="pre">(id),</span>
+<span class="pre">UNIQUE</span> <span class="pre">KEY</span> <span class="pre">userid</span> <span class="pre">(userid)</span>
+<span class="pre">)</span> <span class="pre">ENGINE=MyISAM</span> <span class="pre">COMMENT='ProFTP</span> <span class="pre">user</span> <span class="pre">table';</span>
+<span class="pre">`</span></code>
+<code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">quit;</span>
+<span class="pre">`</span></code></p>
+<p>## Configure Proftpd</p>
+<p>Edit <cite>/etc/proftpd/modules.conf</cite></p>
+<p>And uncomment/enable the following modules:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">[...]</span>
+<span class="pre">#</span> <span class="pre">Install</span> <span class="pre">one</span> <span class="pre">of</span> <span class="pre">proftpd-mod-mysql,</span> <span class="pre">proftpd-mod-pgsql</span> <span class="pre">or</span> <span class="pre">any</span> <span class="pre">other</span>
+<span class="pre">#</span> <span class="pre">SQL</span> <span class="pre">backend</span> <span class="pre">engine</span> <span class="pre">to</span> <span class="pre">use</span> <span class="pre">this</span> <span class="pre">module</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">required</span> <span class="pre">backend.</span>
+<span class="pre">#</span> <span class="pre">This</span> <span class="pre">module</span> <span class="pre">must</span> <span class="pre">be</span> <span class="pre">mandatory</span> <span class="pre">loaded</span> <span class="pre">before</span> <span class="pre">anyone</span> <span class="pre">of</span>
+<span class="pre">#</span> <span class="pre">the</span> <span class="pre">existent</span> <span class="pre">SQL</span> <span class="pre">backeds.</span>
+<span class="pre">LoadModule</span> <span class="pre">mod_sql.c</span>
+<span class="pre">[...]</span>
+<span class="pre">#</span> <span class="pre">Install</span> <span class="pre">proftpd-mod-mysql</span> <span class="pre">and</span> <span class="pre">decomment</span> <span class="pre">the</span> <span class="pre">previous</span>
+<span class="pre">#</span> <span class="pre">mod_sql.c</span> <span class="pre">module</span> <span class="pre">to</span> <span class="pre">use</span> <span class="pre">this.</span>
+<span class="pre">LoadModule</span> <span class="pre">mod_sql_mysql.c</span>
+<span class="pre">[...]</span>
+<span class="pre">#</span> <span class="pre">Install</span> <span class="pre">one</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">previous</span> <span class="pre">SQL</span> <span class="pre">backends</span> <span class="pre">and</span> <span class="pre">decomment</span>
+<span class="pre">#</span> <span class="pre">the</span> <span class="pre">previous</span> <span class="pre">mod_sql.c</span> <span class="pre">module</span> <span class="pre">to</span> <span class="pre">use</span> <span class="pre">this</span>
+<span class="pre">LoadModule</span> <span class="pre">mod_quotatab_sql.c</span>
+<span class="pre">[...]</span>
+<span class="pre">`</span></code></p>
+<p>Then, edit <cite>/etc/proftpd/proftpd.conf</cite> and comment out the following lines:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">[...]</span>
+<span class="pre">#&lt;IfModule</span> <span class="pre">mod_quotatab.c&gt;</span>
+<span class="pre">#QuotaEngine</span> <span class="pre">off</span>
+<span class="pre">#&lt;/IfModule&gt;</span>
+<span class="pre">[...]</span>
+<span class="pre">`</span></code></p>
+<p>Then, add the following lines below:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">#</span>
+<span class="pre">#</span> <span class="pre">Alternative</span> <span class="pre">authentication</span> <span class="pre">frameworks</span>
+<span class="pre">#</span>
+<span class="pre">#Include</span> <span class="pre">/etc/proftpd/ldap.conf</span>
+<span class="pre">#Include</span> <span class="pre">/etc/proftpd/sql.conf</span>
+<span class="pre">`</span></code>
+and above</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">#</span> <span class="pre">Include</span> <span class="pre">other</span> <span class="pre">custom</span> <span class="pre">configuration</span> <span class="pre">files</span>
+<span class="pre">Include</span> <span class="pre">/etc/proftpd/conf.d/</span>
+<span class="pre">`</span></code></p>
+<p>You are welcome to remove the <cite>default anonymous</cite> lines.</p>
+<p>Make sure to change the <cite>password</cite> in the line <cite>SQLConnectInfo</cite> to the password you picked for the <cite>proftpd</cite> user above.</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>bash
+DefaultRoot ~</p>
+<p>SQLBackend              mysql
+# The passwords in MySQL are encrypted using CRYPT
+SQLAuthTypes            Plaintext Crypt
+SQLAuthenticate         users groups</p>
+<p># used to connect to the database
+# <a class="reference external" href="mailto:databasename&#37;&#52;&#48;host">databasename<span>&#64;</span>host</a> database_user user_password
+SQLConnectInfo  <a class="reference external" href="mailto:ftp&#37;&#52;&#48;localhost">ftp<span>&#64;</span>localhost</a> proftpd password</p>
+<p># Here we tell ProFTPd the names of the database columns in the &#8220;usertable&#8221;
+# we want it to interact with. Match the names with those in the db
+SQLUserInfo     ftpuser userid passwd uid gid homedir shell</p>
+<p># Here we tell ProFTPd the names of the database columns in the &#8220;grouptable&#8221;
+# we want it to interact with. Again the names match with those in the db
+SQLGroupInfo    ftpgroup groupname gid members</p>
+<p># set min UID and GID - otherwise these are 999 each
+SQLMinID        500</p>
+<p># create a user&#8217;s home directory on demand if it doesn&#8217;t exist
+CreateHome on</p>
+<p># Update count every time user logs in
+SQLLog PASS updatecount
+SQLNamedQuery updatecount UPDATE &#8220;count=count+1, accessed=now() WHERE userid=&#8217;%u&#8217;&#8221; ftpuser</p>
+<p># Update modified everytime user uploads or deletes a file
+SQLLog  STOR,DELE modified
+SQLNamedQuery modified UPDATE &#8220;modified=now() WHERE userid=&#8217;%u&#8217;&#8221; ftpuser</p>
+<p># User quotas
+# ===========
+QuotaEngine on
+QuotaDirectoryTally on
+QuotaDisplayUnits Mb
+QuotaShowQuotas on</p>
+<p>SQLNamedQuery get-quota-limit SELECT &#8220;name, quota_type, per_session, limit_type, bytes_in_avail, bytes_out_avail, bytes_xfer_avail, files_in_avail, files_out_avail, files_xfer_avail FROM ftpquotalimits WHERE name = &#8216;%{0}&#8217; AND quota_type = &#8216;%{1}&#8217;&#8221;</p>
+<p>SQLNamedQuery get-quota-tally SELECT &#8220;name, quota_type, bytes_in_used, bytes_out_used, bytes_xfer_used, files_in_used, files_out_used, files_xfer_used FROM ftpquotatallies WHERE name = &#8216;%{0}&#8217; AND quota_type = &#8216;%{1}&#8217;&#8221;</p>
+<p>SQLNamedQuery update-quota-tally UPDATE &#8220;bytes_in_used = bytes_in_used + %{0}, bytes_out_used = bytes_out_used + %{1}, bytes_xfer_used = bytes_xfer_used + %{2}, files_in_used = files_in_used + %{3}, files_out_used = files_out_used + %{4}, files_xfer_used = files_xfer_used + %{5} WHERE name = &#8216;%{6}&#8217; AND quota_type = &#8216;%{7}&#8217;&#8221; ftpquotatallies</p>
+<p>SQLNamedQuery insert-quota-tally INSERT &#8220;%{0}, %{1}, %{2}, %{3}, %{4}, %{5}, %{6}, %{7}&#8221; ftpquotatallies</p>
+<p>QuotaLimitTable sql:/get-quota-limit
+QuotaTallyTable sql:/get-quota-tally/update-quota-tally/insert-quota-tally</p>
+<p>RootLogin off
+RequireValidShell off
+<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<p>I took out the <cite>DefaultRoot ~</cite> line, so as not to lock down my own personal stuff to just the home folders.</p>
+<p>Then, restart proftpd:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">proftpd</span> <span class="pre">restart</span>
+<span class="pre">`</span></code></p>
+<p>## Populate the Database and test.</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">mysql</span> <span class="pre">-u</span> <span class="pre">root</span> <span class="pre">-p</span>
+<span class="pre">`</span></code></p>
+<p><code class="docutils literal"><span class="pre">`mysql</span>
+<span class="pre">USE</span> <span class="pre">ftp;</span>
+<span class="pre">`</span></code></p>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Justin Partain.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

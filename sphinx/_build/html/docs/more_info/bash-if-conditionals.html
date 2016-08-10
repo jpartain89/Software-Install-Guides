@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Software Install Guides 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Software Install Guides 1 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../_static/favicon.ico" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/docs/more_info/bash-if-conditionals.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p># Bash If Conditional markers</p>
+<p><cite>- a file</cite>
+True if file exists.</p>
+<p><cite>-b file</cite>
+True if file exists and is a block special file.</p>
+<p><cite>-c file</cite>
+True if file exists and is a character special file.</p>
+<p><cite>-d file</cite>
+True if file exists and is a directory.</p>
+<p><cite>-e file</cite>
+True if file exists.</p>
+<p><cite>-f file</cite>
+True if file exists and is a regular file.</p>
+<p><cite>-g file</cite>
+True if file exists and its set-group-id bit is set.</p>
+<p><cite>-h file</cite>
+True if file exists and is a symbolic link.</p>
+<p><cite>-k file</cite>
+True if file exists and its &#8220;sticky&#8221; bit is set.</p>
+<p><cite>-p file</cite>
+True if file exists and is a named pipe (FIFO).</p>
+<p><cite>-r file</cite>
+True if file exists and is readable.</p>
+<p><cite>-s file</cite>
+True if file exists and has a size greater than zero.</p>
+<p><cite>-t fd</cite>
+True if file descriptor &#8216;fd&#8217; is open and refers to a terminal.</p>
+<p><cite>-u file</cite>
+True if file exists and its set-user-id bit is set.</p>
+<p><cite>-w file</cite>
+True if file exists and is writable.</p>
+<p><cite>-x file</cite>
+True if file exists and is executable.</p>
+<p><cite>-G file</cite>
+True if file exists and is owned by the effective group id.</p>
+<p><cite>-L file</cite>
+True if file exists and is a symbolic link.</p>
+<p><cite>-N file</cite>
+True if file exists and has been modified since it was last read.</p>
+<p><cite>-O file</cite>
+True if file exists and is owned by the effective user id.</p>
+<p><cite>-S file</cite>
+True if file exists and is a socket.</p>
+<p><cite>file1 -ef file2</cite>
+True if file1 and file2 refer to the same device and inode numbers.</p>
+<p><cite>file1 -nt file2</cite>
+True if file1 is newer (according to modification date) than file2, or if file1 exists and file2 does not.</p>
+<p><cite>file1 -ot file2</cite>
+True if file1 is older than file2, or if file2 exists and file1 does not.</p>
+<p><cite>-o optname</cite>
+True if the shell option optname is enabled. The list of options appears in the description of the -o option to the set builtin (see The Set Builtin).</p>
+<p><cite>-v varname</cite>
+True if the shell variable varname is set (has been assigned a value).</p>
+<p><cite>-R varname</cite>
+True if the shell variable varname is set and is a name reference.</p>
+<p><cite>-z string</cite>
+True if the length of string is zero.</p>
+<p><cite>-n string</cite>
+<cite>string</cite>
+True if the length of string is non-zero.</p>
+<p><cite>string1 == string2</cite>
+<cite>string1 = string2</cite>
+True if the strings are equal. When used with the [[ command, this performs pattern matching as described above (see Conditional Constructs).</p>
+<p>‘=’ should be used with the test command for POSIX conformance.</p>
+<p><cite>string1 != string2</cite>
+True if the strings are not equal.</p>
+<p><cite>string1 &lt; string2</cite>
+True if string1 sorts before string2 lexicographically.</p>
+<p><cite>string1 &gt; string2</cite>
+True if string1 sorts after string2 lexicographically.</p>
+<p><cite>arg1 OP arg2</cite>
+OP is one of ‘-eq’, ‘-ne’, ‘-lt’, ‘-le’, ‘-gt’, or ‘-ge’. These arithmetic binary operators return true if arg1 is equal to, not equal to, less than, less than or equal to, greater than, or greater than or equal to arg2, respectively. Arg1 and arg2 may be positive or negative integers.</p>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Justin Partain.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Software Install Guides 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Software Install Guides 1 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../_static/favicon.ico" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/docs/ubuntu/openvpn.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p># Install the OpenVPN client:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">openvpn</span>
+<span class="pre">`</span></code></p>
+<p># Grab the PIA OpenVPN Profile</p>
+<p>Download and uncompress the PIA OpenVPN profiles:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">wget</span> <span class="pre">https://www.privateinternetaccess.com/openvpn/openvpn.zip</span>
+<span class="pre">`</span></code></p>
+<p>If <cite>unzip</cite> is not installed, go ahead:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">unzip</span>
+<span class="pre">`</span></code></p>
+<p>Then:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">unzip</span> <span class="pre">openvpn.zip</span> <span class="pre">-d</span> <span class="pre">openvpn</span>
+<span class="pre">`</span></code></p>
+<p># Copy the Files</p>
+<p>Copy the PIA OpenVPN certificates and profile to the OpenVPN configuration location.</p>
+<dl class="docutils">
+<dt>!!! note</dt>
+<dd>I&#8217;m using <cite>Japan.ovpn</cite> as an example location. You can/should change that to whichever location you want to use.</dd>
+</dl>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">cp</span> <span class="pre">openvpn/ca.crt</span> <span class="pre">openvpn/crl.pem</span> <span class="pre">/etc/openvpn/</span>
+<span class="pre">sudo</span> <span class="pre">cp</span> <span class="pre">openvpn/Japan.ovpn</span> <span class="pre">/etc/openvpn/Japan.conf</span>
+<span class="pre">`</span></code></p>
+<p># Create the Login...</p>
+<p>Create <cite>/etc/openvpn/login</cite> containing only your username and password, one per line, for example:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">user12345678</span>
+<span class="pre">MyGreatPassword</span>
+<span class="pre">`</span></code></p>
+<p>Change the permissions on this file so only the root user can read it:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">600</span> <span class="pre">/etc/openvpn/login</span>
+<span class="pre">`</span></code></p>
+<p># And Edit the <cite>.conf</cite> File</p>
+<p>Setup OpenVPN to use your stored username and password by editing the the config file for the VPN location:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/openvpn/Japan.conf</span>
+<span class="pre">`</span></code></p>
+<p>Change the following lines:</p>
+<p>From This                | To This
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;- | &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+ca ca.crt                   | ca /etc/openvpn/ca.crt
+auth-user-pass    | auth-user-pass /etc/openvpn/login
+crl-verify crl.pem | crl-verify /etc/openvpn/crl.pem</p>
+<p># Test VPN</p>
+<p>At this point you should be able to test the VPN actually works:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">openvpn</span> <span class="pre">--config</span> <span class="pre">/etc/openvpn/Japan.conf</span>
+<span class="pre">`</span></code></p>
+<p>If all is well, you&#8217;ll see something like:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">openvpn</span> <span class="pre">--config</span> <span class="pre">/etc/openvpn/Japan.conf</span>
+<span class="pre">Sat</span> <span class="pre">Oct</span> <span class="pre">24</span> <span class="pre">12:10:54</span> <span class="pre">2015</span> <span class="pre">OpenVPN</span> <span class="pre">2.3.4</span> <span class="pre">arm-unknown-linux-gnueabihf</span> <span class="pre">[SSL</span> <span class="pre">(OpenSSL)]</span> <span class="pre">[LZO]</span> <span class="pre">[EPOLL]</span> <span class="pre">[PKCS11]</span> <span class="pre">[MH]</span> <span class="pre">[IPv6]</span> <span class="pre">built</span> <span class="pre">on</span> <span class="pre">Dec</span>&nbsp; <span class="pre">5</span> <span class="pre">2014</span>
+<span class="pre">Sat</span> <span class="pre">Oct</span> <span class="pre">24</span> <span class="pre">12:10:54</span> <span class="pre">2015</span> <span class="pre">library</span> <span class="pre">versions:</span> <span class="pre">OpenSSL</span> <span class="pre">1.0.1k</span> <span class="pre">8</span> <span class="pre">Jan</span> <span class="pre">2015,</span> <span class="pre">LZO</span> <span class="pre">2.08</span>
+<span class="pre">Sat</span> <span class="pre">Oct</span> <span class="pre">24</span> <span class="pre">12:10:54</span> <span class="pre">2015</span> <span class="pre">UDPv4</span> <span class="pre">link</span> <span class="pre">local:</span> <span class="pre">[undef]</span>
+<span class="pre">Sat</span> <span class="pre">Oct</span> <span class="pre">24</span> <span class="pre">12:10:54</span> <span class="pre">2015</span> <span class="pre">UDPv4</span> <span class="pre">link</span> <span class="pre">remote:</span> <span class="pre">[AF_INET]123.123.123.123:1194</span>
+<span class="pre">Sat</span> <span class="pre">Oct</span> <span class="pre">24</span> <span class="pre">12:10:54</span> <span class="pre">2015</span> <span class="pre">WARNING:</span> <span class="pre">this</span> <span class="pre">configuration</span> <span class="pre">may</span> <span class="pre">cache</span> <span class="pre">passwords</span> <span class="pre">in</span> <span class="pre">memory</span> <span class="pre">--</span> <span class="pre">use</span> <span class="pre">the</span> <span class="pre">auth-nocache</span> <span class="pre">option</span> <span class="pre">to</span> <span class="pre">prevent</span> <span class="pre">this</span>
+<span class="pre">Sat</span> <span class="pre">Oct</span> <span class="pre">24</span> <span class="pre">12:10:56</span> <span class="pre">2015</span> <span class="pre">[Private</span> <span class="pre">Internet</span> <span class="pre">Access]</span> <span class="pre">Peer</span> <span class="pre">Connection</span> <span class="pre">Initiated</span> <span class="pre">with</span> <span class="pre">[AF_INET]123.123.123.123:1194</span>
+<span class="pre">Sat</span> <span class="pre">Oct</span> <span class="pre">24</span> <span class="pre">12:10:58</span> <span class="pre">2015</span> <span class="pre">TUN/TAP</span> <span class="pre">device</span> <span class="pre">tun0</span> <span class="pre">opened</span>
+<span class="pre">Sat</span> <span class="pre">Oct</span> <span class="pre">24</span> <span class="pre">12:10:58</span> <span class="pre">2015</span> <span class="pre">do_ifconfig,</span> <span class="pre">tt-&gt;ipv6=0,</span> <span class="pre">tt-&gt;did_ifconfig_ipv6_setup=0</span>
+<span class="pre">Sat</span> <span class="pre">Oct</span> <span class="pre">24</span> <span class="pre">12:10:58</span> <span class="pre">2015</span> <span class="pre">/sbin/ip</span> <span class="pre">link</span> <span class="pre">set</span> <span class="pre">dev</span> <span class="pre">tun0</span> <span class="pre">up</span> <span class="pre">mtu</span> <span class="pre">1500</span>
+<span class="pre">Sat</span> <span class="pre">Oct</span> <span class="pre">24</span> <span class="pre">12:10:58</span> <span class="pre">2015</span> <span class="pre">/sbin/ip</span> <span class="pre">addr</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">tun0</span> <span class="pre">local</span> <span class="pre">10.10.10.6</span> <span class="pre">peer</span> <span class="pre">10.10.10.5</span>
+<span class="pre">Sat</span> <span class="pre">Oct</span> <span class="pre">24</span> <span class="pre">12:10:59</span> <span class="pre">2015</span> <span class="pre">Initialization</span> <span class="pre">Sequence</span> <span class="pre">Completed</span>
+<span class="pre">`</span></code></p>
+<p>With the <cite>Initialization Sequence Completed</cite> being the most important.</p>
+<p>Exit this with <cite>Ctrl+C</cite></p>
+<p># Setup OpenVPN&#8217;s Autostart Configuration</p>
+<p>Edit the <cite>/etc/default/openvpn</cite> file</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/default/openvpn</span>
+<span class="pre">`</span></code></p>
+<p>Next, since I use only the one <cite>.conf</cite> file,  I uncomment the <cite>AUTOSTART-&#8220;all&#8221;</cite> line. If you have a different setup, go through and make those changes.</p>
+<p>Then, to start the service:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">openvpn</span> <span class="pre">start</span>
+<span class="pre">`</span></code></p>
+<p># Setup Routing and NAT</p>
+<p>Enable IP Forwarding:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">/bin/su</span> <span class="pre">-c</span> <span class="pre">&quot;echo</span> <span class="pre">-e</span> <span class="pre">'\n#Enable</span> <span class="pre">IP</span> <span class="pre">Routing\nnet.ipv4.ip_forward</span> <span class="pre">=</span> <span class="pre">1'</span> <span class="pre">&gt;&gt;</span> <span class="pre">/etc/sysctl.conf&quot;</span>
+<span class="pre">sudo</span> <span class="pre">sysctl</span> <span class="pre">-p</span>
+<span class="pre">`</span></code></p>
+<p>Setup NAT from the local LAN down the VPN tunnel:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">iptables</span> <span class="pre">-t</span> <span class="pre">nat</span> <span class="pre">-A</span> <span class="pre">POSTROUTING</span> <span class="pre">-o</span> <span class="pre">tun0</span> <span class="pre">-j</span> <span class="pre">MASQUERADE</span>
+<span class="pre">sudo</span> <span class="pre">iptables</span> <span class="pre">-A</span> <span class="pre">FORWARD</span> <span class="pre">-i</span> <span class="pre">tun0</span> <span class="pre">-o</span> <span class="pre">eth0</span> <span class="pre">-m</span> <span class="pre">state</span> <span class="pre">--state</span> <span class="pre">RELATED,ESTABLISHED</span> <span class="pre">-j</span> <span class="pre">ACCEPT</span>
+<span class="pre">sudo</span> <span class="pre">iptables</span> <span class="pre">-A</span> <span class="pre">FORWARD</span> <span class="pre">-i</span> <span class="pre">eth0</span> <span class="pre">-o</span> <span class="pre">tun0</span> <span class="pre">-j</span> <span class="pre">ACCEPT</span>
+<span class="pre">`</span></code></p>
+<p>Make the NAT rules persistent across reboot:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">iptables-persistent</span>
+<span class="pre">`</span></code></p>
+<p>The installer will ask if you want to save current rules, select <cite>Yes</cite>. This copies over the above rules to <cite>iptables-persistent</cite>&#8216;s files. Those are located at <cite>/etc/iptables</cite> if you ever wanna change them.</p>
+<ul class="simple">
+<li><ul class="first">
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Copied from the bottom half of [superjamie&#8217;s gist](<a class="reference external" href="https://gist.github.com/superjamie/ac55b6d2c080582a3e64">https://gist.github.com/superjamie/ac55b6d2c080582a3e64</a>).</p>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Justin Partain.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

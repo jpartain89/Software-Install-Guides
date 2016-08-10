@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Software Install Guides 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Software Install Guides 1 documentation" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../../_static/favicon.ico" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+    <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/docs/ubuntu/postfix/postfix.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p># Use Postfix as relay [^Sourcing]</p>
+<p>So, postfix is a fairly simple mailserver software, that, to be honest, the reason I&#8217;m using it is because the most recent, up to date how-to&#8217;s all use postfix. Which, I&#8217;m assuming that means its probably one of the easier mail systems to configure.</p>
+<p>But, we will be using it to forward all of the system emails to our personal email address. I use gmail, so my examples will be more geared towards gmails smtp address and port.</p>
+<p>## Install Postfix</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">postfix</span> <span class="pre">mailutils</span>
+<span class="pre">`</span></code></p>
+<p>Now, during this installation, the system will prompt you with <cite>Configuration Option</cite>. Since we will be using an outside service to send our mail - aka [smtp.gmail.com](smtp.gmail.com) - we will select <cite>Internet Site</cite>.</p>
+<p>If we were to use postfix in other ways, we&#8217;d pick another option.</p>
+<p>![PostFix Installation Configuration Question](./pf_install_conf.jpg)</p>
+<p>Then, it will continue on with <cite>System Mail Name</cite>, which, technically you would normally want a FQDN address listed here. But, using your systems basic hostname is also fine, especially if you have just a couple of machines.</p>
+<p>![Postfix mail name config screen](./pf_mailname.jpg)</p>
+<p>## Configure Postfix</p>
+<p>We will be setting the system to process emails only from &#8220;the server on which it is running,&#8221; aka the <cite>localhost</cite> or <cite>loopback interface</cite>. That way, when postfix &#8220;receives&#8221; an email from the system - for say, root - it will use Postfix to forward the email off through our specified smtp server. Thus, using the loopback as the &#8220;catch-all&#8221; for the emails.</p>
+<p>### Password File</p>
+<p>First, we&#8217;re going to make a seperate, locked down password file:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/postfix/sasl_passwd</span>
+<span class="pre">`</span></code></p>
+<p>And add the line:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">[smtp.gmail.com]:587</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pre">username&#64;gmail.com:password</span>
+<span class="pre">`</span></code></p>
+<p>Which, of course, if you use a different mail service, input their info and it should work just the same.</p>
+<p>Now, lock that file down!</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">600</span> <span class="pre">/etc/postfix/sasl_passwd</span>
+<span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">root:root</span> <span class="pre">/etc/postfix/sasl_passwd</span>
+<span class="pre">`</span></code></p>
+<p>### Main Configure File</p>
+<p>Also, in the <cite>main.cf</cite> file, there are 6 specific parameters we will be using for the relay setup:</p>
+<ol class="arabic simple">
+<li><cite>relayhost</cite> which specifies the mail relay host and port number. The host name will be enclosed in brackets to specify that no MX lookup is required.</li>
+<li><cite>smtp_use_tls</cite> which enables (or disables) transport layer security.</li>
+<li><cite>smtp_sasl_auth_enable</cite> which enables (or disables) SASL authentication.</li>
+<li><cite>smtp_sasl_security_options</cite> which in the following configuration will be set to empty, to ensure that no Gmail-incompatible security options are used.</li>
+<li><cite>smtp_sasl_password_maps</cite> which specifies the password file to use. This file will be compiled and hashed by postmap in a later step.</li>
+<li><cite>smtp_tls_CAfile</cite> which specifies the list of certificate authorities to use when verifying server identity.</li>
+</ol>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/postfix/main.cf</span>
+<span class="pre">`</span></code></p>
+<p><cite>main.cf</cite> is postfix&#8217;s config file.</p>
+<p>You will most likely have to add most of the above options, possibly deleting one or two in order to clump them all together in one, single block of text.</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>bash
+relayhost = [smtp.gmail.com]:587
+smtp_use_tls = yes</p>
+<blockquote>
+<div>smtp_sasl_auth_enable = yes</div></blockquote>
+<p>smtp_sasl_security_options =
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd</p>
+<blockquote>
+<div>smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt</div></blockquote>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<p>## Process Password File</p>
+<p>Remember when you installed <cite>mailutils</cite>? That was for <cite>postmap</cite>, which compiles and hashes the contents of our <cite>sasl_passwd</cite> and creates a new file in the same spot, <cite>sasl_passwd.db</cite>.</p>
+<p>## Restart Postfix</p>
+<p>Restart postfix, enabling our various changes:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">postfix.service</span>
+<span class="pre">`</span></code></p>
+<p>## Test Send Emails</p>
+<p>This is testing if the actual forwarding part works.</p>
+<p>To send a test email over the command line:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">echo</span> <span class="pre">&quot;This</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">body</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">email&quot;</span> <span class="pre">|</span> <span class="pre">mail</span> <span class="pre">-s</span> <span class="pre">&quot;This</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">subject</span> <span class="pre">line&quot;</span> <span class="pre">user&#64;example.com</span>
+<span class="pre">`</span></code></p>
+<p>Making sure to put your email address in place of <cite>user&#64;example.com</cite>. You should receive the email within a few seconds.</p>
+<p>[^Sourcing]: Copied very liberally from [HowToForge Postfix How-To](<a class="reference external" href="https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/">https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/</a>)</p>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Justin Partain.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
