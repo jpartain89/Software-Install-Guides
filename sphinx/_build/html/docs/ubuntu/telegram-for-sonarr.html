@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; Software Install Guides 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Software Install Guides 1 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../_static/favicon.ico" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Getting Started</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/docs/ubuntu/telegram-for-sonarr.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p># Sonarr-Telegram Installation</p>
+<p>Bot which lets you or others add series to [Sonarr](<a class="reference external" href="https://sonarr.tv/">https://sonarr.tv/</a>) via the messaging service [Telegram](<a class="reference external" href="https://telegram.org/">https://telegram.org/</a>).</p>
+<p>Contact [&#64;BotFather](<a class="reference external" href="http://telegram.me/BotFather">http://telegram.me/BotFather</a>) on Telegram to create and get a bot token.</p>
+<div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>## Prerequisites
+- Node.js
+- Git</p>
+<p><cite>sudo apt-get install node.js git git-core</cite></p>
+<p>## Installation
+### Git Repo Cloning</p>
+<p>Then, clone the repo:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/onedr0p/telegram-sonarr-bot</span> <span class="pre">~/git/</span>
+<span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">~/git/telegram-sonarr-bot</span> <span class="pre">/opt/telegram-sonarr-bot</span>
+<span class="pre">cd</span> <span class="pre">/opt/telegram-sonarr-bot</span>
+<span class="pre">sudo</span> <span class="pre">npm</span> <span class="pre">install</span>
+<span class="pre">`</span></code></p>
+<p>That last line has our node.js installation install all node.js required items.</p>
+<p>### Configure Options
+#### Copy default files into your edited files</p>
+<p>Next, copy the default <cite>acl.json.template</cite> and <cite>config.json.template</cite> files to <cite>acl.json</cite> and <cite>config.json</cite>, so the system can read your info that you will input into them:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">cp</span> <span class="pre">acl.json.template</span> <span class="pre">acl.json</span>
+<span class="pre">cp</span> <span class="pre">config.json.template</span> <span class="pre">config.json</span>
+<span class="pre">`</span></code></p>
+<p>#### Input your Information</p>
+<p>In <cite>config.json</cite>, fill in the various values:</p>
+<p>Telegram:
+- <strong>botToken</strong> your Telegram Bot token
+&gt; This info came from BotFather, the 2nd step at the top of this document.</p>
+<p>Bot:
+- <strong>password</strong> the password to access the bot
+&gt; You enter whatever password you want to use. Remember, these bots are technically accessible by ANY user on Telegram.... So the password is to stop them!
+- <strong>owner</strong> your Telegram User ID
+- <strong>notifyId</strong> your Telegram User ID
+&gt; You get these from the bot IDBot</p>
+<p>Sonarr:
+- <strong>hostname</strong>: hostname where your Sonarr program is running (required)
+- <strong>apiKey</strong>: Your API key to access Sonarr (required)
+- <strong>port</strong>: port number Sonarr is listening on (optional, default: 5050)
+- <strong>urlBase</strong>: URL Base of Sonarr (optional, default: empty)
+&gt; This is if you are running a reverse proxy in front of Sonarr. If you don&#8217;t know what this is, you might not be using a reverse proxy.
+- <strong>ssl</strong>: Set to true if you are connecting via SSL, which is a settings in Sonarr (default: false)
+- <strong>username</strong>: HTTP Auth username (default: empty)
+- <strong>password</strong>: HTTP Auth password (default: empty)</p>
+<p><strong>Important note</strong>: Restart the bot after making any changes to the <cite>config.json</cite> file.</p>
+<p>## Now, start the bot</p>
+<p><cite>node sonarr.js</cite></p>
+<p>## Usage (commands)</p>
+<p>### First
+Send &#8216;/start&#8217; to the bot, first to make sure that its working. And second, for it to, well... start.</p>
+<p>### Second, Password Authentication
+Next, send <cite>/auth password</cite> to the bot, replacing <cite>password</cite> with the password you entered in the <cite>config.json</cite> file above.</p>
+<p>### Other Commands</p>
+<p>Since you are able to see the commands inside of the bot chat, I wont repeat all of that here.</p>
+<p>Hit <cite>ctrl - x</cite> in your terminal to stop the program.</p>
+<p>## Startup Service</p>
+<p>Create the init.d script. We will be using a default node-startup script found on github.</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/chovy/node-startup.git</span> <span class="pre">~/git/node-startup</span>
+<span class="pre">sudo</span> <span class="pre">cp</span> <span class="pre">~/git/node-startup/init.d/node-app</span> <span class="pre">/etc/init.d/telegram-sonarr</span>
+<span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/init.d/telegram-sonarr</span>
+<span class="pre">`</span></code></p>
+<p>Make sure to edit the top of the file thusly, or if you know better options, use them of course.</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">USER=&quot;root&quot;</span>
+<span class="pre">NODE_ENV=&quot;production&quot;</span>
+<span class="pre">PORT=&quot;3000&quot;</span>
+<span class="pre">APP_DIR=&quot;/opt/telegram-sonarr-bot&quot;</span>
+<span class="pre">NODE_APP=&quot;sonarr.js&quot;</span>
+<span class="pre">CONFIG_DIR=&quot;$APP_DIR&quot;</span>
+<span class="pre">PID_DIR=&quot;/var/run&quot;</span>
+<span class="pre">PID_FILE=&quot;$PID_DIR/telegram-sonarr.pid&quot;</span>
+<span class="pre">LOG_DIR=&quot;/var/log&quot;</span>
+<span class="pre">LOG_FILE=&quot;$LOG_DIR/telegram-sonarr.log&quot;</span>
+<span class="pre">NODE_EXEC=$(which</span> <span class="pre">node)</span>
+<span class="pre">APP_NAME=&quot;Telegram-Sonarr-Bot&quot;</span>
+<span class="pre">`</span></code></p>
+<p>Then,</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">/etc/init.d/telegram-sonarr</span>
+<span class="pre">sudo</span> <span class="pre">update-rc.d</span> <span class="pre">telegram-sonarr</span> <span class="pre">defaults</span>
+<span class="pre">`</span></code></p>
+<p>Now, make sure the service script works.</p>
+<p><cite>sudo service telegram-sonarr start</cite></p>
+<p>Then, go back to your telegram chat room, and make sure its running by typing <cite>/start</cite></p>
+<p>## Notifications
+Sonarr can be setup to send notifications to a user or a group chat when new content is added.</p>
+<ul>
+<li><p class="first">In Sonarr go to <cite>Settings</cite> &gt; <cite>Connect</cite> &gt; <cite>+</cite> &gt; <cite>Custom Script</cite></p>
+</li>
+<li><p class="first">In the Name field enter <cite>Telegram</cite></p>
+</li>
+<li><dl class="first docutils">
+<dt>In the Path field enter the full path to your node.js installation</dt>
+<dd><ul class="first last simple">
+<li><cite>/usr/local/bin/node</cite></li>
+<li>Or you can put in &#8216;$(which node)&#8217; as that will change into the location of <cite>node</cite></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">In the Arguments field enter the full path to <cite>sonarr_notify.js</cite> i.e <cite>~/git/telegram-sonarr/sonarr_notify.js</cite></p>
+</li>
+<li><p class="first">If your bot is not started yet, start the bot by running <cite>node sonarr.js</cite></p>
+</li>
+<li><p class="first">Otherwise, the notifications should work</p>
+</li>
+<li><ul class="first simple">
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Most directions copied liberally from [onedr0p&#8217;s](<a class="reference external" href="https://github.com/onedr0p">https://github.com/onedr0p</a>) [telegram-sonarr repo](<a class="reference external" href="https://github.com/onedr0p/telegram-sonarr">https://github.com/onedr0p/telegram-sonarr</a>)</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Justin Partain.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

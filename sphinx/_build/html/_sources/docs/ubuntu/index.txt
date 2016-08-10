@@ -1,0 +1,18 @@
+.. _ubuntu:
+
+Ubuntu
+######
+
+.. toctree::
+  :maxdepth: 1
+
+  openvpn
+  sonarr
+  couchpotato
+  htpc-manager
+  ddclient
+  plexpy
+  transmission-daemon
+  netatalk
+  nginx-from-ubuntu-ppa
+  nginx-from-source

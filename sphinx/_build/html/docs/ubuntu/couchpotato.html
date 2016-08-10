@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Software Install Guides 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Software Install Guides 1 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../_static/favicon.ico" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/docs/ubuntu/couchpotato.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p># CouchPotato Movie Downloader</p>
+<p>CouchPotato is a web program, built on python, specifically tailored towards automating Movie Downloads, either through public or private torrent sites or using Usenet Services.</p>
+<p>Its a beautifully written program, works amazingly well, and is honestly fun to use.</p>
+<p>## Shoutout</p>
+<p>First, I&#8217;d like to go ahead and say that I wouldn&#8217;t have been able to learn as much as I have as quickly or easily without the help of [HTPCGuides.com][04a25565]. They are an amazing site, they are slowly getting larger, and they are the real, awesome source. My files are more for me, they are better written for everyone. [^Sourcing]</p>
+<p>## Base Requirements</p>
+<p>First, lets install the basic required programs to help run all-the-things</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git-core</span> <span class="pre">libffi-dev</span> <span class="pre">libssl-dev</span> <span class="pre">zlib1g-dev</span> <span class="pre">libxslt1-dev</span> <span class="pre">libxml2-dev</span> <span class="pre">python</span> <span class="pre">python-pip</span> <span class="pre">python-dev</span> <span class="pre">build-essential</span> <span class="pre">-y</span>
+<span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">lxml</span> <span class="pre">cryptography</span> <span class="pre">pyopenssl</span>
+<span class="pre">`</span></code></p>
+<dl class="docutils">
+<dt>!!! note</dt>
+<dd><p class="first">When running pip with sudo, that then installs those specified programs globally, so the entire system has access.</p>
+<p>If you are using a more shared environment - where your pip install might interfere with another users python programs - its best to invoke virtualenv from within the directory you are going to save and run the main CouchPotato program from.</p>
+<p>This creates a virtual-like environment for installing your python programs within JUST that directory. So, if there are differing versions elsewhere, they wont clash.</p>
+<p class="last">Currently, I am not using virtualenv, so that is currently outside the scope of this document.</p>
+</dd>
+</dl>
+<p>## Clone the Repo</p>
+<p>Now, to really kick things off, we&#8217;re going to first clone the github repo, as this is the - well, only way right now - to install and run the software.</p>
+<p>But, the other big plus to this is that for running updates, not only does the program have the ability to simply run <cite>git pull</cite> or what have you from within itself, but if that isn&#8217;t pulling a fresher update due to other various settings it has, YOU are able to go in and just run <cite>git pull</cite> on the CouchPotato directory.</p>
+<p>Which, is why...</p>
+<dl class="docutils">
+<dt>!!! note &#8220;Custom Repo Location&#8221;</dt>
+<dd><p class="first">I keep all of my cloned git repos inside of one, singular directory:</p>
+<p><cite>~/git</cite></p>
+<p>This way, I don&#8217;t have to hunt all over my system for where my repo&#8217;s are and it makes it easier to keep them updated. Then, I symlink the library to wherever either the developer wants/requires it or where is easiest.</p>
+<p class="last">The other way of handing this is to clone your PROGRAMS into the /opt directory - so /opt/couchpotato, /opt/NzbDrone, /opt/plexpy and so on. Then clone your working repos for projects into ~/git/[repo]</p>
+</dd>
+</dl>
+<p>Now, onto the cloning:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/RuudBurger/CouchPotatoServer</span> <span class="pre">~/git/couchpotato</span>
+<span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">~/git/couchpotato</span> <span class="pre">/opt/couchpotato</span>
+<span class="pre">`</span></code></p>
+<p>Which, again, your other option is to:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/RuudBurger/CouchPotatoServer</span> <span class="pre">/opt/couchpotato</span>
+<span class="pre">`</span></code></p>
+<p>## User Management</p>
+<p>Either way, make sure the directories are marked as owned by the specific user you want to run the actual program. For CouchPotato, I have my main user running it. Technically, for proper security and the Linux Way, you&#8217;re supposed to have specific, security-neutered, non-home-directory-having users running these programs. Helps stop any random, drive-by-login attempts, or rogue access if your password or keys were to ever get out.</p>
+<p>So, if we want to go the right way, we would create a user that has no shell access, isn&#8217;t allowed to actually log in, but is able to run programs.</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">adduser</span> <span class="pre">--system</span> <span class="pre">--group</span> <span class="pre">--disabled-login</span> <span class="pre">couchpotato</span> <span class="pre">--home</span> <span class="pre">/opt/couchpotato</span> <span class="pre">--shell</span> <span class="pre">/bin/nologin</span>
+<span class="pre">`</span></code></p>
+<p>So, lets break that down:</p>
+<ol class="arabic simple">
+<li><cite>&#8211;system</cite> dictates that this is a system-type user account.</li>
+<li><cite>&#8211;group</cite> man document states: &#8220;When combined with &#8211;system, a group with the same name and ID as the system user is created.&#8221;</li>
+<li><cite>&#8211;disabled</cite>-login basically means, well, you cannot login to the system using this account.</li>
+<li><cite>&#8211;home</cite> states that the location of the programs files is the users home directory, which if you already have the files there, it will display an error. You can ignore it for now.</li>
+<li><cite>&#8211;shell /bin/nologin</cite> is a special shell that, as the name implys, helps further negate the login capabilities of the user.</li>
+</ol>
+<p>So now, we want to make sure our directories actually are assigned to this user.:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">couchpotato:couchpotato</span> <span class="pre">~/git/couchpotato</span>
+<span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">couchpotato:couchpotato</span> <span class="pre">/opt/couchpotato</span>
+<span class="pre">`</span></code></p>
+<p>The other thing we also want to pay attention to is whether we have external drives mounted on our system; if we are running our Linux Software as a VirtualMachine, thus changing the way items might be mounted; and needing to pay attention to what users/groups are assigned those external drives/directories that we might need access to, in order to process/watch/download/etc. properly!</p>
+<p>So, for running this inside of a VirtualBox instance locally, using folder mounting through VBox, they have a custom group for the file ownership in the machine, <cite>vboxsf</cite>. So, to allow users to have access to read-write on these directories:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-aG</span> <span class="pre">vboxsf</span> <span class="pre">$USER</span>
+<span class="pre">`</span></code></p>
+<p>So, the <cite>-aG</cite> part is adding a user to a group by addition, not replacing.
+Then, the first name is the group, and the 2nd is the user.</p>
+<p>Usually in order to have the addition take in the filesystem, you would log the user out then back in, but the system users normally don&#8217;t have login/out abilities. So, restart the server instance.</p>
+<p>## Test if it works</p>
+<p>Now, we&#8217;ll run the python program just within the Command Line output, which shows all the text output, including any errors and what not.</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">python</span> <span class="pre">/opt/couchpotato/CouchPotato.py</span>
+<span class="pre">`</span></code></p>
+<p>This will run only as long as you allow it directly inside the terminal, and it will also give each step that the program runs, so you can see if it gives any errors or what else might need to be changed.</p>
+<p>Then, to stop the CL output and control, hit <cite>Ctrl-C</cite> to quit the program.</p>
+<p>## Copy/Edit Default File</p>
+<dl class="docutils">
+<dt>!!! note</dt>
+<dd>The <cite>/etc/default</cite> is generally where a lot of programs like to keep their default settings files. Its a nice, centrally located spot that init or systemctl program files can reference when wanting a central place that a user can amend different settings, like the user that is running the program, or the directory location of different files.</dd>
+</dl>
+<p>So, we want to copy over the defaut <cite>/etc/default</cite> file from the github location, and then make any necessary changes.</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">cp</span> <span class="pre">/opt/couchpotato/init/ubuntu.default</span> <span class="pre">/etc/default/couchpotato</span>
+<span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/default/couchpotato</span>
+<span class="pre">`</span></code></p>
+<p>The below code field is not the entire file, but rather just an excerpt of items of interest.</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>bash
+# COPY THIS FILE TO /etc/default/couchpotato
+# Accepted variables with default values -if any- in parentheses:</p>
+<p># username to run couchpotato under (couchpotato)
+CP_USER=couchpotato
+# directory of CouchPotato.py (/opt/couchpotato)
+CP_HOME=/opt/couchpotato</p>
+<p># directory of couchpotato&#8217;s db, cache and logs (/var/opt/couchpotato)
+CP_DATA=/var/opt/couchpotato
+# full path of couchpotato.pid (/var/run/couchpotato/couchpotato.pid)
+CP_PIDFILE=/var/run/couchpotato.pid
+# full path of the python binary (/usr/bin/python)
+PYTHON_BIN=/usr/bin/python
+<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<p>So, the <cite>CP_USER</cite> would be the system account we created earlier.
+<cite>CP_HOME</cite> is where it runs from
+<cite>CP_DATA</cite> is where it stores files like the metadata for your movie directory. This one I like to have stored on a mounted, shared drive. This way, if I ever need to reinstall CouchPotato, or the VM fraks up and needs to be spun fresh, the big time stuff is saved elsewhere. So, mine is <cite>/media/sf_Ext1/shared/couchpotato</cite></p>
+<p>## Copy/Edit the init.d file</p>
+<p>Now, if you&#8217;re running Ubuntu, the <cite>./init/ubuntu</cite> script gets copied and amended thusly:</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">cp</span> <span class="pre">/opt/couchpotato/init/ubuntu</span> <span class="pre">/etc/init.d/couchpotato</span>
+<span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">/etc/init.d/couchpotato</span>
+<span class="pre">sudo</span> <span class="pre">update-rc.d</span> <span class="pre">couchpotato</span> <span class="pre">defaults</span>
+<span class="pre">`</span></code></p>
+<p>So the <cite>chmod +x</cite> makes the file executable - instead of running a bash script as <cite>bash ./script.sh</cite>,  when you <cite>chmod +x</cite> it, you&#8217;re able to just say <cite>./script</cite> and remove the .sh from the file name as well. Then, the system pulls the language from the first line, <cite>#!/bin/bash</cite> or <cite>#!/bin/sh</cite> etc.</p>
+<p>Then, the <cite>update-rc.d</cite> inputs the startup script into the actual upstart, startup system, telling ubuntu to run it on boot - if the script wants that.</p>
+<p>Then, you can run <cite>sudo service couchpotato start</cite>, and so long as it doesn&#8217;t output errors, you can now access it at [<a class="reference external" href="http://127.0.0.1:5050][3e06e9c6">http://127.0.0.1:5050][3e06e9c6</a>]</p>
+<p>I will have reverse-proxying stuff posted in the future, but for now you can look at HTPCGuides.com, as they have a lot of those specific how-to&#8217;s.</p>
+<p>[^Sourcing]: [Directions copied - liberally - from HTPC-Guides][eccd07fa]</p>
+<blockquote>
+<div>[04a25565]: htpcguides.com &#8220;HTPCGuides&#8221;
+[3e06e9c6]: 127.0.0.1:5050 &#8220;CouchPotato Local&#8221;
+[eccd07fa]: <a class="reference external" href="http://www.htpcguides.com/install-couchpotato-ubuntu/">http://www.htpcguides.com/install-couchpotato-ubuntu/</a> &#8220;HTPC Guides CouchPotato Ubuntu Installation&#8221;</div></blockquote>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Justin Partain.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

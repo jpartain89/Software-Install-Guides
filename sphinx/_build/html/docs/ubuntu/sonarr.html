@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Software Install Guides 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Software Install Guides 1 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../_static/favicon.ico" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/docs/ubuntu/sonarr.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p># Sonarr Installation</p>
+<p>## Prerequisites</p>
+<p>Make sure apt-transport-https is installed:</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>bash
+sudo apt-get install apt-transport-https</p>
+<p>sudo apt-key adv &#8211;keyserver keyserver.ubuntu.com &#8211;recv-keys FDA5DFFC
+echo &#8220;deb <a class="reference external" href="https://apt.sonarr.tv/">https://apt.sonarr.tv/</a> master main&#8221; | sudo tee -a /etc/apt/sources.list.d/sonarr.list</p>
+<p>sudo apt-get update &amp;&amp; sudo apt-get install nzbdrone -y
+<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<p>Perform the initial build and make sure it doesn&#8217;t error:</p>
+<p><cite>sudo mono /opt/NzbDrone/NzbDrone.exe</cite></p>
+<p>Next, make the autostart file...</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/init.d/nzbdrone</span>
+<span class="pre">`</span></code></p>
+<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a>bash
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides: NzbDrone
+# Required-Start: $local_fs $network $remote_fs
+# Required-Stop: $local_fs $network $remote_fs
+# Should-Start: $NetworkManager
+# Should-Stop: $NetworkManager
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: starts instance of NzbDrone
+# Description: starts instance of NzbDrone using start-stop-daemon
+### END INIT INFO</p>
+<p>############### EDIT ME ##################
+# path to app
+APP_PATH=/opt/NzbDrone</p>
+<p># user
+RUN_AS=&lt;Your UserName&gt;</p>
+<p># path to mono bin
+DAEMON=$(which mono)</p>
+<p># Path to store PID file
+PID_FILE=/var/run/nzbdrone/nzbdrone.pid
+PID_PATH=$(dirname $PID_FILE)</p>
+<p># script name
+NAME=nzbdrone</p>
+<p># app name
+DESC=NzbDrone</p>
+<p># startup args
+EXENAME=&#8221;NzbDrone.exe&#8221;
+DAEMON_OPTS=&#8221; &#8220;$EXENAME</p>
+<p>############### END EDIT ME ##################</p>
+<p>NZBDRONE_PID=`ps auxf | grep NzbDrone.exe | grep -v grep | awk &#8216;{print $2}&#8217;`</p>
+<p>test -x $DAEMON || exit 0</p>
+<p>set -e</p>
+<p>#Look for PID and create if doesn&#8217;t exist
+if [ ! -d $PID_PATH ]; then</p>
+<blockquote>
+<div>mkdir -p $PID_PATH
+chown $RUN_AS $PID_PATH</div></blockquote>
+<p>fi</p>
+<dl class="docutils">
+<dt>if [ ! -d $DATA_DIR ]; then</dt>
+<dd>mkdir -p $DATA_DIR
+chown $RUN_AS $DATA_DIR</dd>
+</dl>
+<p>fi</p>
+<dl class="docutils">
+<dt>if [ -e $PID_FILE ]; then</dt>
+<dd><p class="first">PID=`cat $PID_FILE`
+if ! kill -0 $PID &gt; /dev/null 2&gt;&amp;1; then</p>
+<blockquote>
+<div>echo &#8220;Removing stale $PID_FILE&#8221;
+rm $PID_FILE</div></blockquote>
+<p class="last">fi</p>
+</dd>
+</dl>
+<p>fi</p>
+<p>echo $NZBDRONE_PID &gt; $PID_FILE</p>
+<dl class="docutils">
+<dt>case &#8220;$1&#8221; in</dt>
+<dd><p class="first">start)
+if [ -z &#8220;${NZBDRONE_PID}&#8221; ]; then</p>
+<blockquote>
+<div>echo &#8220;Starting $DESC&#8221;
+rm -rf $PID_PATH || return 1
+install -d &#8211;mode=0755 -o $RUN_AS $PID_PATH || return 1
+start-stop-daemon -d $APP_PATH -c $RUN_AS &#8211;start &#8211;background &#8211;pidfile    $PID_FILE &#8211;exec $DAEMON &#8211; $DAEMON_OPTS</div></blockquote>
+<dl class="docutils">
+<dt>else</dt>
+<dd>echo &#8220;NzbDrone already running.&#8221;</dd>
+</dl>
+<dl class="docutils">
+<dt>stop)</dt>
+<dd>echo &#8220;Stopping $DESC&#8221;
+echo $NZBDRONE_PID &gt; $PID_FILE
+start-stop-daemon &#8211;stop &#8211;pidfile $PID_FILE &#8211;retry 15</dd>
+</dl>
+<p>;;
+restart|force-reload)</p>
+<blockquote>
+<div>echo &#8220;Restarting $DESC&#8221;
+start-stop-daemon &#8211;stop &#8211;pidfile $PID_FILE &#8211;retry 15
+start-stop-daemon -d $APP_PATH -c $RUN_AS &#8211;start &#8211;background &#8211;pidfile $PID_FILE &#8211;exec $DAEMON &#8211; $DAEMON_OPTS</div></blockquote>
+<p>;;
+status)</p>
+<blockquote>
+<div><p># Use LSB function library if it exists
+if [ -f /lib/lsb/init-functions ]; then</p>
+<blockquote>
+<div><p>. /lib/lsb/init-functions
+if [ -e $PID_FILE ]; then</p>
+<blockquote>
+<div>status_of_proc -p $PID_FILE &#8220;$DAEMON&#8221; &#8220;$NAME&#8221; &amp;&amp; exit 0 || exit $?</div></blockquote>
+<dl class="docutils">
+<dt>else</dt>
+<dd>log_daemon_msg &#8220;$NAME is not running&#8221;
+exit 3</dd>
+</dl>
+<p>fi</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>else</dt>
+<dd><p class="first"># Use basic functions
+if [ -e $PID_FILE ]; then</p>
+<blockquote>
+<div><p>PID=`cat $PID_FILE`
+if kill -0 $PID &gt; /dev/null 2&gt;&amp;1; then</p>
+<blockquote>
+<div>echo &#8221; * $NAME is running&#8221;
+exit 0</div></blockquote>
+<p>fi</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>else</dt>
+<dd>echo &#8221; * $NAME is not running&#8221;
+exit 3</dd>
+</dl>
+<p class="last">fi</p>
+</dd>
+</dl>
+<p>fi</p>
+</div></blockquote>
+<p>;;
+<a href="#id13"><span class="problematic" id="id14">*</span></a>)</p>
+<blockquote>
+<div>N=/etc/init.d/$NAME
+echo &#8220;Usage: $N {start|stop|restart|force-reload|status}&#8221; &gt;&amp;2
+exit 1
+;;</div></blockquote>
+<p class="last">esac</p>
+</dd>
+</dl>
+<p>exit 0
+<a href="#id15"><span class="problematic" id="id16">``</span></a><a href="#id17"><span class="problematic" id="id18">`</span></a></p>
+<p>Then, make executable and add to autostart.</p>
+<p><code class="docutils literal"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">/etc/init.d/nzbdrone</span>
+<span class="pre">sudo</span> <span class="pre">update-rc.d</span> <span class="pre">nzbdrone</span> <span class="pre">defaults</span>
+<span class="pre">`</span></code></p>
+<p>Access at <a class="reference external" href="http://localhost:8989">http://localhost:8989</a></p>
+<p>Directions copied from [HTPC-Guides.com](<a class="reference external" href="http://www.htpcguides.com/install-nzbdrone-ubuntu">http://www.htpcguides.com/install-nzbdrone-ubuntu</a>)</p>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Justin Partain.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
