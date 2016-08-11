@@ -6,6 +6,7 @@ site_author: Justin Partain
 site_favicon: img/favicon.ico
 copyright: © JPCDI and Justin Partain, 2016
 google_analytics: ['UA-75489042-1', 'jpcdi.com']
+site_dir: /var/www/html/docs
 pages:
 - Home: 'index.md'
 - Ubuntu:
