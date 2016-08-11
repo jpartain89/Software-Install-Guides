@@ -1,10 +1,16 @@
-# Install the OpenVPN client:
+# OpenVPN
+
+OpenVPN is the open source, well-supported and well-documented pieces of VPN software there is.
+
+Private Internet Access is the VPN service I personally use, and they also allow purchasing their service through gift cards, thus continuing to remove your name or email from the direct connection to your VPN service. This is the point of VPN, one of them. To secure your connections and annonymize things. But, PIA supplies plenty of files for working with OpenVPN.
+
+## Install OpenVPN
 
 ```bash
 sudo apt-get install openvpn
 ```
 
-# Grab the PIA OpenVPN Profile
+## Grab the PIA OpenVPN Profile
 
 Download and uncompress the PIA OpenVPN profiles:
 
@@ -12,19 +18,19 @@ Download and uncompress the PIA OpenVPN profiles:
 wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
 ```
 
-If `unzip` is not installed, go ahead:
+If `unzip` is not installed, go ahead and install it.
 
 ```bash
 sudo apt-get install unzip
 ```
 
-Then:
+Then, unzip it. Make sure you use the `-d`, or else it'll unzip into the current directory. Super annoying.
 
 ```bash
 unzip openvpn.zip -d openvpn
 ```
 
-# Copy the Files
+## Copy the Files
 
 Copy the PIA OpenVPN certificates and profile to the OpenVPN configuration location.
 
@@ -36,7 +42,7 @@ sudo cp openvpn/ca.crt openvpn/crl.pem /etc/openvpn/
 sudo cp openvpn/Japan.ovpn /etc/openvpn/Japan.conf
 ```
 
-# Create the Login...
+## Login File
 
 Create `/etc/openvpn/login` containing only your username and password, one per line, for example:
 
@@ -51,7 +57,7 @@ Change the permissions on this file so only the root user can read it:
 sudo chmod 600 /etc/openvpn/login
 ```
 
-# And Edit the `.conf` File
+## And Edit the `.conf` File
 
 Setup OpenVPN to use your stored username and password by editing the the config file for the VPN location:
 
@@ -63,11 +69,11 @@ Change the following lines:
 
 From This                | To This
 ------------------- | ----------------------------------------
-ca ca.crt                   | ca /etc/openvpn/ca.crt
+ca ca.crt                   | ca /etc/openvpn/ca.rsa.2048.crt
 auth-user-pass    | auth-user-pass /etc/openvpn/login
-crl-verify crl.pem | crl-verify /etc/openvpn/crl.pem
+crl-verify crl.pem | crl-verify /etc/openvpn/crl.rsa.2048.pem
 
-# Test VPN
+## Test VPN
 
 At this point you should be able to test the VPN actually works:
 
@@ -96,7 +102,7 @@ With the `Initialization Sequence Completed` being the most important.
 
 Exit this with `Ctrl+C`
 
-# Setup OpenVPN's Autostart Configuration
+## Setup OpenVPN's Autostart Configuration
 
 Edit the `/etc/default/openvpn` file
 
@@ -112,7 +118,7 @@ Then, to start the service:
 sudo service openvpn start
 ```
 
-# Setup Routing and NAT
+## Setup Routing and NAT
 
 Enable IP Forwarding:
 
