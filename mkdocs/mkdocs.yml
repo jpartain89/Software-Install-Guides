@@ -19,7 +19,6 @@ pages:
   - 'OpenVPN': 'ubuntu/openvpn.md'
   - 'PlexPy': 'ubuntu/plexpy.md'
   - 'Sonarr': 'ubuntu/sonarr.md'
-  - 'Telegram for Sonarr': 'ubuntu/telegram-for-sonarr.md'
   - 'Transmission-Daemon': 'ubuntu/transmission-daemon.md'
 - macOS:
   - 'macOS Sierra xcode Updating': 'macOS/macOS-Sierra-xcode-update.md'
