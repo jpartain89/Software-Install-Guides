@@ -10,7 +10,7 @@ Its a beautifully written program, works amazingly well, and is honestly fun to 
 Shoutout
 -------------
 
-First, I'd like to go ahead and say that I wouldn't have been able to learn as much as I have as quickly or easily without the help of `HTPCGuides.com <http://www.htpcguides.com/install-couchpotato-ubuntu/>`_. They are an amazing site, they are slowly getting larger, and they are the real, awesome source. My files are more for me, they are better written for everyone.
+First, I'd like to go ahead and say that I wouldn't have been able to learn as much as I have as quickly or easily without the help of `HTPCGuides.com <http://www.htpcguides.com/install-couchpotato-ubuntu/>`_ [HTPC-CP]_. They are an amazing site, they are slowly getting larger, and they are the real, awesome source. My files are more for me, they are better written for everyone.
 
 Base Requirements
 -----------------------
@@ -134,3 +134,5 @@ Then, the ``update-rc.d`` inputs the startup script into the actual upstart, sta
 Then, you can run ``sudo service couchpotato start``, and so long as it doesn't output errors, you can now access it at http://127.0.0.1:5050
 
 I will have reverse-proxying stuff posted in the future, but for now you can look at `HTPCGuides.com`_ as they have a lot of those specific how-to's.
+
+.. [HTPC-CP] These directions were liberally copied from `HTPCGuides.com <http://www.htpcguides.com/install-couchpotato-ubuntu/>`_
