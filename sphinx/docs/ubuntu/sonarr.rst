@@ -80,6 +80,4 @@ Then, start the program with ``sudo service nzbdrone start`` and if you see no e
 
 You can see it at `http://localhost:8989 <http://localhost:8989>`_ if its running on the same machine as your browser. Otherwise put in the machines IP address instead of ``localhost``.
 
-.. rubric:: Footnotes
-
 .. [HTPC-Sonarr] These directions were liberally copied from `HTPCGuides.com <http://www.htpcguides.com/install-nzbdrone-ubuntu>`_
