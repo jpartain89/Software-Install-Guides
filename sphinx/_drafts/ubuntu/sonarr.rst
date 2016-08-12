@@ -1,21 +1,48 @@
-# Sonarr Installation
+.. _sonarr:
 
-## Prerequisites
+Sonarr Installation
+====================
+
+Sonarr (old name was NzbDrone, which you will still see everywhere. Even in their startup file...) is, honestly, my favorite of all of the HTPC Apps. Even moreso than Plex because Plex can really be a huge resource hog.
+
+The day that Sonarr really hopped into my all time fav basket was when I had began downloading a TV show outside of Sonarr. Then, when I had started adding it to Sonarr, it started searching through my directories I had inputted into its settings as a possible final download location, found the files, moved them into their correct, final spot, renamed and everything. Without missing a beat.
+
+Its not without its issues, of course. But they often get fixed quickly, or they aren't with this program, but another site or service.
+
+.. _base_requirements:
+
+Base Requirements
+-----------------------------
 
 Make sure apt-transport-https is installed:
 
-```bash
-sudo apt-get install apt-transport-https
+.. code-block:: bash
 
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
-echo "deb https://apt.sonarr.tv/ master main" | sudo tee -a /etc/apt/sources.list.d/sonarr.list
+  sudo apt-get install apt-transport-https
 
-sudo apt-get update && sudo apt-get install nzbdrone -y
-```
+.. _add_apt_source_install:
 
-Perform the initial build and make sure it doesn't error:
+Add the Apt Source and Install
+-----------------------------------
 
-`sudo mono /opt/NzbDrone/NzbDrone.exe`
+Luckily, here, they have a repo we can add to our apt-get lists (of which I always have seperate list files for the "outside of ubuntu/debian" standards) so we get to have easy updates and whatnot.
+
+First, gotta add the key, then the repo, and then update and install!
+
+.. code-block:: bash
+
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
+  echo "deb https://apt.sonarr.tv/ master main" | sudo tee -a /etc/apt/sources.list.d/sonarr.list
+
+  sudo apt-get update && sudo apt-get install nzbdrone -y
+
+Now, you'll notice there was a TON of apps installing here... Don't panic. This is because Sonarr - aka NzbDrone here - is actually ran using an .exe file! Can you believe it?!? But, there is an open source program called mono that, I believe if the program is compiled for it only, can we run .exe's here! So that was all the Mono modules installing.
+
+But, now we need to run Sonarr, with it outputting the actual output to your shell. This way, you can easily spot any errors, read when it tells you to fix something. Plus, its honestly cool to watch that output live as you click around in a program.
+
+.. code-block:: bash
+
+  sudo mono /opt/NzbDrone/NzbDrone.exe
 
 Next, make the autostart file...
 

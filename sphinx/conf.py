@@ -32,7 +32,6 @@ import sphinx_rtd_theme
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.todo',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -42,7 +41,7 @@ templates_path = ['_templates']
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = '.rst', '.md'
+source_suffix = '.rst'
 
 # The encoding of source files.
 #
@@ -79,7 +78,7 @@ language = None
 #
 # Else, today_fmt is used as the format for a strftime call.
 #
-# today_fmt = '%B %d, %Y'
+today_fmt = '%B %d, %Y'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -148,13 +147,13 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-html_logo = './img/favicon.ico'
+html_logo = 'favicon.ico'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
-html_favicon = './img/favicon.ico'
+html_favicon = 'favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -209,7 +208,7 @@ html_use_smartypants = True
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
 #
-# html_show_copyright = True
+html_show_copyright = True
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
