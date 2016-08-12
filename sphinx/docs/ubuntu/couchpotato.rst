@@ -7,14 +7,10 @@ CouchPotato is a web program, built on python, specifically tailored towards aut
 
 Its a beautifully written program, works amazingly well, and is honestly fun to use.
 
-.. _shoutout:
-
 Shoutout
 -------------
 
 First, I'd like to go ahead and say that I wouldn't have been able to learn as much as I have as quickly or easily without the help of `HTPCGuides.com <http://www.htpcguides.com/install-couchpotato-ubuntu/>`_. They are an amazing site, they are slowly getting larger, and they are the real, awesome source. My files are more for me, they are better written for everyone.
-
-.. _base_requirements:
 
 Base Requirements
 -----------------------
@@ -35,8 +31,6 @@ First, lets install the basic required programs to help run all-the-things
   This creates a virtual-like environment for installing your python programs within JUST that directory. So, if there are differing versions elsewhere, they wont clash.
 
   Currently, I am not using virtualenv, so that is currently outside the scope of this document.
-
-.. _clone_the_repo:
 
 Clone the Repo
 -------------------
@@ -69,8 +63,6 @@ Which, again, your other option is to:
 .. code-block:: bash
 
   git clone https://github.com/RuudBurger/CouchPotatoServer /opt/couchpotato
-
-.. _user_management:
 
 User Management
 ----------------------------
@@ -111,8 +103,6 @@ Then, the first name is the group, and the 2nd is the user.
 
 Usually in order to have the addition take in the filesystem, you would log the user out then back in, but the system users normally don't have login/out abilities. So, restart the server instance.
 
-.. _test_if_it_works:
-
 Test if it works
 ---------------------
 
@@ -125,8 +115,6 @@ Now, we'll run the python program just within the Command Line output, which sho
 This will run only as long as you allow it directly inside the terminal, and it will also give each step that the program runs, so you can see if it gives any errors or what else might need to be changed.
 
 Then, to stop the CL output and control, hit `Ctrl-C` to quit the program.
-
-.. _copy_edit_default_file:
 
 Copy/Edit Default File
 ------------------------------
@@ -164,8 +152,6 @@ The below code field is not the entire file, but rather just an excerpt of items
 So, the `CP_USER` would be the system account we created earlier.
 `CP_HOME` is where it runs from
 `CP_DATA` is where it stores files like the metadata for your movie directory. This one I like to have stored on a mounted, shared drive. This way, if I ever need to reinstall CouchPotato, or the VM fraks up and needs to be spun fresh, the big time stuff is saved elsewhere. So, mine is `/media/sf_Ext1/shared/couchpotato`
-
-.. _copy_or_edit_initd:
 
 Copy or Edit the init.d file
 ------------------------------------

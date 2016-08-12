@@ -9,8 +9,6 @@ The day that Sonarr really hopped into my all time fav basket was when I had beg
 
 Its not without its issues, of course. But they often get fixed quickly, or they aren't with this program, but another site or service.
 
-.. _base_requirements:
-
 Base Requirements
 -----------------------------
 
@@ -19,8 +17,6 @@ Make sure apt-transport-https is installed:
 .. code-block:: bash
 
   sudo apt-get install apt-transport-https
-
-.. _add_apt_source_install:
 
 Add the Apt Source and Install
 -----------------------------------
@@ -40,8 +36,6 @@ Now, you'll notice there was a TON of apps installing here... Don't panic. This 
 
 But, now we need to run Sonarr, with it outputting the actual output to your shell. This way, you can easily spot any errors, read when it tells you to fix something. Plus, its honestly cool to watch that output live as you click around in a program.
 
-.. _first_run:
-
 First Run
 -------------
 
@@ -50,8 +44,6 @@ First Run
   sudo mono /opt/NzbDrone/NzbDrone.exe
 
 Now, to stop the program, `ctrl-C` sends the SIGHUP signal to try to gracefully quit the program.
-
-.. _create_autostart:
 
 Create Autostart init.d File
 -------------------------------
@@ -66,10 +58,11 @@ First, use your fav text editor on:
 
 You'll notice the big `EDIT ME` text in there. Take a looksee, make your edits as you see fit.
 
-  .. include:: sonarr_init.rst
-    :code: bash
+.. include:: sonarr_init.rst
+  :code: bash
 
-.. _add_to_autostart_program:
+.. include:: ubuntu_user.rst
+  :code: bash
 
 Add to Autostart Program
 --------------------------------
@@ -81,8 +74,6 @@ Then, make the script executable and add to your autostart program. In the below
   sudo chmod +x /etc/init.d/nzbdrone
   sudo update-rc.d nzbdrone defaults
 
-.. _final_steps:
-
 Final Steps
 --------------
 
@@ -93,3 +84,8 @@ You can see it at `http://localhost:8989 <http://localhost:8989>`_ if its runnin
 .. rubric:: Footnotes
 
 .. [#HTPC] Directions copied from [HTPC-Guides.com](http://www.htpcguides.com/install-nzbdrone-ubuntu)
+
+.. toctree::
+  :hidden:
+
+  sonarr_init.rst
