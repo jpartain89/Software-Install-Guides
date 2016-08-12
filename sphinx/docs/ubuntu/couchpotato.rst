@@ -64,44 +64,7 @@ Which, again, your other option is to:
 
   git clone https://github.com/RuudBurger/CouchPotatoServer /opt/couchpotato
 
-User Management
-----------------------------
-
-Either way, make sure the directories are marked as owned by the specific user you want to run the actual program. For CouchPotato, I have my main user running it. Technically, for proper security and the Linux Way, you're supposed to have specific, security-neutered, non-home-directory-having users running these programs. Helps stop any random, drive-by-login attempts, or rogue access if your password or keys were to ever get out.
-
-So, if we want to go the right way, we would create a user that has no shell access, isn't allowed to actually log in, but is able to run programs.
-
-.. code-block:: bash
-
-  sudo adduser --system --group --disabled-login couchpotato --home /opt/couchpotato --shell /bin/nologin
-
-So, lets break that down:
-
-1. ``--system`` dictates that this is a system-type user account.
-2. ``--group`` man document states: "When combined with --system, a group with the same name and ID as the system user is created."
-3. ``--disabled``-login basically means, well, you cannot login to the system using this account.
-4. ``--home`` states that the location of the programs files is the users home directory, which if you already have the files there, it will display an error. You can ignore it for now.
-5. ``--shell /bin/nologin`` is a special shell that, as the name implys, helps further negate the login capabilities of the user.
-
-So now, we want to make sure our directories actually are assigned to this user.:
-
-.. code-block:: bash
-
-  sudo chown -R couchpotato:couchpotato ~/git/couchpotato
-  sudo chown -R couchpotato:couchpotato /opt/couchpotato
-
-The other thing we also want to pay attention to is whether we have external drives mounted on our system; if we are running our Linux Software as a VirtualMachine, thus changing the way items might be mounted; and needing to pay attention to what users/groups are assigned those external drives/directories that we might need access to, in order to process/watch/download/etc. properly!
-
-So, for running this inside of a VirtualBox instance locally, using folder mounting through VBox, they have a custom group for the file ownership in the machine, `vboxsf`. So, to allow users to have access to read-write on these directories:
-
-.. code-block:: bash
-
-  sudo usermod -aG vboxsf $USER
-
-So, the `-aG` part is adding a user to a group by addition, not replacing.
-Then, the first name is the group, and the 2nd is the user.
-
-Usually in order to have the addition take in the filesystem, you would log the user out then back in, but the system users normally don't have login/out abilities. So, restart the server instance.
+.. include:: ubuntu_user.rst
 
 Test if it works
 ---------------------
@@ -114,16 +77,16 @@ Now, we'll run the python program just within the Command Line output, which sho
 
 This will run only as long as you allow it directly inside the terminal, and it will also give each step that the program runs, so you can see if it gives any errors or what else might need to be changed.
 
-Then, to stop the CL output and control, hit `Ctrl-C` to quit the program.
+Then, to stop the CL output and control, hit ``ctrl-C`` to quit the program.
 
 Copy/Edit Default File
 ------------------------------
 
 .. note::
 
-  The `/etc/default` is generally where a lot of programs like to keep their default settings files. Its a nice, centrally located spot that init or systemctl program files can reference when wanting a central place that a user can amend different settings, like the user that is running the program, or the directory location of different files.
+  The ``/etc/default`` is generally where a lot of programs like to keep their default settings files. Its a nice, centrally located spot that init or systemctl program files can reference when wanting a central place that a user can amend different settings, like the user that is running the program, or the directory location of different files.
 
-So, we want to copy over the defaut `/etc/default` file from the github location, and then make any necessary changes.
+So, we want to copy over the defaut `/`etc/default`` file from the github location, and then make any necessary changes.
 
 .. code-block:: bash
 
@@ -149,14 +112,14 @@ The below code field is not the entire file, but rather just an excerpt of items
   # full path of the python binary (/usr/bin/python)
   PYTHON_BIN=/usr/bin/python
 
-So, the `CP_USER` would be the system account we created earlier.
-`CP_HOME` is where it runs from
-`CP_DATA` is where it stores files like the metadata for your movie directory. This one I like to have stored on a mounted, shared drive. This way, if I ever need to reinstall CouchPotato, or the VM fraks up and needs to be spun fresh, the big time stuff is saved elsewhere. So, mine is `/media/sf_Ext1/shared/couchpotato`
+#. ``CP_USER`` would be the system account we created earlier.
+#. ``CP_HOME`` is where it runs from
+#. ``CP_DATA`` is where it stores files like the metadata for your movie directory. This one I like to have stored on a mounted, shared drive. This way, if I ever need to reinstall CouchPotato, or the VM fraks up and needs to be spun fresh, the big time stuff is saved elsewhere. So, mine is ``/media/sf_Ext1/shared/couchpotato``
 
 Copy or Edit the init.d file
 ------------------------------------
 
-Now, if you're running Ubuntu, the `./init/ubuntu` script gets copied and amended thusly:
+Now, if you're running Ubuntu, the ``./init/ubuntu`` script gets copied and amended thusly:
 
 .. code-block:: bash
 
@@ -164,10 +127,10 @@ Now, if you're running Ubuntu, the `./init/ubuntu` script gets copied and amende
   sudo chmod +x /etc/init.d/couchpotato
   sudo update-rc.d couchpotato defaults
 
-So the `chmod +x` makes the file executable - instead of running a bash script as `bash ./script.sh`,  when you `chmod +x` it, you're able to just say `./script` and remove the .sh from the file name as well. Then, the system pulls the language from the first line, `#!/bin/bash` or `#!/bin/sh` etc.
+So the ``chmod +x`` makes the file executable - instead of running a bash script as ``bash ./script.sh``,  when you ``chmod +x`` it, you're able to just say ``./script`` and remove the .sh from the file name as well. Then, the system pulls the language from the first line, ``#!/bin/bash`` or ``#!/bin/sh`` etc.
 
-Then, the `update-rc.d` inputs the startup script into the actual upstart, startup system, telling ubuntu to run it on boot - if the script wants that.
+Then, the ``update-rc.d`` inputs the startup script into the actual upstart, startup system, telling ubuntu to run it on boot - if the script wants that.
 
-Then, you can run `sudo service couchpotato start`, and so long as it doesn't output errors, you can now access it at http://127.0.0.1:5050
+Then, you can run ``sudo service couchpotato start``, and so long as it doesn't output errors, you can now access it at http://127.0.0.1:5050
 
-I will have reverse-proxying stuff posted in the future, but for now you can look at HTPCGuides.com, as they have a lot of those specific how-to's.
+I will have reverse-proxying stuff posted in the future, but for now you can look at `HTPCGuides.com`_ as they have a lot of those specific how-to's.

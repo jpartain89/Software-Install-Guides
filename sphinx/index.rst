@@ -8,7 +8,7 @@ These guides are geared more towards programs that run auto-downloaders for Movi
 Table of contents:
 
 .. toctree::
-  :maxdepth: 4
+  :maxdepth: 2
 
   docs/ubuntu/index
 

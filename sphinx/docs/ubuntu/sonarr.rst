@@ -58,11 +58,10 @@ First, use your fav text editor on:
 
 You'll notice the big `EDIT ME` text in there. Take a looksee, make your edits as you see fit.
 
-.. include:: sonarr_init.rst
+.. include:: sonarr_init.txt
   :code: bash
 
 .. include:: ubuntu_user.rst
-  :code: bash
 
 Add to Autostart Program
 --------------------------------
@@ -84,8 +83,3 @@ You can see it at `http://localhost:8989 <http://localhost:8989>`_ if its runnin
 .. rubric:: Footnotes
 
 .. [#HTPC] Directions copied from [HTPC-Guides.com](http://www.htpcguides.com/install-nzbdrone-ubuntu)
-
-.. toctree::
-  :hidden:
-
-  sonarr_init.rst
