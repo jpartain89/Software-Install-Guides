@@ -40,145 +40,56 @@ Now, you'll notice there was a TON of apps installing here... Don't panic. This 
 
 But, now we need to run Sonarr, with it outputting the actual output to your shell. This way, you can easily spot any errors, read when it tells you to fix something. Plus, its honestly cool to watch that output live as you click around in a program.
 
+.. _first_run:
+
+First Run
+-------------
+
 .. code-block:: bash
 
   sudo mono /opt/NzbDrone/NzbDrone.exe
 
-Next, make the autostart file...
+Now, to stop the program, `ctrl-C` sends the SIGHUP signal to try to gracefully quit the program.
 
-```bash
-sudo nano /etc/init.d/nzbdrone
-```
+.. _create_autostart:
 
-```bash
-#! /bin/sh
-### BEGIN INIT INFO
-# Provides: NzbDrone
-# Required-Start: $local_fs $network $remote_fs
-# Required-Stop: $local_fs $network $remote_fs
-# Should-Start: $NetworkManager
-# Should-Stop: $NetworkManager
-# Default-Start: 2 3 4 5
-# Default-Stop: 0 1 6
-# Short-Description: starts instance of NzbDrone
-# Description: starts instance of NzbDrone using start-stop-daemon
-### END INIT INFO
+Create Autostart init.d File
+-------------------------------
 
-############### EDIT ME ##################
-# path to app
-APP_PATH=/opt/NzbDrone
+Now, we need to make the autostart file, of which one is not supplied by the installer. I also didn't have much luck with the ones listed on their `github site <https://github.com/Sonarr/Sonarr/wiki/Autostart-on-Linux>`_. But the text below was coped from `HTPCGuides.com site <http://www.htpcguides.com/install-nzbdrone-ubuntu/>`_, [#HTPC]_ which has served me very well.
 
-# user
-RUN_AS=<Your UserName>
+First, use your fav text editor on:
 
-# path to mono bin
-DAEMON=$(which mono)
+.. code-block:: bash
 
-# Path to store PID file
-PID_FILE=/var/run/nzbdrone/nzbdrone.pid
-PID_PATH=$(dirname $PID_FILE)
+  sudo nano /etc/init.d/nzbdrone
 
-# script name
-NAME=nzbdrone
+You'll notice the big `EDIT ME` text in there. Take a looksee, make your edits as you see fit.
 
-# app name
-DESC=NzbDrone
+  .. include:: sonarr_init.rst
+    :code: bash
 
-# startup args
-EXENAME="NzbDrone.exe"
-DAEMON_OPTS=" "$EXENAME
+.. _add_to_autostart_program:
 
-############### END EDIT ME ##################
+Add to Autostart Program
+--------------------------------
 
-NZBDRONE_PID=`ps auxf | grep NzbDrone.exe | grep -v grep | awk '{print $2}'`
+Then, make the script executable and add to your autostart program. In the below example, its using Ubuntu's ``system <program> start`` program.
 
-test -x $DAEMON || exit 0
+.. code-block:: bash
 
-set -e
+  sudo chmod +x /etc/init.d/nzbdrone
+  sudo update-rc.d nzbdrone defaults
 
-#Look for PID and create if doesn't exist
-if [ ! -d $PID_PATH ]; then
-    mkdir -p $PID_PATH
-    chown $RUN_AS $PID_PATH
-fi
+.. _final_steps:
 
-if [ ! -d $DATA_DIR ]; then
-    mkdir -p $DATA_DIR
-    chown $RUN_AS $DATA_DIR
-fi
+Final Steps
+--------------
 
-if [ -e $PID_FILE ]; then
-    PID=`cat $PID_FILE`
-    if ! kill -0 $PID > /dev/null 2>&1; then
-        echo "Removing stale $PID_FILE"
-        rm $PID_FILE
-    fi
-fi
+Then, start the program with ``sudo service nzbdrone start`` and if you see no error codes - which for some reason Ubuntu 16 wont always show on init.d scripts... Check your HTOP processes to see if its running. If not, ``sudo service nzbdrone status`` - then the program should be running.
 
-echo $NZBDRONE_PID > $PID_FILE
+You can see it at `http://localhost:8989 <http://localhost:8989>`_ if its running on the same machine as your browser. Otherwise put in the machines IP address instead of ``localhost``.
 
-case "$1" in
-    start)
-    if [ -z "${NZBDRONE_PID}" ]; then
-        echo "Starting $DESC"
-        rm -rf $PID_PATH || return 1
-        install -d --mode=0755 -o $RUN_AS $PID_PATH || return 1
-        start-stop-daemon -d $APP_PATH -c $RUN_AS --start --background --pidfile    $PID_FILE --exec $DAEMON -- $DAEMON_OPTS
-    else
-        echo "NzbDrone already running."
-    fi
-    ;;
-    stop)
-        echo "Stopping $DESC"
-        echo $NZBDRONE_PID > $PID_FILE
-        start-stop-daemon --stop --pidfile $PID_FILE --retry 15
-    ;;
-    restart|force-reload)
-        echo "Restarting $DESC"
-        start-stop-daemon --stop --pidfile $PID_FILE --retry 15
-        start-stop-daemon -d $APP_PATH -c $RUN_AS --start --background --pidfile $PID_FILE --exec $DAEMON -- $DAEMON_OPTS
-    ;;
-    status)
-        # Use LSB function library if it exists
-        if [ -f /lib/lsb/init-functions ]; then
-            . /lib/lsb/init-functions
-            if [ -e $PID_FILE ]; then
-                status_of_proc -p $PID_FILE "$DAEMON" "$NAME" && exit 0 || exit $?
-            else
-                log_daemon_msg "$NAME is not running"
-                exit 3
-            fi
-        else
-            # Use basic functions
-            if [ -e $PID_FILE ]; then
-                PID=`cat $PID_FILE`
-                if kill -0 $PID > /dev/null 2>&1; then
-                    echo " * $NAME is running"
-                    exit 0
-                fi
-            else
-                echo " * $NAME is not running"
-                exit 3
-            fi
-        fi
-    ;;
-    *)
-        N=/etc/init.d/$NAME
-        echo "Usage: $N {start|stop|restart|force-reload|status}" >&2
-        exit 1
-        ;;
-    esac
+.. rubric:: Footnotes
 
-exit 0
-```
-
-Then, make executable and add to autostart.
-
-```bash
-sudo chmod +x /etc/init.d/nzbdrone
-sudo update-rc.d nzbdrone defaults
-```
-
-Access at http://localhost:8989
-
-Directions copied from [HTPC-Guides.com](http://www.htpcguides.com/install-nzbdrone-ubuntu)
+.. [#HTPC] Directions copied from [HTPC-Guides.com](http://www.htpcguides.com/install-nzbdrone-ubuntu)

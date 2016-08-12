@@ -27,7 +27,7 @@ First, lets install the basic required programs to help run all-the-things
   sudo pip install --upgrade lxml cryptography pyopenssl
 
 .. note::
-  
+
   When running pip with sudo, that then installs those specified programs globally, so the entire system has access.
 
   If you are using a more shared environment - where your pip install might interfere with another users python programs - its best to invoke virtualenv from within the directory you are going to save and run the main CouchPotato program from.
@@ -165,20 +165,23 @@ So, the `CP_USER` would be the system account we created earlier.
 `CP_HOME` is where it runs from
 `CP_DATA` is where it stores files like the metadata for your movie directory. This one I like to have stored on a mounted, shared drive. This way, if I ever need to reinstall CouchPotato, or the VM fraks up and needs to be spun fresh, the big time stuff is saved elsewhere. So, mine is `/media/sf_Ext1/shared/couchpotato`
 
-## Copy/Edit the init.d file
+.. _copy_or_edit_initd:
+
+Copy or Edit the init.d file
+------------------------------------
 
 Now, if you're running Ubuntu, the `./init/ubuntu` script gets copied and amended thusly:
 
-```bash
-sudo cp /opt/couchpotato/init/ubuntu /etc/init.d/couchpotato
-sudo chmod +x /etc/init.d/couchpotato
-sudo update-rc.d couchpotato defaults
-```
+.. code-block:: bash
+
+  sudo cp /opt/couchpotato/init/ubuntu /etc/init.d/couchpotato
+  sudo chmod +x /etc/init.d/couchpotato
+  sudo update-rc.d couchpotato defaults
 
 So the `chmod +x` makes the file executable - instead of running a bash script as `bash ./script.sh`,  when you `chmod +x` it, you're able to just say `./script` and remove the .sh from the file name as well. Then, the system pulls the language from the first line, `#!/bin/bash` or `#!/bin/sh` etc.
 
 Then, the `update-rc.d` inputs the startup script into the actual upstart, startup system, telling ubuntu to run it on boot - if the script wants that.
 
-Then, you can run `sudo service couchpotato start`, and so long as it doesn't output errors, you can now access it at [http://127.0.0.1:5050][3e06e9c6]
+Then, you can run `sudo service couchpotato start`, and so long as it doesn't output errors, you can now access it at http://127.0.0.1:5050
 
 I will have reverse-proxying stuff posted in the future, but for now you can look at HTPCGuides.com, as they have a lot of those specific how-to's.
