@@ -8,3 +8,4 @@ Ubuntu
   :maxdepth: 2
 
   couchpotato
+  sonarr
