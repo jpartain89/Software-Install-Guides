@@ -2,7 +2,7 @@
 
 Often times, if you're writing shell scripts for, well, whatever reasons, you'll find  you need to differentiate between macOS, Linux - and then Ubuntu, debian, Red Hat, etc. - or any other system.
 
-## tl;dr
+## tl;dr [^5bc1e731]
 
 ```bash
 if [[ "$(uname)" == "Darwin"  ]]; then
@@ -43,4 +43,15 @@ source /etc/*-release
 ID=<see below>
 ```
 
-For the ID, it'll show `raspbian` or `ubuntu` or any other. 
+For the ID, it'll show `raspbian` or `ubuntu` or any other.
+
+Then, since you've sourced the `/etc/*-release` file, you can call each item. AKA in the file, ID=Linux. So, if you wanted to use that, you'd call it:
+
+```bash
+if [[ "$ID" == "Linux" ]]; then
+    do linux things
+fi
+```
+
+
+[^5bc1e731]: [OS Detection in Bash Script](http://stackoverflow.com/questions/3466166/how-to-check-if-running-in-cygwin-mac-or-linux)
