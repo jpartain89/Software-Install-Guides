@@ -31,8 +31,9 @@ pages:
   - 'Transmission Web GUI Change': 'gen_unix/transmission-web-gui.md'
   - 'VirtualBox Guest Additions on Ubuntu Guest': 'gen_unix/virtualbox-guest-addition.md'
   - 'Install Ratom or Remote Atom': 'gen_unix/ratom.md'
-- Other Informationals:
-  - 'Bash IF Conditionals': 'more_info/bash-if-conditionals.md'
+- Shell Scripting:
+  - 'Bash IF Conditionals': 'shell_scripts/bash-if-conditionals.md'
+  - 'Running macOS, Linux, Other?': 'shel_scripts/uname.md'
 theme: readthedocs
 markdown_extensions:
   - admonition
