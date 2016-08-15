@@ -23,7 +23,7 @@ Add the Apt Source and Install
 
 Luckily, here, they have a repo we can add to our apt-get lists (of which I always have seperate list files for the "outside of ubuntu/debian" standards) so we get to have easy updates and whatnot.
 
-First, gotta add the key, then the repo, and then update and install!
+First, gotta add the key, then the repo, and then update and install.
 
 .. code-block:: bash
 

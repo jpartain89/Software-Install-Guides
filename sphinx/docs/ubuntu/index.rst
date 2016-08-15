@@ -9,3 +9,4 @@ Ubuntu
 
   couchpotato
   sonarr
+  transmission-daemon
