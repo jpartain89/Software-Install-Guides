@@ -10,3 +10,4 @@ Ubuntu
   couchpotato
   sonarr
   transmission-daemon
+  ddclient
