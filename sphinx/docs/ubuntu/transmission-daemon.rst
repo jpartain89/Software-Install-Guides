@@ -1,7 +1,7 @@
 ..  _transmission:
 
-Transmission
-===============
+Transmission [TRANS-HTPC]_
+=============================
 
 Transmission is my personal fav of all the Torrent Downloaders. For one, its the easiest I've found to use and setup. For two, it has a headless program for running on a server - and comes standard with a GUI interface that way. And three, its super light weight.
 
@@ -37,7 +37,7 @@ Add the Transmission group to your regular user account, as well as the group th
 .. note::
   If you are running this inside of a VirtualBox Linux Guest, and using VirtualBox's Folder Syncing Feature... You'll notice that the group owner of those mounts is `vboxsf`. Thats only inside of your Guest OS, but will futz with transmission's ability to save anything to those directories. Make sure to also include `vboxsf` with the above commands.
 
-Editing the `settings.conf` file
+Editing the ``settings.conf`` file
 -----------------------------------
 
 .. code-block:: bash
@@ -46,9 +46,9 @@ Editing the `settings.conf` file
 
 The settings file is quite long with lots of options. The Most Important parts are:
 
-``"rpc-whitelist": "0.0.0.0", `` This blocks off all but only the IP listed from accessing....
+``"rpc-whitelist": "0.0.0.0",`` This blocks off all but only the IP listed from accessing....
 
-``"rpc-whitelist-enabled": true, `` This is the boolean to turn whitelisting on/off. Doesn't always take for some reason.....
+``"rpc-whitelist-enabled": true,`` This is the boolean to turn whitelisting on/off. Doesn't always take for some reason.....
 
 .. code-block:: bash
 
@@ -91,8 +91,6 @@ Save the file, and restart the service.
 
 Then, access the web GUI at `http://localhost:9091 <http://localhost:9091>`_ unless you changed that as well.
 
-* * *
-
-Copied from `HTPC-Guides <http://www.htpcguides.com/install-transmission-bittorrent-client-on-ubuntu-15-x>`_ and `StackExchange's Raspberry Pi Forum on Transmission Permissions <http://raspberrypi.stackexchange.com/questions/4378/transmission-permission-denied-on-usb-disk>`_
+.. [TRANS-HTPC] Copied from `HTPC-Guides <http://www.htpcguides.com/install-transmission-bittorrent-client-on-ubuntu-15-x>`_ and `StackExchange's Raspberry Pi Forum on Transmission Permissions <http://raspberrypi.stackexchange.com/questions/4378/transmission-permission-denied-on-usb-disk>`_
 
 .. [TRANS-BlockList] Transmission BlockList from 'GiulioMac's Personal Blog <https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission>'_
