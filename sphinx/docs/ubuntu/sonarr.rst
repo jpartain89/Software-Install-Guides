@@ -61,7 +61,8 @@ You'll notice the big `EDIT ME` text in there. Take a looksee, make your edits a
 .. include:: sonarr_init.txt
   :code: bash
 
-.. include:: ubuntu_user.rst
+.. note::
+  `See User Management <ubuntu_user.rst>`_ for notes here.
 
 Add to Autostart Program
 --------------------------------

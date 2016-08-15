@@ -11,3 +11,6 @@ Ubuntu
   sonarr
   transmission-daemon
   ddclient
+  htpc-manager
+
+  ubuntu_user

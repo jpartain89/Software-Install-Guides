@@ -22,7 +22,8 @@ Add the most up-to-date repo for transmission:
 
 The last line, ``stopping the service``, is necessary for you to be able to edit the ``settings.conf`` file. That file is silently rewritten by the ``transmission-daemon`` service, if that service is still running.
 
-.. include:: ubuntu_user.rst
+.. note::
+  `See User Management <ubuntu_user.rst>`_ for notes here.
 
 User Account Modifications
 ----------------------------------
@@ -35,6 +36,7 @@ Add the Transmission group to your regular user account, as well as the group th
   sudo usermod -aG debian-transmission root
 
 .. note::
+  
   If you are running this inside of a VirtualBox Linux Guest, and using VirtualBox's Folder Syncing Feature... You'll notice that the group owner of those mounts is `vboxsf`. Thats only inside of your Guest OS, but will futz with transmission's ability to save anything to those directories. Make sure to also include `vboxsf` with the above commands.
 
 Editing the ``settings.conf`` file

@@ -56,7 +56,8 @@ Which, again, your other option is to:
 
   git clone https://github.com/RuudBurger/CouchPotatoServer /opt/couchpotato
 
-.. include:: ubuntu_user.rst
+.. note::
+  `See User Management <ubuntu_user.rst>`_ for notes here.
 
 Test if it works
 ---------------------
