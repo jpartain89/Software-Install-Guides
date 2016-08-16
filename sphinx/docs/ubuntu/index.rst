@@ -12,5 +12,6 @@ Ubuntu
   transmission-daemon
   ddclient
   htpc-manager
+  nginx-from-ubuntu-ppa
 
   ubuntu_user
