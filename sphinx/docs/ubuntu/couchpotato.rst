@@ -57,7 +57,8 @@ Which, again, your other option is to:
   git clone https://github.com/RuudBurger/CouchPotatoServer /opt/couchpotato
 
 .. note::
-  `See User Management <ubuntu_user.rst>`_ for notes here.
+  
+  See :ref:`user_management` for notes here.
 
 Test if it works
 ---------------------
@@ -79,7 +80,7 @@ Copy/Edit Default File
 
   The ``/etc/default`` is generally where a lot of programs like to keep their default settings files. Its a nice, centrally located spot that init or systemctl program files can reference when wanting a central place that a user can amend different settings, like the user that is running the program, or the directory location of different files.
 
-So, we want to copy over the defaut `/`etc/default`` file from the github location, and then make any necessary changes.
+So, we want to copy over the defaut ``/etc/default`` file from the github location, and then make any necessary changes.
 
 .. code-block:: bash
 

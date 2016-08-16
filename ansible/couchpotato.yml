@@ -1,0 +1,92 @@
+# Ansible-Playbook for CouchPotato Installation
+
+- hosts: local-web
+  become: yes
+
+  tasks:
+    - name: Install apt-get Requirements
+      apt:
+        name: "{{ item }}"
+        state: latest
+        update_cache: yes
+        cache_valid_time: 7200
+      with_items:
+        - git-core
+        - libffi-dev
+        - libssl-dev
+        - zlib1g-dev
+        - libxslt1-dev
+        - libxml2-dev
+        - python
+        - python-pip
+        - python-dev
+        - build-essential
+
+    - name: Pip Install Dependencies
+      pip:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - lxml
+        - cryptography
+        - pyopenssl
+
+    - name: Clone CouchPotato GitHub Repo
+      git:
+        repo: https://github.com/RuudBurger/CouchPotatoServer.git
+        dest: /home/jpartain89/git/couchpotato
+        update: yes
+
+    - name: Make sure CP user exists
+      user:
+        name: couchpotato
+        state: present
+        system: yes
+        shell: /bin/nologin
+        home: /opt/couchpotato
+        groups: vboxsf
+        group: couchpotato
+
+    - name: Update Ownership of CP git Repo
+      file:
+        path: /home/jpartain89/git/couchpotato
+        owner: couchpotato
+        group: couchpotato
+        recurse: yes
+
+    - name: Symlink CP to /opt
+      file:
+        src: /home/jpartain89/git/couchpotato
+        dest: /opt/couchpotato
+        state: link
+        owner: couchpotato
+        group: couchpotato
+
+    - name: Copy the default config
+      copy:
+        src: files/cp_default
+        dest: /etc/default/couchpotato
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Copy the ubuntu init.d file
+      copy:
+        src: /opt/couchpotato/init/ubuntu
+        dest: /etc/init.d/couchpotato
+        remote_src: True
+        mode: 0755
+        owner: root
+        group: root
+
+    - name: Add Ubuntu init.d script to Upstart
+      service:
+        name: couchpotato
+        state: started
+        enabled: yes
+
+    - name: Add CouchPotato to UFW
+      ufw:
+        state: enabled
+        rule: allow
+        port: 5050
