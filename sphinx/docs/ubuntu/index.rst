@@ -13,5 +13,6 @@ Ubuntu
   ddclient
   htpc-manager
   nginx-from-ubuntu-ppa
+  nginx-from-source
 
   ubuntu_user
