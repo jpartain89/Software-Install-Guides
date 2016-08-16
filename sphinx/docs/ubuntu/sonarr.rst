@@ -1,7 +1,7 @@
 .. _sonarr:
 
-Sonarr Installation
-====================
+Sonarr Installation [HTPC-Sonarr]_
+========================================
 
 Sonarr (old name was NzbDrone, which you will still see everywhere. Even in their startup file...) is, honestly, my favorite of all of the HTPC Apps. Even moreso than Plex because Plex can really be a huge resource hog.
 
@@ -10,7 +10,7 @@ The day that Sonarr really hopped into my all time fav basket was when I had beg
 Its not without its issues, of course. But they often get fixed quickly, or they aren't with this program, but another site or service.
 
 Base Requirements
------------------------------
+-----------------------
 
 Make sure apt-transport-https is installed:
 

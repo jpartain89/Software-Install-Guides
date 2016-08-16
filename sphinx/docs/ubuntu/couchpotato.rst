@@ -1,7 +1,7 @@
 .. _couchpotato:
 
-CouchPotato Movie Downloader
-====================================
+CouchPotato Movie Downloader [HTPC-CP]_
+=======================================
 
 CouchPotato is a web program, built on python, specifically tailored towards automating Movie Downloads, either through public or private torrent sites or using Usenet Services.
 
@@ -57,7 +57,7 @@ Which, again, your other option is to:
   git clone https://github.com/RuudBurger/CouchPotatoServer /opt/couchpotato
 
 .. note::
-  
+
   See :ref:`user_management` for notes here.
 
 Test if it works

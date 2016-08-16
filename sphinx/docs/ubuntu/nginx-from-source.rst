@@ -1,9 +1,9 @@
 .. _nginx_from_source:
 
-Compiling NGINX From Source
-===========================
+Compiling NGINX From Source [NGINX-Copied]_
+===========================================
 
-The way listed here uses apt-get to our advantage. By adding the NGINX PPA repo, we get a baseline of required files, configuration files, and other things that make this much easier for us all! [NGINX-Copied]_
+The way listed here uses apt-get to our advantage. By adding the NGINX PPA repo, we get a baseline of required files, configuration files, and other things that make this much easier for us all!
 
 Add NGINX PPA
 ------------------

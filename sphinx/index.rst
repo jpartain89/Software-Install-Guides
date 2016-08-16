@@ -11,10 +11,3 @@ Table of contents:
   :maxdepth: 2
 
   docs/ubuntu/index
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

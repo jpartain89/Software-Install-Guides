@@ -1,11 +1,11 @@
 .. _htpc-manager:
 
-HTPC-Manager
-===============
+HTPC-Manager [HTPC-htpc]_
+=============================
 
 HTPC Manager is a simple, web front-end that aims to bring the different, other web front-end GUI's into one place, for ease of use across your entire home-server system.
 
-It currently has already-coded-access to programs like CouchPotato, Sonarr, NZBGet, Transmission, Plex; as well as adding in the ability to view your hardware's performance as well! [HTPC-htpc]_
+It currently has already-coded-access to programs like CouchPotato, Sonarr, NZBGet, Transmission, Plex; as well as adding in the ability to view your hardware's performance as well.
 
 Install Dependencies
 ----------------------------
