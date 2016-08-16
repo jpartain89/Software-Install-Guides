@@ -7,11 +7,12 @@ Ubuntu
 .. toctree::
   :maxdepth: 2
 
-  couchpotato
   sonarr
+  couchpotato
+  plexpy
+  htpc-manager
   transmission-daemon
   ddclient
-  htpc-manager
   nginx-from-ubuntu-ppa
   nginx-from-source
 
