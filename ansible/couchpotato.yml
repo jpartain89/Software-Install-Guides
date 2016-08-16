@@ -37,13 +37,17 @@
         dest: /home/jpartain89/git/couchpotato
         update: yes
 
+    - name: Make sure CP group exists
+      group:
+        name: couchpotato
+        state: present
+        system: yes
+
     - name: Make sure CP user exists
       user:
         name: couchpotato
         state: present
         system: yes
-        shell: /bin/nologin
-        home: /opt/couchpotato
         groups: vboxsf
         group: couchpotato
 
@@ -54,7 +58,7 @@
         group: couchpotato
         recurse: yes
 
-    - name: Symlink CP to /opt
+    - name: Symlink CP Repo to /opt
       file:
         src: /home/jpartain89/git/couchpotato
         dest: /opt/couchpotato

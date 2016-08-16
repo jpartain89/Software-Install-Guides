@@ -7,6 +7,15 @@ PlexPy is specifically for monitoring Plex. Plus, you can setup notifications so
 
 It also gives you a breakdown of what is played the most, how many concurrent streams have played at the same time, and a bunch of other things as well.
 
+Prerequisites
+---------------
+
+Python2.7 is the biggy here.
+
+Next, is ``git-core``
+
+Thats all that DrZoidberg33's wiki tells us.
+
 Clone the Repo
 ------------------
 
