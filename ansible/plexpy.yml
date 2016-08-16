@@ -4,7 +4,7 @@
   become: yes
 
   tasks:
-    - name: PlexPy Prerequesite Installs
+    - name: PlexPy Prerequisite Installs
       apt:
         name: "{{ item }}"
         state: latest

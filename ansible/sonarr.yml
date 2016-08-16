@@ -1,0 +1,55 @@
+# Ansible-Playbook for Sonarr
+
+- hosts: local-web
+  become: yes
+
+  tasks:
+    - name: Sonarr Prerequisite Installs
+      apt:
+        name: apt-transport-https
+        state: latest
+        update_cache: yes
+        cache_valid_time: 7200
+
+    - name: Add Sonarr Repo Key
+      apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: D9B78493
+        state: present
+
+    - name: Add Sonarr Repo
+      apt_repository:
+        repo: 'deb https://apt.sonarr.tv/ master main'
+        state: present
+        filename: 'sonarr'
+        update_cache: yes
+
+    - name: Install Sonarr/NzbDrone
+      apt:
+        name: nzbdrone
+        state: latest
+      notify: restart nzbdrone
+
+    - name: Copy init.d Upstart File
+      copy:
+        src: files/sonarr_init
+        dest: /etc/init.d/nzbdrone
+        group: root
+        owner: root
+        mode: 0755
+
+    - name: Add NzbDrone init.d to Upstart
+      service:
+        name: nzbdrone
+        state: started
+        enabled: yes
+
+    - name: Add NzbDrone to UFW
+      ufw:
+        state: enabled
+        rule: allow
+        port: 8989
+
+  handlers:
+    - name: restart nzbdrone
+      service: name=nzbdrone state=restarted
