@@ -16,5 +16,6 @@ Ubuntu
   ddclient
   nginx-from-ubuntu-ppa
   nginx-from-source
+  postfix
 
   ubuntu_user
