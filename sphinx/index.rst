@@ -11,3 +11,4 @@ Table of contents:
   :maxdepth: 2
 
   docs/ubuntu/index
+  docs/rpi/index

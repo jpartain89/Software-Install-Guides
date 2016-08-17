@@ -3,7 +3,6 @@
 Ubuntu
 =======
 
-
 .. toctree::
   :maxdepth: 2
 
