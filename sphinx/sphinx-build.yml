@@ -1,0 +1,31 @@
+# Ansible-Playbook for sphinx building
+
+- hosts: localhost
+
+  tasks:
+    - name: Make sure sphinx is installed on macOS localhost
+      pip:
+        name: "{{ item }}"
+        state: latest
+        umask: 0077
+      with_items:
+        - Sphinx
+        - sphinx-rtd-theme
+
+    - name: Build the Sphinx Docs
+      shell:
+        make html
+      register: sphinx_make
+      changed_when: False
+
+    - name: Show Sphinx Make Output
+      debug: var=sphinx_make.stdout_lines
+
+    - name: Send the built docs to the webserver
+      shell:
+        rsync -ar -P _build/ local-nginx:/var/www/html/docs2 --delete-after
+      register: rsync_sphinx
+      changed_when: False
+
+    - name: Show rsync output
+      debug: var=rsync_sphinx.stdout_lines
