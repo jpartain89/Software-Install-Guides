@@ -12,6 +12,7 @@ Ubuntu
   plexpy
   htpc-manager
   transmission-daemon
+  openvpn
   ddclient
   nginx-from-ubuntu-ppa
   nginx-from-source
