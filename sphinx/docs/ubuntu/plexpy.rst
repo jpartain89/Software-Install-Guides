@@ -10,9 +10,9 @@ It also gives you a breakdown of what is played the most, how many concurrent st
 Prerequisites
 ---------------
 
-Python2.7 is the biggy here.
+Python2.7 is the biggy here. ::
 
-Next, is ``git-core``
+  sudo apt-get install python2.7 python-pip python-dev git git-core
 
 Thats all that DrZoidberg33's wiki tells us.
 
