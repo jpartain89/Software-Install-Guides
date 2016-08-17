@@ -78,7 +78,7 @@ At this point you should be able to test that the VPN actually works.
 
 Running it this way outputs the program info, as its running, into the terminal prompt. This way, you see up front without hunting in the logs for if/when/where there is any issues.::
 
-  $ sudo openvpn --config /etc/openvpn/Japan.conf
+  sudo openvpn --config /etc/openvpn/Japan.conf
 
 If all is well, you'll see something like: ::
 
@@ -111,5 +111,24 @@ Next, since I use only the one ``.conf`` file,  I uncomment the ``AUTOSTART-"all
 Then, to start the service: ::
 
   sudo service openvpn start
+
+Then, to check that my public-facing IP address has changed - since I usually am running this on a headless machine as a downloader - I have an alias assigned in one of my dotfiles. Of which, my breakdown of dotfiles is:
+
+  - aliases
+  - bash_profile
+  - bashrc
+  - exports
+  - functions
+  - gitconfig
+  - gitignore
+  - profile
+
+So, my ``.aliases`` file is, well, my aliases that I use. So, for checking my public-facing IP address: ::
+
+  alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+Add that to either your ``.aliases`` or ``.bash_profile`` or ``.bashrc`` file, whichever you are currenty using, and source the file. It adds the alias entry to the active session.
+
+Then, type ``pubIP`` and hit enter. You should get your public IP address.
 
 .. [PIA-VPN] Copied from the bottom half of `Superjamie's gist <https://gist.github.com/superjamie/ac55b6d2c080582a3e64>`_
