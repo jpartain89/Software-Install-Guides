@@ -7,4 +7,14 @@ Ubuntu
 .. toctree::
   :maxdepth: 2
 
+  sonarr
   couchpotato
+  plexpy
+  htpc-manager
+  transmission-daemon
+  openvpn
+  ddclient
+  nginx-from-ubuntu-ppa
+  nginx-from-source
+
+  ubuntu_user

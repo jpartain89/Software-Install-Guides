@@ -1,29 +1,3 @@
-# Sonarr Installation
-
-## Prerequisites
-
-Make sure apt-transport-https is installed:
-
-```bash
-sudo apt-get install apt-transport-https
-
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
-echo "deb https://apt.sonarr.tv/ master main" | sudo tee -a /etc/apt/sources.list.d/sonarr.list
-
-sudo apt-get update && sudo apt-get install nzbdrone -y
-```
-
-Perform the initial build and make sure it doesn't error:
-
-`sudo mono /opt/NzbDrone/NzbDrone.exe`
-
-Next, make the autostart file...
-
-```bash
-sudo nano /etc/init.d/nzbdrone
-```
-
-```bash
 #! /bin/sh
 ### BEGIN INIT INFO
 # Provides: NzbDrone
@@ -143,15 +117,3 @@ case "$1" in
     esac
 
 exit 0
-```
-
-Then, make executable and add to autostart.
-
-```bash
-sudo chmod +x /etc/init.d/nzbdrone
-sudo update-rc.d nzbdrone defaults
-```
-
-Access at http://localhost:8989
-
-Directions copied from [HTPC-Guides.com](http://www.htpcguides.com/install-nzbdrone-ubuntu)

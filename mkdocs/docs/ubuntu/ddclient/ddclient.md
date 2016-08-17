@@ -1,5 +1,13 @@
 # DDClient
 
+## Preface [^Sources]
+
+This guide is a bit more hands on, but is not only a good lesson to get through and learn, but ends up building a nice, very useful and light weight program!
+
+DDClient, specifically, is a Dynamic DNS program. Through its config files, it listens for public IP address changes on the machine its running on - IPv4 specifically - and then relays that information back to your Domain Name Host - [domains.google.com][fc8a4088] for example - so that, if you are self-hosting stuff attached to your url name, and its hosting from an IP address that likes to change - which consumer-based internet access will change that IP address - this handles that issue.
+
+Plus, [domains.google.com][fc8a4088] also has a specific, easier-to-use config setup for DDClient, so it makes your life just that much easier.
+
 ## Software Requirements
 
 Most of what is needed usually comes with Ubuntu, like Perl and CPAN.
@@ -10,13 +18,7 @@ But, one program that is needed is `libio-socket-ssl-perl`, specifically to assi
 sudo apt-get install libio-socket-ssl-perl
 ```
 
-## Preface [^Sources]
 
-This guide is a bit more hands on, but is not only a good lesson to get through and learn, but ends up building a nice, very useful and light weight program!
-
-DDClient, specifically, is a Dynamic DNS program. Through its config files, it listens for public IP address changes on the machine its running on - IPv4 specifically - and then relays that information back to your Domain Name Host - [domains.google.com][fc8a4088] for example - so that, if you are self-hosting stuff attached to your url name, and its hosting from an IP address that likes to change - which consumer-based internet access will change that IP address - this handles that issue.
-
-Plus, [domains.google.com][fc8a4088] also has a specific, easier-to-use config setup for DDClient, so it makes your life just that much easier.
 
 ## Clone the Github repo
 
