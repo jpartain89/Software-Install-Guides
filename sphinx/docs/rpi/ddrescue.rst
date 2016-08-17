@@ -13,11 +13,8 @@ Plus, sans SD Card? Its a good backup tool to have for, well, backing up filesys
 
 Its original intent, as you might can gather from its name, is to go over a potentially failing or failed hard drive, sector by sector, to try to pull ANY info whatsoever from that drive. Thus, the options for "retry passes," "max-errors" and the like.
 
-Imaging SD Card for Raspberry Pi
-----------------------------------------
-
 Installing
-___________
+-------------
 
 So, if you're using macOS? I would assume/hope you have 'HomeBrew <brew.sh>'_ installed. If so, do:
 
@@ -25,7 +22,7 @@ So, if you're using macOS? I would assume/hope you have 'HomeBrew <brew.sh>'_ in
 
   brew install ddrescue
 
-On Linux, the specific, newer and updated tool is called 'GDDRescue <https://www.gnu.org/software/ddrescue/ddrescue.html>'_, since its a part of the GNU Library of Tools.
+On Linux, the specific, newer and updated tool is called `GDDRescue <https://www.gnu.org/software/ddrescue/ddrescue.html>`_, since its a part of the GNU Library of Tools.
 
 So, to install on debian-based linux:
 
@@ -34,7 +31,7 @@ So, to install on debian-based linux:
   sudo apt-get install gddrescue
 
 How is it used?
-__________________
+-------------------
 
 First, do your OS of choices means of discovering the location of the SD card you want to image:
 
