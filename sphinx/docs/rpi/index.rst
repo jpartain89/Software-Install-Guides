@@ -7,3 +7,5 @@ Raspberry Pi
   :maxdepth: 2
 
   boot-from-usb
+  ddrescue
+  domotz-rpi
