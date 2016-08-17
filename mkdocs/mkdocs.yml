@@ -33,7 +33,7 @@ pages:
   - 'Install Ratom or Remote Atom': 'gen_unix/ratom.md'
 - Shell Scripting:
   - 'Bash IF Conditionals': 'shell_scripts/bash-if-conditionals.md'
-  - 'Running macOS, Linux, Other?': 'shel_scripts/uname.md'
+  - 'Use uname for OS Detection': 'shell_scripts/uname.md'
 theme: readthedocs
 markdown_extensions:
   - admonition

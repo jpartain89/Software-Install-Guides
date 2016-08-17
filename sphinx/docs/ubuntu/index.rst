@@ -3,7 +3,6 @@
 Ubuntu
 =======
 
-
 .. toctree::
   :maxdepth: 2
 
@@ -16,5 +15,6 @@ Ubuntu
   ddclient
   nginx-from-ubuntu-ppa
   nginx-from-source
+  postfix
 
   ubuntu_user
