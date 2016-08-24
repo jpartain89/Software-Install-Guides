@@ -1,9 +1,14 @@
 # Ansible-Playbook for sphinx building
 
-- hosts: all
+- hosts: nginx
+  become: yes
+
+  vars:
+    - jp_git: https://jpartain89@github.com/jpartain89
+    - git_loc: /home/jpartain89/git
 
   tasks:
-    - name: Make sure sphinx is installed on macOS localhost
+    - name: Confirm Sphinx-autodoc is installed
       pip:
         name: "{{ item }}"
         state: latest
@@ -12,20 +17,24 @@
         - Sphinx
         - sphinx-rtd-theme
 
+    - name: Software-Install-Guides git repo exists
+      git:
+        repo: "{{ jp_git }}/Software-Install-Guides.git"
+        dest: "{{ git_loc }}/Software-Install-Guides"
+        update: yes
+
     - name: Build the Sphinx Docs
-      shell:
-        make html
+      shell: make html
+      args:
+        chdir: /home/jpartain89/git/Software-Install-Guides/sphinx
       register: sphinx_make
       changed_when: False
 
-    - name: Show Sphinx Make Output
+    - name: Show Sphinx make Output
       debug: var=sphinx_make.stdout_lines
 
-    - name: Send the built docs to the webserver
-      shell:
-        rsync -ar -P _build/ local-nginx:/var/www/html/docs2 --delete-after
-      register: rsync_sphinx
-      changed_when: False
-
-    - name: Show rsync output
-      debug: var=rsync_sphinx.stdout_lines
+    - name: Send the Built Docs to the web server location
+      synchronize:
+        src: "{{ git_loc }}/Software-Install-Guides/sphinx/_build"
+        dest: /var/www/html/docs2
+      delegate_to: "{{ inventory_hostname }}"

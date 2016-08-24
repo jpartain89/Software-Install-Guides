@@ -1,1 +1,0 @@
-remote-nginx ansible_host=jpcdi.com ansible_port=22230

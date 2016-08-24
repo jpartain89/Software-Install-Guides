@@ -6,7 +6,7 @@
 
   vars:
     - jp_git: https://jpartain89@github.com/jpartain89
-    - git_loc: /Users/jpartain89/git/
+    - git_loc: /Users/jpartain89/git
 
   tasks:
     - name: Install brewfile
