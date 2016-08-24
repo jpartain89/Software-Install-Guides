@@ -22,6 +22,7 @@
         repo: "{{ jp_git }}/Software-Install-Guides.git"
         dest: "{{ git_loc }}/Software-Install-Guides"
         update: yes
+        force: yes
 
     - name: Build the Sphinx Docs
       shell: make html
