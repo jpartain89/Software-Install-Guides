@@ -52,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Software Install Guides'
-copyright = u'2016, Justin Partain'
+copyright = u'2016 Justin Partain'
 author = u'Justin Partain'
 
 # The version info for the project you're documenting, acts as replacement for
