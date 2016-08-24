@@ -12,3 +12,4 @@ Table of contents:
 
   docs/ubuntu/index
   docs/rpi/index
+  docs/general-bash/index
