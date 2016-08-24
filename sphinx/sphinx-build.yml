@@ -1,6 +1,6 @@
 # Ansible-Playbook for sphinx building
 
-- hosts: localhost
+- hosts: all
 
   tasks:
     - name: Make sure sphinx is installed on macOS localhost
