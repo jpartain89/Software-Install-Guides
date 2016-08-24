@@ -16,5 +16,6 @@ Ubuntu
   nginx-from-ubuntu-ppa
   nginx-from-source
   postfix
+  adding-apt-list
 
   ubuntu_user

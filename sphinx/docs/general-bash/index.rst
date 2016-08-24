@@ -7,3 +7,5 @@ General Bash
   :maxdepth: 2
 
   basic-linux
+  basic-grep-usage
+  ratom
