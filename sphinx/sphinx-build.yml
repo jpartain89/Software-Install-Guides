@@ -36,6 +36,6 @@
 
     - name: Send the Built Docs to the web server location
       synchronize:
-        src: "{{ git_loc }}/Software-Install-Guides/sphinx/_build/"
+        src: "{{ git_loc }}/Software-Install-Guides/sphinx/_build"
         dest: /var/www/html/docs2
       delegate_to: "{{ inventory_hostname }}"
