@@ -12,4 +12,6 @@ Table of contents:
 
   docs/ubuntu/index
   docs/rpi/index
+  docs/macOS/index
   docs/general-bash/index
+  docs/nginx/index
