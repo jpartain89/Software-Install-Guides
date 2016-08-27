@@ -15,3 +15,4 @@ Table of contents:
   docs/macOS/index
   docs/general-bash/index
   docs/nginx/index
+  docs/extras/index

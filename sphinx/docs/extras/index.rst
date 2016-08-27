@@ -11,4 +11,4 @@ I'm calling this section "Extras" for two reasons, really:
 .. toctree::
   :maxdepth: 2
 
-  
+  virtualbox-guest-addition
