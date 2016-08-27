@@ -138,11 +138,11 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-# html_title = u'Software Install Guides v1'
+html_title = u'Software Install Guides v1.5'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
-# html_short_title = None
+html_short_title = u'Software Install Guides v1.5'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -312,7 +312,7 @@ man_pages = [
 
 # If true, show URL addresses after external links.
 #
-# man_show_urls = False
+man_show_urls = True
 
 
 # -- Options for Texinfo output -------------------------------------------
