@@ -1,4 +1,5 @@
-# VirtualBox Guest Additions
+VirtualBox Guest Additions
+===========================
 
 ## Ubuntu Guest Machine
 
