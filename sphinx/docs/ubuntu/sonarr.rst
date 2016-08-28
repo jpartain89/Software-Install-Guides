@@ -43,7 +43,7 @@ First Run
 
   sudo mono /opt/NzbDrone/NzbDrone.exe
 
-Now, to stop the program, `ctrl-C` sends the SIGHUP signal to try to gracefully quit the program.
+Now, to stop the program, ``ctrl-C`` sends the SIGHUP signal to try to gracefully quit the program.
 
 Create Autostart init.d File
 -------------------------------
@@ -56,7 +56,7 @@ First, use your fav text editor on:
 
   sudo nano /etc/init.d/nzbdrone
 
-You'll notice the big `EDIT ME` text in there. Take a looksee, make your edits as you see fit.
+Then, copy and paste the text from below. You'll notice the big `EDIT ME` text in there. Take a looksee, make your edits as you see fit.
 
 .. include:: sonarr_init.txt
   :code: bash
