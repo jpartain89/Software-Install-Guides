@@ -13,13 +13,14 @@ Definitions
 ----------------
 
 ===========  ====================  ===============
-1st Letter  2nd Letter  Opt. 3rd Letter
+1st Letter   2nd Letter            Opt. 3rd Letter
 ===========  ====================  ===============
-u - unknown  n - not-installed   r reinst-required
+u - unknown  n - not-installed     r - reinst-required
 i - install  i - installed
 r - remove   c - config-files
 p - purge    u - unpacked
 h - hold     f - half-configured
-             h - half-installed
-             w - triggers-awaited
-             t - triggers-pending
+.            h - half-installed
+.            w - triggers-awaited
+.            t - triggers-pending
+===========  ====================  ===============
