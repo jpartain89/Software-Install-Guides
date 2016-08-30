@@ -16,3 +16,4 @@ Table of contents:
   docs/general-bash/index
   docs/nginx/index
   docs/extras/index
+  docs/gen-debian/index
