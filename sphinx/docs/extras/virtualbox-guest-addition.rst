@@ -1,7 +1,37 @@
 VirtualBox Guest Additions
 ===========================
 
-## Ubuntu Guest Machine
+VirtualBox Guest Additions is, more or less, VirtualBox's way of making it easier for your host machine to speak to your guest machine, and do all sorts of extra things. Examples:
+
+1. Easier File Sharing
+  - Instead of dealing with mounting drives in an ``/etc/fstab`` file, VirtualBox has a means of setting up a simple Directory sharing scheme
+  - You pick certain directories on your host machine to be shared directly into the ``/media/<folder name you set>`` directory!
+
+2. If you're running a GUI:
+  1. Shared Clipboard
+  2. Drag'n'Drop files back and forth
+  3. Mouse Pointer Integration - You don't have to "release" the mouse from the guest screen
+  4. Better Video Support
+  5. Seamless Windows - This opens individual windows in the guest as if they were individual windows on the host directly, eliminating the boundary between the host and guest OS.
+
+Installing
+--------------
+
+First, we will show how to begin the install on our Host machine, then directly into our guest machine.
+
+Host Machine
+__________________
+
+So, first we need to mount the Guest Additions CD Image, which you can find under the "Devices" menu in the Virtual Machines Menu Bar. (Make sure the Guest Machine window is in focus to show that machines menu bar.).
+
+.. image:: virtualbox_guestCD.png
+  :alt: Virtualbox Guest Additions Mount
+  :align: center
+
+Then, depending on what OS your guest is running depends on what the next steps are. We will be concentrating on Ubuntu Server, Headless installs. Seeing as that needs a big more work on our part than any GUI-based system.
+
+Ubuntu Server Guest Machine
+_____________________________________
 
 ```bash
 sudo apt-get install dkms make gcc -y
