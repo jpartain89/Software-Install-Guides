@@ -1,3 +1,4 @@
+===========================
 VirtualBox Guest Additions
 ===========================
 
@@ -15,12 +16,12 @@ VirtualBox Guest Additions is, more or less, VirtualBox's way of making it easie
   5. Seamless Windows - This opens individual windows in the guest as if they were individual windows on the host directly, eliminating the boundary between the host and guest OS.
 
 Installing
---------------
+============
 
 First, we will show how to begin the install on our Host machine, then directly into our guest machine.
 
 Host Machine
-__________________
+--------------------
 
 So, first we need to mount the Guest Additions CD Image, which you can find under the "Devices" menu in the Virtual Machines Menu Bar. (Make sure the Guest Machine window is in focus to show that machines menu bar.).
 
@@ -31,31 +32,42 @@ So, first we need to mount the Guest Additions CD Image, which you can find unde
 Then, depending on what OS your guest is running depends on what the next steps are. We will be concentrating on Ubuntu Server, Headless installs. Seeing as that needs a big more work on our part than any GUI-based system.
 
 Ubuntu Server Guest Machine
-_____________________________________
+-------------------------------------
 
-```bash
-sudo apt-get install dkms make gcc -y
-```
+Pre-Requirements
+__________________________
 
-You need to make sure that `dkms` is installed before any other VirtualBox-like software is installed.
-> Now, its not 100% the end of the world if you went outta order. Its just easier this way.
+First, lets install the pre-requirements.
 
-Now, on the GUI interface of your VirtualBox running instance, hit `Devices` and you **_should_** see at the bottom of the menu, `Insert Guest Additions CD Image.`
+.. code-block:: bash
 
-Hit, that, then go back to your running VM.
+  sudo apt-get install dkms make gcc -y
 
-```bash
-sudo mount /dev/cdrom /media/cdrom
-```
+Mount the CDROM
+______________________
 
-It'll alert you to the fact that the mounted filesystem is read only. You're good to ignore that, and cd into the mounted location, and run the installer.
+Then, to install the Guest Additions onto your Headless Ubuntu Server addition, you first have to mount the cd onto your directories so you can access whats inside.
 
-```bash
-cd /media/cdrom
-sudo sh ./VBoxLinuxAdditions.run
-```
+.. code-block:: bash
 
-That **will** take a hot second at least to run the installer. But, once its finished, and there were no error messages, go ahead and restart your machine. Of course, make sure that, any settings that required the Additions be installed, are fully setup before the reboot. Like, any shared folders.
+  sudo mount /dev/cdrom /media/cdrom
+
+The ``/dev/cdrom`` is where your cdrom "hardware" is located in order for the software to access it. As in this would be the actual, physical cdrom drive if your server was physical.
+
+Then, the ``/media/cdrom`` is where you're mounting your cdrom so you can access the files.
+
+It'll alert you to the fact that the mounted filesystem is ``read only``. You're good to ignore that since we wont be making edits to the files. Then, cd into the mounted location, and run the installer.
+
+.. code-block:: bash
+
+  cd /media/cdrom
+  sudo sh ./VBoxLinuxAdditions.run
+
+That will take a hot second, at least, to run the installer. But, once its finished - and there were no error messages - go ahead and restart your machine.
+
+.. _note::
+
+  Make sure you have setup all of the configuration options in the machine settings, as in the folders you want to have shared from host to guest.
 
 Now, you'll need to add the group name `vboxsf` to all of the different system and user accounts. `vboxsf` is VirtualBoxes way of mounting these directories.
 

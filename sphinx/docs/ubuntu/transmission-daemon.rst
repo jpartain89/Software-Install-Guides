@@ -1,12 +1,11 @@
-..  _transmission:
-
+=============================
 Transmission [TRANS-HTPC]_
 =============================
 
 Transmission is my personal fav of all the Torrent Downloaders. For one, its the easiest I've found to use and setup. For two, it has a headless program for running on a server - and comes standard with a GUI interface that way. And three, its super light weight.
 
 Add Repo and Install
----------------------------
+====================
 
 Add the most up-to-date repo for transmission:
 
@@ -23,11 +22,11 @@ Add the most up-to-date repo for transmission:
 The last line, ``stopping the service``, is necessary for you to be able to edit the ``settings.conf`` file. That file is silently rewritten by the ``transmission-daemon`` service, if that service is still running.
 
 .. note::
-  
+
   See :ref:`user_management` for notes here.
 
 User Account Modifications
-----------------------------------
+===========================
 
 Add the Transmission group to your regular user account, as well as the group that owns the directory that you will be saving the downloaded files, as this will - hopefully - prevent permission issues.
 
@@ -40,8 +39,8 @@ Add the Transmission group to your regular user account, as well as the group th
 
   If you are running this inside of a VirtualBox Linux Guest, and using VirtualBox's Folder Syncing Feature... You'll notice that the group owner of those mounts is `vboxsf`. Thats only inside of your Guest OS, but will futz with transmission's ability to save anything to those directories. Make sure to also include `vboxsf` with the above commands.
 
-Editing the ``settings.conf`` file
------------------------------------
+Editing the ``settings.conf`` File
+===================================
 
 .. code-block:: bash
 
@@ -49,9 +48,9 @@ Editing the ``settings.conf`` file
 
 The settings file is quite long with lots of options. The Most Important parts are:
 
-``"rpc-whitelist": "0.0.0.0",`` This blocks off all but only the IP listed from accessing....
+ ``"rpc-whitelist": "0.0.0.0",`` This blocks off all but only the IP listed from accessing....
 
-``"rpc-whitelist-enabled": true,`` This is the boolean to turn whitelisting on/off. Doesn't always take for some reason.....
+ ``"rpc-whitelist-enabled": true,`` This is the boolean to turn whitelisting on/off. Doesn't always take for some reason.....
 
 .. code-block:: bash
 
@@ -67,19 +66,19 @@ You can also change the IP address to ``192.168.1.0/34`` or whatever your home I
 
 Change the download-dir to where ever you want it....
 
-``"download-dir": "/var/lib/transmission-daemon/downloads",``
+ ``"download-dir": "/var/lib/transmission-daemon/downloads",``
 
 This is the amount of items being downloaded at once. I usually stay at 5 max, no matter what machine I'm using.
 
-``"download-queue-size": 5,``
+ ``"download-queue-size": 5,``
 
 For the seeding queue, I honestly lower it down to 5 as well, since I like to double the upload amount.
 
-``"seed-queue-size": 5,``
+ ``"seed-queue-size": 5,``
 
 Set umask to 002 to avoid permission issues...
 
-``"umask": 002,``
+ ``"umask": 002,``
 
 I set the blocklist up as well. [TRANS-BlockList]_
 
@@ -90,7 +89,7 @@ I set the blocklist up as well. [TRANS-BlockList]_
 
 Save the file, and restart the service.
 
-``sudo service transmission-daemon restart``
+ ``sudo service transmission-daemon restart``
 
 Then, access the web GUI at `http://localhost:9091 <http://localhost:9091>`_ unless you changed that as well.
 

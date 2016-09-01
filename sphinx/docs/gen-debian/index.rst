@@ -1,7 +1,8 @@
--- _gen-debian:
+.. _gen-debian:
 
+===================
 General Debian Info
-====================
+===================
 
 .. toctree::
   :maxdepth: 2

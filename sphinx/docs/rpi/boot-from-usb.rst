@@ -1,10 +1,11 @@
+===========================
 Boot Raspberry Pi from USB
 ===========================
 
 This how-to will show you how to begin using an external USB device - say a USB thumb drive or an External HD - as, not the "boot" device, but rather the storage location for the system files.
 
 Find the USB Drive
------------------------
+==================
 
 If you're using a simple low-powered thumb drive, simply plug it into the Raspberry Pi. If you're planning on using a larger, HDD-like drive, I would suggest you use an externally powered USB hub device - to help power the external drive and not draw too much from the Raspberry Pi.
 
@@ -53,12 +54,12 @@ Or, if you're ``dmesg`` is stupidly long and you can't find it quickly, you can 
   ``grep`` being a searching program and the ``sd[a-z]`` being whats called a "regex" search. Basically, grep takes ``sd`` then adds each letter from a-z to the end and searches for those terms. It then will present you with the information, making it easier for you to find things. The same thing works with ``[0-9]`` as well. I like to use it to delete a large amount of log files that tend to build up inside of ``/var/log``. ``sudo rm ./*.[0-9].*`` or what have you.
 
 Install Adafruit's USB Program
----------------------------------------
+==============================
 
 This specific program they've written automates the wiping and partitioning of the USB drive, moving of the system files, and setting up the boot files.
 
 Adafruit's apt-get Repo Script
-_________________________________
+-------------------------------------
 
 So, to install it, you'll want to add Adafruit's Linux Repo to your apt-get stuffs. You can either:
 
@@ -69,7 +70,7 @@ So, to install it, you'll want to add Adafruit's Linux Repo to your apt-get stuf
 Which will automatically add their repo and do a ``sudo apt-get update`` for you. Or, you can go the long way round:
 
 Adafruit's Repo the Long Way Round
-________________________________________
+----------------------------------------------
 
 - First, adding the repo to your ``sources.list.d``
 
@@ -102,7 +103,7 @@ Now, before we go to far, why don't we break all that down?
   - ``sudo apt-key add -`` is to add the downloaded key, and the ``-`` is saying "take the ``STDOUT`` from the ``wget`` and use that"
 
 Installing USB Program
-----------------------------
+======================
 
 Next, you'll want to install Adafruit's USB program.
 
@@ -111,7 +112,7 @@ Next, you'll want to install Adafruit's USB program.
   sudo apt-get install adafruit-pi-externalroot-helper
 
 Running the Program
---------------------------
+=====================
 
 Then, once you know for sure the file location moniker of your USB device:
 
@@ -128,7 +129,7 @@ The ``-d`` flag is to tell it the file location moniker of your USB device.
 This program does take at least a few minutes to run through. You'll need to restart your RPI as well once its finished.
 
 After Running
--------------------
+==============
 
 It will give you a series of messages once its done. Make sure to read through them, in case there are any errors. It also tells you how to make sure it worked:
 
@@ -142,7 +143,7 @@ It will give you a series of messages once its done. Make sure to read through t
   [boot config] sudo reboot
 
 fstab
-__________
+--------
 
 The key lines are:
 
@@ -166,12 +167,12 @@ My ``/etc/fstab`` now shows:
 Notice the commented out line ``#/dev/mmcblk0p2``
 
 SD Card Info
-_______________
+-----------------
 
 That was the original line for the sd card. The line prior was also there before, as the SD card was both the boot media and the OS media. But, now the SD is ONLY the boot, and the external USB is the OS media.
 
 Running ``df -h``
-_______________________
+----------------------
 
 You can also ``df -h``. This shows your filesystem stuffs. The ``-h`` being human readable format on the sizes.
 
@@ -193,7 +194,7 @@ You can also ``df -h``. This shows your filesystem stuffs. The ``-h`` being huma
 The location ``/dev/root`` is the USB drive now. And, it shows the large size of the USB drive as well.
 
 Recovering from a Failed Boot
------------------------------------
+==============================
 
 If the RPI should ever not wanna work correctly with the USB drive this way, you can always:
 

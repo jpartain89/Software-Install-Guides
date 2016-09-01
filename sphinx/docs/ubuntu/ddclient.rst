@@ -1,10 +1,9 @@
-.. _ddclient:
-
+==============================
 DDClient [DDCLIENT-Source]_
 ==============================
 
 Preface
-----------
+========
 
 This guide is a bit more hands on, but is not only a good lesson to get through and learn, but ends up building a nice, very useful and light weight program!
 

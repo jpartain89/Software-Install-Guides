@@ -1,5 +1,6 @@
+======================
 dpkg -l Package States
-========================
+======================
 
 This is specifically in reference to the flags at the start of each line when you perform ``dpkg -l``.
 
@@ -10,7 +11,7 @@ This is specifically in reference to the flags at the start of each line when yo
 In the above image, far left, you can see the column that has ``ii`` or ``rc``. That would be the specific info I'm referencing, and knowing this info doesn't hurt!
 
 Definitions
-----------------
+===========
 
 ===========  ====================  ===============
 1st Letter   2nd Letter            Opt. 3rd Letter
