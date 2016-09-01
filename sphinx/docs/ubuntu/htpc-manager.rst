@@ -1,5 +1,4 @@
-.. _htpc-manager:
-
+=============================
 HTPC-Manager [HTPC-htpc]_
 =============================
 
@@ -8,7 +7,7 @@ HTPC Manager is a simple, web front-end that aims to bring the different, other 
 It currently has already-coded-access to programs like CouchPotato, Sonarr, NZBGet, Transmission, Plex; as well as adding in the ability to view your hardware's performance as well.
 
 Install Dependencies
-----------------------------
+======================
 
 As usual, there are a few, pre-needed programs in order to make sure it builds and runs smoothly.
 
@@ -20,10 +19,10 @@ And, on the ``vnstat`` program. If you're installing HTPC-Manager on, say, a VM 
   sudo pip install --upgrade psutil
 
 Cloning and Starting
--------------------------
+====================
 
 HellowLoL's Git Fork
-________________________
+----------------------------
 
 `HellowLoL's Version <https://github.com/Hellowlol/HTPC-Manager.git>`_ of HTPC-Manager is the one that I prefer to use, but its not the original fork. So, if you were to poke around a bit on GitHub, you might see some other forks and versions as well.
 
@@ -32,7 +31,7 @@ ________________________
 So, as always, on the code below that includes locations for git, you can change as much as you want.
 
 First, the cloning
-____________________
+-----------------------
 
 .. code-block:: bash
 
@@ -41,7 +40,7 @@ ____________________
 Notice, in the location string at the end, I changed the formatting of ``./htpcmanager`` to a nicer, easier-to-type lowercase and without dashes. This simply tends to make your Command Line Life easier in the long run if you try to manage directories in that manner. Or at least, one that works for your fingers.
 
 Next, the Symlink
-____________________
+-------------------------
 
 Next, I symlink the ``~/git`` location to ``/opt``, and make sure the files are assigned to my primary user.
 
@@ -56,8 +55,8 @@ But, either way, make sure the files are owned by the correct account. Both Syml
   sudo chown -R $USER:$USER /opt/htpcmanager
   sudo chown -R $USER:$USER ~/git/htpcmanager
 
-Finally, the Running
-______________________
+Finally, Running the Program
+-----------------------------------
 
 And, we ``python /opt/htpcmanager/Htpc.py`` for the first time-running of the program. This way we get the verbose output and see up front if there are any big errors or anything missing.
 
@@ -68,12 +67,13 @@ And, we ``python /opt/htpcmanager/Htpc.py`` for the first time-running of the pr
 Make sure to pay attention to the output in your terminal. And, I'd suggest you go ahead and open up, in your browser, HTPCManager and poke around. This way you can also watch the output in the terminal. The address to access is either `http://localhost:8085 <http://localhost:8085>`_ or ``http://<ipaddress>:8085`` and exchange your instances ip address.
 
 .. note::
+
   If you see any RED TEXT CherryPy errors, those aren't death. Those are just, nicely, STANDING OUT for you to see what needs to be done.
 
 Make sure you hit ``ctrl-C`` to stop the program in your terminal. This will send a ``SIGHUP`` signal to terminate the program as nicely as possible.
 
 Autostart init.d Copy and Edit
------------------------------------
+============================
 
 You can link over the standard ``init.d`` file from the repo to ``/etc/init.d``.
 

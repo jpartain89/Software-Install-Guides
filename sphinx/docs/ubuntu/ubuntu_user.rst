@@ -1,7 +1,7 @@
-.. _user_management: 
+.. _user_management:
 
 User Management
-------------------------
+===================
 
 Technically, for proper security and the Linux Way, you're supposed to have specific, security-neutered, non-home-directory-having users running these different programs. Helps stop any random, drive-by-login attempts, or rogue access if your password or keys were to ever get out.
 
@@ -33,7 +33,7 @@ The other thing we also want to pay attention to is whether we have external dri
 
 So, for running this inside of a VirtualBox instance locally, using folder mounting through VBox, they have a custom group for the file ownership in the machine, **vboxsf**. So, to allow users to have access to read-write on these directories:
 
-``sudo usermod -aG vboxsf $USER``
+ ``sudo usermod -aG vboxsf $USER``
 
 So, the -aG part is adding a user to a group by addition, not replacing. Then, the first name is the group, and the 2nd is the user.
 

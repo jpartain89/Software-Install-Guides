@@ -1,10 +1,11 @@
+==================
 Back to my mac SSH
-===================
+==================
 
 So, Apple provides a service they call "Back to my mac", that helps to facilitate making remote computing one of the easiest things in the world.
 
 Finder Stuff
------------------
+============
 
 The first, big use for it would be the ability to access, say, your iMac Desktop's files while you aren't at home. If, of course, you have file sharing turned on. In your finder's left sidebar, you'll notice that your other mac's names appear there.
 
@@ -21,7 +22,7 @@ There, under "Shared", you can see "Justin's iMac". In here, you have a few more
 These options are available, even when you are away from your home network.
 
 SSH
-------
+====
 
 You are also able to use the back to my mac service to help facilitate ssh access to your machines as well, without knowing your public IP address or even forwarding any ports on your router.
 

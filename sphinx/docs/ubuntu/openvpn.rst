@@ -1,17 +1,18 @@
+=======================
 OpenVPN [PIA-VPN]_
 =======================
 
 OpenVPN is basically the defacto standard for open source VPN software. You are able to both connect to other VPN servers OR make your own, private VPN service.
 
 Install
-----------
+=========
 
 .. code-block:: bash
 
   sudo apt-get install openvpn unzip
 
 PIA OpenVPN Files
-----------------------
+==================
 
 PIA is `Private Internet Access <https://www.privateinternetaccess.com>`_, a widely used and referenced VPN service for the fact that they advertise themselves as one of the more secure and anonymous VPN services on the internet. `This page <https://www.privateinternetaccess.com/pages/browse-anonymously/>`_ is a good jump-off point for explaining their services and why you need a VPN.
 
@@ -27,7 +28,7 @@ Download and uncompress the PIA OpenVPN profiles:
 Make sure you include the ``-d`` flag, as it'll just uncompress into the current directory, flinging files all over it.
 
 Copy the Files
------------------
+===============
 
 Copy the PIA OpenVPN certificates and profile to the OpenVPN configuration location.
 
@@ -43,7 +44,7 @@ Copy the PIA OpenVPN certificates and profile to the OpenVPN configuration locat
 You'll notice I changed the file extension from ``.ovpn`` to ``.conf``. OpenVPN likes ``.conf`` files.
 
 Create the Login File
-------------------------
+===================
 
 Create ``/etc/openvpn/login`` containing only your username and password, one per line. Of which, PIA randomly creates your username and password, which is extra-awesome for both security and anonymity ::
 
@@ -55,7 +56,7 @@ Change the permissions on this file so only the root user can read it, keeping a
   sudo chmod 600 /etc/openvpn/login
 
 Edit the Config File
------------------------
+==================
 
 Setup OpenVPN to use your stored username and password by editing the the config file for the VPN location, as well as our ``ca`` and ``crl`` files.::
 
@@ -72,7 +73,7 @@ crl-verify crl.pem  crl-verify /etc/openvpn/crl.rsa.2048.pem
 ==================  ======
 
 Test VPN
-------------
+===========
 
 At this point you should be able to test that the VPN actually works.
 
@@ -100,7 +101,7 @@ With the ``Initialization Sequence Completed`` being the most important.
 Exit this with ``ctrl+C``
 
 Setup OpenVPN's Autostart Configuration
-------------------------------------------------
+===========================================
 
 Edit the ``/etc/default/openvpn`` file::
 

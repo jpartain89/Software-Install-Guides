@@ -1,5 +1,4 @@
-.. _couchpotato:
-
+=======================================
 CouchPotato Movie Downloader [HTPC-CP]_
 =======================================
 
@@ -8,12 +7,12 @@ CouchPotato is a web program, built on python, specifically tailored towards aut
 Its a beautifully written program, works amazingly well, and is honestly fun to use.
 
 Shoutout
--------------
+=========
 
 First, I'd like to go ahead and say that I wouldn't have been able to learn as much as I have as quickly or easily without the help of `HTPCGuides.com <http://www.htpcguides.com/install-couchpotato-ubuntu/>`_ [HTPC-CP]_. They are an amazing site, they are slowly getting larger, and they are the real, awesome source. My files are more for me, they are better written for everyone.
 
 Base Requirements
------------------------
+===================
 
 First, lets install the basic required programs to help run all-the-things
 
@@ -33,7 +32,7 @@ First, lets install the basic required programs to help run all-the-things
   Currently, I am not using virtualenv, so that is currently outside the scope of this document.
 
 Clone the Repo
--------------------
+===============
 
 Now, to really kick things off, we're going to first clone the github repo, as this is the - well, only way right now - to install and run the software.
 
@@ -60,8 +59,8 @@ Which, again, your other option is to:
 
   See :ref:`user_management` for notes here.
 
-Test if it works
----------------------
+Test if it Works
+=================
 
 Now, we'll run the python program just within the Command Line output, which shows all the text output, including any errors and what not.
 
@@ -74,7 +73,7 @@ This will run only as long as you allow it directly inside the terminal, and it 
 Then, to stop the CL output and control, hit ``ctrl-C`` to quit the program.
 
 Copy/Edit Default File
-------------------------------
+=====================
 
 .. note::
 
@@ -89,29 +88,15 @@ So, we want to copy over the defaut ``/etc/default`` file from the github locati
 
 The below code field is not the entire file, but rather just an excerpt of items of interest.
 
-.. code-block:: bash
-
-  # COPY THIS FILE TO /etc/default/couchpotato
-  # Accepted variables with default values -if any- in parentheses:
-
-  # username to run couchpotato under (couchpotato)
-  CP_USER=couchpotato
-  # directory of CouchPotato.py (/opt/couchpotato)
-  CP_HOME=/opt/couchpotato
-
-  # directory of couchpotato's db, cache and logs (/var/opt/couchpotato)
-  CP_DATA=/var/opt/couchpotato
-  # full path of couchpotato.pid (/var/run/couchpotato/couchpotato.pid)
-  CP_PIDFILE=/var/run/couchpotato.pid
-  # full path of the python binary (/usr/bin/python)
-  PYTHON_BIN=/usr/bin/python
+.. include:: couchpotato_default
+  :code: bash
 
 #. ``CP_USER`` would be the system account we created earlier.
 #. ``CP_HOME`` is where it runs from
 #. ``CP_DATA`` is where it stores files like the metadata for your movie directory. This one I like to have stored on a mounted, shared drive. This way, if I ever need to reinstall CouchPotato, or the VM fraks up and needs to be spun fresh, the big time stuff is saved elsewhere. So, mine is ``/media/sf_Ext1/shared/couchpotato``
 
-Copy or Edit the init.d file
-------------------------------------
+Copy or Edit the init.d File
+=======================
 
 Now, if you're running Ubuntu, the ``./init/ubuntu`` script gets copied and amended thusly:
 

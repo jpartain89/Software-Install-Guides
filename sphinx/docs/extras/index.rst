@@ -1,7 +1,8 @@
 .. _extras:
 
+======
 Extras
-========
+======
 
 I'm calling this section "Extras" for two reasons, really:
 

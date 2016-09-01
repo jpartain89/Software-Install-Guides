@@ -1,3 +1,4 @@
+==========
 DDRescue
 ==========
 
@@ -14,7 +15,7 @@ Plus, sans SD Card? Its a good backup tool to have for, well, backing up filesys
 Its original intent, as you might can gather from its name, is to go over a potentially failing or failed hard drive, sector by sector, to try to pull ANY info whatsoever from that drive. Thus, the options for "retry passes," "max-errors" and the like.
 
 Installing
--------------
+==========
 
 So, if you're using macOS? I would assume/hope you have 'HomeBrew <brew.sh>'_ installed. If so, do:
 
@@ -30,8 +31,8 @@ So, to install on debian-based linux:
 
   sudo apt-get install gddrescue
 
-How is it used?
--------------------
+How is it Used?
+===============
 
 First, do your OS of choices means of discovering the location of the SD card you want to image:
 
@@ -53,13 +54,14 @@ Next, we want to unmount the drive - not eject - so we can write to the root of 
 
   diskutil umountDisk /dev/disk##
 
-Replacing ## with the disk drive number you found from before.
+Replacing ``##`` with the disk drive number you found from before.
 
 .. code-block:: bash
 
   sudo ddrescue -f ~/.img/location/to/copy/to /dev/disk##
 
-Lets break that last one down:
+Break it Down
+=============
 
 First, ``-f`` flag is for Force, telling ddrescue we REALLY want to image this source file onto this drive.
 
