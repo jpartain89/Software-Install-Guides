@@ -18,5 +18,6 @@ Ubuntu
   nginx-from-source
   postfix
   adding-apt-list
+  mount-drive-ubuntu
 
   ubuntu_user
