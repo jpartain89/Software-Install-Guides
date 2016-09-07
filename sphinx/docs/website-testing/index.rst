@@ -1,8 +1,6 @@
-.. _nginx:
-
-=======
-NGINX
-=======
+===============
+Website Testing
+===============
 
 .. toctree::
   :maxdepth: 2

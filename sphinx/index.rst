@@ -15,6 +15,6 @@ Table of contents:
   docs/rpi/index
   docs/macOS/index
   docs/general-bash/index
-  docs/nginx/index
+  docs/website-testing/index
   docs/extras/index
   docs/gen-debian/index

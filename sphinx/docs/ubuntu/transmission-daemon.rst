@@ -11,8 +11,8 @@ Add the most up-to-date repo for transmission:
 
 .. code-block:: bash
 
-  echo "deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu trusty main" | sudo tee -a /etc/apt/sources.list.d/transmission-bt.list
-  echo "deb-src http://ppa.launchpad.net/transmissionbt/ppa/ubuntu trusty main" | sudo tee -a /etc/apt/sources.list.d/transmission-bt.list
+  echo "deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/transmission-bt.list
+  echo "deb-src http://ppa.launchpad.net/transmissionbt/ppa/ubuntu $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/transmission-bt.list
   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 365C5CA1
 
   sudo apt-get update && sudo apt-get install transmission-daemon transmission-cli -y

@@ -2,7 +2,7 @@
 Testing your Web Server Configuration
 =====================================
 
-This is a running list of websites that, well, test your website.
+This is a running list of websites that will, well, test your website for different reasons, mostly security.
 
 List
 ====
