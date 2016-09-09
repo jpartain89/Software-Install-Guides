@@ -4,7 +4,7 @@
 JPCDI's Software Installation Guides
 ====================================
 
-These guides are geared more towards programs that run auto-downloaders for Movies and TV Shows, like CouchPotato and Sonarr.
+These guides started off as geared more towards programs that run auto-downloaders for Movies and TV Shows like `CouchPotato <couchpota.to>`_ and `Sonarr <sonarr.tv>`_ but has since evolved into other areas as well.
 
 Table of contents:
 
