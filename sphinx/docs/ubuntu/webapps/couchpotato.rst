@@ -40,7 +40,7 @@ But, the other big plus to this is that for running updates, not only does the p
 
 Which, is why...
 
-.. include:: ../gitreponote.rst
+.. include:: ../../gitreponote.rst
 
 Now, onto the cloning:
 
@@ -57,7 +57,7 @@ Which, again, your other option is to:
 
 .. note::
 
-  See :ref:`user_management` for notes here.
+  See :ref:`user_management` for notes on adjusting user permissions with regards to programs and allowing the web access to your machines.
 
 Test if it Works
 =================
@@ -73,7 +73,7 @@ This will run only as long as you allow it directly inside the terminal, and it 
 Then, to stop the CL output and control, hit ``ctrl-C`` to quit the program.
 
 Copy/Edit Default File
-=====================
+======================
 
 .. note::
 
@@ -96,7 +96,7 @@ The below code field is not the entire file, but rather just an excerpt of items
 #. ``CP_DATA`` is where it stores files like the metadata for your movie directory. This one I like to have stored on a mounted, shared drive. This way, if I ever need to reinstall CouchPotato, or the VM fraks up and needs to be spun fresh, the big time stuff is saved elsewhere. So, mine is ``/media/sf_Ext1/shared/couchpotato``
 
 Copy or Edit the init.d File
-=======================
+=============================
 
 Now, if you're running Ubuntu, the ``./init/ubuntu`` script gets copied and amended thusly:
 

@@ -22,11 +22,11 @@ Cloning and Starting
 ====================
 
 HellowLoL's Git Fork
-----------------------------
+--------------------
 
 `HellowLoL's Version <https://github.com/Hellowlol/HTPC-Manager.git>`_ of HTPC-Manager is the one that I prefer to use, but its not the original fork. So, if you were to poke around a bit on GitHub, you might see some other forks and versions as well.
 
-.. include:: ../gitreponote.rst
+.. include:: ../../gitreponote.rst
 
 So, as always, on the code below that includes locations for git, you can change as much as you want.
 
@@ -40,14 +40,15 @@ First, the cloning
 Notice, in the location string at the end, I changed the formatting of ``./htpcmanager`` to a nicer, easier-to-type lowercase and without dashes. This simply tends to make your Command Line Life easier in the long run if you try to manage directories in that manner. Or at least, one that works for your fingers.
 
 Next, the Symlink
--------------------------
+-------------------
 
 Next, I symlink the ``~/git`` location to ``/opt``, and make sure the files are assigned to my primary user.
 
 .. note::
-  `See User Management <ubuntu_user.rst>`_ for notes here.
 
-But, either way, make sure the files are owned by the correct account. Both Symlinked and original Repo.
+  See :ref:`user_management` for notes on adjusting user permissions with regards to programs and allowing the web access to your machines.
+
+But, either way, make sure the files are owned by the correct account. Both the symlinked, ``/opt`` location and the Original Repo, ``~/git`` location.
 
 .. code-block:: bash
 
@@ -56,26 +57,28 @@ But, either way, make sure the files are owned by the correct account. Both Syml
   sudo chown -R $USER:$USER ~/git/htpcmanager
 
 Finally, Running the Program
------------------------------------
+----------------------------
 
-And, we ``python /opt/htpcmanager/Htpc.py`` for the first time-running of the program. This way we get the verbose output and see up front if there are any big errors or anything missing.
+And, we ``python /opt/htpcmanager/Htpc.py`` for the first time we run the program. This way we get the verbose output and see up front if there are any big errors or anything missing.
 
 .. code-block:: bash
 
   sudo python /opt/htpcmanager/Htpc.py
 
-Make sure to pay attention to the output in your terminal. And, I'd suggest you go ahead and open up, in your browser, HTPCManager and poke around. This way you can also watch the output in the terminal. The address to access is either `http://localhost:8085 <http://localhost:8085>`_ or ``http://<ipaddress>:8085`` and exchange your instances ip address.
+Make sure to pay attention to the output in your terminal. And, I'd suggest you go ahead and open up your browser to view HTPCManager and poke around. This way you can also watch the output in the terminal.
+
+The address to access is either `http://localhost:8085 <http://localhost:8085>`_ or ``http://<ipaddress>:8085`` and exchange your machines ip address.
 
 .. note::
 
-  If you see any RED TEXT CherryPy errors, those aren't death. Those are just, nicely, STANDING OUT for you to see what needs to be done.
+  If you see any RED TEXT CherryPy errors in your terminal, those aren't death. Those are just, nicely, STANDING OUT for you to see what needs to be done.
 
 Make sure you hit ``ctrl-C`` to stop the program in your terminal. This will send a ``SIGHUP`` signal to terminate the program as nicely as possible.
 
-Autostart init.d Copy and Edit
-============================
+Autostart ``init.d`` Copy and Edit
+==================================
 
-You can link over the standard ``init.d`` file from the repo to ``/etc/init.d``.
+You can link over the standard ``init.d`` file from the git repo directory to ``/etc/init.d`` directory location. Or you can just copy it over without the link, in case the git repo updates ever modify that file and you make your own mods.
 
 .. code-block:: bash
 

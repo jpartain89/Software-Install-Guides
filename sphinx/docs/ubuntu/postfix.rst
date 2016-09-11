@@ -7,7 +7,7 @@ So, postfix is a fairly full-featured, backend mailserver software, that, to be 
 But, we will be using it to forward all of the system emails to our personal email address. I use gmail, so my examples will be more geared towards gmails smtp address and port.
 
 Install Postfix
-==============
+===============
 
 .. code-block:: bash
 

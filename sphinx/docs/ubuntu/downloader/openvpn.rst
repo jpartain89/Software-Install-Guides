@@ -1,6 +1,6 @@
-=======================
+===================
 OpenVPN [PIA-VPN]_
-=======================
+===================
 
 OpenVPN is basically the defacto standard for open source VPN software. You are able to both connect to other VPN servers OR make your own, private VPN service.
 
@@ -44,21 +44,27 @@ Copy the PIA OpenVPN certificates and profile to the OpenVPN configuration locat
 You'll notice I changed the file extension from ``.ovpn`` to ``.conf``. OpenVPN likes ``.conf`` files.
 
 Create the Login File
-===================
+=====================
 
-Create ``/etc/openvpn/login`` containing only your username and password, one per line. Of which, PIA randomly creates your username and password, which is extra-awesome for both security and anonymity ::
+Create ``/etc/openvpn/login`` containing only your username and password, one per line. Of which, PIA randomly creates your username and password, which is extra-awesome for both security and anonymity
+
+.. code-block:: bash
 
   user12345678
   MyGreatPassword
 
-Change the permissions on this file so only the root user can read it, keeping anyone else from snooping. ::
+Change the permissions on this file so only the root user can read it, keeping anyone else from snooping.
+
+.. code-block:: bash
 
   sudo chmod 600 /etc/openvpn/login
 
 Edit the Config File
-==================
+====================
 
-Setup OpenVPN to use your stored username and password by editing the the config file for the VPN location, as well as our ``ca`` and ``crl`` files.::
+Setup OpenVPN to use your stored username and password by editing the the config file for the VPN location, as well as our ``ca`` and ``crl`` files.
+
+.. code-block:: bash
 
   sudo nano /etc/openvpn/Japan.conf
 
@@ -73,15 +79,19 @@ crl-verify crl.pem  crl-verify /etc/openvpn/crl.rsa.2048.pem
 ==================  ======
 
 Test VPN
-===========
+========
 
 At this point you should be able to test that the VPN actually works.
 
-Running it this way outputs the program info, as its running, into the terminal prompt. This way, you see up front without hunting in the logs for if/when/where there is any issues.::
+Running it this way outputs the program info, as its running, into the terminal prompt. This way, you see up front without hunting in the logs for if/when/where there is any issues.
+
+.. code-block:: bash
 
   sudo openvpn --config /etc/openvpn/Japan.conf
 
-If all is well, you'll see something like: ::
+If all is well, you'll see something like:
+
+.. code-block:: bash
 
   sudo openvpn --config /etc/openvpn/Japan.conf
   Sat Oct 24 12:10:54 2015 OpenVPN 2.3.4 arm-unknown-linux-gnueabihf [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [IPv6] built on Dec  5 2014
@@ -101,30 +111,36 @@ With the ``Initialization Sequence Completed`` being the most important.
 Exit this with ``ctrl+C``
 
 Setup OpenVPN's Autostart Configuration
-===========================================
+=======================================
 
-Edit the ``/etc/default/openvpn`` file::
+Edit the ``/etc/default/openvpn`` file
+
+.. code-block:: bash
 
   sudo nano /etc/default/openvpn
 
 Next, since I use only the one ``.conf`` file,  I uncomment the ``AUTOSTART-"all"`` line. If you have a different setup, go through and make those changes.
 
-Then, to start the service: ::
+Then, to start the service:
+
+.. code-block:: bash
 
   sudo service openvpn start
 
 Then, to check that my public-facing IP address has changed - since I usually am running this on a headless machine as a downloader - I have an alias assigned in one of my dotfiles. Of which, my breakdown of dotfiles is:
 
-  - aliases
-  - bash_profile
-  - bashrc
-  - exports
-  - functions
-  - gitconfig
-  - gitignore
-  - profile
+- aliases
+- bash_profile
+- bashrc
+- exports
+- functions
+- gitconfig
+- gitignore
+- profile
 
-So, my ``.aliases`` file is, well, my aliases that I use. So, for checking my public-facing IP address: ::
+So, my ``.aliases`` file is, well, my aliases that I use. So, for checking my public-facing IP address:
+
+.. code-block:: bash
 
   alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 
