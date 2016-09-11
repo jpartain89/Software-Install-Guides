@@ -10,4 +10,5 @@ This will also include, in the future, a how-to install `NZBGET <nzbget.net>`_ p
   :maxdepth: 2
 
   transmission-daemon
+  transmission-web-gui
   openvpn
