@@ -5,7 +5,7 @@ Compiling NGINX From Source [NGINX-Copied]_
 The way listed here uses apt-get to our advantage. By adding the NGINX PPA repo, we get a baseline of required files, configuration files, and other things that make this much easier for us all!
 
 Add NGINX PPA
-=================
+=============
 
 For the ``$nginx`` variable at the end of the first code line, replace it with either ``stable`` for their Stable line or ``development`` for their Mainline.
 

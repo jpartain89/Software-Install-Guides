@@ -6,9 +6,7 @@ Ubuntu
 
   webapps/index
   downloader/index
-  ddclient
-  nginx-from-ubuntu-ppa
-  nginx-from-source
+  web-server/index
   postfix
   adding-apt-list
   mount-drive-ubuntu

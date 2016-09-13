@@ -4,6 +4,8 @@
 Bash ``If-Else`` -like Conditional Markers
 ==========================================
 
+The info below contains an overview of the so-called "primaries" that make up the TEST-COMMAND command or list of commands. These primaries are put between square brackets to indicate the test of a conditional expression.
+
 ``-a file``
 True if file exists.
 

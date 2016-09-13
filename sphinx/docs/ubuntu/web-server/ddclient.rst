@@ -27,7 +27,7 @@ Clone the Github Repo
 
 Lets start off by cloning the github repo, so you have the most up-to-date code to build with.
 
-.. include:: ../gitreponote.rst
+.. include:: ../../gitreponote.rst
 
 .. code-block:: bash
 
