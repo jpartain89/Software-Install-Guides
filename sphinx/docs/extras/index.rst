@@ -13,3 +13,4 @@ I'm calling this section "Extras" for two reasons, really:
   :maxdepth: 2
 
   virtualbox-guest-addition
+  ansible-adhoc
