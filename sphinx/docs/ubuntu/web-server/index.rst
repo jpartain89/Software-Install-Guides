@@ -13,4 +13,5 @@ Now, I'm also not going to pretend that I am some kind of expert with NGINX. Mor
   nginx-from-ubuntu-ppa
   nginx-from-source
   nginx-basic-auth
+  securing-nginx
   ddclient
