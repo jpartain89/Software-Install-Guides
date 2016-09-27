@@ -6,4 +6,3 @@ sphinx_dir=/Users/jpartain89/git/Software-Install-Guides/sphinx
 
 rsync -aru --del -P "$sphinx_dir/_build/html/" remote-nginx:/var/www/html/docs2 &&
 ssh remote-nginx 'sudo chown -R jpartain89:staff /var/www/html/docs2'
- 
