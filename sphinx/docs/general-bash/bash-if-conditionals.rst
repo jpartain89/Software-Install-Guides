@@ -69,6 +69,9 @@ True if file exists and is owned by the effective user id.
 ``-S file``
 True if file exists and is a socket.
 
+``-z file``
+True if string is null, that is, has zero length.
+
 ``file1 -ef file2``
 True if file1 and file2 refer to the same device and inode numbers.
 
