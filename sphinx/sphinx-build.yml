@@ -31,10 +31,8 @@
       register: sphinx_make
       changed_when: False
 
-    - set_fact: sphinx_make_json="{{ sphinx_make | from_json }}"
-
     - name: Show Sphinx make Output
-      debug: var=sphinx_make_json
+      debug: var=sphinx_make
 
     - name: Send the Built Docs to the web server location
       synchronize:

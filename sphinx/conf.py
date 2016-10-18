@@ -109,10 +109,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_drafts']
 #
 # default_role = None
 
-# If true, '()' will be appended to :func: etc. cross-reference text.
-#
-# add_function_parentheses = True
-
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
 #
@@ -134,7 +130,6 @@ pygments_style = 'sphinx'
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 #todo_include_todos = True
-
 
 # -- Options for HTML output ----------------------------------------------
 
@@ -189,7 +184,7 @@ html_static_path = ['_static']
 # bottom, using the given strftime format.
 # The empty string is equivalent to '%b %d, %Y'.
 #
-# html_last_updated_fmt = None
+html_last_updated_fmt = '%B %d, %Y'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
@@ -319,7 +314,6 @@ latex_documents = [
 #
 # latex_domain_indices = True
 
-
 # -- Options for manual page output ---------------------------------------
 
 # One entry per manual page. List of tuples
@@ -332,7 +326,6 @@ man_pages = [
 # If true, show URL addresses after external links.
 #
 man_show_urls = True
-
 
 # -- Options for Texinfo output -------------------------------------------
 
