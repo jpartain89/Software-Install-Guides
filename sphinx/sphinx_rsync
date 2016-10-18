@@ -4,5 +4,5 @@
 
 sphinx_dir=/Users/jpartain89/git/Software-Install-Guides/sphinx
 
-rsync -aru --del -P --chown=www-data:www-data "$sphinx_dir/_build/html/" nginx:/var/www/html/docs2 
-#ssh nginx 'sudo chown -R jpartain89:staff /var/www/html/docs2'
+
+rsync -rlDvhup --progress --del --chmod=0774 --chown=www-data:www-data "$sphinx_dir/_build/html/" nginx:/var/www/html/docs2

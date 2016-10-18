@@ -17,7 +17,7 @@
         - Sphinx
         - sphinx-rtd-theme
 
-    - name: Software-Install-Guides git repo exists
+    - name: Clone/Update Software-Install-Guides Git Repo
       git:
         repo: "{{ jp_git }}/Software-Install-Guides.git"
         dest: "{{ git_loc }}/Software-Install-Guides"
@@ -25,17 +25,20 @@
         force: yes
 
     - name: Build the Sphinx Docs
-      shell: make html
+      shell: 'make html'
       args:
         chdir: /home/jpartain89/git/Software-Install-Guides/sphinx
       register: sphinx_make
       changed_when: False
 
+    - set_fact: sphinx_make_json="{{ sphinx_make | from_json }}"
+
     - name: Show Sphinx make Output
-      debug: var=sphinx_make.stdout_lines
+      debug: var=sphinx_make_json
 
     - name: Send the Built Docs to the web server location
       synchronize:
         src: "{{ git_loc }}/Software-Install-Guides/sphinx/_build"
         dest: /var/www/html/docs2
       delegate_to: "{{ inventory_hostname }}"
+      when: sphinx_make_json | match("build succeeded. ")

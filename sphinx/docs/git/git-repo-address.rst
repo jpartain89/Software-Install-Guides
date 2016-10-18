@@ -30,7 +30,7 @@ You will see, at minimum, two lines showing the fetch and push addresses, along 
 Background
 ==========
 
-In that above code-block, you'll notice four lines, rather than 2. Along with an additional name other than ``origin``. Thats because there is one remote location that I've named ``icefox ``and then my personal location named ``origin``.
+In that above code-block, you'll notice four lines, rather than 2. Along with an additional name other than ``origin``. Thats because there is one remote location that I've named ``icefox`` and then my personal location named ``origin``.
 
 Origin is the defacto name ``git`` gives to cloned repos. You'll also see it referred to as ``Master/Origin``. Because the Master is the remote location, with it being the Origin of the code. Or, at least thats my way of reconciling that info.
 
