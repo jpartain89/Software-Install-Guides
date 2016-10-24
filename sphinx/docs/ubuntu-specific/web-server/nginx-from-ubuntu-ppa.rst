@@ -7,10 +7,9 @@ The PPA is Ubuntu's way of trying to make it easier to add extra repo's to the a
 NGINX's PPA
 ============
 
-For the ``$nginx`` variable at the end of the first code line, replace it with either ``stable`` for their Stable line or ``development`` for their Mainline.
-
 .. note::
 
+  For the ``$nginx`` variable at the end of the first code line, replace it with either ``stable`` for their Stable line or ``development`` for their Mainline.
   Mainline is what they consider their "beta" line. Stable being their, well, "stable" line.
 
 .. code-block:: bash
