@@ -14,3 +14,4 @@ I'm calling this section "Extras" for two reasons, really:
 
   virtualbox-guest-addition
   ansible-adhoc
+  ansible-random-nuggets
