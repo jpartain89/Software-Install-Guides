@@ -84,6 +84,10 @@ Process Password File
 
 Remember when you installed ``mailutils``? That was for ``postmap``, which compiles and hashes the contents of our ``sasl_passwd`` and creates a new file in the same spot, ``sasl_passwd.db``.
 
+.. code-block:: bash
+
+  sudo postmap /etc/postfix/sasl_passwd
+
 Restart Postfix
 ===============
 
