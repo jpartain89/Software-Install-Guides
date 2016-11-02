@@ -1,5 +1,5 @@
 ===============
-Ubuntu_Specific
+Ubuntu Specific
 ===============
 
 .. toctree::
