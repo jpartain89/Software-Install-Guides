@@ -32,23 +32,48 @@ Configure Postfix
 
 We will be setting the system to process emails only from "the server on which it is running," aka the ``localhost`` or ``loopback interface``. That way, when postfix "receives" an email from the system - for say, root - it will use Postfix to forward the email off through our specified smtp server. Thus, using the loopback as the "catch-all" for the emails.
 
+Generic File
+-------------
+
+You'll want to create a ``generic`` file inside of the postfix configuration directory. This should contain your systems hostname and then your email address, aka:
+
+.. code-block:: bash
+
+  ubuntu-server   admin@jpcdi.com
+
 Password File
 -------------------
 
-First, we're going to make a seperate, locked down password file that Postfix will use to authenticate with gmail. ::
+First, we're going to make a seperate, locked down password file that Postfix will use to authenticate with gmail.
+
+.. code-block:: bash
 
   sudo nano /etc/postfix/sasl_passwd
 
-And add the line: ::
+And add the line:
+
+.. code-block:: bash
 
   [smtp.gmail.com]:587        username@gmail.com:password
 
 Which, of course, if you use a different mail service, input their info and it should work just the same. And, also, ``username@gmail.com:password`` needs to be replaced with your info.
 
-Now, lock that file down so only root can view it. ::
+Now, lock that file down so only root can view it.
+
+.. code-block:: bash
 
   sudo chmod 600 /etc/postfix/sasl_passwd
   sudo chown root:root /etc/postfix/sasl_passwd
+
+Process Password and Generic File
+-----------------------------------
+
+Remember when you installed ``mailutils``? That was for ``postmap``, which compiles and hashes the contents of our ``sasl_passwd`` and ``generic`` files, and creates a new file in the same spot, with ``.db`` added to the end, making it a database file easier to parse as it runs.
+
+.. code-block:: bash
+
+  sudo postmap /etc/postfix/sasl_passwd
+  sudo postmap /etc/postfix/generic
 
 Main Configure File
 -------------------------
@@ -61,6 +86,7 @@ In the ``main.cf`` file, there are 6 specific parameters we will be using for th
 #. ``smtp_sasl_security_options`` which in the following configuration will be set to empty, to ensure that no Gmail-incompatible security options are used.
 #. ``smtp_sasl_password_maps`` which specifies the password file to use. This file will be compiled and hashed by postmap in a later step.
 #. ``smtp_tls_CAfile`` which specifies the list of certificate authorities to use when verifying server identity.
+#. ``smtp_generic_maps`` tells postfix to read your system name and email address from your generic file
 
 .. code-block:: bash
 
@@ -78,15 +104,7 @@ You will most likely have to add most of the above options, possibly deleting on
   smtp_sasl_security_options =
   smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
   smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
-
-Process Password File
------------------------------
-
-Remember when you installed ``mailutils``? That was for ``postmap``, which compiles and hashes the contents of our ``sasl_passwd`` and creates a new file in the same spot, ``sasl_passwd.db``.
-
-.. code-block:: bash
-
-  sudo postmap /etc/postfix/sasl_passwd
+  smtp_generic_maps = hash:/etc/postfix/generic
 
 Restart Postfix
 ===============
