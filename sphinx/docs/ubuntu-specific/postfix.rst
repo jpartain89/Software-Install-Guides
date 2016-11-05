@@ -54,7 +54,7 @@ And add the line:
 
 .. code-block:: bash
 
-  [smtp.gmail.com]:587        username@gmail.com:password
+  [smtp.gmail.com]:587  username@gmail.com:password
 
 Which, of course, if you use a different mail service, input their info and it should work just the same. And, also, ``username@gmail.com:password`` needs to be replaced with your info.
 
