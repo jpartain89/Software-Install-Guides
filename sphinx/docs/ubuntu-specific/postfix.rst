@@ -98,12 +98,12 @@ You will most likely have to add most of the above options, possibly deleting on
 
 .. code-block:: bash
 
-  relayhost = [smtp.gmail.com]:587
+  relayhost = [smtp.gmail.com]:587
   smtp_use_tls = yes
-  smtp_sasl_auth_enable = yes
-  smtp_sasl_security_options =
+  smtp_sasl_auth_enable = yes
+  smtp_sasl_security_options = 
   smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
-  smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+  smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
   smtp_generic_maps = hash:/etc/postfix/generic
 
 Restart Postfix
