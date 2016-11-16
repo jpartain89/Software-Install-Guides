@@ -98,30 +98,42 @@ You will most likely have to add most of the above options, possibly deleting on
 
 .. code-block:: bash
 
-  relayhost = [smtp.gmail.com]:587
+  relayhost = [smtp.gmail.com]:587
   smtp_use_tls = yes
-  smtp_sasl_auth_enable = yes
-  smtp_sasl_security_options =
+  smtp_sasl_auth_enable = yes
+  smtp_sasl_security_options =
   smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
-  smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+  smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
   smtp_generic_maps = hash:/etc/postfix/generic
+
+The ``smtp_sasl_security_options`` is left empty.
 
 Restart Postfix
 ===============
 
-Restart postfix, enabling our various changes: ::
+Restart postfix, enabling our various changes:
+
+.. code-block:: bash
 
   sudo systemctl restart postfix.service
+
+-- or --
+
+.. code-block:: bash
+
+  sudo service postfix restart
 
 Send Test Emails
 ================
 
-This is testing if the actual forwarding part works.
+This is testing if the actual forwarding part works, as you're able to send emails through the command line.
 
-To send a test email over the command line: ::
+To send a test email over the command line:
+
+.. code-block:: bash
 
   echo "This is the body of the email" | mail -s "This is the subject line" user@example.com
 
-Making sure to put your email address in place of ``user@example.com``. You should receive the email within a few seconds.
+Making sure to put your email address in place of ``user@example.com``. You should receive the email within a few seconds if its successful.
 
 .. [POSTFIX-HowTo] Copied very liberally from `HowToForge Postfix How-To <https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/>`_
