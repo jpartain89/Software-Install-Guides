@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Compiling NGINX From Source [NGINX-Copied] &mdash; Software Install Guides v1.5</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Software Install Guides v1.5" href="../../../index.html"/>
+        <link rel="up" title="Web Server Stuff" href="index.html"/>
+        <link rel="next" title="NGINX Basic Password Auth" href="nginx-basic-auth.html"/>
+        <link rel="prev" title="NGINX from PPA [NGINX-Config]" href="nginx-from-ubuntu-ppa.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../../_static/JPLogo-Header.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Ubuntu Specific</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../webapps/index.html">WebApps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../downloader/index.html">Downloaders</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Web Server Stuff</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nginx-from-ubuntu-ppa.html">NGINX from PPA <code class="docutils literal"><span class="pre">[NGINX-Config]</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Compiling NGINX From Source <code class="docutils literal"><span class="pre">[NGINX-Copied]</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#add-nginx-ppa">Add NGINX PPA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#download-source-packages">Download Source Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-nginx">Install NGINX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#block-nginx-from-auto-update">Block NGINX from Auto-Update</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nginx-basic-auth.html">NGINX Basic Password Auth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="securing-nginx.html">Securing NGINX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ddclient.html">DDClient <code class="docutils literal"><span class="pre">[DDCLIENT-Source]</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../postfix.html">Using Postfix as Mail Relay <code class="docutils literal"><span class="pre">[POSTFIX-HowTo]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adding-apt-list.html">Adding an Apt-Get List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mount-drive-ubuntu.html">Mounting Unformatted Drive in Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ubuntu_user.html">User Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#layout">Layout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../raspberry-pi/index.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macOS/index.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-debian/index.html">General Debian Info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-bash/index.html">General Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../git/index.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../website-testing/index.html">Website Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extras/index.html">Extras</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Ubuntu Specific</a> &raquo;</li>
+      
+          <li><a href="index.html">Web Server Stuff</a> &raquo;</li>
+      
+    <li>Compiling NGINX From Source <code class="docutils literal"><span class="pre">[NGINX-Copied]</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/docs/ubuntu-specific/web-server/nginx-from-source.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="compiling-nginx-from-source-nginx-copied">
+<h1>Compiling NGINX From Source <a class="reference internal" href="#nginx-copied" id="id1">[NGINX-Copied]</a><a class="headerlink" href="#compiling-nginx-from-source-nginx-copied" title="Permalink to this headline">¶</a></h1>
+<p>The way listed here uses apt-get to our advantage. By adding the NGINX PPA repo, we get a baseline of required files, configuration files, and other things that make this much easier for us all!</p>
+<div class="section" id="add-nginx-ppa">
+<h2>Add NGINX PPA<a class="headerlink" href="#add-nginx-ppa" title="Permalink to this headline">¶</a></h2>
+<p>For the <code class="docutils literal"><span class="pre">$nginx</span></code> variable at the end of the first code line, replace it with either <code class="docutils literal"><span class="pre">stable</span></code> for their Stable line or <code class="docutils literal"><span class="pre">development</span></code> for their Mainline.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Mainline is what they consider their &#8220;beta&#8221; line. Stable being their, well, &#8220;stable&#8221; line.</p>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo add-apt-repository ppa:nginx/<span class="nv">$nginx</span>
+</pre></div>
+</div>
+<p>Then, go in and remove the comment from the <cite>deb-src</cite> line inside the <cite>apt/sources.list.d/nginx.list</cite> file. The file most likely will be named something else.</p>
+<p>Then update apt-get.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get update
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-source-packages">
+<h2>Download Source Packages<a class="headerlink" href="#download-source-packages" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>First, we install the pre-requisites. AKA the package creation tools. This helps in building from source using apt.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install dpkg-dev -y
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-directory">
+<h3>Build Directory<a class="headerlink" href="#build-directory" title="Permalink to this headline">¶</a></h3>
+<p>The directory <code class="docutils literal"><span class="pre">/opt/rebuildnginx</span></code> is simply a potential, central location for all of the building files that we are wanting to use. You can stick it anywhere you want, name it anything you want.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo mkdir /opt/rebuildnginx
+<span class="nb">cd</span> /opt/rebuildnginx
+</pre></div>
+</div>
+</div>
+<div class="section" id="source-files-download">
+<h3>Source Files Download<a class="headerlink" href="#source-files-download" title="Permalink to this headline">¶</a></h3>
+<p>Next, running <code class="docutils literal"><span class="pre">apt-get</span> <span class="pre">source</span></code> rather than <code class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span></code> installs the source files for the program you&#8217;ve listed.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get <span class="nb">source</span> nginx
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-build-dependencies">
+<h3>Install Build Dependencies<a class="headerlink" href="#install-build-dependencies" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get build-dep nginx
+</pre></div>
+</div>
+<p>If the current, main NGINX build doesn&#8217;t have the specific modules that you are needing, you can add them into a specific file inside the build directory.</p>
+<p>The detailed instructions for that specialized need is at <a class="reference external" href="https://serversforhackers.com/compiling-third-party-modules-into-nginx">ServersForHackers.com</a></p>
+</div>
+<div class="section" id="compile-and-install">
+<h3>Compile and Install<a class="headerlink" href="#compile-and-install" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> /opt/rebuildnginx/nginx-<span class="o">{</span>release<span class="o">}</span>
+sudo dpkg-buildpackage -uc -b
+</pre></div>
+</div>
+<p>This will take around a few minutes.</p>
+</div>
+</div>
+<div class="section" id="install-nginx">
+<h2>Install NGINX<a class="headerlink" href="#install-nginx" title="Permalink to this headline">¶</a></h2>
+<p>Once the build is complete, we&#8217;ll find a bunch of <code class="docutils literal"><span class="pre">.deb</span></code> files added in <code class="docutils literal"><span class="pre">/opt/rebuildnginx</span></code>. We can use these to install NGINX.</p>
+<p>The <code class="docutils literal"><span class="pre">full</span></code> package, quite aptly, has the most pre-built modules. So, if thats what you&#8217;re needing, concentrate on those files.</p>
+<p>Next, you&#8217;ll want to check if you&#8217;re on 64bit or otherwise. If you&#8217;re on 64bit, most likely you wanna use <code class="docutils literal"><span class="pre">amd64</span></code> files. Also, the <code class="docutils literal"><span class="pre">dbg</span></code> is specifically for debugging tools.</p>
+<p>Do you have the file you wanna use? Lets install it then!</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo dpkg --install nginx-full_<span class="o">{</span> release <span class="o">}</span>+trusty0_amd64.deb
+</pre></div>
+</div>
+<p>Now, you can run <code class="docutils literal"><span class="pre">nginx</span> <span class="pre">-V</span></code> (capital V) and it&#8217;ll show you the flags and modules and whatnot compiled with NGINX.</p>
+</div>
+<div class="section" id="block-nginx-from-auto-update">
+<h2>Block NGINX from Auto-Update<a class="headerlink" href="#block-nginx-from-auto-update" title="Permalink to this headline">¶</a></h2>
+<p>Next, mark NGINX to be blocked from further apt-get updates, as this potentially will remove the modules  you added.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo dpkg --get-selections <span class="p">|</span> grep nginx
+</pre></div>
+</div>
+<p>and for every nginx component listed run:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-mark hold <span class="o">{</span>component<span class="o">}</span>
+</pre></div>
+</div>
+<p>And from now on, make sure to watch <a class="reference external" href="www.nginx.org">NGINX&#8217;s</a> opensource web page for more updates, and perform the same steps again.</p>
+<table class="docutils citation" frame="void" id="nginx-copied" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[NGINX-Copied]</a></td><td>These instructions are happily borrowed from <a class="reference external" href="https://serversforhackers.com/compiling-third-party-modules-into-nginx">ServersForHackers.com</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nginx-basic-auth.html" class="btn btn-neutral float-right" title="NGINX Basic Password Auth" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nginx-from-ubuntu-ppa.html" class="btn btn-neutral" title="NGINX from PPA [NGINX-Config]" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Justin Partain.
+      Last updated on November 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

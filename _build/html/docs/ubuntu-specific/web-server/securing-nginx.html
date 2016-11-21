@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Securing NGINX &mdash; Software Install Guides v1.5</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Software Install Guides v1.5" href="../../../index.html"/>
+        <link rel="up" title="Web Server Stuff" href="index.html"/>
+        <link rel="next" title="DDClient [DDCLIENT-Source]" href="ddclient.html"/>
+        <link rel="prev" title="NGINX Basic Password Auth" href="nginx-basic-auth.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../../_static/JPLogo-Header.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Ubuntu Specific</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../webapps/index.html">WebApps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../downloader/index.html">Downloaders</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Web Server Stuff</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nginx-from-ubuntu-ppa.html">NGINX from PPA <code class="docutils literal"><span class="pre">[NGINX-Config]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nginx-from-source.html">Compiling NGINX From Source <code class="docutils literal"><span class="pre">[NGINX-Copied]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nginx-basic-auth.html">NGINX Basic Password Auth</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Securing NGINX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#basic-https-setup">Basic HTTPS Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optimizing-nginx-s-secure-connection">Optimizing NGINX&#8217;s Secure Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-example">Configuration Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ddclient.html">DDClient <code class="docutils literal"><span class="pre">[DDCLIENT-Source]</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../postfix.html">Using Postfix as Mail Relay <code class="docutils literal"><span class="pre">[POSTFIX-HowTo]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adding-apt-list.html">Adding an Apt-Get List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mount-drive-ubuntu.html">Mounting Unformatted Drive in Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ubuntu_user.html">User Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#layout">Layout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../raspberry-pi/index.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macOS/index.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-debian/index.html">General Debian Info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-bash/index.html">General Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../git/index.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../website-testing/index.html">Website Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extras/index.html">Extras</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Ubuntu Specific</a> &raquo;</li>
+      
+          <li><a href="index.html">Web Server Stuff</a> &raquo;</li>
+      
+    <li>Securing NGINX</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/docs/ubuntu-specific/web-server/securing-nginx.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="securing-nginx">
+<h1>Securing NGINX<a class="headerlink" href="#securing-nginx" title="Permalink to this headline">¶</a></h1>
+<p>This is a high level, very basic, more of a &#8220;config-only&#8221; document. There will be other docs that better explain the items listed here.</p>
+<p>One big, generalized note to keep in mind is each line ends with <code class="docutils literal"><span class="pre">;</span></code></p>
+<p>These following steps are almost singularly taken from <a class="reference external" href="https://bjornjohansen.no/">Bjornjohansen&#8217;s</a>  website. His <a class="reference external" href="https://bjornjohansen.no/tag/nginx">NGINX Configuration</a> how-to&#8217;s were the singular guides I used for securing my setup. I cannot recommend his website more!</p>
+<div class="section" id="basic-https-setup">
+<h2>Basic HTTPS Setup<a class="headerlink" href="#basic-https-setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="obtaining-the-certificate">
+<h3>Obtaining the Certificate<a class="headerlink" href="#obtaining-the-certificate" title="Permalink to this headline">¶</a></h3>
+<p>First off, in order to actually have a secure connection to a website, that website has to have a trusted certificate. Its fine and dandy for you to be your own Certificate Authority, or CA, if only you or people who will trust your certs will access your site. If you want anyone else ever to access your site, services or apps, you need to use an already-trusted CA. Of which, you no longer have to pay for this, if you so choose.</p>
+<p>Enter <a class="reference external" href="https://certbot.eff.org/">CertBot</a>. They are a means of having a free, short term certificate that is SO SO SO much easier to install than almost any other CA I&#8217;ve ever found. Though, the main downside being that its only valid for 3 months (other CA&#8217;s offer for much much longer), but it being BOTH free and easy is world-shattering in how long it took for this to occur.</p>
+<p>The system works, at least in the way I use it, by creating a temporary webserver itself, then trying to access said webserver through the address you&#8217;ve requested a cert for. As in, your web address has to be pointing to the machine running the certbot server at that time.</p>
+<p>Then, once it validates that info, it creates the cert, registers it with the Acme CA (their CA repo that they use/created) and instantly, your website&#8217;s secure certs are trusted by browsers everywhere, due to the Acme CA being a registered and trusted CA.</p>
+<p>The options are wide and varied, but the way I use it is:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/
+wget https://dl.eff.org/certbot-auto
+chmod a+x certbot-auto
+sudo nginx -s stop
+./certbot-auto certonly
+</pre></div>
+</div>
+<p>Then follow the prompts. Make sure nothing is hogging the ports <code class="docutils literal"><span class="pre">80</span></code> or <code class="docutils literal"><span class="pre">443</span></code>, as thats what certbot&#8217;s server uses to authorize you.</p>
+<p>You&#8217;ll also see letsencrypt floating around, that was the original name, and is the parent projects name.</p>
+<p>Take note of the location of the saved certs.</p>
+</div>
+<div class="section" id="server-redirect">
+<h3>Server Redirect<a class="headerlink" href="#server-redirect" title="Permalink to this headline">¶</a></h3>
+<p>To default-direct all requests to the secured, 443 items, you can use the following in your <code class="docutils literal"><span class="pre">80</span></code> server section.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>server <span class="o">{</span>
+  listen <span class="m">80</span> default_server<span class="p">;</span>
+  listen <span class="o">[</span>::<span class="o">]</span>:80 default_server<span class="p">;</span>
+  server_name jpcdi.com www.jpcdi.com<span class="p">;</span>
+  <span class="k">return</span> <span class="m">301</span> https://<span class="nv">$server_name$request_uri</span><span class="p">;</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">return</span> <span class="pre">301</span> <span class="pre">https://$server_name$request_uri;</span></code> tells the requesting browser or program to use <code class="docutils literal"><span class="pre">https</span></code>, which then routes to the next server block, which is <code class="docutils literal"><span class="pre">https</span></code></p>
+</div>
+<div class="section" id="adding-http2">
+<h3>adding <code class="docutils literal"><span class="pre">http2</span></code><a class="headerlink" href="#adding-http2" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">http2</span></code> is the new standard for the <code class="docutils literal"><span class="pre">http</span></code> protocol. This is the first update to the protocol in over 15 years, and adds important updates.</p>
+<p><a class="reference external" href="https://http2.github.io/faq/#what-are-the-key-differences-to-http1x">From their FAQ&#8217;s</a>:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><strong>What are the key differences to HTTP/1.x?</strong></dt>
+<dd><p class="first">At a high level, HTTP/2:</p>
+<ul class="last simple">
+<li>is binary, instead of textual</li>
+<li>is fully multiplexed, instead of ordered and blocking</li>
+<li>can therefore use one connection for parallelism</li>
+<li>uses header compression to reduce overhead</li>
+<li>allows servers to “push” responses proactively into client caches</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p>It is, in my opinion, a very important and necessary addition to your NGINX configuration.</p>
+<p>On your 443 <code class="docutils literal"><span class="pre">listen</span></code> directives, add <code class="docutils literal"><span class="pre">http2;</span></code>, as in:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>listen <span class="m">443</span> default_server ssl http2<span class="p">;</span>
+listen <span class="o">[</span>::<span class="o">]</span>: <span class="m">443</span> default_server ssl http2<span class="p">;</span>
+</pre></div>
+</div>
+<p>The second line being the ipv6 version of the listen directive</p>
+</div>
+<div class="section" id="certificate-locations-in-nginx">
+<h3>Certificate Locations in NGINX<a class="headerlink" href="#certificate-locations-in-nginx" title="Permalink to this headline">¶</a></h3>
+<p>There are 2 specific items you need to start.</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">ssl_certificate</span></code> and <code class="docutils literal"><span class="pre">ssl_certificate_key</span></code></div></blockquote>
+<p>The <code class="docutils literal"><span class="pre">ssl_certificate</span></code> is specifically the <code class="docutils literal"><span class="pre">fullchain.pem</span></code> file that is in  the <code class="docutils literal"><span class="pre">/etc/letsencrypt/live</span></code> directory.
+The <code class="docutils literal"><span class="pre">ssl_certificate_key</span></code> is the <code class="docutils literal"><span class="pre">privkey.pem</span></code> file in the same location as above.</p>
+<p>Normally, with almost ANY other CA, there are a million and one steps between start and finish. Between creating accounts, paying them, downloading maybe one file and then sussing out the certificate chains, and all sorts of other things.</p>
+</div>
+<div class="section" id="foward-secrecy">
+<h3>Foward Secrecy<a class="headerlink" href="#foward-secrecy" title="Permalink to this headline">¶</a></h3>
+<p>Luckily, and most likely the ONLY, NGINX has Forward Secrecy (FS) enabled by default on its connections. So, awesome on less manual steps.</p>
+</div>
+</div>
+<div class="section" id="optimizing-nginx-s-secure-connection">
+<h2>Optimizing NGINX&#8217;s Secure Connection<a class="headerlink" href="#optimizing-nginx-s-secure-connection" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connection-credentials-caching">
+<h3>Connection Credentials Caching<a class="headerlink" href="#connection-credentials-caching" title="Permalink to this headline">¶</a></h3>
+<p>Almost all of the overhead with SSL/TLS is during the initial connection. So, we setup caching parameters.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ssl_session_cache shared:SSL:20m<span class="p">;</span>
+ssl_session_timeout 180m<span class="p">;</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>From <a class="reference external" href="https://bjornjohansen.no/optimizing-https-nginx">bjornjohansen&#8217;s Optimizing NGINX</a> website:</dt>
+<dd>This will create a cache shared between all worker processes. The cache size is specified in bytes (in this example: 20 MB). According to the Nginx documentation, 1MB can store about 4,000 sessions, so for this example, we can store about 80,000 sessions, and we will store them for 180 minutes. If you expect more traffic, increase the cache size accordingly.</dd>
+</dl>
+<p>I personally use <code class="docutils literal"><span class="pre">ssl_session_cache</span> <span class="pre">shared:SSL:20m</span> <span class="pre">builtin:1000;</span></code>. You&#8217;ll notice the added <code class="docutils literal"><span class="pre">builtin</span></code> option, defined below, pulled from nginx&#8217;s website.</p>
+<dl class="docutils">
+<dt>builtin</dt>
+<dd>a cache built in OpenSSL; used by one worker process only. The cache size is specified in sessions. If size is not given, it is equal to 20480 sessions. Use of the built-in cache can cause memory fragmentation.</dd>
+</dl>
+</div>
+<div class="section" id="ssl-protocols">
+<h3>SSL Protocols<a class="headerlink" href="#ssl-protocols" title="Permalink to this headline">¶</a></h3>
+<p>So, here is where we disable SSL. (?)</p>
+<p>The reason for this is SSL is old news, with TLS being what has replaced SSL. But, SSL is still a bit in the common vernacular to this day. SSL also has been broken through several weaknesses and is easily bypassed through protocol downgrade attacks.</p>
+<p>The only browser left to not support TLS is IE6. Which, I personally believe if someone is still using that browser, they don&#8217;t really need my site anyways.</p>
+<p>We add</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ssl_protocols TLSv1 TLSv1.1 TLSv1.2<span class="p">;</span>
+</pre></div>
+</div>
+<p>to cite the specific secure protocols we use on our site.</p>
+</div>
+<div class="section" id="optimizing-the-cipher-suites">
+<h3>Optimizing the Cipher Suites<a class="headerlink" href="#optimizing-the-cipher-suites" title="Permalink to this headline">¶</a></h3>
+<p>The cipher suites are how the data is encrypted. We list which suites we will use with the browsers.</p>
+<p>I personally use:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ssl_prefer_server_ciphers on<span class="p">;</span>
+ssl_ciphers ECDH+AESGCM:ECDH+AES256:ECDH+AES128:DH+3DES:!ADH:!AECDH:!MD5
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">ssl_prefer_server_ciphers</span> <span class="pre">on;</span></code> is to tell the client we have a preferred order of cipher suites. Then, the list of the suites. <a class="reference external" href="https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices#23-use-secure-cipher-suites">Look here</a> for detailed info on the suites.</p>
+<p>For the long list they present, you can make a seperate file, save it inside your <code class="docutils literal"><span class="pre">/etc/nginx</span></code> directory, and reference it in your nginx configuration <code class="docutils literal"><span class="pre">include</span> <span class="pre">cipher_suites</span></code>, and it will use the contents of that file.</p>
+</div>
+<div class="section" id="generate-dh-parameters">
+<h3>Generate DH Parameters<a class="headerlink" href="#generate-dh-parameters" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://wiki.mozilla.org/Security/Server_Side_TLS#DHE_handshake_and_dhparam">Please check here for the explainer on this one, as its nice and complicated</a></p>
+<p>Create the DH Parameters file with 2048 bit long safe prime:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo mkdir /etc/nginx/cert
+sudo openssl dhparam <span class="m">2048</span> -out /etc/nginx/cert/dhparam.pem
+</pre></div>
+</div>
+<p>And add it to your config with</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ssl_dhparam /etc/nginx/cert/dhparam.pem<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enable-ocsp-stapling">
+<h3>Enable OCSP Stapling<a class="headerlink" href="#enable-ocsp-stapling" title="Permalink to this headline">¶</a></h3>
+<p>Online Certificate Status Protocol (OCSP) is a protocol for checking the revocation status of the presented certificate. When a proper browser is presented a certificate, it will contact the issuer of that certificate to check that it hasn’t been revoked. This, of course, adds overhead to the connection initialization and also presents a privacy issue involving a 3rd party. Thus, the reason for OCSP Stapling:</p>
+<p>The web server can, at regular intervals, contact the certificate authority’s OCSP server to get a signed response and staple it on to the handshake when the connection is set up. This provides for a much more efficient connection initialization and keeps the 3rd party out of the way.</p>
+<p>To make sure the response from the CA is not tampered with, we also set up Nginx to verify the response using the trusted certificate provided by CertBot, which is the <code class="docutils literal"><span class="pre">chain.pem</span></code> file provided.</p>
+<p>So, for the NGINX configuration:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ssl_stapling on<span class="p">;</span>
+ssl_stapling_verify on<span class="p">;</span>
+ssl_trusted_certificate /etc/letsencrypt/live/jpcdi.com/chain.pem<span class="p">;</span>
+resolver 8.8.8.8 8.8.4.4<span class="p">;</span>
+</pre></div>
+</div>
+<p>The resolver uses whatever DNS server you specify, so NGINX can find the resolver through the internet.If you want to use another public DNS, use them.</p>
+</div>
+<div class="section" id="strict-transport-security">
+<h3>Strict Transport Security<a class="headerlink" href="#strict-transport-security" title="Permalink to this headline">¶</a></h3>
+<p>This setting tells your browser, after its attempted an unsecure connection once, will default to the secure connections only within the cached timeframe you have listed.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>add_header Strict-Transport-Security <span class="s1">&#39;max-age=31536000; includeSubDomains; preload&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The preload is if you want to add your server to the Google Maintained list of sites that are for sure secure.</p>
+<p>The includeSubDomains, obviously is to include all subdomains. And I have this in my <code class="docutils literal"><span class="pre">http</span></code> block, above the <code class="docutils literal"><span class="pre">server</span></code> block.</p>
+</div>
+</div>
+<div class="section" id="configuration-example">
+<h2>Configuration Example<a class="headerlink" href="#configuration-example" title="Permalink to this headline">¶</a></h2>
+<p>Here is the tl;dr configuration, with the above in one place, plus more lines from my personal config file:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>http <span class="o">{</span>
+
+  <span class="c1"># beginning of your config file</span>
+
+  add_header Strict-Transport-Security <span class="s1">&#39;max-age=31536000; includeSubDomains; preload&#39;</span><span class="p">;</span>
+  add_header X-Content-Type-Options <span class="s2">&quot;nosniff&quot;</span> always<span class="p">;</span>
+  add_header X-Frame-Options <span class="s2">&quot;SAMEORIGIN&quot;</span> always<span class="p">;</span>
+  add_header X-XSS-Protection <span class="s2">&quot;1; mode=block&quot;</span><span class="p">;</span>
+  add_header X-Robots-Tag none<span class="p">;</span>
+  add_header X-Download-Options noopen<span class="p">;</span>
+  add_header X-Permitted-Cross-Domain-Policies none<span class="p">;</span>
+
+  <span class="c1"># Giant sea of SSL stuff...</span>
+  ssl_session_cache shared:SSL:20m builtin:1000<span class="p">;</span>
+  ssl_session_timeout 180m<span class="p">;</span>
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2<span class="p">;</span>
+
+  <span class="c1"># Using list of ciphers from https://bjornjohansen.no/optimizing-https-nginx</span>
+  ssl_prefer_server_ciphers on<span class="p">;</span>
+  ssl_ciphers ECDH+AESGCM:ECDH+AES256:ECDH+AES128:DH+3DES:!ADH:!AECDH:!MD5<span class="p">;</span>
+
+  <span class="c1"># rest of http block</span>
+<span class="o">}</span>
+server <span class="o">{</span>
+  listen <span class="m">80</span> default_server<span class="p">;</span>
+  listen <span class="o">[</span>::<span class="o">]</span>:80 default_server<span class="p">;</span>
+  server_name jpcdi.com www.jpcdi.com<span class="p">;</span>
+  <span class="k">return</span> <span class="m">301</span> https://<span class="nv">$server_name$request_uri</span><span class="p">;</span>
+<span class="o">}</span>
+server <span class="o">{</span>
+  listen <span class="m">443</span> default_server ssl http2<span class="p">;</span>
+  listen <span class="o">[</span>::<span class="o">]</span>:443 default_server ssl http2<span class="p">;</span>
+
+  <span class="c1"># Letsencrypt ssl_certs and one dhparam.pem</span>
+  ssl_certificate /etc/letsencrypt/live/jpcdi.com/fullchain.pem<span class="p">;</span>
+  ssl_certificate_key /etc/letsencrypt/live/jpcdi.com/privkey.pem<span class="p">;</span>
+  ssl_dhparam /etc/nginx/cert/jpcdi_dhparam.pem<span class="p">;</span>
+
+  <span class="c1"># HSTS/SSL Stapling stuff...</span>
+  ssl_stapling on<span class="p">;</span>
+  ssl_stapling_verify on<span class="p">;</span>
+  resolver 8.8.8.8 8.8.4.4 <span class="nv">valid</span><span class="o">=</span>86400<span class="p">;</span>
+  ssl_trusted_certificate /etc/letsencrypt/live/jpcdi.com/chain.pem<span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ddclient.html" class="btn btn-neutral float-right" title="DDClient [DDCLIENT-Source]" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nginx-basic-auth.html" class="btn btn-neutral" title="NGINX Basic Password Auth" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Justin Partain.
+      Last updated on November 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

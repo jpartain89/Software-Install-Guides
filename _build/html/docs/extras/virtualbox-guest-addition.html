@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VirtualBox Guest Additions &mdash; Software Install Guides v1.5</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Software Install Guides v1.5" href="../../index.html"/>
+        <link rel="up" title="Extras" href="index.html"/>
+        <link rel="next" title="Ansible’s ad-hoc Reference Guide" href="ansible-adhoc.html"/>
+        <link rel="prev" title="Extras" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../_static/JPLogo-Header.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ubuntu-specific/index.html">Ubuntu Specific</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../raspberry-pi/index.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../macOS/index.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general-debian/index.html">General Debian Info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general-bash/index.html">General Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/index.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../website-testing/index.html">Website Testing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Extras</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">VirtualBox Guest Additions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#host-machine">Host Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ubuntu-server-guest-machine">Ubuntu Server Guest Machine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pre-requirements">Pre-Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mount-the-cdrom">Mount the CDROM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mounting-info">Mounting Info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-the-installer">Run the Installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usermod">usermod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#services-info">Services Info</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ansible-adhoc.html">Ansible&#8217;s ad-hoc Reference Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansible-random-nuggets.html">Ansible Random Nuggets</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Extras</a> &raquo;</li>
+      
+    <li>VirtualBox Guest Additions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/docs/extras/virtualbox-guest-addition.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="virtualbox-guest-additions">
+<h1>VirtualBox Guest Additions<a class="headerlink" href="#virtualbox-guest-additions" title="Permalink to this headline">¶</a></h1>
+<p>VirtualBox Guest Additions is, more or less, VirtualBox&#8217;s way of making it easier for your host machine to speak to your guest machine, and do all sorts of extra things. Examples:</p>
+<ol class="arabic simple">
+<li>Easier File Sharing</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Instead of dealing with mounting drives in an <code class="docutils literal"><span class="pre">/etc/fstab</span></code> file, VirtualBox has a means of setting up a simple Directory sharing scheme</li>
+<li>You pick certain directories on your host machine to be shared directly into the <code class="docutils literal"><span class="pre">/media/&lt;folder</span> <span class="pre">name</span> <span class="pre">you</span> <span class="pre">set&gt;</span></code> directory!</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>If you&#8217;re running a GUI:</li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Shared Clipboard</li>
+<li>Drag&#8217;n&#8217;Drop files back and forth</li>
+<li>Mouse Pointer Integration - You don&#8217;t have to &#8220;release&#8221; the mouse from the guest screen</li>
+<li>Better Video Support</li>
+<li>Seamless Windows - This opens individual windows in the guest as if they were individual windows on the host directly, eliminating the boundary between the host and guest OS.</li>
+</ol>
+</div></blockquote>
+<p>First, we will show how to begin the install on our Host machine, then directly into our guest machine.</p>
+<div class="section" id="host-machine">
+<h2>Host Machine<a class="headerlink" href="#host-machine" title="Permalink to this headline">¶</a></h2>
+<p>So, first we need to mount the Guest Additions CD Image, which you can find under the &#8220;Devices&#8221; menu in the Virtual Machines Menu Bar. (Make sure the Guest Machine window is in focus to show that machines menu bar.).</p>
+<img alt="Virtualbox Guest Additions Mount" class="align-center" src="../../_images/virtualbox_guestCD.png" />
+<p>Then, depending on what OS your guest is running depends on what the next steps are. We will be concentrating on Ubuntu Server, Headless installs. Seeing as that needs a big more work on our part than any GUI-based system.</p>
+</div>
+<div class="section" id="ubuntu-server-guest-machine">
+<h2>Ubuntu Server Guest Machine<a class="headerlink" href="#ubuntu-server-guest-machine" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pre-requirements">
+<h3>Pre-Requirements<a class="headerlink" href="#pre-requirements" title="Permalink to this headline">¶</a></h3>
+<p>First, lets install the pre-requirements.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install dkms make gcc -y
+</pre></div>
+</div>
+</div>
+<div class="section" id="mount-the-cdrom">
+<h3>Mount the CDROM<a class="headerlink" href="#mount-the-cdrom" title="Permalink to this headline">¶</a></h3>
+<p>Then, to install the Guest Additions onto your Headless Ubuntu Server addition, you first have to mount the cd onto your directories so you can access whats inside.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo mount /dev/cdrom /media/cdrom
+</pre></div>
+</div>
+</div>
+<div class="section" id="mounting-info">
+<h3>Mounting Info<a class="headerlink" href="#mounting-info" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">/dev/cdrom</span></code> is where your cdrom &#8220;hardware&#8221; is located in order for the software to access it. As in this would be the actual, physical cdrom drive if your server was physical.</p>
+<p>Then, the <code class="docutils literal"><span class="pre">/media/cdrom</span></code> is where you&#8217;re mounting your cdrom so you can access the files.</p>
+</div>
+<div class="section" id="run-the-installer">
+<h3>Run the Installer<a class="headerlink" href="#run-the-installer" title="Permalink to this headline">¶</a></h3>
+<p>It&#8217;ll alert you to the fact that the mounted filesystem is <code class="docutils literal"><span class="pre">read</span> <span class="pre">only</span></code>. You&#8217;re good to ignore that since we wont be making edits to the files. Then, cd into the mounted location, and run the installer.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> /media/cdrom
+sudo sh ./VBoxLinuxAdditions.run
+</pre></div>
+</div>
+<p>That will take a hot second, at least, to run the installer. But, once its finished - and there were no error messages - go ahead and restart your machine.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Make sure you have setup all of the configuration options in the machine settings, as in the folders you want to have shared from host to guest.</p>
+</div>
+</div>
+<div class="section" id="usermod">
+<h3>usermod<a class="headerlink" href="#usermod" title="Permalink to this headline">¶</a></h3>
+<p>Now, you&#8217;ll need to add the group name <code class="docutils literal"><span class="pre">vboxsf</span></code> to all of the different system and user accounts.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">vboxsf</span></code> is VirtualBox&#8217;s group-ownership-way of mounting these directories.</p>
+</div>
+</div>
+<div class="section" id="services-info">
+<h3>Services Info<a class="headerlink" href="#services-info" title="Permalink to this headline">¶</a></h3>
+<p>If you have any services with custom user/group names, like <code class="docutils literal"><span class="pre">transmission-daemon</span></code>, stop those services before the next step please.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo usermod -aG vboxsf <span class="nv">$USER</span>
+sudo usermod -aG vboxsf debian-transmission
+sudo usermod -aG vboxsf root
+</pre></div>
+</div>
+<p>Then, it doesn&#8217;t hurt to restart your machine. Just to make sure all accounts have signed out and back in again, so they can access any <cite>vboxsf</cite> group items.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ansible-adhoc.html" class="btn btn-neutral float-right" title="Ansible’s ad-hoc Reference Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Extras" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Justin Partain.
+      Last updated on November 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

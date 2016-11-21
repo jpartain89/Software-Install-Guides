@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HTPC-Manager [HTPC-htpc] &mdash; Software Install Guides v1.5</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Software Install Guides v1.5" href="../../../index.html"/>
+        <link rel="up" title="WebApps" href="index.html"/>
+        <link rel="next" title="Downloaders" href="../downloader/index.html"/>
+        <link rel="prev" title="PlexPy [HTPC-PlexPy]" href="plexpy.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../../_static/JPLogo-Header.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Ubuntu Specific</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">WebApps</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sonarr.html">Sonarr Installation <code class="docutils literal"><span class="pre">[HTPC-Sonarr]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="couchpotato.html">CouchPotato Movie Downloader <code class="docutils literal"><span class="pre">[HTPC-CP]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plexpy.html">PlexPy <code class="docutils literal"><span class="pre">[HTPC-PlexPy]</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">HTPC-Manager <code class="docutils literal"><span class="pre">[HTPC-htpc]</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-dependencies">Install Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cloning-and-starting">Cloning and Starting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autostart-init-d-copy-and-edit">Autostart <code class="docutils literal"><span class="pre">init.d</span></code> Copy and Edit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../downloader/index.html">Downloaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web-server/index.html">Web Server Stuff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postfix.html">Using Postfix as Mail Relay <code class="docutils literal"><span class="pre">[POSTFIX-HowTo]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adding-apt-list.html">Adding an Apt-Get List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mount-drive-ubuntu.html">Mounting Unformatted Drive in Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ubuntu_user.html">User Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#layout">Layout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../raspberry-pi/index.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macOS/index.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-debian/index.html">General Debian Info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-bash/index.html">General Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../git/index.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../website-testing/index.html">Website Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extras/index.html">Extras</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Ubuntu Specific</a> &raquo;</li>
+      
+          <li><a href="index.html">WebApps</a> &raquo;</li>
+      
+    <li>HTPC-Manager <code class="docutils literal"><span class="pre">[HTPC-htpc]</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/docs/ubuntu-specific/webapps/htpc-manager.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="htpc-manager-htpc-htpc">
+<h1>HTPC-Manager <a class="reference internal" href="#htpc-htpc" id="id1">[HTPC-htpc]</a><a class="headerlink" href="#htpc-manager-htpc-htpc" title="Permalink to this headline">¶</a></h1>
+<p>HTPC Manager is a simple, web front-end that aims to bring the different, other web front-end GUI&#8217;s into one place, for ease of use across your entire home-server system.</p>
+<p>It currently has already-coded-access to programs like CouchPotato, Sonarr, NZBGet, Transmission, Plex; as well as adding in the ability to view your hardware&#8217;s performance as well.</p>
+<div class="section" id="install-dependencies">
+<h2>Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>As usual, there are a few, pre-needed programs in order to make sure it builds and runs smoothly.</p>
+<p>And, on the <code class="docutils literal"><span class="pre">vnstat</span></code> program. If you&#8217;re installing HTPC-Manager on, say, a VM but you&#8217;d like to see stats for your HARDWARE device instead, you&#8217;re in luck! Instead of installing vnStat on the same machine as HTPC-Manager, install it on the machine thats the actual hardware. You can remotely, over your network, view other vnStat instances inside of HTPC-Manager.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install build-essential git python-imaging python-dev python-setuptools python-pip python-cherrypy vnstat -y
+sudo pip install --upgrade psutil
+</pre></div>
+</div>
+</div>
+<div class="section" id="cloning-and-starting">
+<h2>Cloning and Starting<a class="headerlink" href="#cloning-and-starting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hellowlol-s-git-fork">
+<h3>HellowLoL&#8217;s Git Fork<a class="headerlink" href="#hellowlol-s-git-fork" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/Hellowlol/HTPC-Manager.git">HellowLoL&#8217;s Version</a> of HTPC-Manager is the one that I prefer to use, but its not the original fork. So, if you were to poke around a bit on GitHub, you might see some other forks and versions as well.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>I keep all of my cloned git repos inside of one, singular directory:</p>
+<p><code class="docutils literal"><span class="pre">~/git</span></code></p>
+<p>This way, I don&#8217;t have to hunt all over my system for where my repo&#8217;s are and it makes it easier to keep them updated. Then, I symlink the library to wherever either the developer wants/requires it or where is easiest.</p>
+<p class="last">The other way of handing this is to clone your PROGRAMS into the /opt directory - so /opt/couchpotato, /opt/NzbDrone, /opt/plexpy and so on. Then clone your working repos for projects into <code class="docutils literal"><span class="pre">~/git/[repo]</span></code></p>
+</div>
+<p>So, as always, on the code below that includes locations for git, you can change as much as you want.</p>
+</div>
+<div class="section" id="first-the-cloning">
+<h3>First, the cloning<a class="headerlink" href="#first-the-cloning" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/Hellowlol/HTPC-Manager ~/git/htpcmanager
+</pre></div>
+</div>
+<p>Notice, in the location string at the end, I changed the formatting of <code class="docutils literal"><span class="pre">./htpcmanager</span></code> to a nicer, easier-to-type lowercase and without dashes. This simply tends to make your Command Line Life easier in the long run if you try to manage directories in that manner. Or at least, one that works for your fingers.</p>
+</div>
+<div class="section" id="next-the-symlink">
+<h3>Next, the Symlink<a class="headerlink" href="#next-the-symlink" title="Permalink to this headline">¶</a></h3>
+<p>Next, I symlink the <code class="docutils literal"><span class="pre">~/git</span></code> location to <code class="docutils literal"><span class="pre">/opt</span></code>, and make sure the files are assigned to my primary user.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See <a class="reference internal" href="../ubuntu_user.html#user-management"><span class="std std-ref">User Management</span></a> for notes on adjusting user permissions with regards to programs and allowing the web access to your machines.</p>
+</div>
+<p>But, either way, make sure the files are owned by the correct account. Both the symlinked, <code class="docutils literal"><span class="pre">/opt</span></code> location and the Original Repo, <code class="docutils literal"><span class="pre">~/git</span></code> location.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo ln -s ~/git/htpcmanager /opt/htpcmanager
+sudo chown -R <span class="nv">$USER</span>:<span class="nv">$USER</span> /opt/htpcmanager
+sudo chown -R <span class="nv">$USER</span>:<span class="nv">$USER</span> ~/git/htpcmanager
+</pre></div>
+</div>
+</div>
+<div class="section" id="finally-running-the-program">
+<h3>Finally, Running the Program<a class="headerlink" href="#finally-running-the-program" title="Permalink to this headline">¶</a></h3>
+<p>And, we <code class="docutils literal"><span class="pre">python</span> <span class="pre">/opt/htpcmanager/Htpc.py</span></code> for the first time we run the program. This way we get the verbose output and see up front if there are any big errors or anything missing.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo python /opt/htpcmanager/Htpc.py
+</pre></div>
+</div>
+<p>Make sure to pay attention to the output in your terminal. And, I&#8217;d suggest you go ahead and open up your browser to view HTPCManager and poke around. This way you can also watch the output in the terminal.</p>
+<p>The address to access is either <a class="reference external" href="http://localhost:8085">http://localhost:8085</a> or <code class="docutils literal"><span class="pre">http://&lt;ipaddress&gt;:8085</span></code> and exchange your machines ip address.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you see any RED TEXT CherryPy errors in your terminal, those aren&#8217;t death. Those are just, nicely, STANDING OUT for you to see what needs to be done.</p>
+</div>
+<p>Make sure you hit <code class="docutils literal"><span class="pre">ctrl-C</span></code> to stop the program in your terminal. This will send a <code class="docutils literal"><span class="pre">SIGHUP</span></code> signal to terminate the program as nicely as possible.</p>
+</div>
+</div>
+<div class="section" id="autostart-init-d-copy-and-edit">
+<h2>Autostart <code class="docutils literal"><span class="pre">init.d</span></code> Copy and Edit<a class="headerlink" href="#autostart-init-d-copy-and-edit" title="Permalink to this headline">¶</a></h2>
+<p>You can link over the standard <code class="docutils literal"><span class="pre">init.d</span></code> file from the git repo directory to <code class="docutils literal"><span class="pre">/etc/init.d</span></code> directory location. Or you can just copy it over without the link, in case the git repo updates ever modify that file and you make your own mods.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo cp /opt/HTPCManager/initscripts/initd /etc/init.d/htpcmanager
+sudo nano /etc/init.d/htpcmanager
+</pre></div>
+</div>
+<p>Change <code class="docutils literal"><span class="pre">APP_PATH</span></code> to match the path of where you stuck HTPC Manager.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">############### EDIT ME ##################</span>
+<span class="c1"># path to app</span>
+<span class="nv">APP_PATH</span><span class="o">=</span>/opt/HTPCManager
+</pre></div>
+</div>
+<p>Then, make the file executable and add to the <code class="docutils literal"><span class="pre">update-rc.d</span></code> autostart program.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo chmod +x /etc/init.d/htpcmanager
+sudo update-rc.d htpcmanager defaults
+</pre></div>
+</div>
+<p>Then, you can run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">htpcmanager</span> <span class="pre">start</span></code>, and access it  at <a class="reference external" href="http://127.0.0.1:8085">http://127.0.0.1:8085</a></p>
+<table class="docutils citation" frame="void" id="htpc-htpc" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[HTPC-htpc]</a></td><td>Directions copied fairly liberally from <a class="reference external" href="http://www.htpcguides.com/install-htpc-manager-ubuntu-linux/">HTPC Guides&#8217; HTPC Manager Instructions</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../downloader/index.html" class="btn btn-neutral float-right" title="Downloaders" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="plexpy.html" class="btn btn-neutral" title="PlexPy [HTPC-PlexPy]" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Justin Partain.
+      Last updated on November 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

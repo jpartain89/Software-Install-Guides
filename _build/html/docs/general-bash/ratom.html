@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ratom [RATOM-src] &mdash; Software Install Guides v1.5</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Software Install Guides v1.5" href="../../index.html"/>
+        <link rel="up" title="General Bash" href="index.html"/>
+        <link rel="next" title="Random Collection of Info" href="random-collection-of-info.html"/>
+        <link rel="prev" title="Use grep Output as if-else Conditional" href="basic-grep-usage.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../_static/JPLogo-Header.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ubuntu-specific/index.html">Ubuntu Specific</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../raspberry-pi/index.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../macOS/index.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general-debian/index.html">General Debian Info</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">General Bash</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bash-if-conditionals.html">Bash <code class="docutils literal"><span class="pre">If-Else</span></code> -like Conditional Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-linux.html">Some Basic Linux Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-grep-usage.html">Use grep Output as if-else Conditional</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ratom <code class="docutils literal"><span class="pre">[RATOM-src]</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-ratom">Installing Ratom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sshing-with-forwarded-ports">SSHing with Forwarded Ports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-ratom-on-the-server">Running ratom on the Server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="random-collection-of-info.html">Random Collection of Info</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../git/index.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../website-testing/index.html">Website Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extras/index.html">Extras</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">General Bash</a> &raquo;</li>
+      
+    <li>Ratom <code class="docutils literal"><span class="pre">[RATOM-src]</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/docs/general-bash/ratom.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ratom-ratom-src">
+<h1>Ratom <a class="reference internal" href="#ratom-src" id="id1">[RATOM-src]</a><a class="headerlink" href="#ratom-ratom-src" title="Permalink to this headline">¶</a></h1>
+<p>Basically, this is a way of using the text editor, <a class="reference external" href="atom.io">Atom.io</a> remotely to edit files.</p>
+<p>Say you are working from your regular computer, and remotely <code class="docutils literal"><span class="pre">ssh</span></code> into another machine, and you need to edit a text file, and you just know deep down that if you were able to use a full text editor, rather than VIM or NANO in the terminal, it&#8217;d be SO MUCH EASIER!</p>
+<p>Thats where ratom comes in.</p>
+<p>First, when you SSH, instead of the normal commands, you forward a port from the remote machine to your local machine. In the case of ratom, its <code class="docutils literal"><span class="pre">52698</span></code>. Then, you would run the prior installed <code class="docutils literal"><span class="pre">ratom</span></code> command on the remote machine, on the text file you want to edit. <code class="docutils literal"><span class="pre">ratom</span> <span class="pre">/etc/init.d/couchpotato</span></code> At which point it then opens that file remotely from the server to your local machine inside of Atom, as if it was local!</p>
+<div class="section" id="installing-ratom">
+<h2>Installing Ratom<a class="headerlink" href="#installing-ratom" title="Permalink to this headline">¶</a></h2>
+<p>First, in order to pipe the text file over that port into your local atom, you have to install a program to handle it on the remote machine.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo curl -o /usr/local/bin/ratom https://raw.githubusercontent.com/aurora/rmate/master/rmate
+sudo chmod +x /usr/local/bin/ratom
+</pre></div>
+</div>
+</div>
+<div class="section" id="sshing-with-forwarded-ports">
+<h2>SSHing with Forwarded Ports<a class="headerlink" href="#sshing-with-forwarded-ports" title="Permalink to this headline">¶</a></h2>
+<p>Then, exit that ssh session, and then reconnect with the port forwarded:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ssh -R 52698:localhost:52698 user@example.com
+</pre></div>
+</div>
+<p>What this line is saying is:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">-R</span></code> - Forward the following port FROM the remote machine to my local machine</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>the opposite would be an <code class="docutils literal"><span class="pre">-L</span></code> flag</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><code class="docutils literal"><span class="pre">52698:localhost:52698</span></code> - map the remote 52698 port to my local 52698 port, from the remotes <code class="docutils literal"><span class="pre">localhost</span></code>, and not another address.</li>
+<li>and then your username and server address.</li>
+</ol>
+</div>
+<div class="section" id="running-ratom-on-the-server">
+<h2>Running ratom on the Server<a class="headerlink" href="#running-ratom-on-the-server" title="Permalink to this headline">¶</a></h2>
+<p>Once you&#8217;re reconnected, you can open the file from the remote system onto your local Atom by:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ratom /etc/init.d/couchpotato
+</pre></div>
+</div>
+<p>So, the <code class="docutils literal"><span class="pre">ratom</span></code> command is the program, and then the text file.</p>
+<table class="docutils citation" frame="void" id="ratom-src" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[RATOM-src]</a></td><td>These directions are copied from <a class="reference external" href="https://github.com/randy3k/remote-atom">randy3k/remote-atom</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="random-collection-of-info.html" class="btn btn-neutral float-right" title="Random Collection of Info" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="basic-grep-usage.html" class="btn btn-neutral" title="Use grep Output as if-else Conditional" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Justin Partain.
+      Last updated on November 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

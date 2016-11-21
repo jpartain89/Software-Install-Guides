@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OpenVPN [PIA-VPN] &mdash; Software Install Guides v1.5</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Software Install Guides v1.5" href="../../../index.html"/>
+        <link rel="up" title="Downloaders" href="index.html"/>
+        <link rel="next" title="Web Server Stuff" href="../web-server/index.html"/>
+        <link rel="prev" title="Alternate Transmission Web GUI" href="transmission-web-gui.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../../_static/JPLogo-Header.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Ubuntu Specific</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../webapps/index.html">WebApps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Downloaders</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="transmission-daemon.html">Transmission <code class="docutils literal"><span class="pre">[TRANS-HTPC]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transmission-web-gui.html">Alternate Transmission Web GUI</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">OpenVPN <code class="docutils literal"><span class="pre">[PIA-VPN]</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pia-openvpn-files">PIA OpenVPN Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#copy-the-files">Copy the Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-login-file">Create the Login File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-the-config-file">Edit the Config File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-vpn">Test VPN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup-openvpn-s-autostart-configuration">Setup OpenVPN&#8217;s Autostart Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web-server/index.html">Web Server Stuff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postfix.html">Using Postfix as Mail Relay <code class="docutils literal"><span class="pre">[POSTFIX-HowTo]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adding-apt-list.html">Adding an Apt-Get List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mount-drive-ubuntu.html">Mounting Unformatted Drive in Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ubuntu_user.html">User Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#layout">Layout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../raspberry-pi/index.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macOS/index.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-debian/index.html">General Debian Info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-bash/index.html">General Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../git/index.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../website-testing/index.html">Website Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extras/index.html">Extras</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Ubuntu Specific</a> &raquo;</li>
+      
+          <li><a href="index.html">Downloaders</a> &raquo;</li>
+      
+    <li>OpenVPN <code class="docutils literal"><span class="pre">[PIA-VPN]</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/docs/ubuntu-specific/downloader/openvpn.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="openvpn-pia-vpn">
+<h1>OpenVPN <a class="reference internal" href="#pia-vpn" id="id1">[PIA-VPN]</a><a class="headerlink" href="#openvpn-pia-vpn" title="Permalink to this headline">¶</a></h1>
+<p>OpenVPN is basically the defacto standard for open source VPN software. You are able to both connect to other VPN servers OR make your own, private VPN service.</p>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install openvpn unzip
+</pre></div>
+</div>
+</div>
+<div class="section" id="pia-openvpn-files">
+<h2>PIA OpenVPN Files<a class="headerlink" href="#pia-openvpn-files" title="Permalink to this headline">¶</a></h2>
+<p>PIA is <a class="reference external" href="https://www.privateinternetaccess.com">Private Internet Access</a>, a widely used and referenced VPN service for the fact that they advertise themselves as one of the more secure and anonymous VPN services on the internet. <a class="reference external" href="https://www.privateinternetaccess.com/pages/browse-anonymously/">This page</a> is a good jump-off point for explaining their services and why you need a VPN.</p>
+<p>The OpenVPN files are configuration files tailored to be used with OpenVPN for PIA, making that ENTIRE setup SO much easier!</p>
+<p>Download and uncompress the PIA OpenVPN profiles:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
+unzip openvpn.zip -d openvpn
+</pre></div>
+</div>
+<p>Make sure you include the <code class="docutils literal"><span class="pre">-d</span></code> flag, as it&#8217;ll just uncompress into the current directory, flinging files all over it.</p>
+</div>
+<div class="section" id="copy-the-files">
+<h2>Copy the Files<a class="headerlink" href="#copy-the-files" title="Permalink to this headline">¶</a></h2>
+<p>Copy the PIA OpenVPN certificates and profile to the OpenVPN configuration location.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">I&#8217;m using <cite>Japan.ovpn</cite> as an example location. You can/should change that to whichever location you want to use.</p>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo cp openvpn/ca.rsa.2048.crt openvpn/crl.rsa.2048.pem /etc/openvpn/
+sudo cp openvpn/Japan.ovpn /etc/openvpn/Japan.conf
+</pre></div>
+</div>
+<p>You&#8217;ll notice I changed the file extension from <code class="docutils literal"><span class="pre">.ovpn</span></code> to <code class="docutils literal"><span class="pre">.conf</span></code>. OpenVPN likes <code class="docutils literal"><span class="pre">.conf</span></code> files.</p>
+</div>
+<div class="section" id="create-the-login-file">
+<h2>Create the Login File<a class="headerlink" href="#create-the-login-file" title="Permalink to this headline">¶</a></h2>
+<p>Create <code class="docutils literal"><span class="pre">/etc/openvpn/login</span></code> containing only your username and password, one per line. Of which, PIA randomly creates your username and password, which is extra-awesome for both security and anonymity</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>user12345678
+MyGreatPassword
+</pre></div>
+</div>
+<p>Change the permissions on this file so only the root user can read it, keeping anyone else from snooping.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo chmod <span class="m">600</span> /etc/openvpn/login
+</pre></div>
+</div>
+</div>
+<div class="section" id="edit-the-config-file">
+<h2>Edit the Config File<a class="headerlink" href="#edit-the-config-file" title="Permalink to this headline">¶</a></h2>
+<p>Setup OpenVPN to use your stored username and password by editing the the config file for the VPN location, as well as our <code class="docutils literal"><span class="pre">ca</span></code> and <code class="docutils literal"><span class="pre">crl</span></code> files.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo nano /etc/openvpn/Japan.conf
+</pre></div>
+</div>
+<p>Change the following lines:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">From This</th>
+<th class="head">To This</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ca ca.crt</td>
+<td>ca /etc/openvpn/ca.rsa.2048.crt</td>
+</tr>
+<tr class="row-odd"><td>auth-user-pass</td>
+<td>auth-user-pass /etc/openvpn/login</td>
+</tr>
+<tr class="row-even"><td>crl-verify crl.pem</td>
+<td>crl-verify /etc/openvpn/crl.rsa.2048.pem</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="test-vpn">
+<h2>Test VPN<a class="headerlink" href="#test-vpn" title="Permalink to this headline">¶</a></h2>
+<p>At this point you should be able to test that the VPN actually works.</p>
+<p>Running it this way outputs the program info, as its running, into the terminal prompt. This way, you see up front without hunting in the logs for if/when/where there is any issues.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo openvpn --config /etc/openvpn/Japan.conf
+</pre></div>
+</div>
+<p>If all is well, you&#8217;ll see something like:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo openvpn --config /etc/openvpn/Japan.conf
+Sat Oct <span class="m">24</span> 12:10:54 <span class="m">2015</span> OpenVPN 2.3.4 arm-unknown-linux-gnueabihf <span class="o">[</span>SSL <span class="o">(</span>OpenSSL<span class="o">)]</span> <span class="o">[</span>LZO<span class="o">]</span> <span class="o">[</span>EPOLL<span class="o">]</span> <span class="o">[</span>PKCS11<span class="o">]</span> <span class="o">[</span>MH<span class="o">]</span> <span class="o">[</span>IPv6<span class="o">]</span> built on Dec  <span class="m">5</span> 2014
+Sat Oct <span class="m">24</span> 12:10:54 <span class="m">2015</span> library versions: OpenSSL 1.0.1k <span class="m">8</span> Jan 2015, LZO 2.08
+Sat Oct <span class="m">24</span> 12:10:54 <span class="m">2015</span> UDPv4 link local: <span class="o">[</span>undef<span class="o">]</span>
+Sat Oct <span class="m">24</span> 12:10:54 <span class="m">2015</span> UDPv4 link remote: <span class="o">[</span>AF_INET<span class="o">]</span>123.123.123.123:1194
+Sat Oct <span class="m">24</span> 12:10:54 <span class="m">2015</span> WARNING: this configuration may cache passwords in memory -- use the auth-nocache option to prevent this
+Sat Oct <span class="m">24</span> 12:10:56 <span class="m">2015</span> <span class="o">[</span>Private Internet Access<span class="o">]</span> Peer Connection Initiated with <span class="o">[</span>AF_INET<span class="o">]</span>123.123.123.123:1194
+Sat Oct <span class="m">24</span> 12:10:58 <span class="m">2015</span> TUN/TAP device tun0 opened
+Sat Oct <span class="m">24</span> 12:10:58 <span class="m">2015</span> do_ifconfig, tt-&gt;ipv6<span class="o">=</span>0, tt-&gt;did_ifconfig_ipv6_setup<span class="o">=</span>0
+Sat Oct <span class="m">24</span> 12:10:58 <span class="m">2015</span> /sbin/ip link <span class="nb">set</span> dev tun0 up mtu 1500
+Sat Oct <span class="m">24</span> 12:10:58 <span class="m">2015</span> /sbin/ip addr add dev tun0 <span class="nb">local</span> 10.10.10.6 peer 10.10.10.5
+Sat Oct <span class="m">24</span> 12:10:59 <span class="m">2015</span> Initialization Sequence Completed
+</pre></div>
+</div>
+<p>With the <code class="docutils literal"><span class="pre">Initialization</span> <span class="pre">Sequence</span> <span class="pre">Completed</span></code> being the most important.</p>
+<p>Exit this with <code class="docutils literal"><span class="pre">ctrl+C</span></code></p>
+</div>
+<div class="section" id="setup-openvpn-s-autostart-configuration">
+<h2>Setup OpenVPN&#8217;s Autostart Configuration<a class="headerlink" href="#setup-openvpn-s-autostart-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Edit the <code class="docutils literal"><span class="pre">/etc/default/openvpn</span></code> file</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo nano /etc/default/openvpn
+</pre></div>
+</div>
+<p>Next, since I use only the one <code class="docutils literal"><span class="pre">.conf</span></code> file,  I uncomment the <code class="docutils literal"><span class="pre">AUTOSTART-&quot;all&quot;</span></code> line. If you have a different setup, go through and make those changes.</p>
+<p>Then, to start the service:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo service openvpn start
+</pre></div>
+</div>
+<p>Then, to check that my public-facing IP address has changed - since I usually am running this on a headless machine as a downloader - I have an alias assigned in one of my dotfiles. Of which, my breakdown of dotfiles is:</p>
+<ul class="simple">
+<li>aliases</li>
+<li>bash_profile</li>
+<li>bashrc</li>
+<li>exports</li>
+<li>functions</li>
+<li>gitconfig</li>
+<li>gitignore</li>
+<li>profile</li>
+</ul>
+<p>So, my <code class="docutils literal"><span class="pre">.aliases</span></code> file is, well, my aliases that I use. So, for checking my public-facing IP address:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">pubip</span><span class="o">=</span><span class="s2">&quot;dig +short myip.opendns.com @resolver1.opendns.com&quot;</span>
+</pre></div>
+</div>
+<p>Add that to either your <code class="docutils literal"><span class="pre">.aliases</span></code> or <code class="docutils literal"><span class="pre">.bash_profile</span></code> or <code class="docutils literal"><span class="pre">.bashrc</span></code> file, whichever you are currenty using, and source the file. It adds the alias entry to the active session.</p>
+<p>Then, type <code class="docutils literal"><span class="pre">pubIP</span></code> and hit enter. You should get your public IP address.</p>
+<table class="docutils citation" frame="void" id="pia-vpn" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[PIA-VPN]</a></td><td>Copied from the bottom half of <a class="reference external" href="https://gist.github.com/superjamie/ac55b6d2c080582a3e64">Superjamie&#8217;s gist</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../web-server/index.html" class="btn btn-neutral float-right" title="Web Server Stuff" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="transmission-web-gui.html" class="btn btn-neutral" title="Alternate Transmission Web GUI" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Justin Partain.
+      Last updated on November 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

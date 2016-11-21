@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bash If-Else -like Conditional Markers &mdash; Software Install Guides v1.5</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Software Install Guides v1.5" href="../../index.html"/>
+        <link rel="up" title="General Bash" href="index.html"/>
+        <link rel="next" title="Some Basic Linux Commands" href="basic-linux.html"/>
+        <link rel="prev" title="General Bash" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../_static/JPLogo-Header.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ubuntu-specific/index.html">Ubuntu Specific</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../raspberry-pi/index.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../macOS/index.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general-debian/index.html">General Debian Info</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">General Bash</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bash <code class="docutils literal"><span class="pre">If-Else</span></code> -like Conditional Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-linux.html">Some Basic Linux Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-grep-usage.html">Use grep Output as if-else Conditional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ratom.html">Ratom <code class="docutils literal"><span class="pre">[RATOM-src]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="random-collection-of-info.html">Random Collection of Info</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../git/index.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../website-testing/index.html">Website Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extras/index.html">Extras</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">General Bash</a> &raquo;</li>
+      
+    <li>Bash <code class="docutils literal"><span class="pre">If-Else</span></code> -like Conditional Markers</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/docs/general-bash/bash-if-conditionals.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bash-if-else-like-conditional-markers">
+<span id="bash-conditional-markers"></span><h1>Bash <code class="docutils literal"><span class="pre">If-Else</span></code> -like Conditional Markers<a class="headerlink" href="#bash-if-else-like-conditional-markers" title="Permalink to this headline">¶</a></h1>
+<p>The info below contains an overview of the so-called &#8220;primaries&#8221; that make up the TEST-COMMAND command or list of commands. These primaries are put between square brackets to indicate the test of a conditional expression.</p>
+<p><code class="docutils literal"><span class="pre">-a</span> <span class="pre">file</span></code>
+True if file exists.</p>
+<p><code class="docutils literal"><span class="pre">-b</span> <span class="pre">file</span></code>
+True if file exists and is a block special file.</p>
+<p><code class="docutils literal"><span class="pre">-c</span> <span class="pre">file</span></code>
+True if file exists and is a character special file.</p>
+<p><code class="docutils literal"><span class="pre">-d</span> <span class="pre">file</span></code>
+True if file exists and is a directory.</p>
+<p><code class="docutils literal"><span class="pre">-e</span> <span class="pre">file</span></code>
+True if file exists.</p>
+<p><code class="docutils literal"><span class="pre">-f</span> <span class="pre">file</span></code>
+True if file exists and is a regular file.</p>
+<p><code class="docutils literal"><span class="pre">-g</span> <span class="pre">file</span></code>
+True if file exists and its set-group-id bit is set.</p>
+<p><code class="docutils literal"><span class="pre">-h</span> <span class="pre">file</span></code>
+True if file exists and is a symbolic link.</p>
+<p><code class="docutils literal"><span class="pre">-k</span> <span class="pre">file</span></code>
+True if file exists and its &#8220;sticky&#8221; bit is set.</p>
+<p><code class="docutils literal"><span class="pre">-p</span> <span class="pre">file</span></code>
+True if file exists and is a named pipe (FIFO).</p>
+<p><code class="docutils literal"><span class="pre">-r</span> <span class="pre">file</span></code>
+True if file exists and is readable.</p>
+<p><code class="docutils literal"><span class="pre">-s</span> <span class="pre">file</span></code>
+True if file exists and has a size greater than zero.</p>
+<p><code class="docutils literal"><span class="pre">-t</span> <span class="pre">fd</span></code>
+True if file descriptor &#8216;fd&#8217; is open and refers to a terminal.</p>
+<p><code class="docutils literal"><span class="pre">-u</span> <span class="pre">file</span></code>
+True if file exists and its set-user-id bit is set.</p>
+<p><code class="docutils literal"><span class="pre">-w</span> <span class="pre">file</span></code>
+True if file exists and is writable.</p>
+<p><code class="docutils literal"><span class="pre">-x</span> <span class="pre">file</span></code>
+True if file exists and is executable.</p>
+<p><code class="docutils literal"><span class="pre">-G</span> <span class="pre">file</span></code>
+True if file exists and is owned by the effective group id.</p>
+<p><code class="docutils literal"><span class="pre">-L</span> <span class="pre">file</span></code>
+True if file exists and is a symbolic link.</p>
+<p><code class="docutils literal"><span class="pre">-N</span> <span class="pre">file</span></code>
+True if file exists and has been modified since it was last read.</p>
+<p><code class="docutils literal"><span class="pre">-O</span> <span class="pre">file</span></code>
+True if file exists and is owned by the effective user id.</p>
+<p><code class="docutils literal"><span class="pre">-S</span> <span class="pre">file</span></code>
+True if file exists and is a socket.</p>
+<p><code class="docutils literal"><span class="pre">-z</span> <span class="pre">file</span></code>
+True if string is null, that is, has zero length.</p>
+<p><code class="docutils literal"><span class="pre">file1</span> <span class="pre">-ef</span> <span class="pre">file2</span></code>
+True if file1 and file2 refer to the same device and inode numbers.</p>
+<p><code class="docutils literal"><span class="pre">file1</span> <span class="pre">-nt</span> <span class="pre">file2</span></code>
+True if file1 is newer (according to modification date) than file2, or if file1 exists and file2 does not.</p>
+<p><code class="docutils literal"><span class="pre">file1</span> <span class="pre">-ot</span> <span class="pre">file2</span></code>
+True if file1 is older than file2, or if file2 exists and file1 does not.</p>
+<p><code class="docutils literal"><span class="pre">-o</span> <span class="pre">optname</span></code>
+True if the shell option optname is enabled. The list of options appears in the description of the -o option to the set builtin (see The Set Builtin).</p>
+<p><code class="docutils literal"><span class="pre">-v</span> <span class="pre">varname</span></code>
+True if the shell variable varname is set (has been assigned a value).</p>
+<p><code class="docutils literal"><span class="pre">-R</span> <span class="pre">varname</span></code>
+True if the shell variable varname is set and is a name reference.</p>
+<p><code class="docutils literal"><span class="pre">-z</span> <span class="pre">string</span></code>
+True if the length of string is zero.</p>
+<p><code class="docutils literal"><span class="pre">-n</span> <span class="pre">string</span></code>
+<cite>string</cite>
+True if the length of string is non-zero.</p>
+<p><code class="docutils literal"><span class="pre">string1</span> <span class="pre">==</span> <span class="pre">string2</span></code>
+<code class="docutils literal"><span class="pre">string1</span> <span class="pre">=</span> <span class="pre">string2</span></code>
+True if the strings are equal. When used with the [[ command, this performs pattern matching as described above (see Conditional Constructs).</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">=</span></code> should be used with the test command for POSIX conformance.</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">string1</span> <span class="pre">!=</span> <span class="pre">string2</span></code>
+True if the strings are not equal.</p>
+<p><code class="docutils literal"><span class="pre">string1</span> <span class="pre">&lt;</span> <span class="pre">string2</span></code>
+True if string1 sorts before string2 lexicographically.</p>
+<p><code class="docutils literal"><span class="pre">string1</span> <span class="pre">&gt;</span> <span class="pre">string2</span></code>
+True if string1 sorts after string2 lexicographically.</p>
+<p><code class="docutils literal"><span class="pre">arg1</span> <span class="pre">OP</span> <span class="pre">arg2</span></code>
+OP is one of <code class="docutils literal"><span class="pre">-eq</span></code>, <code class="docutils literal"><span class="pre">-ne</span></code>, <code class="docutils literal"><span class="pre">-lt</span></code>, <code class="docutils literal"><span class="pre">-le</span></code>, <code class="docutils literal"><span class="pre">-gt</span></code>, or <code class="docutils literal"><span class="pre">-ge</span></code>. These arithmetic binary operators return true if arg1 is equal to, not equal to, less than, less than or equal to, greater than, or greater than or equal to arg2, respectively. Arg1 and arg2 may be positive or negative integers.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="basic-linux.html" class="btn btn-neutral float-right" title="Some Basic Linux Commands" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="General Bash" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Justin Partain.
+      Last updated on November 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

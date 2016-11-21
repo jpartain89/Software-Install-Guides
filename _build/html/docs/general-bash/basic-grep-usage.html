@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Use grep Output as if-else Conditional &mdash; Software Install Guides v1.5</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Software Install Guides v1.5" href="../../index.html"/>
+        <link rel="up" title="General Bash" href="index.html"/>
+        <link rel="next" title="Ratom [RATOM-src]" href="ratom.html"/>
+        <link rel="prev" title="Some Basic Linux Commands" href="basic-linux.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../_static/JPLogo-Header.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ubuntu-specific/index.html">Ubuntu Specific</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../raspberry-pi/index.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../macOS/index.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general-debian/index.html">General Debian Info</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">General Bash</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bash-if-conditionals.html">Bash <code class="docutils literal"><span class="pre">If-Else</span></code> -like Conditional Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-linux.html">Some Basic Linux Commands</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Use grep Output as if-else Conditional</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-use-of-grep-in-if-else">Basic Use of grep in if-else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#so-lets-break-that-down">So, lets break that down</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ratom.html">Ratom <code class="docutils literal"><span class="pre">[RATOM-src]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="random-collection-of-info.html">Random Collection of Info</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../git/index.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../website-testing/index.html">Website Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extras/index.html">Extras</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">General Bash</a> &raquo;</li>
+      
+    <li>Use grep Output as if-else Conditional</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/docs/general-bash/basic-grep-usage.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="use-grep-output-as-if-else-conditional">
+<h1>Use grep Output as if-else Conditional<a class="headerlink" href="#use-grep-output-as-if-else-conditional" title="Permalink to this headline">¶</a></h1>
+<p>This was my notation of how to use grep&#8217;s standard output as an <code class="docutils literal"><span class="pre">if-else</span></code> conditional in a shell script.</p>
+<p>Basically, just about all programs have at least two outputs; the textual output that it sends to <code class="docutils literal"><span class="pre">STDOUT</span></code>, the stuff that you read and a basic <code class="docutils literal"><span class="pre">0</span></code> <code class="docutils literal"><span class="pre">1</span></code> or more, for use in shell scripts, <code class="docutils literal"><span class="pre">if-else</span></code> conditionals or loops, etc.</p>
+<p>The <code class="docutils literal"><span class="pre">if-else</span></code> conditionals or <code class="docutils literal"><span class="pre">for</span></code> loops or what have you like to use simple numbers, <code class="docutils literal"><span class="pre">0</span></code> <code class="docutils literal"><span class="pre">1</span></code> etc. for, say, when searching for <code class="docutils literal"><span class="pre">openvpn</span></code> being installed, it says <code class="docutils literal"><span class="pre">0</span></code> for yes, <code class="docutils literal"><span class="pre">1</span></code> for no or error. Therefore, you can make a conditional that says <code class="docutils literal"><span class="pre">if</span> <span class="pre">0,</span> <span class="pre">yes,</span> <span class="pre">then</span> <span class="pre">do</span> <span class="pre">not</span> <span class="pre">attempt</span> <span class="pre">install.</span> <span class="pre">If</span> <span class="pre">NOT</span> <span class="pre">0,</span> <span class="pre">then</span> <span class="pre">attempt</span> <span class="pre">install!</span></code></p>
+<div class="section" id="basic-use-of-grep-in-if-else">
+<h2>Basic Use of grep in if-else<a class="headerlink" href="#basic-use-of-grep-in-if-else" title="Permalink to this headline">¶</a></h2>
+<p>This would be a simple layout of how you could potentially use this in a shell script.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+dpkg -l <span class="p">|</span> grep openvpn <span class="p">&amp;</span>&gt; /dev/null
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$?</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&quot;matched&quot;</span>
+<span class="k">else</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Not Matched&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="so-lets-break-that-down">
+<h2>So, lets break that down<a class="headerlink" href="#so-lets-break-that-down" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">dpkg</span> <span class="pre">-l</span></code> - this, by itself, will output all installed programs that dpkg manages.</li>
+<li><code class="docutils literal"><span class="pre">|</span></code> - this is the <code class="docutils literal"><span class="pre">pipe</span></code> command.</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>What this says is:
+take the outputted text from the last thing and use it as input for the next thing</li>
+<li>So, the entire list of installed apps then is searched using <code class="docutils literal"><span class="pre">grep</span></code> for <code class="docutils literal"><span class="pre">openvpn</span></code></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><code class="docutils literal"><span class="pre">&amp;&gt;</span> <span class="pre">/dev/null</span></code> - this is a redirection of the output, negating any textual output, leaving only the <code class="docutils literal"><span class="pre">1</span></code> or <code class="docutils literal"><span class="pre">0</span></code> or more outputs to use</li>
+<li><code class="docutils literal"><span class="pre">$?</span></code> - this basically says <code class="docutils literal"><span class="pre">take</span> <span class="pre">the</span> <span class="pre">numbered</span> <span class="pre">output,</span> <span class="pre">whatever</span> <span class="pre">it</span> <span class="pre">is,</span> <span class="pre">and</span> <span class="pre">stick</span> <span class="pre">it</span> <span class="pre">here</span></code></li>
+<li>So, when you do <code class="docutils literal"><span class="pre">$?</span> <span class="pre">==</span> <span class="pre">0</span></code> you&#8217;re saying <code class="docutils literal"><span class="pre">if</span> <span class="pre">the</span> <span class="pre">output</span> <span class="pre">was</span> <span class="pre">0,</span> <span class="pre">then</span> <span class="pre">do</span> <span class="pre">this</span> <span class="pre">command</span></code></li>
+</ol>
+<p>AND be careful, 0 might not always be yes or confirm. Make sure to check the programs MAN pages for clarification</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ratom.html" class="btn btn-neutral float-right" title="Ratom [RATOM-src]" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="basic-linux.html" class="btn btn-neutral" title="Some Basic Linux Commands" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Justin Partain.
+      Last updated on November 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

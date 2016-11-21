@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Alternate Transmission Web GUI &mdash; Software Install Guides v1.5</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Software Install Guides v1.5" href="../../../index.html"/>
+        <link rel="up" title="Downloaders" href="index.html"/>
+        <link rel="next" title="OpenVPN [PIA-VPN]" href="openvpn.html"/>
+        <link rel="prev" title="Transmission [TRANS-HTPC]" href="transmission-daemon.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../../_static/JPLogo-Header.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Ubuntu Specific</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../webapps/index.html">WebApps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Downloaders</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="transmission-daemon.html">Transmission <code class="docutils literal"><span class="pre">[TRANS-HTPC]</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Alternate Transmission Web GUI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-kettu-s-web-gui-for-transmission">Using Kettu&#8217;s Web GUI for Transmission</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transmission-web-gui-file-locations">Transmission Web GUI File Locations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="openvpn.html">OpenVPN <code class="docutils literal"><span class="pre">[PIA-VPN]</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web-server/index.html">Web Server Stuff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postfix.html">Using Postfix as Mail Relay <code class="docutils literal"><span class="pre">[POSTFIX-HowTo]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adding-apt-list.html">Adding an Apt-Get List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mount-drive-ubuntu.html">Mounting Unformatted Drive in Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ubuntu_user.html">User Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#layout">Layout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../raspberry-pi/index.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macOS/index.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-debian/index.html">General Debian Info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-bash/index.html">General Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../git/index.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../website-testing/index.html">Website Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extras/index.html">Extras</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Ubuntu Specific</a> &raquo;</li>
+      
+          <li><a href="index.html">Downloaders</a> &raquo;</li>
+      
+    <li>Alternate Transmission Web GUI</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/docs/ubuntu-specific/downloader/transmission-web-gui.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="alternate-transmission-web-gui">
+<h1>Alternate Transmission Web GUI<a class="headerlink" href="#alternate-transmission-web-gui" title="Permalink to this headline">¶</a></h1>
+<p>The command line tools for Transmission also come with a directory that runs a web-based GUI for Transmission. Not only does this allow running a torrent program on a headless server, but say you have hardware that the graphics card isn&#8217;t too quick. Rather than install the GUI Desktop version, install the command line version! Plus, if you run a reverse proxy web server in front of it, you can access it from anywhere.</p>
+<div class="section" id="using-kettu-s-web-gui-for-transmission">
+<h2>Using Kettu&#8217;s Web GUI for Transmission<a class="headerlink" href="#using-kettu-s-web-gui-for-transmission" title="Permalink to this headline">¶</a></h2>
+<p>First, clone <a class="reference external" href="https://github.com/endor/kettu.git">endor/kettu&#8217;s custom-built web GUI</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/endor/kettu.git ~/git/kettu
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>I keep all of my cloned git repos inside of one, singular directory:</p>
+<p><code class="docutils literal"><span class="pre">~/git</span></code></p>
+<p>This way, I don&#8217;t have to hunt all over my system for where my repo&#8217;s are and it makes it easier to keep them updated. Then, I symlink the library to wherever either the developer wants/requires it or where is easiest.</p>
+<p class="last">The other way of handing this is to clone your PROGRAMS into the /opt directory - so /opt/couchpotato, /opt/NzbDrone, /opt/plexpy and so on. Then clone your working repos for projects into <code class="docutils literal"><span class="pre">~/git/[repo]</span></code></p>
+</div>
+</div>
+<div class="section" id="transmission-web-gui-file-locations">
+<h2>Transmission Web GUI File Locations<a class="headerlink" href="#transmission-web-gui-file-locations" title="Permalink to this headline">¶</a></h2>
+<p>Next, we need to link the clone repo to the spot that Transmission expects. Since I don&#8217;t care for the look of the web GUI that comes with the tool, I just delete the entire directory, then symlink the github repo in its place, but naming it <code class="docutils literal"><span class="pre">web</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Transmission&#8217;s web GUI is located at <code class="docutils literal"><span class="pre">/usr/share/transmission/web</span></code> in unix systems.</p>
+<p class="last">If you&#8217;re using macOS and their main Transmission App downloaded from their site - the Transmission GUI app, NOT the Command Line tool - the web files are located at <code class="docutils literal"><span class="pre">/Applications/Transmission.app/Contents/Resources/web/</span></code>, Because even their full-fledged desktop tool comes with a web GUI.</p>
+</div>
+<p>First, before making any changes, its always a good idea to stop transmission before doing ANYTHING to it. It not only will revert any changes made to its <code class="docutils literal"><span class="pre">config</span></code> file if its still running, but if it does that, who knows how mad it&#8217;ll get over its web GUI files going missing.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo service transmission-daemon stop
+</pre></div>
+</div>
+<p>Then, we remove the existing <code class="docutils literal"><span class="pre">web</span></code> directory, and then symlink-in the replacement.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo rm -r /usr/share/transmission/web
+sudo ln ~/git/kettu /usr/share/transmission/web
+sudo service transmission-daemon start
+</pre></div>
+</div>
+<p>Then, of course, confirm that the web interface has changed over. Of which, it usually is running at <a class="reference external" href="http://localhost:9091">http://localhost:9091</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="openvpn.html" class="btn btn-neutral float-right" title="OpenVPN [PIA-VPN]" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="transmission-daemon.html" class="btn btn-neutral" title="Transmission [TRANS-HTPC]" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Justin Partain.
+      Last updated on November 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

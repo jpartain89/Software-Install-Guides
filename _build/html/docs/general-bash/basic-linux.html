@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Some Basic Linux Commands &mdash; Software Install Guides v1.5</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Software Install Guides v1.5" href="../../index.html"/>
+        <link rel="up" title="General Bash" href="index.html"/>
+        <link rel="next" title="Use grep Output as if-else Conditional" href="basic-grep-usage.html"/>
+        <link rel="prev" title="Bash If-Else -like Conditional Markers" href="bash-if-conditionals.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Software Install Guides
+          
+
+          
+            
+            <img src="../../_static/JPLogo-Header.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ubuntu-specific/index.html">Ubuntu Specific</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../raspberry-pi/index.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../macOS/index.html">macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general-debian/index.html">General Debian Info</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">General Bash</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bash-if-conditionals.html">Bash <code class="docutils literal"><span class="pre">If-Else</span></code> -like Conditional Markers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Some Basic Linux Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ssh-or-remote-use">SSH or Remote Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ssh-keys">SSH Keys</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ssh-key-generate">SSH-Key Generate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssh-key-location">SSH Key Location</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssh-copy-id-or-sending-your-public-key">SSH-Copy-ID or Sending Your Public Key</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#restarting-the-machine">Restarting the Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-the-apps">Updating the Apps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="basic-grep-usage.html">Use grep Output as if-else Conditional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ratom.html">Ratom <code class="docutils literal"><span class="pre">[RATOM-src]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="random-collection-of-info.html">Random Collection of Info</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../git/index.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../website-testing/index.html">Website Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extras/index.html">Extras</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Software Install Guides</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">General Bash</a> &raquo;</li>
+      
+    <li>Some Basic Linux Commands</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/docs/general-bash/basic-linux.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="some-basic-linux-commands">
+<h1>Some Basic Linux Commands<a class="headerlink" href="#some-basic-linux-commands" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ssh-or-remote-use">
+<h2>SSH or Remote Use<a class="headerlink" href="#ssh-or-remote-use" title="Permalink to this headline">¶</a></h2>
+<p>To connect to another system from your current machine, you use <code class="docutils literal"><span class="pre">ssh</span></code></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ssh user@ipaddress
+</pre></div>
+</div>
+<p>My username I use is <code class="docutils literal"><span class="pre">jpartain89</span></code>, so :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ssh jpartain89@192.168.1.10
+</pre></div>
+</div>
+<p>It will ask for your users password, if your ssh keys are not setup.</p>
+</div>
+<div class="section" id="ssh-keys">
+<h2>SSH Keys<a class="headerlink" href="#ssh-keys" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ssh-key-generate">
+<h3>SSH-Key Generate<a class="headerlink" href="#ssh-key-generate" title="Permalink to this headline">¶</a></h3>
+<p>To generate SSH keys:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ssh-keygen -t rsa -b 4096
+</pre></div>
+</div>
+<p>It will ask for location, hit <code class="docutils literal"><span class="pre">enter</span></code> for the standard default location.</p>
+<p>If you want a password on this key, for extra extra security, you can type that in with the next option. Or, for no passphrase, just hit <code class="docutils literal"><span class="pre">enter</span></code>.</p>
+<p>Hit <code class="docutils literal"><span class="pre">enter</span></code> again for confirmation, or retype the password if you wanted one.</p>
+<p>Then, it&#8217;ll output the key &#8216;randomart&#8217; image, which doesn&#8217;t mean much. But, the default location is <code class="docutils literal"><span class="pre">~/.ssh</span></code>. It&#8217;ll tell you where.</p>
+</div>
+<div class="section" id="ssh-key-location">
+<h3>SSH Key Location<a class="headerlink" href="#ssh-key-location" title="Permalink to this headline">¶</a></h3>
+<p>The private key is like your front door key on your keyring. Only you have it. The public key is like the tumblers. Anyone can see it, but cannot access without your private key.</p>
+</div>
+<div class="section" id="ssh-copy-id-or-sending-your-public-key">
+<h3>SSH-Copy-ID or Sending Your Public Key<a class="headerlink" href="#ssh-copy-id-or-sending-your-public-key" title="Permalink to this headline">¶</a></h3>
+<p>The public key is copied to the servers that you want to access without password input. There is a program to do that. <code class="docutils literal"><span class="pre">ssh-copy-id</span></code>. On macOS, <code class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">ssh-copy-id</span></code>. Linux should already have it installed.</p>
+<p>To send your public keys, you use</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ssh-copy-id jpartain89@192.168.1.10
+</pre></div>
+</div>
+<p>Or <code class="docutils literal"><span class="pre">ssh-copy-id</span></code> is the program, then <code class="docutils literal"><span class="pre">your</span> <span class="pre">username</span> <span class="pre">&#64;</span> <span class="pre">the</span> <span class="pre">ip</span> <span class="pre">address</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">computer</span></code>. It&#8217;ll ask for your password, then copy the keys. Then, <code class="docutils literal"><span class="pre">ssh</span> <span class="pre">jpartain89&#64;192.168.1.10</span></code> and it should no longer ask for your password!</p>
+</div>
+</div>
+<div class="section" id="restarting-the-machine">
+<h2>Restarting the Machine<a class="headerlink" href="#restarting-the-machine" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo shutdown -r now
+</pre></div>
+</div>
+<p>So, breakdown:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">shutdown</span></code> - obviously is the shutdown program</li>
+<li><code class="docutils literal"><span class="pre">-r</span></code> - the -r flag is for restarting.</li>
+<li><code class="docutils literal"><span class="pre">now</span></code> - tells it to do it now, rather than wait. You can set times before it shutsdown or restarts, in case other users are on the machine.</li>
+</ol>
+</div>
+<div class="section" id="updating-the-apps">
+<h2>Updating the Apps<a class="headerlink" href="#updating-the-apps" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get upgrade -y
+</pre></div>
+</div>
+<p>Breakdown:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">apt-get</span></code> is the installing program that debian/ubuntu uses. Its a super simple means of installing in the terminal.</li>
+<li><code class="docutils literal"><span class="pre">update</span></code> - obviously runs an update. This means it downloads a list or a cache of the version numbers and states of the programs in apt-get&#8217;s lists.</li>
+<li>the <code class="docutils literal"><span class="pre">&amp;&amp;</span></code> means <code class="docutils literal"><span class="pre">run</span> <span class="pre">this</span> <span class="pre">stuff</span> <span class="pre">after</span> <span class="pre">the</span> <span class="pre">last</span> <span class="pre">one</span> <span class="pre">succeeds</span> <span class="pre">successfully</span></code></li>
+<li><code class="docutils literal"><span class="pre">upgrade</span></code> - this actually takes the programs installed by apt-get, and upgrades them.</li>
+<li><code class="docutils literal"><span class="pre">-y</span></code> - basically means <code class="docutils literal"><span class="pre">yes,</span> <span class="pre">do</span> <span class="pre">this</span> <span class="pre">without</span> <span class="pre">asking</span> <span class="pre">like</span> <span class="pre">normal</span></code></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="basic-grep-usage.html" class="btn btn-neutral float-right" title="Use grep Output as if-else Conditional" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bash-if-conditionals.html" class="btn btn-neutral" title="Bash If-Else -like Conditional Markers" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 Justin Partain.
+      Last updated on November 21, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
