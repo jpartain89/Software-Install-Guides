@@ -13,7 +13,7 @@ A lot of my guides have been copied from `HTPC Guides <https://htpcguides.com>`_
 Table of contents:
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 3
 
   docs/ubuntu-specific/index
   docs/raspberry-pi/index

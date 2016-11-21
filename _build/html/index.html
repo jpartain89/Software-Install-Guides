@@ -150,52 +150,154 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="docs/ubuntu-specific/index.html">Ubuntu Specific</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/webapps/index.html">WebApps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/downloader/index.html">Downloaders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/web-server/index.html">Web Server Stuff</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/postfix.html">Using Postfix as Mail Relay <code class="docutils literal"><span class="pre">[POSTFIX-HowTo]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/webapps/index.html">WebApps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/webapps/sonarr.html">Sonarr Installation <code class="docutils literal"><span class="pre">[HTPC-Sonarr]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/webapps/couchpotato.html">CouchPotato Movie Downloader <code class="docutils literal"><span class="pre">[HTPC-CP]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/webapps/plexpy.html">PlexPy <code class="docutils literal"><span class="pre">[HTPC-PlexPy]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/webapps/htpc-manager.html">HTPC-Manager <code class="docutils literal"><span class="pre">[HTPC-htpc]</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/downloader/index.html">Downloaders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/downloader/transmission-daemon.html">Transmission <code class="docutils literal"><span class="pre">[TRANS-HTPC]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/downloader/transmission-web-gui.html">Alternate Transmission Web GUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/downloader/openvpn.html">OpenVPN <code class="docutils literal"><span class="pre">[PIA-VPN]</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/web-server/index.html">Web Server Stuff</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/web-server/nginx-from-ubuntu-ppa.html">NGINX from PPA <code class="docutils literal"><span class="pre">[NGINX-Config]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/web-server/nginx-from-source.html">Compiling NGINX From Source <code class="docutils literal"><span class="pre">[NGINX-Copied]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/web-server/nginx-basic-auth.html">NGINX Basic Password Auth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/web-server/securing-nginx.html">Securing NGINX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/web-server/ddclient.html">DDClient <code class="docutils literal"><span class="pre">[DDCLIENT-Source]</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/postfix.html">Using Postfix as Mail Relay <code class="docutils literal"><span class="pre">[POSTFIX-HowTo]</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/postfix.html#install-postfix">Install Postfix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/postfix.html#configure-postfix">Configure Postfix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/postfix.html#restart-postfix">Restart Postfix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/postfix.html#send-test-emails">Send Test Emails</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/adding-apt-list.html">Adding an Apt-Get List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/mount-drive-ubuntu.html">Mounting Unformatted Drive in Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/mount-drive-ubuntu.html">Mounting Unformatted Drive in Ubuntu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/mount-drive-ubuntu.html#install-create-the-drive">Install/Create the Drive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/mount-drive-ubuntu.html#finding-the-drive">Finding the Drive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/mount-drive-ubuntu.html#create-partitions">Create Partitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/mount-drive-ubuntu.html#write-partitions">Write Partitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/mount-drive-ubuntu.html#partprobe">Partprobe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/mount-drive-ubuntu.html#format">Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/mount-drive-ubuntu.html#mount-point">Mount Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/mount-drive-ubuntu.html#after-mount">After Mount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/ubuntu-specific/mount-drive-ubuntu.html#permanent-mounting">Permanent Mounting</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/ubuntu_user.html">User Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="docs/ubuntu-specific/index.html#layout">Layout</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docs/raspberry-pi/index.html">Raspberry Pi</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="docs/raspberry-pi/boot-from-usb.html">Boot Raspberry Pi from USB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/raspberry-pi/ddrescue.html">DDRescue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/raspberry-pi/domotz-rpi.html">Domotz on Raspberry Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/raspberry-pi/boot-from-usb.html">Boot Raspberry Pi from USB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/raspberry-pi/boot-from-usb.html#find-the-usb-drive">Find the USB Drive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/raspberry-pi/boot-from-usb.html#install-adafruit-s-usb-program">Install Adafruit&#8217;s USB Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/raspberry-pi/boot-from-usb.html#installing-usb-program">Installing USB Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/raspberry-pi/boot-from-usb.html#running-the-program">Running the Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/raspberry-pi/boot-from-usb.html#after-running">After Running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/raspberry-pi/boot-from-usb.html#recovering-from-a-failed-boot">Recovering from a Failed Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/raspberry-pi/ddrescue.html">DDRescue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/raspberry-pi/ddrescue.html#installing">Installing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/raspberry-pi/ddrescue.html#how-is-it-used">How is it Used?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/raspberry-pi/ddrescue.html#break-it-down">Break it Down</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/raspberry-pi/domotz-rpi.html">Domotz on Raspberry Pi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/raspberry-pi/domotz-rpi.html#install-domotz">Install Domotz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/raspberry-pi/domotz-rpi.html#activation">Activation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docs/macOS/index.html">macOS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="docs/macOS/macOS-Sierra-xcode-update.html">Updating X-Code After Big Updates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/macOS/btmm-ssh.html">Back To My Mac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/macOS/macOS-Sierra-xcode-update.html">Updating X-Code After Big Updates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/macOS/macOS-Sierra-xcode-update.html#tl-dr">tl;dr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/macOS/btmm-ssh.html">Back To My Mac</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/macOS/btmm-ssh.html#finder-stuff">Finder Stuff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/macOS/btmm-ssh.html#ssh">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/macOS/btmm-ssh.html#setting-up-btmm">Setting Up BTMM</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docs/general-debian/index.html">General Debian Info</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="docs/general-debian/access-control-lists.html">Access Control Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/general-debian/dpkg-package-states.html">dpkg -l Package States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/general-debian/access-control-lists.html">Access Control Lists</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-debian/access-control-lists.html#default-permissions">Default Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-debian/access-control-lists.html#tl-dr">tl;dr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/general-debian/dpkg-package-states.html">dpkg -l Package States</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-debian/dpkg-package-states.html#definitions">Definitions</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="docs/general-debian/optional-parameter.html">Default Optional Agruments</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docs/general-bash/index.html">General Bash</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="docs/general-bash/bash-if-conditionals.html">Bash <code class="docutils literal"><span class="pre">If-Else</span></code> -like Conditional Markers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/general-bash/basic-linux.html">Some Basic Linux Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/general-bash/basic-grep-usage.html">Use grep Output as if-else Conditional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/general-bash/ratom.html">Ratom <code class="docutils literal"><span class="pre">[RATOM-src]</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/general-bash/random-collection-of-info.html">Random Collection of Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/general-bash/basic-linux.html">Some Basic Linux Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-bash/basic-linux.html#ssh-or-remote-use">SSH or Remote Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-bash/basic-linux.html#ssh-keys">SSH Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-bash/basic-linux.html#restarting-the-machine">Restarting the Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-bash/basic-linux.html#updating-the-apps">Updating the Apps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/general-bash/basic-grep-usage.html">Use grep Output as if-else Conditional</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-bash/basic-grep-usage.html#basic-use-of-grep-in-if-else">Basic Use of grep in if-else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-bash/basic-grep-usage.html#so-lets-break-that-down">So, lets break that down</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/general-bash/ratom.html">Ratom <code class="docutils literal"><span class="pre">[RATOM-src]</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-bash/ratom.html#installing-ratom">Installing Ratom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-bash/ratom.html#sshing-with-forwarded-ports">SSHing with Forwarded Ports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-bash/ratom.html#running-ratom-on-the-server">Running ratom on the Server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/general-bash/random-collection-of-info.html">Random Collection of Info</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/general-bash/random-collection-of-info.html#using-find-to-chmod-multiple-files">Using <code class="docutils literal"><span class="pre">find</span></code> to <code class="docutils literal"><span class="pre">chmod</span></code> multiple files</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docs/git/index.html">Git</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="docs/git/git-repo-address.html">Local Git Repo Address</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docs/git/cache-git-password-terminal.html">Saving your Git Repo Password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/git/git-repo-address.html">Local Git Repo Address</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/git/git-repo-address.html#viewing-the-repo-s-address">Viewing the Repo&#8217;s Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/git/git-repo-address.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/git/git-repo-address.html#changing-the-address">Changing The Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/git/git-repo-address.html#code-breakdown">Code Breakdown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/git/git-repo-address.html#final-steps">Final Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docs/git/cache-git-password-terminal.html">Saving your Git Repo Password</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/git/cache-git-password-terminal.html#macos">macOS</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docs/website-testing/index.html">Website Testing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="docs/website-testing/testing-services.html">Testing your Web Server Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/website-testing/testing-services.html">Testing your Web Server Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/website-testing/testing-services.html#list">List</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docs/extras/index.html">Extras</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="docs/extras/virtualbox-guest-addition.html">VirtualBox Guest Additions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/extras/virtualbox-guest-addition.html">VirtualBox Guest Additions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docs/extras/virtualbox-guest-addition.html#host-machine">Host Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docs/extras/virtualbox-guest-addition.html#ubuntu-server-guest-machine">Ubuntu Server Guest Machine</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="docs/extras/ansible-adhoc.html">Ansible&#8217;s ad-hoc Reference Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="docs/extras/ansible-random-nuggets.html">Ansible Random Nuggets</a></li>
 </ul>
