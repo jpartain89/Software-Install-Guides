@@ -14,3 +14,4 @@ This section is for those items that are usually low-level enough to be fairly e
   basic-grep-usage
   ratom
   random-collection-of-info
+  pip-requirements-file
