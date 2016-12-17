@@ -12,3 +12,4 @@ This will also include, in the future, a how-to install `NZBGET <nzbget.net>`_ p
   transmission-daemon
   transmission-web-gui
   openvpn
+  nzbget

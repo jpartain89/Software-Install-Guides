@@ -67,4 +67,13 @@ Breakdown
 
 If you were to say ``pip list | awk '{print $1,$2}'`` you would get the original information once again. Why? becuase the (#.#.#) is ``$2`` or option 2 or what have you. The , says "insert space". Without the comma, no space.
 
-Again, ``awk`` is a massive language. This is a simple explainer here. 
+Again, ``awk`` is a massive language. This is a simple explainer here.
+
+.. _using-forwardslash:
+
+Using ``\`` as New Lines
+========================
+
+Often times, you'll see ``\`` used at the end of code lines and you've wondered what on EARTH thats about??
+
+Well, those are used as so-called ``new line`` signifiers, or on the naked command line, it tells the system to keep expecting more text/code input.

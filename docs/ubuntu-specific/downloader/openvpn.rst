@@ -14,7 +14,7 @@ Install
 PIA OpenVPN Files
 ==================
 
-PIA is `Private Internet Access <https://www.privateinternetaccess.com>`_, a widely used and referenced VPN service for the fact that they advertise themselves as one of the more secure and anonymous VPN services on the internet. `This page <https://www.privateinternetaccess.com/pages/browse-anonymously/>`_ is a good jump-off point for explaining their services and why you need a VPN.
+PIA is `Private Internet Access`_, a widely used and referenced VPN service for the fact that they advertise themselves as one of the more secure and anonymous VPN services on the internet. `This page`_ is a good jump-off point for explaining their services and why you need a VPN.
 
 The OpenVPN files are configuration files tailored to be used with OpenVPN for PIA, making that ENTIRE setup SO much easier!
 
@@ -149,3 +149,6 @@ Add that to either your ``.aliases`` or ``.bash_profile`` or ``.bashrc`` file, w
 Then, type ``pubIP`` and hit enter. You should get your public IP address.
 
 .. [PIA-VPN] Copied from the bottom half of `Superjamie's gist <https://gist.github.com/superjamie/ac55b6d2c080582a3e64>`_
+
+.. _Private Internet Access: https://www.privateinternetaccess.com
+.. _this page: https://www.privateinternetaccess.com/pages/browse-anonymously/
