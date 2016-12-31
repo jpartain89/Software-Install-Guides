@@ -15,3 +15,4 @@ This section is for those items that are usually low-level enough to be fairly e
   ratom
   random-collection-of-info
   pip-requirements-file
+  signals-and-traps
