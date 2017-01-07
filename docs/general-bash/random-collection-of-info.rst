@@ -77,3 +77,14 @@ Using ``\`` as New Lines
 Often times, you'll see ``\`` used at the end of code lines and you've wondered what on EARTH thats about??
 
 Well, those are used as so-called ``new line`` signifiers, or on the naked command line, it tells the system to keep expecting more text/code input.
+
+Shell Script Location
+=====================
+
+Are you wanting an easy way for your shell script to know where its at in the plethora of unix directories? Use the below line!
+
+.. code-block:: bash
+
+  "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+Its able to give you that info, no matter where its called from, which is a typical issue with almost all other so-called "one-liners".
