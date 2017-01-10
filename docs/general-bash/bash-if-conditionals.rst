@@ -1,10 +1,31 @@
-.. _bash_conditional_markers:
+.. _bash_conditional_operators:
 
 ==========================================
-Bash ``If-Else`` -like Conditional Markers
+Bash Looping Conditional Operators
 ==========================================
 
-The info below contains an overview of the so-called "primaries" that make up the TEST-COMMAND command or list of commands. These primaries are put between square brackets to indicate the test of a conditional expression.
+The info below contains an overview of the so-called "primaries" or flags that make up the ``TEST-COMMAND`` command or list of commands. These primaries are put between square brackets to indicate the test of a conditional expression.
+
+Example
+=======
+
+.. code-block:: bash
+  
+  if [[ ! -e /etc/foo ]]; then
+    echo "Looks like /etc/foo doesn't exist."
+  fi
+  
+Breakdown
+----------
+
+#. ``[[ ]]`` So, the double brackets here are necessary for ``#!/bin/bash``, of which, to be honest, using the double brackets as the standard setup seems to be what makes the most sense.
+#. ``!`` The exclamation point is how you negate expressions through a lot of bash in general. So, here, its testing if ``/etc/foo`` exists.
+#. After the brackets are closed, you use ``;`` to tell bash that your expression line is finished.
+#. Then, you do whatever you need to do.
+#. ``fi`` then, the ``fi`` is what tells bash that ``if`` is finished.
+
+ Conditional Operators
+ ========================
 
 ``-a file``
 True if file exists.
