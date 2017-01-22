@@ -10,11 +10,11 @@ Example
 =======
 
 .. code-block:: bash
-  
+
   if [[ ! -e /etc/foo ]]; then
     echo "Looks like /etc/foo doesn't exist."
   fi
-  
+
 Breakdown
 ----------
 
@@ -24,8 +24,8 @@ Breakdown
 #. Then, you do whatever you need to do.
 #. ``fi`` then, the ``fi`` is what tells bash that ``if`` is finished.
 
- Conditional Operators
- ========================
+Conditional Operators
+========================
 
 ``-a file``
 True if file exists.

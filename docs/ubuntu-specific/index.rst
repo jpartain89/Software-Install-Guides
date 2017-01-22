@@ -25,3 +25,4 @@ I have this section broken down further into specific area's of interest:
   adding-apt-list
   mount-drive-ubuntu
   ubuntu_user
+  renaming-network-devices
