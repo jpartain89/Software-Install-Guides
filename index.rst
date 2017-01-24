@@ -18,6 +18,7 @@ Table of contents:
   docs/ubuntu-specific/index
   docs/raspberry-pi/index
   docs/macOS/index
+  docs/virtualbox/index
   docs/general-debian/index
   docs/general-bash/index
   docs/git/index
