@@ -1,3 +1,5 @@
+.. _renaming-network-devices:
+
 ========================
 Renaming Network Devices
 ========================

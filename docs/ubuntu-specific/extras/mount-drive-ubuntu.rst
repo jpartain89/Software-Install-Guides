@@ -1,3 +1,5 @@
+.. _mounting-drive:
+
 ====================================
 Mounting Unformatted Drive in Ubuntu
 ====================================
