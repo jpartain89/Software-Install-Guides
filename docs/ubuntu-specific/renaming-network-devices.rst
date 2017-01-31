@@ -15,7 +15,7 @@ Well, I found the specific info from `AskUbuntu <http://askubuntu.com/a/690603>`
 How To
 =======
 
-First, get your devices MAC address, ``ip link``
+First, get your devices MAC address, by running ``ip link``
 
 The output will show something similar to:
 
@@ -48,4 +48,4 @@ Add the following line, replacing ``aa:bb:cc:dd:ee:ff`` after ``ATTR{address}`` 
 
   SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="aa:bb:cc:dd:ee:ff", NAME="eth0"
 
-Then, the best way to make it appear is to just restart your machine.
+Then, the best way to make it appear is to simply restart your machine.

@@ -2,7 +2,7 @@
 Adding an Apt-Get List
 ========================
 
-When adding an apt-get list to your system, one nice way to save your code in your notes is not by specific system names, like ubuntu and debian releases. Rather, insert code into your ``echo`` so that it works for you!
+When adding an apt-get list to your system, one nice way to save your code in your notes is not by specific system names, like ubuntu - ``xenial``, `` and debian releases. Rather, insert code into your ``echo`` so that it works for you!
 
 .. code-block:: bash
 

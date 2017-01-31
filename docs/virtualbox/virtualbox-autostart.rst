@@ -2,7 +2,7 @@
 Auto-starting VirtualBox VMs on macOS
 ======================================
 
-First, we need to copy - or rather, link - over the VirtualBox-provided default .plist file - aka what macOS uses as their "services" files. Or, in comparison, like Linux's /etc/init.d/ files or the like.
+First, we need to copy - or rather, link - over the VirtualBox-provided default .plist file - aka: what macOS uses as their "services" files. Or, in comparison, like Linux's /etc/init.d/ files or the like.
 
 Linking The .plist
 ==================
@@ -11,18 +11,18 @@ Linking The .plist
 
   sudo ln -s  \
     "/Library/Application Support/VirtualBox/LaunchDaemons/org.virtualbox.startup.plist"
-    /Library/LaunchDaemons
+    /Library/LaunchDaemons/
 
-Make SURE you include the quotation marks around the first file location, as, if you'll notice, the text includes an unescaped space. With the quotes, you don't have to include the ``\`` to make it read the space.
+Make sure you include the quotation marks around the first file location, as, if you'll notice, the text includes an unescaped space. With the quotes, you don't have to include the ``\`` to make it read the space.
 
 .. note::
 
-  In case you aren't sure, the extra \ are how you tell the linux command line "Don't run this code yet, even though I am pressing enter or return!". Its basically a newline-signifier. You'll notice it way way more often in how-to's, where it is an attempt to break up the code, so its easier to see, visually for you.
+  In case you aren't sure, the extra  - \ - is how you tell the linux command line "Don't run this code yet, even though I am pressing enter or return!". Its basically a newline-signifier. You'll notice it way way more often in how-to's, where it is an attempt to break up the code so its easier to see, visually, for you.
 
 Edit The .plist
 ===============
 
-And, next we make our edits to ``/Library/LaunchDaemons/org.virtualbox.vboxautostart.plist``
+And next we make our edits to ``/Library/LaunchDaemons/org.virtualbox.startup.plist``
 
 I'm unsure of what the actual defaults in the file are, but make sure they match the following:
 
@@ -93,7 +93,7 @@ And, of course, you can also use ``allow`` in lieu of ``deny``, if you so choose
 
 The ``startup_delay`` line is a means of controlling whether your Virtual Machines attempt to start exactly with the system or delayed, in seconds, afterwards. Which, I have it set to a 30 second delay, so it isn't competing with the rest of the bulk of the startup items.
 
-And, of course, make sure to change berto to the username on your system that the VirtualMachines are running under.
+And, of course, make sure to change ``berto`` to the username on your system that the VirtualMachines are running under.
 
 File Permissions
 ================
@@ -104,7 +104,7 @@ And now, we need to go through and make sure the different files permissions are
 
   sudo chmod +x /Applications/VirtualBox.app/Contents/MacOS/VBoxAutostartDarwin.sh
   sudo chown -R root:wheel /usr/local/etc/vbox
-  sudo chown -R root:wheel /Library/LaunchDaemons/org.virtualbox.vboxautostart.plist
+  sudo chown -R root:wheel /Library/LaunchDaemons/org.virtualbox.startup.plist
 
 .. note::
 
@@ -134,10 +134,10 @@ Finally, we can now test our configs without having to restart our machine.
 
 .. note::
 
-  Before running this, make sure your machines are turned off, so you can watch them turn on. 
+  Before running this, make sure your machines are turned off, so you can watch them turn on.
 
 .. code-block:: bash
 
-  sudo launchctl load /Library/LaunchDaemons/org.virtualbox.vboxautostart.plist
+  sudo launchctl load /Library/LaunchDaemons/org.virtualbox.startup.plist
 
-After running that, it begins running, which you should be able to watch from within your Activity Monitor.
+At this point, it should begin running, which you should be able to watch from within your Activity Monitor.

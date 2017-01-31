@@ -1,10 +1,12 @@
-============================================
-Using Postfix as Mail Relay [POSTFIX-HowTo]_
-============================================
+===========================
+Using Postfix as Mail Relay
+===========================
 
 So, postfix is a fairly full-featured, backend mailserver software, that, to be honest, the reason I'm using it is because the most recent, up to date how-to's all use postfix. Which, I'm assuming that means its probably one of the easier mail systems to configure.
 
 But, we will be using it to forward all of the system emails to our personal email address. I use gmail, so my examples will be more geared towards gmails smtp address and port.
+
+This was lifted - quite almost literally - from HowToForge. [POSTFIX-HowTo]_
 
 Install Postfix
 ===============
@@ -13,7 +15,7 @@ Install Postfix
 
   sudo apt-get install postfix mailutils
 
-Now, during this installation, the system will prompt you with ``Configuration Option`` s. Since we will be using an outside service to send our mail - aka `smtp.gmail.com <smtp.gmail.com>`_ - we will select ``Internet Site``.
+Now, during this installation, the system will prompt you with Configuration Option's. Since we will be using an outside service to send our mail - aka `smtp.gmail.com <smtp.gmail.com>`_ - we will select ``Internet Site``.
 
 If we were to use postfix in other ways, we'd pick another option.
 
@@ -21,7 +23,7 @@ If we were to use postfix in other ways, we'd pick another option.
   :alt: PostFix Install Configuration Option 1
   :align: center
 
-Then, it will continue on with ``System Mail Name``, which, technically you would normally want a FQDN address listed here. But, using your systems basic hostname is also fine, especially if you have just a couple of machines.
+Then, it will continue on with ``System Mail Name``, which, technically you would normally want a ``FQDN`` address listed here. But, using your systems basic hostname is also fine, especially if you have just a couple of machines.
 
 .. image:: pf_mailname.jpg
   :alt: PostFix Install Configuration Option 2
@@ -76,7 +78,7 @@ Remember when you installed ``mailutils``? That was for ``postmap``, which compi
   sudo postmap /etc/postfix/generic
 
 Main Configure File
--------------------------
+--------------------
 
 In the ``main.cf`` file, there are 6 specific parameters we will be using for the relay setup:
 
