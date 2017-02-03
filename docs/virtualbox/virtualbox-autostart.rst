@@ -4,6 +4,8 @@ Auto-starting VirtualBox VMs on macOS
 
 First, we need to copy - or rather, link - over the VirtualBox-provided default .plist file - aka: what macOS uses as their "services" files. Or, in comparison, like Linux's /etc/init.d/ files or the like.
 
+This how-to was lightly copied over from `ReidRansom's Gist <https://sh.jpcdi.com/2k8DdmM>`_.
+
 Linking The .plist
 ==================
 
