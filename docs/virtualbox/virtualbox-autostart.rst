@@ -10,10 +10,10 @@ Linking The .plist
 .. code-block:: bash
 
   sudo ln -s  \
-    "/Library/Application Support/VirtualBox/LaunchDaemons/org.virtualbox.startup.plist"
+    "/Application/VirtualBox.app/Contents/MacOS/org.virtualbox.vboxautostart.plist" \
     /Library/LaunchDaemons/
 
-Make sure you include the quotation marks around the first file location, as, if you'll notice, the text includes an unescaped space. With the quotes, you don't have to include the ``\`` to make it read the space.
+There is another directory that has similar files - ``/Library/Application Support/VirtualBox/LaunchDaemons/`` - but those don't seem to like to work properly... So, we're ignoring those.
 
 .. note::
 
@@ -22,44 +22,45 @@ Make sure you include the quotation marks around the first file location, as, if
 Edit The .plist
 ===============
 
-And next we make our edits to ``/Library/LaunchDaemons/org.virtualbox.startup.plist``
+And next we make our edits to ``/Library/LaunchDaemons/org.virtualbox.vboxautostart.plist``
 
-I'm unsure of what the actual defaults in the file are, but make sure they match the following:
+The default option ``Disabled`` is set to ``true``, so even if launchctl loads it mistakenly, it wont work. So, therefore, that needs to be changed to ``false`` to activate it.
 
 #. Set ``Disabled`` to ``false``
+#. Adding ``KeepAlive`` and ``<true/>``
+#. Adding ``<string>--start</string>`` after the ``.sh`` line
 #. Set ``RunAtLoad`` to ``true``
-#. Set ``KeepAlive`` to ``true``
 #. Set ``LaunchOnlyOnce`` to ``true`` - which this one is probably the 2nd most self-explanatory line.
-#. And the ``<string>`` inside the ``array`` at the end will be for where you are calling the ``VirtualBoxStartup.sh`` script from.
-
-My scripts location is sitting at:
-
-.. code-block:: bash
-
-  /Library/Application Support/VirtualBox/LaunchDaemons/VirtualBoxStartup.sh
-
-Which, ``/Library/Application Support`` is where a lot of developers place different, useful files and directories for their apps. There's also a more user-specific location, at ``~/Library/Application Support``
 
 My personal .plist file looks like this:
 
 .. code-block:: bash
 
   <?xml version="1.0" encoding="UTF-8"?>
-  <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+  <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
   <plist version="1.0">
   <dict>
-      <key>Label</key>             <string>org.virtualbox.startup</string>
-      <key>Disabled</key>          <false/>
-      <key>RunAtLoad</key>         <true/>
-      <key>KeepAlive</key>         <true/>
-      <key>LaunchOnlyOnce</key>    <true/>
-      <key>ProgramArguments</key>
-          <array>
-              <string>/Library/Application Support/VirtualBox/LaunchDaemons/VirtualBoxStartup.sh</string>
-              <string>restart</string>
-          </array>
+
+    <key>Disabled</key>
+    <false/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>Label</key>
+    <string>org.virtualbox.vboxautostart</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Applications/VirtualBox.app/Contents/MacOS/VBoxAutostartDarwin.sh</string>
+      <string>--start</string>
+      <string>/usr/local/etc/vbox/autostart.cfg</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>LaunchOnlyOnce</key>
+    <true/>
+
   </dict>
   </plist>
+
 
 AutoStart.cfg File
 ==================
