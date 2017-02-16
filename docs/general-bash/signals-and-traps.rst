@@ -6,7 +6,8 @@ When writing shell scripts, and you're creating ``tmp`` files or doing anything 
 
 The main way of doing this is by the ``trap`` function/command. Basically, it "traps" any exit codes/commands/signals presented by the script, by the user or by the system.
 
-Below is the various signal names and number codes you should include in your trap line.
+Below is the various signal names or number codes you should include in your trap line.
+
 
 No    Name         Default Action       Description
 1     SIGHUP       terminate process    terminal line hangup
