@@ -1,13 +1,12 @@
-.. _bash_conditional_operators:
+.. _bash_conditional_expressions:
 
-==========================================
-Bash Looping Conditional Operators
-==========================================
+============================
+Bash Conditional Expressions
+============================
 
-The info below contains an overview of the so-called "primaries" or flags that make up the ``TEST-COMMAND`` command or list of commands. These primaries are put between square brackets to indicate the test of a conditional expression.
+Conditional Expressions are signals - also called primaries - that bash uses as a means of performing tests, using the info you provide.
 
-Example
-=======
+Lets say you are wanting to copy over a file from one location to another, but don't need to do this if the file already exists in the final location. This is one way to test for that!
 
 .. code-block:: bash
 
@@ -16,16 +15,17 @@ Example
   fi
 
 Breakdown
-----------
+---------
 
 #. ``[[ ]]`` So, the double brackets here are necessary for ``#!/bin/bash``, of which, to be honest, using the double brackets as the standard setup seems to be what makes the most sense.
 #. ``!`` The exclamation point is how you negate expressions through a lot of bash in general. So, here, its testing if ``/etc/foo`` exists.
+#. ``-e`` True if File Exists. Its a very broad testing flag.
 #. After the brackets are closed, you use ``;`` to tell bash that your expression line is finished.
 #. Then, you do whatever you need to do.
 #. ``fi`` then, the ``fi`` is what tells bash that ``if`` is finished.
 
-Conditional Operators
-========================
+Conditional Expression Primaries
+================================
 
 ``-a file``
 True if file exists.
