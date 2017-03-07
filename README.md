@@ -1,6 +1,4 @@
-# Software Install Guides
-
-[![Documentation Status](https://readthedocs.org/projects/software-install-guides/badge/?version=master)](http://docs.jpcdi.com/en/latest/?badge=master)
+# Software Install Guides [![Documentation Status](https://readthedocs.org/projects/software-install-guides/badge/?version=latest)](http://software-install-guides.readthedocs.io/en/latest/?badge=latest)
 
 [ ![Codeship Status for jpartain89/Software-Install-Guides](https://app.codeship.com/projects/d079aa50-abdc-0134-2840-6aa821a3c030/status?branch=master)](https://app.codeship.com/projects/192352)
 
