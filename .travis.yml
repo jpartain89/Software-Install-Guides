@@ -1,0 +1,20 @@
+sudo: required
+dist: trusty
+language: python
+python:
+- '2.7'
+before_install:
+- sudo apt-get -qq update
+- sudo apt-get install -y python3-pip
+install:
+- "./scripts/install.sh"
+script:
+- |-
+  'command -v sphinx-build &>/dev/null 2>&1 || \
+    { echo "Sphinx-Build isn't installed";
+     exit 1 }'
+- make dummy
+- make linkcheck
+notifications:
+  slack:
+    secure: bt1bHcaKebOtBmoiL+sX7IgXgPDONDegugAafqeb3pFB2LqVRBo/jHfr+24Hwctot8TuI2tTB+51UrI8lrKR5x9eeweqS9Kj1+VM0ooO0eXDEgTbbEkgYM6+YAkY5/hW8EQ8NJZoLKlfyseCxYC04u8DrrIPwHjjf05x5UeqrcEWMWd/Hy2XZ3F6dboOHcOs8EPP9khT35IX+XZTyZe22m6PFsyMLngvq/4ScfhzmWp+JTIKFfPwIXWwDMi+H5FGTvI9uBZnFkDFhDkjBi5R1jYYP74kH+Bs83LS/P8mJepQiwbfDg+iLYW7NC8JiDvLLQAOdEUNCCOFu1HFx49IxeCmB5805YoaWsauU1BzJ69cSKkSHRSign1WjBNKzo95dL6hxgKllfxHFmHkYvV/mV79HXA26m7PnxoQ1O2b86r15PIbYeiULw4hC0Za54JsSDlg6kqbok2u1ypRubQ9SS8LDvB+Us6QYYwwlMNJSKXYUoM80EJsi4ZWQP8qNkbjiRcMfR+mQRYvpeSiK7thc/9xsl4AxZaPn7qJjYDMO9lIFhFXoRon5ny0aNT0QFW/lCUqg8F2AJxPAZ+1vCGxgYb2vmwyxcf2RsmU90g0Id78l2CTlHuJvIr0dXOP8KDufI8kWKkFCopX5iqpoY3anBHU534Eqz4Uy3y/52UJax8=
