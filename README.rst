@@ -2,7 +2,7 @@
 Software Install Guides
 =======================
 
-|rtd_image|
+|rtd_image| |travis-ci_image|
 
 My personal reStructuredText - ``rst`` - files for my Software Installation Guides.
 
@@ -21,5 +21,7 @@ This will install ``python-pip`` in Debian-based systems or ``python`` through `
 .. _docs.jpcdi.com: https://docs.jpcdi.com/
 .. _homebrew: https://brew.sh
 .. |rtd_image| image:: http://readthedocs.org/projects/software-install-guides/badge/?version=latest
-  :target: http://software-install-guides.readthedocs.io/en/latest/?badge=latest
-  :alt: Documentation Status
+    :target: http://software-install-guides.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+.. |travis-ci_image| image:: https://travis-ci.org/jpartain89/Software-Install-Guides.svg?branch=master
+    :target: https://travis-ci.org/jpartain89/Software-Install-Guides
