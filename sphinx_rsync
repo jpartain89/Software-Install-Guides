@@ -1,7 +1,0 @@
-#!/bin/bash -e
-
-# Rsync Built Software guides HTML files
-
-sphinx_dir=/Users/jpartain89/git/Software-Install-Guides/
-
-rsync -rlDvhup --progress --del --chmod=0774 --chown=www-data:www-data "$sphinx_dir/_build/html/" nginx:/var/www/html/docs
