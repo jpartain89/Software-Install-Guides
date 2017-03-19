@@ -35,7 +35,10 @@ else:
 
 # -- General configuration ------------------------------------------------
 
-extensions = ['sphinx.ext.autodoc']
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.intersphinx'
+    ]
 templates_path = ['_templates']
 source_suffix = ['.rst']
 master_doc = 'index'
