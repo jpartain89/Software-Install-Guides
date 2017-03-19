@@ -1,11 +1,11 @@
-.. _macOS:
+.. _macos_index:
 
 =====
 macOS
 =====
 
-.. toctree::
-  :maxdepth: 2
+For right now,  these are just a few of my own, personal, musing for macOS.
 
-  macOS-Sierra-xcode-update
-  btmm-ssh
+macOS is my primary computer that I use for everyday use - aka, everything. But, most of my personal development stuff occurs on my Ubuntu VM's or my Raspberry Pi's.
+
+.. include:: macos-toctree.rst
