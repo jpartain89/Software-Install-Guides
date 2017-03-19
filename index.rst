@@ -8,21 +8,69 @@ These how-to guides, at least,  started off as a personal means of documenting m
 
 Plus, working on this helps to keep the documentation and sourcing fresh.
 
-If you have any suggestions for improvements, wanna submit edits, or just wanna leave a nice comment, please go see my `github page <https://github.com/jpartain89/software-install-guides>`_ and send me pull requests or submit an issue.
+If you have any suggestions for improvements, wanna submit edits, or just wanna leave a nice comment, please go see my `GitHub Page`_ and send me pull requests or submit an issue.
 
-A lot of my guides have been copied from `HTPC Guides <https://htpcguides.com>`_. This site is wonderful with a wealth of info, and is constantly updated with information and new guides.
+A lot of my guides have been copied from `HTPC Guides`_. This site is wonderful with a wealth of info, and is constantly updated with information and new guides.
 
 Table of contents:
 
+.. _debian-docs:
+
 .. toctree::
   :maxdepth: 3
+  :caption: Debian-Based Documentation
 
   docs/ubuntu-specific/index
   docs/raspberry-pi/index
-  docs/macOS/index
-  docs/virtualbox/index
   docs/general-debian/index
+
+.. _macOS:
+
+.. toctree::
+  :maxdepth: 2
+  :caption: macOS Documentation
+
+  docs/macOS/index
+
+.. _virtualbox:
+
+.. toctree::
+  :maxdepth: 2
+  :caption: VirtualBox Documentation
+
+  docs/virtualbox/index
+
+.. _general_bash:
+
+.. toctree::
+  :maxdepth: 2
+  :caption: General Bash Documentation
+
   docs/general-bash/index
+
+.. _git_docs:
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Git Documentation
+
   docs/git/index
+
+.. _website_testing:
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Website Testing Documentation
+
   docs/website-testing/index
+
+.. extras_docs:
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Extra Documentation
+  
   docs/extras/index
+
+.. _GItHub Page: https://github.com/jpartain89/Software-Install-Guides
+.. _HTPC Guides: https://htpcguides.com
