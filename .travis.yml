@@ -7,7 +7,7 @@ before_install:
 - sudo apt-get -qq update
 - sudo apt-get install -y python3-pip
 install:
-- "./scripts/install.sh"
+- 'sudo bash -ex ./scripts/install.sh'
 script:
 - |-
   'command -v sphinx-build &>/dev/null 2>&1 || \
