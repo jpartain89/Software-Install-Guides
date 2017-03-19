@@ -49,7 +49,7 @@ author = u'Justin Partain'
 version = u'2.1.0'
 release = u'2.1.0'
 today_fmt = '%B %d, %Y'
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_drafts']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_drafts', 'README.rst']
 pygments_style = 'sphinx'
 
 html_theme_options = {
