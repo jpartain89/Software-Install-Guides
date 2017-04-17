@@ -1,5 +1,3 @@
-.. _bash_conditional_expressions:
-
 ============================
 Bash Conditional Expressions
 ============================
@@ -27,111 +25,101 @@ Breakdown
 Conditional Expression Primaries
 ================================
 
-``-a file``
-True if file exists.
+The following test flags go with:
 
-``-b file``
-True if file exists and is a block special file.
+.. code-block:: bash
 
-``-c file``
-True if file exists and is a character special file.
+  if [[ -e /bin/bash ]]; then ...
+    <some code>
+  elif [[ ! -e /bin/dash ]]; then
+    <some code>
+  fi
 
-``-d file``
-True if file exists and is a directory.
+Use ``[[ ]]`` with double ``==`` and use ``[ ]`` with ``=``
 
-``-e file``
-True if file exists.
+The first line, ``-e /bin/bash`` is the positive side of the :option:`-e FILE` test.
 
-``-f file``
-True if file exists and is a regular file.
+There are a LOT of ways to test things, using either ``if-then-else``, ``case`` or ``while`` loops.
 
-``-g file``
-True if file exists and its set-group-id bit is set.
+.. table:: Test Expressions - Simple Flags
 
-``-h file``
-True if file exists and is a symbolic link.
+  :widths: auto
 
-``-k file``
-True if file exists and its "sticky" bit is set.
+===========   =======================================
+Flag          Explainer
+===========   =======================================
+-a FILE       True if file exists.
+-b FILE       True if file exists and is a block special file.
+-c FILE       True if file exists and is a character special file.
+-d FILE       True if file exists and is a directory.
+-e FILE       True if file exists.
+-f FILE       True if file exists and is a regular file.
+-g FILE       True if file exists and its set-group-id bit is set.
+-h FILE       True if file exists and is a symbolic link.
+-k FILE       True if file exists and its "sticky" bit is set.
+-p FILE       True if file exists and is a named pipe (FIFO).
+-r FILE       True if file exists and is readable.
+-s FILE       True if file exists and has a size greater than zero.
+-t FD         True if file descriptor 'fd' is open and refers to a terminal.
+-u FILE       True if file exists and its set-user-id bit is set.
+-w FILE       True if file exists and is writable.
+-x FILE       True if file exists and is executable.
+-G FILE       True if file exists and is owned by the effective group id
+-L FILE       True if file exists and is a symbolic link.
+-N FILE       True if file exists and has been modified since it was last read.
+-O FILE       True if file exists and is owned by the effective user id.
+-S FILE       True if file exists and is a socket.
+-o OPTNAME    True if the shell option optname is enabled.
+              The list of options appears in the description of the -o option to the set builtin.
+              (see The Set Builtin).
+              
+-z FILE
+   -or-       True if STRING or FILE is null
+-z STRING
 
-``-p file``
-True if file exists and is a named pipe (FIFO).
+-n STRING     True if the length of string is NON-zero, as in the reverse of above
+-v $VARNAME   True if the shell variable $VARNAME is set (has been assigned a value)
+                      $VARNAME is replaceable with ANY **VARIABLE** name needed
+-R $VARNAME   True if the shell variable $VARNAME is set and is a *name reference*
+===========   =======================================
 
-``-r file``
-True if file exists and is readable.
+.. table:: Test Expressions - File Comparison (1)
 
-``-s file``
-True if file exists and has a size greater than zero.
+  :widths: auto
 
-``-t fd``
-True if file descriptor 'fd' is open and refers to a terminal.
+===============     ==================
+Compare Flags       Explainer
+===============     ==================
+file1 -nt file2     True if file1 *exists* and is *newer* than file2
+file1 -ot file2     True if file1 *exists* and is *older* than file2
+file1 -ef file2     True if file1 and file2 *exist* and refer to the *same file*
+===============     ==================
 
-``-u file``
-True if file exists and its set-user-id bit is set.
+.. table:: Test Expressions - File Comparison (2) Detailed
 
-``-w file``
-True if file exists and is writable.
+  :widths: auto
 
-``-x file``
-True if file exists and is executable.
+===============   ===================
+Compare Strings   Explainer
+===============   ===================
+s1 == s2          True if strings s1 and s2 are *equal*
+ - or -           When used with ``[[ ]]`` (/bin/bash specific) or ``[ ]`` (/bin/sh specific)
+s1 =  s2          this performs pattern matching, rather than maths
 
-``-G file``
-True if file exists and is owned by the effective group id.
+s1 != s2          True if strings s1 and s2 are *not* equal
+s1 <  s2          True if string s1 comes *before* s2 based on the binary value of their characters.
+s1 >  s2          True if string s1 comes *after* s2 based on the binary value of their characters.
+===============   ===================
+Maths-Specific
+===============   ===================
+n1 -eq n2         True if the integers n1 and n2 are algebraically equal
+n1 -ne n2         True if the integers n1 and n2 are not algebraically equal
+n1 -gt n2         True if the integer n1 is algebraically greater than the integer
+n1 -ge n2         True if the integer n1 is algebraically greater than or equal to the integer n2
+n1 -lt n2         True if the integer n1 is algebraically less than the integer n2
+n1 -le n2         True if the integer n1 is algebraically less than or equal to the integer n2
+===============   ===================
 
-``-L file``
-True if file exists and is a symbolic link.
+.. note::
 
-``-N file``
-True if file exists and has been modified since it was last read.
-
-``-O file``
-True if file exists and is owned by the effective user id.
-
-``-S file``
-True if file exists and is a socket.
-
-``-z file``
-True if string is null, that is, has zero length.
-
-``file1 -ef file2``
-True if file1 and file2 refer to the same device and inode numbers.
-
-``file1 -nt file2``
-True if file1 is newer (according to modification date) than file2, or if file1 exists and file2 does not.
-
-``file1 -ot file2``
-True if file1 is older than file2, or if file2 exists and file1 does not.
-
-``-o optname``
-True if the shell option optname is enabled. The list of options appears in the description of the -o option to the set builtin (see The Set Builtin).
-
-``-v varname``
-True if the shell variable varname is set (has been assigned a value).
-
-``-R varname``
-True if the shell variable varname is set and is a name reference.
-
-``-z string``
-True if the length of string is zero.
-
-``-n string``
-`string`
-True if the length of string is non-zero.
-
-``string1 == string2``
-``string1 = string2``
-True if the strings are equal. When used with the [[ command, this performs pattern matching as described above (see Conditional Constructs).
-
-- ``=`` should be used with the test command for POSIX conformance.
-
-``string1 != string2``
-True if the strings are not equal.
-
-``string1 < string2``
-True if string1 sorts before string2 lexicographically.
-
-``string1 > string2``
-True if string1 sorts after string2 lexicographically.
-
-``arg1 OP arg2``
-OP is one of ``-eq``, ``-ne``, ``-lt``, ``-le``, ``-gt``, or ``-ge``. These arithmetic binary operators return true if arg1 is equal to, not equal to, less than, less than or equal to, greater than, or greater than or equal to arg2, respectively. Arg1 and arg2 may be positive or negative integers.
+  See ``man test`` for more explanations.
