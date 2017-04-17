@@ -15,8 +15,6 @@ Python2.7 is the biggy here.
 
   sudo apt-get install python2.7 python-pip python-dev git git-core
 
-Thats all that DrZoidberg33's wiki tells us.
-
 Clone the Repo
 ==============
 
@@ -26,7 +24,11 @@ So, of course, you can amend the ending to the below code to wherever you want t
 
 .. code-block:: bash
 
-  git clone https://github.com/drzoidberg33/plexpy.git ~/git/plexpy
+  git clone https://github.com/JonnyWong16/plexpy ~/git/plexpy
+
+.. note::
+
+  If you previously installed this git repo before, you'll notice the Username of the owner changed from ``DrZoidberg`` or what have you to ``JonnyWong16``. Make sure to update accordingly.
 
 Edit the Default File
 =====================
@@ -88,7 +90,7 @@ So, we do:
 
 This will start plexpy where it will output all of its startup functions, like when you turn on a linux machine, to the console so you can see any errors right there.
 
-Then, open your browser to `127.0.0.1:8181 <127.0.0.1:8181>`_ to view it. Or, another port if you already poked around the system files and made changes.
+Then, open your browser to `:8181`_ to view it. Or, another port if you already poked around the system files and made changes.
 
 If you're installing this on another machine from the one you're working on - say a headless server or what have you - change the 127.0.0.1 IP address to the address of your machine. Example: `192.168.1.15:8181` and it should load. If you have a firewall running, like `ufw`, be sure to add 8181 to that programs whitelist.
 
@@ -150,3 +152,5 @@ And now we add plexpy to the autostart system that ubuntu uses, ``update-rc.d`` 
 Now, you can access the web interface at `http://localhost:8181 <http://localhost:8181>`_ with ``8181`` being the port it is running on.
 
 .. [HTPC-PlexPy] These instructions are copied, mostly, from `DrZoidberg33's GitHub Repo <https://github.com/drzoidberg33/plexpy.git>`_
+
+https://github.com/JonnyWong16/plexpy
