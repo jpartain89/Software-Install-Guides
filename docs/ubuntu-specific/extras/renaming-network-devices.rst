@@ -12,7 +12,7 @@ So, as of Ubuntu 16.04, or rather 15 something, they changed up their naming sch
 
 Not easy like the old school ``eth0`` was...
 
-Well, I found the specific info from `AskUbuntu <http://askubuntu.com/a/690603>`_ specifying how to change this!
+Well, I found the specific info from `AskUbuntu`_ specifying how to change this!
 
 How To
 =======
@@ -51,3 +51,5 @@ Add the following line, replacing ``aa:bb:cc:dd:ee:ff`` after ``ATTR{address}`` 
   SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="aa:bb:cc:dd:ee:ff", NAME="eth0"
 
 Then, the best way to make it appear is to simply restart your machine.
+
+.. _AskUbuntu: http://askubuntu.com/a/690603

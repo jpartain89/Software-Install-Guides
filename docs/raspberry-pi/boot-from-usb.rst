@@ -208,4 +208,6 @@ If the RPI should ever not wanna work correctly with the USB drive this way, you
 
 Then, place the SD card back into the RPI, and it should boot normally.
 
-.. [AFRUIT-USB] Adafruit's `Raspberry Pi on USB <https://learn.adafruit.com/external-drive-as-raspberry-pi-root/hooking-up-the-drive-and-copying-slash>`_
+.. [AFRUIT-USB] Adafruit's `Raspberry Pi on USB`_
+
+.. _Raspberry Pi on USB: https://learn.adafruit.com/external-drive-as-raspberry-pi-root/hooking-up-the-drive-and-copying-slash

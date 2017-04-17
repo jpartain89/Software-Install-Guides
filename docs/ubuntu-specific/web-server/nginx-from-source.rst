@@ -65,7 +65,7 @@ Install Build Dependencies
 
 If the current, main NGINX build doesn't have the specific modules that you are needing, you can add them into a specific file inside the build directory.
 
-The detailed instructions for that specialized need is at `ServersForHackers.com <https://serversforhackers.com/compiling-third-party-modules-into-nginx>`_
+The detailed instructions for that specialized need is at `ServersForHackers.com`_
 
 Compile and Install
 -------------------------
@@ -109,6 +109,9 @@ and for every nginx component listed run:
 
   sudo apt-mark hold {component}
 
-And from now on, make sure to watch `NGINX's <www.nginx.org>`_ opensource web page for more updates, and perform the same steps again.
+And from now on, make sure to watch `NGINXs`_ opensource web page for more updates, and perform the same steps again.
 
-.. [NGINX-Copied] These instructions are happily borrowed from `ServersForHackers.com <https://serversforhackers.com/compiling-third-party-modules-into-nginx>`_
+.. [NGINX-Copied] These instructions are happily borrowed from `ServersForHackers.com`_
+
+.. _ServersForHackers.com: https://serversforhackers.com/compiling-third-party-modules-into-nginx
+.. _NGINXs: https://nginx.org

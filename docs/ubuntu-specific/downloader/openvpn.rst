@@ -148,7 +148,8 @@ Add that to either your ``.aliases`` or ``.bash_profile`` or ``.bashrc`` file, w
 
 Then, type ``pubIP`` and hit enter. You should get your public IP address.
 
-.. [PIA-VPN] Copied from the bottom half of `Superjamie's gist <https://gist.github.com/superjamie/ac55b6d2c080582a3e64>`_
+.. [PIA-VPN] Copied from the bottom half of `Superjamies gist`_
 
 .. _Private Internet Access: https://www.privateinternetaccess.com
 .. _this page: https://www.privateinternetaccess.com/pages/browse-anonymously/
+.. _Superjamies gist: https://gist.github.com/superjamie/ac55b6d2c080582a3e64

@@ -9,7 +9,7 @@ With Ubuntu, there are many different ways to add additional apt-get lists, eith
 Release-Specific Lists
 ======================
 
-When adding an apt-get list to your system, one nice way to save your code in your notes or to automate through scripting is not by specific system names, like ubuntu - ``xenial``, `` and debian releases; but rather to insert code into your ``echo`` so that it works for you!
+When adding an ``apt-get`` list to your system, one nice way to save your code in your notes or to automate through scripting is not by specific system names, like Ubuntu's ``xenial``,  and Debian's ``Jessie`` release names; but rather to insert code into your ``echo`` so that it works for you!
 
 .. code-block:: bash
 
@@ -34,7 +34,7 @@ or more of Ubuntu's Shenanigans
 
 Ubuntu seems to have a small habit of taking industry- and community-standardized processes and libraries and applications and putting - or sometimes shoving - their own special twist on things.
 
-Take Ubuntu's `PPA <https://help.launchpad.net/Packaging/PPA>`_ system. As a developer on Ubuntu's Launchpad website, you get your own PPA address, apt repository, and a central means of distributing your code to Ubuntu Users.
+Take Ubuntu's `PPA`_ system. As a developer on Ubuntu's Launchpad website, you get your own PPA address, apt repository, and a central means of distributing your code to Ubuntu Users.
 
 Its super simple to add these repo's to Ubuntu:
 
@@ -63,3 +63,5 @@ The directory tree breakdown is as follows:
   └── ondrej-ubuntu-php-xenial.list
 
 This way, removing specific items is MUCH easier.
+
+.. _PPA: https://help.launchpad.net/Packaging/PPA

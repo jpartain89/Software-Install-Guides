@@ -7,7 +7,7 @@ The command line tools for Transmission also come with a directory that runs a w
 Using Kettu's Web GUI for Transmission
 ======================================
 
-First, clone `endor/kettu's custom-built web GUI <https://github.com/endor/kettu.git>`_
+First, clone endor/kettu's custom-built `web GUI`_
 
 .. code-block:: bash
 
@@ -40,4 +40,6 @@ Then, we remove the existing ``web`` directory, and then symlink-in the replacem
   sudo ln ~/git/kettu /usr/share/transmission/web
   sudo service transmission-daemon start
 
-Then, of course, confirm that the web interface has changed over. Of which, it usually is running at `http://localhost:9091 <http://localhost:9091>`_
+Then, of course, confirm that the web interface has changed over. Of which, it usually is running at `<http://localhost:9091>`_
+
+.. _web GUI: https://github.com/endor/kettu

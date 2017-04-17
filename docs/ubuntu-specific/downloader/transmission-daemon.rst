@@ -93,8 +93,11 @@ Save the file, and restart the service.
 
   sudo service transmission-daemon restart
 
-Then, access the web GUI at `http://localhost:9091 <http://localhost:9091>`_ unless you changed that as well.
+Then, take a look at :ref:`initial-ip-addresses` for an in-depth explainer on internal IP addresses, but Transmission's specific port number is ``9091``. So for example, `<localhost:9091>`_ would be one way of accessing the web UI.
 
-.. [TRANS-HTPC] Copied from `HTPC-Guides <http://www.htpcguides.com/install-transmission-bittorrent-client-on-ubuntu-15-x>`_ and `StackExchange's Raspberry Pi Forum on Transmission Permissions <http://raspberrypi.stackexchange.com/questions/4378/transmission-permission-denied-on-usb-disk>`_
+.. [TRANS-HTPC] Copied from `HTPC-Guides`_ and `StackExchanges Raspberry Pi Forum on Transmission Permissions`_
+.. [TRANS-BlockList] Transmission BlockList from 'GiulioMacs Personal Blog'_
 
-.. [TRANS-BlockList] Transmission BlockList from 'GiulioMac's Personal Blog <https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission>'_
+.. _HTPC-Guides: https://www.htpcguides.com/install-transmission-bittorrent-client-on-ubuntu-15-x
+.. _StackExchanges Raspberry Pi Forum on Transmission Permissions: https://raspberrypi.stackexchange.com/questions/4378/transmission-permission-denied-on-usb-disk
+.. _GiulioMacs Personal Blog: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission

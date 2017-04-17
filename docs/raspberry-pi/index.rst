@@ -9,4 +9,3 @@ Raspberry Pi
 
   boot-from-usb
   ddrescue
-  domotz-rpi
