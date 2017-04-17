@@ -8,8 +8,12 @@ The main way of doing this is by the ``trap`` function/command. Basically, it "t
 
 Below is the various signal names or number codes you should include in your trap line.
 
+.. table:: Trap Signals
+  :widths: auto
 
+====  ===========  ===================  ===========
 No    Name         Default Action       Description
+====  ===========  ===================  ===========
 1     SIGHUP       terminate process    terminal line hangup
 2     SIGINT       terminate process    interrupt program
 3     SIGQUIT      create core image    quit program
@@ -41,3 +45,4 @@ No    Name         Default Action       Description
 29    SIGINFO      discard signal       status request from keyboard
 30    SIGUSR1      terminate process    User defined signal 1
 31    SIGUSR2      terminate process    User defined signal 2
+====  ===========  ===================  ===========
