@@ -2,7 +2,7 @@
 Ansible's ad-hoc Reference Guide
 =================================
 
-Yes, I know this is like, the first thing that the :ref:`Ansible Documentation` site teaches you. But, again, it IS, like, the first thing this massive thing teaches you, and not in too much detail.
+Yes, I know this is like, the first thing that the `Ansible Documentation`_ site teaches you. But, again, it IS, like, the first thing this massive thing teaches you, and not in too much detail.
 
 So, here's a repeat, refresher, with screenshots!!
 
