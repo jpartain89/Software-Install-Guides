@@ -8,9 +8,9 @@ These how-to guides, at least,  started off as a personal means of documenting m
 
 Plus, working on this helps to keep the documentation and sourcing fresh.
 
-If you have any suggestions for improvements, wanna submit edits, or just wanna leave a nice comment, please visit my :ref:`Software-Install-Guides GIthub Page` and send me pull requests or submit an issue.
+If you have any suggestions for improvements, wanna submit edits, or just wanna leave a nice comment, please visit my `Software-Install-Guides GIthub Page`_ and send me pull requests or submit an issue.
 
-A lot of my guides have been copied from :ref:`HTPC Guides`. This site is wonderful with a wealth of info, and is constantly updated with information and new guides.
+A lot of my guides have been copied from `HTPC Guides`_. This site is wonderful with a wealth of info, and is constantly updated with information and new guides.
 
 Table of contents:
 
@@ -71,11 +71,8 @@ Table of contents:
   :caption: Extra Documentation
 
   docs/extras/index
-
-.. toctree::
-  :hidden:
-
-  docs/all-links
+  docs/initial-ip-addresses.rst
 
 .. _Software-Install-Guides GIthub Page: https://github.com/jpartain89/Software-Install-Guides
+
 .. _HTPC Guides: https://htpcguides.com

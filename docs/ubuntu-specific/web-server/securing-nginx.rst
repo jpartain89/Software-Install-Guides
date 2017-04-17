@@ -6,7 +6,7 @@ This is a high level, very basic, more of a "config-only" document. There will b
 
 One big, generalized note to keep in mind is each line ends with ``;``
 
-These following steps are almost singularly taken from `Bjornjohansen's <https://bjornjohansen.no/>`_  website. His `NGINX Configuration <https://bjornjohansen.no/tag/nginx>`_ how-to's were the singular guides I used for securing my setup. I cannot recommend his website more!
+These following steps are almost singularly taken from `Bjornjohansen`_  website. His `NGINX Configuration`_ how-to's were the singular guides I used for securing my setup. I cannot recommend his website more!
 
 Basic HTTPS Setup
 =================
@@ -15,7 +15,7 @@ Obtaining the Certificate
 
 First off, in order to actually have a secure connection to a website, that website has to have a trusted certificate. Its fine and dandy for you to be your own Certificate Authority, or CA, if only you or people who will trust your certs will access your site. If you want anyone else ever to access your site, services or apps, you need to use an already-trusted CA. Of which, you no longer have to pay for this, if you so choose.
 
-Enter `CertBot <https://certbot.eff.org/>`_. They are a means of having a free, short term certificate that is SO SO SO much easier to install than almost any other CA I've ever found. Though, the main downside being that its only valid for 3 months (other CA's offer for much much longer), but it being BOTH free and easy is world-shattering in how long it took for this to occur.
+Enter `CertBot`_. They are a means of having a free, short term certificate that is SO SO SO much easier to install than almost any other CA I've ever found. Though, the main downside being that its only valid for 3 months (other CA's offer for much much longer), but it being BOTH free and easy is world-shattering in how long it took for this to occur.
 
 The system works, at least in the way I use it, by creating a temporary webserver itself, then trying to access said webserver through the address you've requested a cert for. As in, your web address has to be pointing to the machine running the certbot server at that time.
 
@@ -58,7 +58,7 @@ adding ``http2``
 
 The ``http2`` is the new standard for the ``http`` protocol. This is the first update to the protocol in over 15 years, and adds important updates.
 
-`From their FAQ's <https://http2.github.io/faq/#what-are-the-key-differences-to-http1x>`_:
+From their `FAQs`_:
 
   **What are the key differences to HTTP/1.x?**
     At a high level, HTTP/2:
@@ -109,7 +109,7 @@ Almost all of the overhead with SSL/TLS is during the initial connection. So, we
   ssl_session_cache shared:SSL:20m;
   ssl_session_timeout 180m;
 
-From `bjornjohansen's Optimizing NGINX <https://bjornjohansen.no/optimizing-https-nginx>`_ website:
+From Bjornjohansen's `Optimizing NGINX`_ website:
   This will create a cache shared between all worker processes. The cache size is specified in bytes (in this example: 20 MB). According to the Nginx documentation, 1MB can store about 4,000 sessions, so for this example, we can store about 80,000 sessions, and we will store them for 180 minutes. If you expect more traffic, increase the cache size accordingly.
 
 I personally use ``ssl_session_cache shared:SSL:20m builtin:1000;``. You'll notice the added ``builtin`` option, defined below, pulled from nginx's website.
@@ -122,13 +122,12 @@ SSL Protocols
 
 So, here is where we disable SSL. (?)
 
-The reason for this is SSL is old news, with TLS being what has replaced SSL. But, SSL is still a bit in the common vernacular to this day. SSL also has been broken through several weaknesses and is easily bypassed through protocol downgrade attacks.
+The reason for this:
+  SSL is old news, with TLS being what has replaced SSL. But, SSL is still a bit in the common vernacular to this day. SSL also has been broken through several weaknesses and is easily bypassed through protocol downgrade attacks.
 
 The only browser left to not support TLS is IE6. Which, I personally believe if someone is still using that browser, they don't really need my site anyways.
 
-We add
-
-.. code-block:: bash
+We add:::
 
   ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
@@ -139,21 +138,19 @@ Optimizing the Cipher Suites
 
 The cipher suites are how the data is encrypted. We list which suites we will use with the browsers.
 
-I personally use:
-
-.. code-block:: bash
+I personally use:::
 
   ssl_prefer_server_ciphers on;
   ssl_ciphers ECDH+AESGCM:ECDH+AES256:ECDH+AES128:DH+3DES:!ADH:!AECDH:!MD5
 
-The ``ssl_prefer_server_ciphers on;`` is to tell the client we have a preferred order of cipher suites. Then, the list of the suites. `Look here <https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices#23-use-secure-cipher-suites>`_ for detailed info on the suites.
+The ``ssl_prefer_server_ciphers on;`` is to tell the client we have a preferred order of cipher suites. Then, the list of the suites. Take a look at SSL Labs `Deployment Best Practices`_ for detailed info on the suites.
 
 For the long list they present, you can make a seperate file, save it inside your ``/etc/nginx`` directory, and reference it in your nginx configuration ``include cipher_suites``, and it will use the contents of that file.
 
 Generate DH Parameters
 ----------------------
 
-`Please check here for the explainer on this one, as its nice and complicated <https://wiki.mozilla.org/Security/Server_Side_TLS#DHE_handshake_and_dhparam>`_
+Please check `Mozillas Wiki`_ for the explainer on this one, as its nice and complicated.
 
 Create the DH Parameters file with 2048 bit long safe prime:
 
@@ -252,3 +249,14 @@ Here is the tl;dr configuration, with the above in one place, plus more lines fr
     resolver 8.8.8.8 8.8.4.4 valid=86400;
     ssl_trusted_certificate /etc/letsencrypt/live/jpcdi.com/chain.pem;
   }
+
+.. _Bjornjohansen: https://www.bjornjohansen.no/
+.. _NGINX Configuration: https://www.bjornjohansen.no/tag/nginx
+.. _Optimizing NGINX: https://www.bjornjohansen.no/optimizing-https-nginx
+
+.. _CertBot: https://certbot.eff.org/
+
+.. _FAQs: https://http2.github.io/faq/#what-are-the-key-differences-to-http1x
+.. _Deployment Best Practices: https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices#23-use-secure-cipher-suites
+
+.. _Mozillas Wiki: https://wiki.mozilla.org/Security/Server_Side_TLS#DHE_handshake_and_dhparam

@@ -24,7 +24,7 @@ Cloning and Starting
 HellowLoL's Git Fork
 --------------------
 
-`HellowLoL's Version <https://github.com/Hellowlol/HTPC-Manager.git>`_ of HTPC-Manager is the one that I prefer to use, but its not the original fork. So, if you were to poke around a bit on GitHub, you might see some other forks and versions as well.
+HellowLoL's `Version`_ of HTPC-Manager is the one that I prefer to use, but its not the original fork. So, if you were to poke around a bit on GitHub, you might see some other forks and versions as well.
 
 .. include:: ../../gitreponote.rst
 
@@ -67,7 +67,7 @@ And, we ``python /opt/htpcmanager/Htpc.py`` for the first time we run the progra
 
 Make sure to pay attention to the output in your terminal. And, I'd suggest you go ahead and open up your browser to view HTPCManager and poke around. This way you can also watch the output in the terminal.
 
-The address to access is either `http://localhost:8085 <http://localhost:8085>`_ or ``http://<ipaddress>:8085`` and exchange your machines ip address.
+The address to access is either `http://localhost:8085`_ or ``http://<ipaddress>:8085`` and exchange your machines ip address.
 
 .. note::
 
@@ -100,6 +100,9 @@ Then, make the file executable and add to the ``update-rc.d`` autostart program.
   sudo chmod +x /etc/init.d/htpcmanager
   sudo update-rc.d htpcmanager defaults
 
-Then, you can run ``sudo service htpcmanager start``, and access it  at `http://127.0.0.1:8085 <http://127.0.0.1:8085>`_
+Then, you can run ``sudo service htpcmanager start``, and access it  at `http://127.0.0.1:8085`_
 
-.. [HTPC-htpc] Directions copied fairly liberally from `HTPC Guides' HTPC Manager Instructions <http://www.htpcguides.com/install-htpc-manager-ubuntu-linux/>`_
+.. [HTPC-htpc] Directions copied fairly liberally from HTPC Guides' `HTPC Manager Instructions`_
+
+.. _HTPC Manager Instructions: http://www.htpcguides.com/install-htpc-manager-ubuntu-linux/
+.. _Version: https://github.com/Hellowlol/HTPC-Manager.git

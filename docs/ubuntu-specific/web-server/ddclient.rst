@@ -7,9 +7,9 @@ Preface
 
 This guide is a bit more hands on, but is not only a good lesson to get through and learn, but ends up building a nice, very useful and light weight program!
 
-DDClient, specifically, is a Dynamic DNS program. Through its config files, it listens for public IP address changes on the machine its running on - IPv4 specifically - and then relays that information back to your Domain Name Host - `domains.google.com <domains.google.com>`_ for example - so that, if you are self-hosting stuff attached to your url name, and its hosting from an IP address that likes to change - which consumer-based internet access will change that IP address - this handles that issue.
+DDClient, specifically, is a Dynamic DNS program. Through its config files, it listens for public IP address changes on the machine its running on - IPv4 specifically - and then relays that information back to your Domain Name Host - `Google Domains`_ for example - so that, if you are self-hosting stuff attached to your url name, and its hosting from an IP address that likes to change - which consumer-based internet access will change that IP address - this handles that issue.
 
-Plus, `domains.google.com <domains.google.com>`_ also has a specific, easier-to-use config setup for DDClient, so it makes your life just that much easier.
+Plus, `Google Domains`_ also has a specific, easier-to-use config setup for DDClient, so it makes your life just that much easier.
 
 Software Requirements
 -----------------------------
@@ -51,12 +51,12 @@ Next, its a matter of sticking the ddclient program into the right place, creati
 #. Then, creating ``/etc/ddclient`` because thats where it expects its config file.
 #. Then, ``/var/cache/ddclient`` in order to save the programs caching files.
 
-``ddclient.conf`` file
-------------------------
+The ``ddclient.conf`` File
+--------------------------
 
-If you already have a ``ddclient.conf`` file made - like  `domains.google.com <domains.google.com>`_, since their support files explain exactly how to make a config file just for their service - copy that over to:
+If you already have a ``ddclient.conf`` file made - like  `Google Domains`_, since their support files explain exactly how to make a config file just for their service - copy that over to:::
 
-``/etc/ddclient/ddclient.conf``
+  /etc/ddclient/ddclient.conf
 
 But, if you don't have a starting point yet, if you look in the DDClient repo files, there are several sample files of all creeds and uses. This is a good chance for you to poke around a bit and see what each one is meant for and look through your specific config file, since it will have a billion and one explanations for everything. If, you're interested.
 
@@ -86,13 +86,13 @@ Now, DDClient is dependent on some Perl Libraries to help it run. So, the specif
 
 And, I believe if I am correct, Perl is a tool that comes with Ubuntu Server, along with CPAN. But, if your system isn't allowing the  ``cpan`` command to run, you can do a ``apt-cache search cpan`` and it'll show the various programs that might include it.
 
-If Perl completely isn't installed, then
+If Perl completely isn't installed, then::
 
-``sudo apt-get install perl``
+  sudo apt-get install perl
 
-Then, once thats done, you'll want to install the library DDClient requires:
+Then, once thats done, you'll want to install the library DDClient requires:::
 
-``sudo cpan install Data::Validate::IP``
+  sudo cpan install Data::Validate::IP
 
 Since I don't know hardly anything about Perl other than I need it, I simply press enter through the various questions CPAN asks, since it will autofill with the defaults.
 
@@ -105,4 +105,7 @@ Which is why we use Upstart, systemctl or the wrapper script or cron job!
 
 Now, since we added this to Upstart, type ``sudo service ddclient start`` and that script will take over the management!
 
-.. [DDCLIENT-Source] These directions are liberally copied from `Wimpunk/DDClient's github <https://github.com/wimpunk/ddclient>`_
+.. [DDCLIENT-Source] These directions are liberally copied from Wimpunk/DDClient's `Github`_
+
+.. _Github: https://github.com/wimpunk/ddclient
+.. _Google Domains: https://domains.google/

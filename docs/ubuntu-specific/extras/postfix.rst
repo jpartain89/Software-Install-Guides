@@ -17,7 +17,7 @@ Install Postfix
 
   sudo apt-get install postfix mailutils
 
-Now, during this installation, the system will prompt you with Configuration Option's. Since we will be using an outside service to send our mail - aka `smtp.gmail.com <smtp.gmail.com>`_ - we will select ``Internet Site``.
+Now, during this installation, the system will prompt you with Configuration Option's. Since we will be using an outside service to send our mail - aka `<smtp.gmail.com>`_ - we will select ``Internet Site``.
 
 If we were to use postfix in other ways, we'd pick another option.
 
@@ -58,7 +58,7 @@ And add the line:
 
 .. code-block:: bash
 
-  [smtp.gmail.com]:587  username@gmail.com:password
+  smtp.gmail.com:587  username@gmail.com:password
 
 Which, of course, if you use a different mail service, input their info and it should work just the same. And, also, ``username@gmail.com:password`` needs to be replaced with your info.
 
@@ -102,7 +102,7 @@ You will most likely have to add most of the above options, possibly deleting on
 
 .. code-block:: bash
 
-  relayhost = [smtp.gmail.com]:587
+  relayhost = smtp.gmail.com:587
   smtp_use_tls = yes
   smtp_sasl_auth_enable = yes
   smtp_sasl_security_options =
@@ -140,4 +140,6 @@ To send a test email over the command line:
 
 Making sure to put your email address in place of ``user@example.com``. You should receive the email within a few seconds if its successful.
 
-.. [POSTFIX-HowTo] Copied very liberally from `HowToForge Postfix How-To <https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/>`_
+.. [POSTFIX-HowTo] Copied very liberally from `HowToForge Postfix How-To`_
+
+.. _HowToForge Postfix How-To: https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/
