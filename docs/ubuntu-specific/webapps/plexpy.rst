@@ -90,9 +90,7 @@ So, we do:
 
 This will start plexpy where it will output all of its startup functions, like when you turn on a linux machine, to the console so you can see any errors right there.
 
-Then, open your browser to `:8181`_ to view it. Or, another port if you already poked around the system files and made changes.
-
-If you're installing this on another machine from the one you're working on - say a headless server or what have you - change the 127.0.0.1 IP address to the address of your machine. Example: `192.168.1.15:8181` and it should load. If you have a firewall running, like `ufw`, be sure to add 8181 to that programs whitelist.
+PlexPy's port number is ``8081``. You can take a look at :ref:`initial-ip-addresses` for a more in-depth explainer.
 
 AutoStart System Files
 ======================

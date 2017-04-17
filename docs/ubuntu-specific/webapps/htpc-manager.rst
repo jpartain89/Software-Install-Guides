@@ -67,7 +67,7 @@ And, we ``python /opt/htpcmanager/Htpc.py`` for the first time we run the progra
 
 Make sure to pay attention to the output in your terminal. And, I'd suggest you go ahead and open up your browser to view HTPCManager and poke around. This way you can also watch the output in the terminal.
 
-The address to access is either `http://localhost:8085`_ or ``http://<ipaddress>:8085`` and exchange your machines ip address.
+The port number used by the app is ``8085``. You can take a look at :ref:`initial-ip-addresses` for an in-depth explainer.
 
 .. note::
 
@@ -100,7 +100,7 @@ Then, make the file executable and add to the ``update-rc.d`` autostart program.
   sudo chmod +x /etc/init.d/htpcmanager
   sudo update-rc.d htpcmanager defaults
 
-Then, you can run ``sudo service htpcmanager start``, and access it  at `http://127.0.0.1:8085`_
+Then, you can run ``sudo service htpcmanager start``, and access it  at `<http://127.0.0.1:8085>`_
 
 .. [HTPC-htpc] Directions copied fairly liberally from HTPC Guides' `HTPC Manager Instructions`_
 
