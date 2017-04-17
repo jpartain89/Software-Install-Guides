@@ -116,6 +116,6 @@ Then, you can run ``sudo service couchpotato start``, and so long as it doesn't 
 
 I will have reverse-proxying stuff posted in the future, but for now you can look at `<HTPCGuides.com>`_ as they have a lot of those specific how-to's.
 
-.. [HTPC-CP] These directions were liberally copied from HTPCGuides's `CP_HowTo`_
+.. [HTPC-CP] These directions were liberally copied from HTPCGuides's `CP-HowTo`_
 
-.. _CP-HowTo: http://www.htpcguides.com/install-couchpotato-ubuntu/
+.. _CP-HowTo: https://www.htpcguides.com/install-couchpotato-ubuntu/

@@ -104,5 +104,5 @@ Then, you can run ``sudo service htpcmanager start``, and access it  at `<http:/
 
 .. [HTPC-htpc] Directions copied fairly liberally from HTPC Guides' `HTPC Manager Instructions`_
 
-.. _HTPC Manager Instructions: http://www.htpcguides.com/install-htpc-manager-ubuntu-linux/
+.. _HTPC Manager Instructions: https://www.htpcguides.com/install-htpc-manager-ubuntu-linux/
 .. _Version: https://github.com/Hellowlol/HTPC-Manager

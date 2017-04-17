@@ -257,6 +257,6 @@ Here is the tl;dr configuration, with the above in one place, plus more lines fr
 .. _CertBot: https://certbot.eff.org/
 
 .. _FAQs: https://http2.github.io/faq/#what-are-the-key-differences-to-http1x
-.. _Deployment Best Practices: https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices#23-use-secure-cipher-suites
+.. _Deployment Best Practices: https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices
 
 .. _Mozillas Wiki: https://wiki.mozilla.org/Security/Server_Side_TLS#DHE_handshake_and_dhparam

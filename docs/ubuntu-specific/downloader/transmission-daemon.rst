@@ -98,6 +98,6 @@ Then, take a look at :ref:`initial-ip-addresses` for an in-depth explainer on in
 .. [TRANS-HTPC] Copied from `HTPC-Guides`_ and `StackExchanges Raspberry Pi Forum on Transmission Permissions`_
 .. [TRANS-BlockList] Transmission BlockList from 'GiulioMacs Personal Blog'_
 
-.. _HTPC-Guides: http://www.htpcguides.com/install-transmission-bittorrent-client-on-ubuntu-15-x
+.. _HTPC-Guides: https://www.htpcguides.com/install-transmission-bittorrent-client-on-ubuntu-15-x
 .. _StackExchanges Raspberry Pi Forum on Transmission Permissions: https://raspberrypi.stackexchange.com/questions/4378/transmission-permission-denied-on-usb-disk
 .. _GiulioMacs Personal Blog: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission
