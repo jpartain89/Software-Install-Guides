@@ -2,7 +2,7 @@
 Ratom [RATOM-src]_
 ==================
 
-Basically, this is a way of using the text editor, `Atom.io <atom.io>`_ remotely to edit files.
+Basically, this is a way of using the text editor, `Atom.io`_ remotely to edit files.
 
 Say you are working from your regular computer, and remotely ``ssh`` into another machine, and you need to edit a text file, and you just know deep down that if you were able to use a full text editor, rather than VIM or NANO in the terminal, it'd be SO MUCH EASIER!
 
@@ -49,4 +49,7 @@ Once you're reconnected, you can open the file from the remote system onto your 
 
 So, the ``ratom`` command is the program, and then the text file.
 
-.. [RATOM-src] These directions are copied from `randy3k/remote-atom <https://github.com/randy3k/remote-atom>`_
+.. [RATOM-src] These directions are copied from `randy3k/remote-atom`_
+
+.. _randy3k/remote-atom: https://github.com/randy3k/remote-atom
+.. _Atom.io: https://atom.io
