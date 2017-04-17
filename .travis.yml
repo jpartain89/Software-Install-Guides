@@ -13,9 +13,7 @@ before_install:
 install:
 - sudo bash -ex ./scripts/install.sh
 script:
-- |-
-  'command -v sphinx-build &>/dev/null 2>&1 || \
-    { echo "Sphinx-Build isn't installed"; exit 1 }'
+- command -v sphinx-build &>/dev/null 2>&1 || { echo "Sphinx-Build isn't installed"; exit 1 }
 - make dummy
 - make linkcheck
 deploy:
