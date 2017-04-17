@@ -23,7 +23,7 @@ So, if you're using macOS? I would assume/hope you have 'HomeBrew <brew.sh>'_ in
 
   brew install ddrescue
 
-On Linux, the specific, newer and updated tool is called `GDDRescue <https://www.gnu.org/software/ddrescue/ddrescue.html>`_, since its a part of the GNU Library of Tools.
+On Linux, the specific, newer and updated tool is called `GDDRescue`_, since its a part of the GNU Library of Tools.
 
 So, to install on debian-based linux:
 
@@ -70,3 +70,5 @@ Second, the first file location. This is the source file, or what you want the S
 Then, the ``/dev/disk##``. Make sure to replace ``##`` with the drive number, again. This is the final place you want the info copied to. If you were doing the backup, like above, you could specify a specific file location, name and format to output the info into. Which is beyond this documents scope. ``man ddrescue``, or ``ddrescue --help`` can get you in the right direction.
 
 Next, sit back and relax as you can watch the timer count down, the length of time passed count up, and plenty of other info while ``dd`` users have to sit and wait and HOPE it works.
+
+.. _GDDRescue: https://www.gnu.org/software/ddrescue/ddrescue.html
