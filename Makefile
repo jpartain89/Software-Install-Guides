@@ -17,7 +17,7 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 .PHONY: help
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
-	@echo "  clean      to remove files from _build/ directory"
+	@echo "  local-tests		Removes any old docs and runs local tests "
 	@echo "  install    to install needed-python stuff"
 	@echo "  html       to make standalone HTML files"
 	@echo "  dirhtml    to make HTML files named index.html in directories"
@@ -33,9 +33,19 @@ help:
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  dummy      to check syntax errors of document sources"
 
-.PHONY: clean
-clean:
+.PHONY: local-tests
+local-tests: sphinx-clean sphinx-linkcheck sphinx-dummy
+sphinx-clean:
 	rm -rf $(BUILDDIR)/*
+sphinx-linkcheck:
+	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
+	@echo
+	@echo "Link check complete; look for any errors in the above output " \
+	      "or in $(BUILDDIR)/linkcheck/output.txt."
+sphinx-dummy:
+	$(SPHINXBUILD) -b dummy $(ALLSPHINXOPTS) $(BUILDDIR)/dummy
+	@echo
+	@echo "Build finished. Dummy builder generates no files."
 
 .PHONY: install
 install:
