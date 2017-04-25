@@ -42,7 +42,6 @@ The first line, ``-e /bin/bash`` is the positive side of the ``-e FILE`` test.
 There are a LOT of ways to test things, using either ``if-then-else``, ``case`` or ``while`` loops.
 
 .. csv-table:: Test Expressions - Simple Flags
-
   :header: "Flag", "Explainer"
   :widths: auto
   :align: center
@@ -75,7 +74,6 @@ There are a LOT of ways to test things, using either ``if-then-else``, ``case`` 
 "-R $VARNAME", "True if the shell variable ``$VARNAME`` is set and is a *name reference*"
 
 .. csv-table:: Test Expressions - File Comparison (1)
-
   :header: "Compare Flags", "Explainer"
   :widths: auto
   :align: center
@@ -85,7 +83,6 @@ There are a LOT of ways to test things, using either ``if-then-else``, ``case`` 
 "file1 -ef file2", "True if file1 and file2 *exist* and refer to the *same file*"
 
 .. csv-table:: Test Expressions - File Comparison (2) Detailed
-
   :header: "Compare Strings", "Explainer"
   :widths: auto
   :align: center
@@ -98,7 +95,6 @@ There are a LOT of ways to test things, using either ``if-then-else``, ``case`` 
 "s1 >  s2", "True if string ``s1`` comes *after* ``s2`` based on the binary value of their characters"
 
 .. csv-table:: Test Expressions - File Comparison (3) MATH SPECIFIC
-
   :header: "Compare Strings", "Explainer"
   :widths: auto
   :align: center
