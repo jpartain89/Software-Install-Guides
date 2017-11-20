@@ -16,6 +16,10 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
 .PHONY: all
 all: clean linkcheck dummy html
+install:
+	/bin/bash scripts/install.sh
+	@echo
+	@echo "Installation Finished."
 clean:
 	rm -rf $(BUILDDIR)/*
 linkcheck:
@@ -35,27 +39,23 @@ html:
 .PHONY: help
 help:
 	@echo "Please use \`make <target>\' where <target> is one of"
-	@echo "  local-tests	Removes any old docs and runs local tests "
-	@echo "  install    	to install needed-python stuff"
-	@echo "  html       	to make standalone HTML files"
-	@echo "  dirhtml    	to make HTML files named index.html in directories"
-	@echo "  applehelp  	to make an Apple Help Book"
-	@echo "  devhelp    	to make HTML files and a Devhelp project"
-	@echo "  epub3      	to make an epub3"
-	@echo "  text       	to make text files"
-	@echo "  man        	to make manual pages"
-	@echo "  gettext    	to make PO message catalogs"
-	@echo "  linkcheck  to check all external links for integrity"
-	@echo "  dummy      to check syntax errors of document sources"
+	@echo "  all           Runs install, clean, linkcheck, dummy and html"
+	@echo "  install       to install needed-python stuff"
+	@echo "  clean         Removes any old files, previously built - if present"
+	@echo "  local-tests   Removes any old docs and runs local tests "
+	@echo "  linkcheck     to check all external links for integrity"
+	@echo "  dummy         to check syntax errors of document sources"
+	@echo "  html          to make standalone HTML files"
+	@echo "  dirhtml       to make HTML files named index.html in directories"
+	@echo "  applehelp     to make an Apple Help Book"
+	@echo "  devhelp       to make HTML files and a Devhelp project"
+	@echo "  epub3         to make an epub3"
+	@echo "  text          to make text files"
+	@echo "  man           to make manual pages"
+	@echo "  gettext       to make PO message catalogs"
 
 .PHONY: local-tests
 local-tests: clean linkcheck dummy
-
-.PHONY: install
-install:
-	/bin/bash scripts/install.sh
-	@echo
-	@echo "Installation Finished."
 
 .PHONY: html
 
