@@ -113,5 +113,5 @@ And from now on, make sure to watch `NGINXs`_ opensource web page for more updat
 
 .. [NGINX-Copied] These instructions are happily borrowed from `ServersForHackers.com`_
 
-.. _ServersForHackers.com: https://serversforhackers.com/compiling-third-party-modules-into-nginx
+.. _ServersForHackers.com: https://serversforhackers.com/c/compiling-third-party-modules-into-nginx
 .. _NGINXs: https://nginx.org
