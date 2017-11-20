@@ -4,6 +4,8 @@ Software Install Guides
 
 |rtd_image| |travis-ci_image|
 
+Version 3.0.0
+
 My personal reStructuredText - ``rst`` - files for my Software Installation Guides.
 
 The majority of these guides are the ones that I find myself - time and time again - repeatedly having to revist in order to either; build, rebuild or re-aquaint myself with some point of knowledge.
