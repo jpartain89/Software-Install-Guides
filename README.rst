@@ -13,9 +13,13 @@ I have these docs - both self-hosted and being hosted - on `ReadTheDocs.org`_ at
 To Install Sphinx Stuff
 =======================
 
+You have to have python and ``pip`` already installed on your system. The main reason for this is that the `Homebrew <homebrew>`_  team recently made some changes to how pip is installed on our macOS systems. (Its installed under ``pip2``, ``pip2.7``, etc.)
+
 Run ``./scripts/install.sh``
 
-This will install ``python-pip`` in Debian-based systems or ``python`` through `homebrew`_ on macOS.
+This will subsequently install the required python programs to let you build and view the docs.
+
+Then, run ``make local-tests``. This will run link tests on all of the URL's, along with testing for any other errors or issues, and then will build the docs into HTML files that are viewable from your browser.
 
 .. _ReadTheDocs.org: http://readthedocs.org/
 .. _docs.jpcdi.com: https://docs.jpcdi.com/

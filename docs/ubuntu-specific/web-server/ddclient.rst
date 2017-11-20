@@ -31,7 +31,7 @@ Lets start off by cloning the github repo, so you have the most up-to-date code 
 
 .. code-block:: bash
 
-  git clone https://github.com/wimpunk/ddclient.git ~/git/ddclient
+  git clone https://github.com/ddclient/ddclient.git ~/git/ddclient
 
 Or, like with couchpotato, you are welcome to save the git directory where ever works best for you.
 
@@ -105,7 +105,7 @@ Which is why we use Upstart, systemctl or the wrapper script or cron job!
 
 Now, since we added this to Upstart, type ``sudo service ddclient start`` and that script will take over the management!
 
-.. [DDCLIENT-Source] These directions are liberally copied from Wimpunk/DDClient's `Github`_
+.. [DDCLIENT-Source] These directions are liberally copied from DDClient's `Github`_
 
-.. _Github: https://github.com/wimpunk/ddclient
-.. _Google Domains: https://domains.google/
+.. _Github: https://github.com/ddclient/ddclient
+.. _Google Domains: https://domains.google.com/

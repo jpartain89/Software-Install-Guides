@@ -6,19 +6,13 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-[[ "$(uname)" == "Linux" ]] && . /etc/*release
+if [[ "$(uname)" == "Linux" ]]; then
+    . /etc/*release
+    PIP_BIN="$(command -v pip)"
+else
+    # This is to test for whether the macOS has a system-
+    # installed pip, or a homebrew-installed pip2
+    PIP_BIN="$(command -v pip || command -v pip2)"
+fi
 
-[ -e "$(command -v pip)" ] || {
-  if [[ "$(uname)" == "Darwin" ]]; then
-    if [[ ! -e "$(command -v brew)" ]]; then
-      /usr/bin/ruby -e "$(curl -fsSL  https://raw.githubusercontent.com/Homebrew/install/master/install)"
-      brew install python
-    else
-      brew install python
-    fi
-  elif [[ "$ID_LIKE" == "debian" ]]; then
-    sudo apt-get install python-pip -y
-  fi
-}
-
-sudo -H pip install --upgrade -r "${DIR}/requirements.txt"
+sudo -H pip2 install --upgrade -r "${DIR}/requirements.txt"

@@ -28,4 +28,4 @@ This doesn't require the ``-a`` flag, unless there are other options you want to
   :alt: Ansible Ping Module
   :align: center
 
-.. _Ansible Documentation: http://docs.ansible.com/ansible/intro_adhoc.html#introduction-to-ad-hoc-commands
+.. _Ansible Documentation: http://docs.ansible.com/ansible/latest/intro_adhoc.html#introduction-to-ad-hoc-commands

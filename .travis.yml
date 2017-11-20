@@ -5,9 +5,10 @@ python:
 - '2.7'
 before_install:
 - sudo apt-get -qq update
-- sudo apt-get install -y python3-pip
+- sudo apt-get install -y python3-pip python-dev libssl-dev libffi-dev
+- sudo -H pip install -U pyOpenSSL ndg-httpsclient pyasn1
 install:
-- sudo bash -ex ./scripts/install.sh
+- sudo make install
 script:
 - command -v sphinx-build &>/dev/null 2>&1 || exit 1
 - make local-tests
