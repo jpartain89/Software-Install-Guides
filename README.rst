@@ -2,9 +2,11 @@
 Software Install Guides
 =======================
 
-|rtd_image| |travis-ci_image|
-
-Version 3.0.0
+===========  ==================
+RTD Build     Travis-CI Build
+===========  ==================
+|rtd_image|  |travis-ci_image|
+===========  ==================
 
 My personal reStructuredText - ``rst`` - files for my Software Installation Guides.
 
