@@ -24,7 +24,7 @@ So, of course, you can amend the ending to the below code to wherever you want t
 
 .. code-block:: bash
 
-  git clone https://github.com/JonnyWong16/plexpy ~/git/plexpy
+  git clone https://github.com/Tautulli/Tautulli ~/git/plexpy
 
 .. note::
 
@@ -149,4 +149,4 @@ And now we add plexpy to the autostart system that ubuntu uses, ``update-rc.d`` 
 
 Now, you can access the web interface at `http://localhost:8181 <http://localhost:8181>`_ with ``8181`` being the port it is running on.
 
-.. [HTPC-PlexPy] These instructions were copied, mostly, from DrZoidberg33's GitHub Repo, but he no longer manages this, so you can look at `JonnyWong16s Github <https://github.com/JonnyWong16/plexpy>`_
+.. [HTPC-PlexPy] These instructions were copied, mostly, from DrZoidberg33's GitHub Repo, but he no longer manages this, so you can look at `JonnyWong16s Github <https://github.com/Tautulli/Tautulli>`_

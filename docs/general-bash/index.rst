@@ -12,7 +12,8 @@ This section is for those items that are usually low-level enough to be fairly e
   bash-if-conditionals
   basic-linux
   basic-grep-usage
-  ratom
-  random-collection-of-info
+  here-docs
   pip-requirements-file
+  random-collection-of-info
+  ratom
   signals-and-traps

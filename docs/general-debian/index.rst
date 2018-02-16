@@ -10,3 +10,4 @@ General Debian Info
   access-control-lists
   dpkg-package-states
   optional-parameter
+  insert-os-edition-name
