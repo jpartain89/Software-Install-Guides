@@ -1,8 +1,8 @@
 ===============
-Ubuntu Specific
+Debian / Ubuntu
 ===============
 
-These guides are tested and used often by me on my personal Ubuntu 16.04 Server VM's. But, since Ubuntu is based off of Debian, it wouldn't take much to be able to use these as a more generalized guide for most Debian-based systems.
+These guides are tested and used often by me on my personal Ubuntu 16.04 Server VM and Debian Stretch-based Raspberry Pi's. But, since Ubuntu is based off of Debian, it wouldn't take much to be able to use these as a more generalized guide for most Debian-based systems.
 
 I have this section broken down further into specific area's of interest:
 

@@ -1,6 +1,6 @@
-======================
+=============================================
 Tautulli (previously PlexPy) [HTPC-Tautulli]_
-======================
+=============================================
 
 Tautulli is specifically for monitoring Plex. Plus, you can setup notifications so you can see when Plex adds files, has updates, items are played and stopped and what not, as well as if you have any friends or family who have access.
 
@@ -44,7 +44,7 @@ The ``/etc/default`` directory is where a LOT of programs like to store files th
 That will make sure to stop any possible errors or warnings. It also is where you need to make any changes, in case you don't use the default settings that are in the various init scripts. You can see the options inside of ``./tautulli/init-scripts/init.ubuntu`` if you're using Ubuntu.
 
 Create Tautulli User
-==================
+=====================
 
 Next, I do like to create and use a seperate, ``tautulli`` user for running Tautulli.
 

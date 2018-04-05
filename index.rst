@@ -20,7 +20,7 @@ Table of contents:
   :maxdepth: 3
   :caption: Debian-Based Documentation
 
-  docs/ubuntu-specific/index
+  docs/debian-ubuntu/index
   docs/raspberry-pi/index
   docs/general-debian/index
 
