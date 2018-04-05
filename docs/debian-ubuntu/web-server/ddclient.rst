@@ -108,4 +108,4 @@ Now, since we added this to Upstart, type ``sudo service ddclient start`` and th
 .. [DDCLIENT-Source] These directions are liberally copied from DDClient's `Github`_
 
 .. _Github: https://github.com/ddclient/ddclient
-.. _Google Domains: https://domains.google.com/
+.. _Google Domains: https://domains.google
