@@ -84,3 +84,16 @@ Breakdown:
 #. the ``&&`` means ``run this stuff after the last one succeeds successfully``
 #. ``upgrade`` - this actually takes the programs installed by apt-get, and upgrades them.
 #. ``-y`` - basically means ``yes, do this without asking like normal``
+
+Whole Bash Script Logging
+=========================
+
+Ever had the absolute WORST time trying to get everything from your bash script to go to a logfile? Or Syslog? Or heck - ANYWHERE?!?
+
+Well, this awesome bash one-liner is a wonderfully gorgeous way to be able to log to your systems Syslog, and camps at the very top of the script:
+
+.. code-block:: bash
+
+  exec 1> >(logger -s -t "$(basename "$0")") 2>&1
+
+This information was wonderfully pulled from `UrbanAutomation <https://urbanautomaton.com/blog/2014/09/09/redirecting-bash-script-output-to-syslog/>`_'s website.
