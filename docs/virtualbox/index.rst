@@ -7,3 +7,4 @@ These how-to's are directed toward using VirtualBox, geared moreso towards using
 .. toctree::
 
   virtualbox-autostart
+  virtualbox-guest-addition
