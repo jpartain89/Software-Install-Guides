@@ -17,3 +17,4 @@ Now, I'm also not going to pretend that I am some kind of expert with NGINX. Mor
   nginx-basic-auth
   securing-nginx
   ddclient
+  wildcard-certbot
