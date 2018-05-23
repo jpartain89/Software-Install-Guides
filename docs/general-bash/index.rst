@@ -10,6 +10,7 @@ This section is for those items that are usually low-level enough to be fairly e
   :maxdepth: 2
 
   bash-if-conditionals
+  bash-logging
   basic-linux
   basic-grep-usage
   here-docs
