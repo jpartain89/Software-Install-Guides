@@ -2,7 +2,14 @@
 Random Collection of Info
 =========================
 
+- :ref:`find-chmod-files`: Use ``find`` to ``chmod`` ONLY files
+- :ref:`awk_out`: Using ``awk`` to manipulate some output - small amount of examples
+- :ref:`using-forwardslash`: Example of using the ``\`` to signify a return carriage to a line of commands - IE keep processing as if its one line
+- :ref:`shell_script_self`: bash line to assign the current location of the bash script to a variable.
+
 This page is a decent place for me to put my collection of information like shell scripting one liners, or little nuggets of "this-isn't-enough-to-warrant-an-entire-solo-page-but-is-important-enough-to-document" type of ites.
+
+.. _find-chmod-files:
 
 Using ``find`` to ``chmod`` multiple files
 ===========================================
@@ -19,6 +26,8 @@ Break Down
 #. ``find`` - this is obviously the specific program/command here. It is an incredibly useful tool, but we're only covering a small portion of its abilities here.
 #. ``.`` - the ``.`` signifies we're searching in the current working directory, or if you typed ``pwd``, its the same idea. You can change this to any location in your directory you so choose.
 #. ``-type f``
+
+.. _awk_out:
 
 Using ``awk`` to Modify Output
 ==============================
@@ -77,6 +86,8 @@ Using ``\`` as New Lines
 Often times, you'll see ``\`` used at the end of code lines and you've wondered what on EARTH thats about??
 
 Well, those are used as so-called ``new line`` signifiers, or on the naked command line, it tells the system to keep expecting more text/code input.
+
+.. _shell_script_self:
 
 Shell Script Location
 =====================
