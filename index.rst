@@ -22,7 +22,6 @@ Table of contents:
 
   docs/debian-ubuntu/index
   docs/raspberry-pi/index
-  docs/general-debian/index
 
 .. _macOS:
 

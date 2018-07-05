@@ -28,4 +28,15 @@ This doesn't require the ``-a`` flag, unless there are other options you want to
   :alt: Ansible Ping Module
   :align: center
 
-.. _Ansible Documentation: http://docs.ansible.com/ansible/latest/user_guide/intro_adhoc.html#introduction-to-ad-hoc-commands
+Pass a List
+============
+
+I've been wanting to figure this one out for forever!
+
+Basically, how to pass multiple items into a command option when using ansible's ``ad-hoc`` mode on the command line.
+
+.. code-block:: bash
+
+  ansible ipsec --become -m apt -a 'name={{ list }}' -e '{"list": [strongswan,strongswan-plugin-eap-mschapv2,moreutils,iptables-persistent]}'
+
+.. _Ansible Documentation: https://docs.ansible.com/ansible/latest/user_guide/intro_adhoc.html#introduction-to-ad-hoc-commands

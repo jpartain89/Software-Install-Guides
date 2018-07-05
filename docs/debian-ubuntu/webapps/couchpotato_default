@@ -12,3 +12,4 @@ CP_DATA=/var/opt/couchpotato
 CP_PIDFILE=/var/run/couchpotato.pid
 # full path of the python binary (/usr/bin/python)
 PYTHON_BIN=/usr/bin/python
+ 
