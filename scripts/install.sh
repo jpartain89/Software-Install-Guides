@@ -12,7 +12,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 else
     # This is to test for whether the macOS has a system-
     # installed pip, or a homebrew-installed pip2
-    PIP_BIN="$(command -v pip2 || command -v pip2)"
+    PIP_BIN="$(command -v pip3 || command -v pip2)"
 fi
 
 sudo -H "$PIP_BIN" install --upgrade -r "${DIR}/requirements.txt"
