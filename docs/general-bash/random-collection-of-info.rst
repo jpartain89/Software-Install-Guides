@@ -99,3 +99,25 @@ Are you wanting an easy way for your shell script to know where its at in the pl
   "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 Its able to give you that info, no matter where its called from, which is a typical issue with almost all other so-called "one-liners".
+
+Random Number Generator
+=======================
+
+tl;dr::
+
+  Using the following code gets you a ``Random Number`` between ``0 and 3600`` :guilabel:`&Plus` ``3600`` or ``1 hour``
+
+.. code-block:: bash
+
+  SLEEP="$(($RANDOM%3600+3600))"
+
+Details
+-------
+
+The ``$RANDOM`` bash variable is a builtin variable for generating random numbers, random options between :guilabel:`&True` and :guilabel:`&False`, mimic rolling a dice, drawing cards, etc.
+
+its a nice and simple way to use a randomized :guilabel:`&Sleep` length, or anything else you want randomized thats not reliant upon anything security-wise. (Its no where near random enough for using with security needs)
+
+A great website to go look at for a plethora of how-tos is `tldp_randomvar`_. 
+
+.. _tldp_randomvar: http://tldp.org/LDP/abs/html/randomvar.html
