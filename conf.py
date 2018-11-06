@@ -38,6 +38,7 @@ else:
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
     'sphinx.ext.extlinks'
     ]
 templates_path = ['_templates']
