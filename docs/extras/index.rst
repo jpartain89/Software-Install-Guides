@@ -14,3 +14,4 @@ I'm calling this section "Extras" for two reasons, really:
 
   ansible-adhoc
   ansible-random-nuggets
+  mysql-767-error-code
