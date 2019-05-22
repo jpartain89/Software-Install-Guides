@@ -5,8 +5,8 @@ python:
 - '3.7'
 before_install:
 - sudo apt-get -qq update
-- sudo apt-get install -y python3-pip python-dev libssl-dev libffi-dev openssl
-- sudo -H pip install -U pyOpenSSL ndg-httpsclient pyasn1
+- sudo apt-get install -y python3-pip python3-dev libssl-dev libffi-dev openssl
+- sudo -H pip3 install -U pyOpenSSL ndg-httpsclient pyasn1
 install:
 - sudo make install
 script:
