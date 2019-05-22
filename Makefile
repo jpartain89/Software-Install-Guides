@@ -15,7 +15,7 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
 .PHONY: all
-all: clean linkcheck dummy html
+all: install clean linkcheck dummy html
 install:
 	/bin/bash scripts/install.sh
 	@echo
