@@ -48,8 +48,8 @@ project = u'Software Install Guides'
 copyright = u'2016-' + str(date.today().year) + \
     u', Justin Partain, JPartain89, JPCDI'
 author = u'Justin Partain'
-version = u'3.7.0'
-release = u'3.7.0'
+version = u'3.8.0'
+release = u'3.8.0'
 today_fmt = '%B %d, %Y'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_drafts', 'README.rst']
 pygments_style = 'sphinx'
