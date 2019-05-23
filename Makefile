@@ -40,6 +40,7 @@ html:
 help:
 	@echo "Please use \`make <target>\' where <target> is one of"
 	@echo "  all           Runs install, clean, linkcheck, dummy and html"
+  @echo "  build         Runs clean, linkcheck, dummy and builds the documentation"
 	@echo "  install       to install needed-python stuff"
 	@echo "  clean         Removes any old files, previously built - if present"
 	@echo "  local-tests   Removes any old docs and runs local tests "
@@ -48,6 +49,9 @@ help:
 	@echo "  html          to make standalone HTML files"
 	@echo "  dirhtml       to make HTML files named index.html in directories"
 	@echo "  text          to make text files"
+
+.PHONY: build
+build: clean linkcheck dummy html
 
 .PHONY: local-tests
 local-tests: clean linkcheck dummy
