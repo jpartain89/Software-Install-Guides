@@ -124,3 +124,16 @@ So, if those all worked, its mounted and you can read/write to it.
 
 Permanent Mounting
 ==================
+
+The best way to be able to mount your drives using ``/etc/fdisk`` is by referencing the drive's UUID number. How do you check that?
+
+.. code-block:: bash
+
+  sudo blkid
+
+it will give you a line for every drive and partition that it can find. You can use either the ``UUID`` or the ``PARTUUID`` in your ``fstab`` file.
+
+.. code-block:: bash
+
+  PARTUUID=86e32033-01  /boot           vfat    defaults          0       2
+  PARTUUID=86e32033-02  /               ext4    defaults,noatime  0       1

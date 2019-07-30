@@ -39,7 +39,8 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
-    'sphinx.ext.extlinks'
+    'sphinx.ext.extlinks',
+    'sphinx_rtd_theme'
     ]
 templates_path = ['_templates']
 source_suffix = ['.rst']
@@ -58,10 +59,9 @@ html_theme_options = {
     'collapse_navigation': False,
     'prev_next_buttons_location': 'both',
     'sticky_navigation': False,
-    'navigation_depth': -1,
     'display_version': False,
     'style_external_links': True,
-    
+
     }
 html_logo = 'JPLogo-Header.png'
 html_favicon = 'favicon.ico'

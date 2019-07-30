@@ -6,6 +6,7 @@ Random Collection of Info
 - :ref:`awk_out`: Using ``awk`` to manipulate some output - small amount of examples
 - :ref:`using-forwardslash`: Example of using the ``\`` to signify a return carriage to a line of commands - IE keep processing as if its one line
 - :ref:`shell_script_self`: bash line to assign the current location of the bash script to a variable.
+- :ref:`sed_edit` : Using ``sed`` to update the same text in multiple files.
 
 This page is a decent place for me to put my collection of information like shell scripting one liners, or little nuggets of "this-isn't-enough-to-warrant-an-entire-solo-page-but-is-important-enough-to-document" type of ites.
 
@@ -118,6 +119,23 @@ The ``$RANDOM`` bash variable is a builtin variable for generating random number
 
 its a nice and simple way to use a randomized :guilabel:`&Sleep` length, or anything else you want randomized thats not reliant upon anything security-wise. (Its no where near random enough for using with security needs)
 
-A great website to go look at for a plethora of how-tos is `tldp_randomvar`_. 
+.. _sed_edit:
+
+Using sed to Make Updates
+=========================
+
+If you are wanting to make the same change in multiple files, ``sed`` is the way to go!
+
+.. code-block:: bash
+
+  sed -i 's/brightyellow/,yellow/g' /usr/share/nano-syntax-highlighting/*.nanorc
+
+or, if you are on a mac, you have to add ``''`` after the ``-i``, and before the text to replace.
+
+.. code-block:: bash
+
+  sed -i '' 's/brightyellow/,yellow/g' /usr/share/nano-syntax-highlighting/*.nanorc
+
+A great website to go look at for a plethora of how-tos is `tldp_randomvar`_.
 
 .. _tldp_randomvar: http://tldp.org/LDP/abs/html/randomvar.html
