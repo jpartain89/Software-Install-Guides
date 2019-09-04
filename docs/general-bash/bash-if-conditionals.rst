@@ -52,25 +52,25 @@ There are a LOT of ways to test things, using either ``if-then-else``, ``case`` 
   -e FILE,True if file exists
   -f FILE,True if file exists and is a regular file
   -g FILE,True if file exists and its set-group-id bit is set
+  -G FILE,True if file exists and is owned by the effective group id
   -h FILE,True if file exists and is a symbolic link
   -k FILE,True if file exists and its ``sticky`` bit is set
+  -L FILE,True if file exists and is a symbolic link
+  -n STRING,True if the length of string is NON-zero
+  -N FILE,True if file exists and has been modified since it was last read
+  -o OPTNAME,True if the shell option ``optname`` is enabled [1]_
+  -O FILE,True if file exists and is owned by the effective user id
   -p FILE,True if file exists and is a named pipe (FIFO)
   -r FILE,True if file exists and is readable
+  -R ``$VARNAME``,True if the shell variable ``$VARNAME`` is set and is a *name reference*
   -s FILE,True if file exists and has a size greater than zero
+  -S FILE,True if file exists and is a socket
   -t FD,True if file descriptor ``fd`` is open and refers to a terminal
   -u FILE,True if file exists and its set-user-id bit is set
+  -v ``$VARNAME``,True if the shell variable ``$VARNAME`` is set (has been assigned a value) [2]_
   -w FILE,True if file exists and is writable
   -x FILE,True if file exists and is executable
-  -G FILE,True if file exists and is owned by the effective group id
-  -L FILE,True if file exists and is a symbolic link
-  -N FILE,True if file exists and has been modified since it was last read
-  -O FILE,True if file exists and is owned by the effective user id
-  -S FILE,True if file exists and is a socket
-  -o OPTNAME,True if the shell option ``optname`` is enabled [1]_
   -z FILE or STRING,True if STRING or FILE is null
-  -n STRING,True if the length of string is NON-zero as in the reverse of above
-  -v ``$VARNAME``,True if the shell variable ``$VARNAME`` is set (has been assigned a value) [2]_
-  -R ``$VARNAME``,True if the shell variable ``$VARNAME`` is set and is a *name reference*
 
 .. csv-table:: Test Expressions - File Comparison (1)
   :header: "Compare Flags", "Explainer"
