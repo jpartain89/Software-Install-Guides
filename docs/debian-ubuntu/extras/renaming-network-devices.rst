@@ -14,8 +14,9 @@ Not easy like the old school ``eth0`` was...
 
 Well, I found the specific info from `AskUbuntu`_ specifying how to change this!
 
+-------
 How To
-=======
+-------
 
 First, get your devices MAC address, by running ``ip link``
 

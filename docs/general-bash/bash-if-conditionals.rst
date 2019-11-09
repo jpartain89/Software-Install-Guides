@@ -13,7 +13,7 @@ Lets say you are wanting to copy over a file from one location to another, but d
   fi
 
 Breakdown
----------
+=========
 
 #. ``[[ ]]`` So, the double brackets here are necessary for ``#!/bin/bash``, of which, to be honest, using the double brackets as the standard setup seems to be what makes the most sense.
 #. ``!`` The exclamation point is how you negate expressions through a lot of bash in general. So, here, its testing if ``/etc/foo`` exists.
@@ -22,8 +22,9 @@ Breakdown
 #. Then, you do whatever you need to do.
 #. ``fi`` then, the ``fi`` is what tells bash that ``if`` is finished.
 
+--------------------------------
 Conditional Expression Primaries
-================================
+--------------------------------
 
 The following test flags go with:
 
@@ -112,5 +113,4 @@ There are a LOT of ways to test things, using either ``if-then-else``, ``case`` 
   See ``man test`` for more explanations.
 
 .. [1] Shell Option ``optname``: The list of options appears in the description of the -o option to the set builtin. (see The Set Builtin)
-
 .. [2] ``$VARNAME`` is replaceable with ANY **VARIABLE** name needed

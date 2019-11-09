@@ -4,8 +4,9 @@ NGINX from PPA
 
 The PPA is Ubuntu's way of trying to make it easier to add extra repo's to the apt-get installer system. It auto-adds auth keys, along with repo addresses. And it adds a means of verifying what programs and whatnot are inside of the repo as well, since you can look up the info on Canonical's `Website`_.
 
+-------------
 NGINX's PPA
-============
+-------------
 
 .. note::
 

@@ -1,16 +1,16 @@
-=============================
-Download Beta Xcode with wget
-=============================
+=================================
+Download Beta Xcode with ``wget``
+=================================
 
 So, I was looking for a way to download the Beta version of Xcode over the terminal, using either ``wget`` or ``curl``, and almost every suggestion I found got it wrong somehow.... Some made it more complicated than it should be or was probably too old a suggestion for Apple's current login systems...
 
-Either way, I finally found a solution from `Codesd <codesd-home>`_'s website that worked wonderfully, and it was the tidbit at the bottom of their post that made the specific difference:
-
+Either way, I finally found a solution from `Codesd <codesd-home>`_'s website that worked wonderfully, and it was the tidbit at the bottom of their post that made the specific difference::
 
     for some reason cookies.txt only works if I only export cookies for the developer.apple.com website and doesnt work if I export all cookies from browser.
 
+------
 How To
-======
+------
 
 1. First, you'll need to login to the developer portal at `Beta Xcode Download <xcode-beta>`
 
@@ -41,8 +41,9 @@ Replace the specific URL with the URL that you want/need to use, please.
 
 And, you should find that the download this way is much much quicker than through the browser. Which is wonderful when the file is so gargantuan.
 
+---------
 Unzipping
-=========
+---------
 
 For the final step of unzipping/unpacking/un-whatever-its-technical-term-is-for-xip-files, if you have a 3rd party "unzipping" utility like I do (`The Unarchiver <unarchiver>`_ is my personal favorite) you'll want to make sure that your system will NOT use it!
 

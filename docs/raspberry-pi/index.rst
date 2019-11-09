@@ -9,3 +9,4 @@ Raspberry Pi
 
   boot-from-usb
   ddrescue
+  OLD-boot-from-usb

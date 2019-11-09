@@ -6,8 +6,9 @@ This page will be for those little nuggets of info that I have to have documente
 
 This is to stop that.
 
+-----------------------------------
 Local WebPage Wont Load Anywhere!!!
-===================================
+-----------------------------------
 
 A locally-hosted site refused to load in any web browser on the same computer, but it would load in my iPhone...
 

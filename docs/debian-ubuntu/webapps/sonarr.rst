@@ -8,8 +8,9 @@ The day that Sonarr really hopped into my all time fav basket was when I had beg
 
 Its not without its issues, of course. But they often get fixed quickly, or they aren't with this program, but another site or service.
 
+----------------------
 Base Requirements
-=================
+----------------------
 
 Make sure apt-transport-https is installed:
 
@@ -17,8 +18,9 @@ Make sure apt-transport-https is installed:
 
   sudo apt-get install apt-transport-https
 
+------------------------------
 Add the Apt Source and Install
-==============================
+------------------------------
 
 Luckily, here, they have a repo we can add to our apt-get lists (of which I always have seperate list files for the "outside of ubuntu/debian" standards) so we get to have easy updates and whatnot.
 
@@ -35,8 +37,9 @@ Now, you'll notice there was a TON of apps installing here... Don't panic. This 
 
 But, now we need to run Sonarr, with it outputting the actual output to your shell. This way, you can easily spot any errors, read when it tells you to fix something. Plus, its honestly cool to watch that output live as you click around in a program.
 
+---------
 First Run
-=========
+---------
 
 .. code-block:: bash
 
@@ -44,8 +47,9 @@ First Run
 
 Now, to stop the program, ``ctrl-C`` sends the SIGHUP signal to try to gracefully quit the program.
 
+----------------------------
 Create Autostart init.d File
-============================
+----------------------------
 
 Now, we need to make the autostart file, of which, one is not supplied by the installer. I also didn't have much luck with the ones listed on their `github site <https://github.com/Sonarr/Sonarr/wiki/Autostart-on-Linux>`_. But the text below was coped from `HTPCGuides.com site <https://www.htpcguides.com/install-nzbdrone-ubuntu/>`_ , [HTPC-Sonarr]_ which has served me very well.
 
@@ -64,8 +68,9 @@ Then, copy and paste the text from below. You'll notice the big `EDIT ME` text i
 
   See :ref:`user_management` for notes on adjusting user permissions with regards to programs and allowing the web access to your machines.
 
+----------------------------
 Add to Autostart Program
-========================
+----------------------------
 
 Then, make the script executable and add to your autostart program. In the below example, its using Ubuntu's ``system <program> start`` program.
 
@@ -74,8 +79,9 @@ Then, make the script executable and add to your autostart program. In the below
   sudo chmod +x /etc/init.d/nzbdrone
   sudo update-rc.d nzbdrone defaults
 
+-------------
 Final Steps
-===========
+-------------
 
 Then, start the program with ``sudo service nzbdrone start`` and if you see no error codes - which for some reason Ubuntu 16 wont always show on init.d scripts... Check your HTOP processes to see if its running. If not, ``sudo service nzbdrone status`` - then the program should be running.
 

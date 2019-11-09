@@ -1,18 +1,22 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
+set -e
 
 # Installation file for Software-Install-Guides
-## Not installing the DOCS, but the `Sphinx-Docs` parts that you need
-## to build the docs.
+## Not installing the documentation itself, but the `Sphinx-Docs` program parts
+## that you need to build the docs.
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [[ "$(uname)" == "Linux" ]]; then
-    . /etc/*release
-    PIPBIN="$(command -v pip3)"
+    if [[ -n "$(command -v pip3)" ]]; then
+        PIPBIN="$(command -v pip3)"
+    fi
 else
-    if [[ ! -z "$(command -v pip3)" ]]; then
+    if [[ -n "$(command -v pip3)" ]]; then
         PIPBIN="$(command -v pip3)"
     fi
 fi
 
-sudo -H "${PIPBIN}" install --upgrade -r "${DIR}/requirements.txt"
+SUDO="$(command -v sudo)"
+
+"${SUDO}" -H "${PIPBIN}" install --upgrade -r "${DIR}/requirements.txt"

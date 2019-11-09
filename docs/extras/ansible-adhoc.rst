@@ -28,9 +28,9 @@ This doesn't require the ``-a`` flag, unless there are other options you want to
   :alt: Ansible Ping Module
   :align: center
 
-
+---------------
 Pass a List
-============
+---------------
 
 I've been wanting to figure this one out for forever!
 

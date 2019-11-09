@@ -8,15 +8,17 @@ Here, we will be mounting a new drive in Ubuntu. The beginning items will be for
 
 Personally, the reason I needed this was that I had created a 2nd VirtualDisk in my VirtualBox Host, and needed to figure out how to format it and then mount it to my Ubuntu 16.04 Guest.
 
+------------------------
 Install/Create the Drive
-========================
+------------------------
 
 I'm not going to really detail this part, because if you purchased a new, internal drive - or even an external, USB drive - it either came with directions or you know how to install that.
 
 As for the VirtualDisk for your VM of choice, that usually is fairly easy. At least with VirtualBox it is.
 
+-----------------
 Finding the Drive
-=================
+-----------------
 
 So, obviously, we need to find the system-assigned ID for the drive, as this is the info we use for formatting, mounting, etc.
 
@@ -36,8 +38,9 @@ So, my 2nd hard drive is labeled as ``/dev/sdb``, and because I had just created
   :alt: fdisk -l output
   :align: center
 
+-----------------
 Create Partitions
-=================
+-----------------
 
 Now we want to create the partitions for the drive. For me, since I only wanted one large partition, this is easy with fdisk. If you're wanting/needing a more complicated setup, it might be best to lookup ``parted`` and ``gparted`` (graphical version of parted) for better partitioning.
 
@@ -55,13 +58,15 @@ Next, since we're doing one, whole-drive partition, select ``p`` for ``primary p
 
 This creates, in memory - WITHOUT formally writing to the disk - a partition for the drive. You have to hit ``w`` in order to formally write the information onto the disk. But, before you do that, I suggest now using option ``p`` for ``print the partition table`` so you can confirm the information before fatally committing to it.
 
+----------------
 Write Partitions
-================
+----------------
 
 Now, once you KNOW for SURE you're ready, use the ``w`` option to write to disk. And then, depending on your version of ``fdisk``, it'll either drop you back into the normal shell immeditely, or you'll have to ``q`` - for quit - to quit out of fdisk.
 
+-----------
 Partprobe
-===========
+-----------
 
 Next, you want to run ``partprobe`` in order to tell the kernel, without restarting your machine, about the changes made to that harddrive.
 
@@ -71,8 +76,9 @@ Next, you want to run ``partprobe`` in order to tell the kernel, without restart
 
 Or, whatever your devices name is.
 
+-------
 Format
-=======
+-------
 
 Now, we need to format our drive so the filesystem is readable/writable and what nots.
 
@@ -84,8 +90,9 @@ So, that is ``mkfs`` or makefilesystem, then our drive with the partition number
 
 If you are wanting/needing a different system, please consult those specific formatting directions.
 
+-----------
 Mount Point
-===========
+-----------
 
 Now, you need to create a directory that you want this disk mounted to, as that is how you are able to access this drive.
 
@@ -108,8 +115,9 @@ So, lets break that down:
   2. The second option being the directory to mount ONTO
   3. ``-t ext4`` being "type ext4"
 
+-----------
 After Mount
-===========
+-----------
 
 Now, if you didn't receive any error messages, you can basically, with 99% confidence, say its mounted. But, doesn't hurt to ``cd`` into it and create a blank file real quick to test the read/write.
 
@@ -122,8 +130,9 @@ Now, if you didn't receive any error messages, you can basically, with 99% confi
 
 So, if those all worked, its mounted and you can read/write to it.
 
+------------------
 Permanent Mounting
-==================
+------------------
 
 The best way to be able to mount your drives using ``/etc/fdisk`` is by referencing the drive's UUID number. How do you check that?
 

@@ -8,13 +8,14 @@ This article has been expanded to cover not just macOS but Linux (Specifically U
 
   Some steps are the same for both macOS and Linux, but there are a couple that deviate.
 
+-----------------
 AutoStart Systems
-=================
+-----------------
 
 This first step is requried for both Linux and macOS, but is different in how you get to step two.
 
 Linux
--------
+=======
 
 You should have a ``default`` file inside of ``/etc/default`` for virtualbox.
 
@@ -35,14 +36,14 @@ Then you will insert:
 Next, jump to :ref:`linux_autostart`
 
 macOS
-------
+======
 
 First, we need to copy - or rather, link - over the VirtualBox-provided default .plist file - aka: what macOS uses as their "services" files. Or, in comparison, like Linux's /etc/init.d/ files or the like.
 
 This how-to was lightly copied over from `ReidRansom's Gist <https://gist.github.com/reidransom/6042016>`_.
 
 Linking The .plist
-___________________
+-------------------
 
 .. code-block:: bash
 
@@ -57,7 +58,7 @@ There is another directory that has similar files - ``/Library/Application Suppo
   In case you aren't sure, the extra  - \ - is how you tell the linux command line "Don't run this code yet, even though I am pressing enter or return!". Its basically a newline-signifier. You'll notice it way way more often in how-to's, where it is an attempt to break up the code so its easier to see, visually, for you.
 
 Edit The .plist
-_______________
+---------------
 
 And next we make our edits to ``/Library/LaunchDaemons/org.virtualbox.vboxautostart.plist``
 
@@ -100,15 +101,16 @@ My personal .plist file looks like this:
 
 Next, jump to :ref:`macOS_autostart`
 
+------------------
 AutoStart.cfg File
-==================
+------------------
 
 The final file will look roughly the same for both Ubuntu and macOS systems, but where to place the file is different for both.
 
 .. _linux_autostart:
 
 Linux Autostart
----------------
+================
 
 As we referenced above inside of your ``/etc/default/virtualbox`` file, we need a corresponding ``/etc/vbox/autostart.cfg`` file now, as well as a directory at ``/etc/vbox``
 
@@ -146,7 +148,7 @@ And, of course, make sure to change ``berto`` to the username on your system tha
 .. _macOS_autostart:
 
 macOS Autostart
-----------------
+================
 
 Now, different online how-to's  elsewhere often say to make a directory within your ``/etc`` directory. But, if you are a user of Homebrew, you'll likely know that, often times, the better location for user-used files of most any kind would prefer to reside inside of ``/usr/local``. The reason for this, as the directory names suggest, is more geared towards the users specific files, binaries, configuration files, etc.
 
@@ -179,13 +181,14 @@ The ``startup_delay`` line is a means of controlling whether your Virtual Machin
 
 And, of course, make sure to change ``berto`` to the username on your system that the VirtualMachines are running under.
 
+-----------------
 File Permissions
-================
+-----------------
 
 And now, we need to go through and make sure the different files permissions are set properly.
 
 Linux File Permissions
-----------------------
+======================
 
 .. code-block:: bash
 
@@ -199,7 +202,7 @@ Then, for each username you will be using for the AutoStart:
   sudo usermod -aG vboxusers $USER
 
 macOS File Permissions
------------------------
+=========================
 
 .. code-block:: bash
 
@@ -211,8 +214,9 @@ macOS File Permissions
 
   You'll notice I used the ``-R`` flag for the final item, even though it itself is just a file. But, remember, its a linked file, which do not change their permissions on the linked location without the ``-R`` flag.
 
-VBoxManage modifyvm
-===================
+-----------------------
+``VBoxManage modifyvm``
+-----------------------
 
 .. note::
 
@@ -234,8 +238,9 @@ Make sure the guest machine you're changing settings on is not currently running
 
 And make sure to replace ``$VM_NAME`` with your VirtualMachines registered names.
 
+--------
 Testing
-========
+--------
 
 Finally, we can now test our configs without having to restart our machine.
 
@@ -244,14 +249,14 @@ Finally, we can now test our configs without having to restart our machine.
   Before running this, make sure your machines are turned off, so you can watch them turn on.
 
 Linux
--------
+=======
 
 .. code-block:: bash
 
   sudo service vboxautostart-service start
 
 macOS
----------
+========
 
 .. code-block:: bash
 

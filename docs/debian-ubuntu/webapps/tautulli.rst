@@ -6,8 +6,9 @@ Tautulli is specifically for monitoring Plex. Plus, you can setup notifications 
 
 It also gives you a breakdown of what is played the most, how many concurrent streams have played at the same time, and a bunch of other things as well.
 
+---------------
 Prerequisites
-=============
+---------------
 
 Python2.7 is the biggy here.
 
@@ -15,8 +16,9 @@ Python2.7 is the biggy here.
 
   sudo apt-get install python2.7 python-pip python-dev git git-core
 
+--------------
 Clone the Repo
-==============
+--------------
 
 .. include:: ../../gitreponote.rst
 
@@ -30,8 +32,9 @@ So, of course, you can amend the ending to the below code to wherever you want t
 
   If you previously installed this git repo before, you'll notice that the entire repo and app name has changed from PlexPy to Tautulli. Both python scripts exist in the beta line of the repo. (Plexpy.py and Tautulli.py) So its really up to you on which naming scheme you want to use, currently. This info - obviously - will change in a future (unknown) update.
 
+---------------------
 Edit the Default File
-=====================
+---------------------
 
 Now, you want to:
 
@@ -43,8 +46,9 @@ The ``/etc/default`` directory is where a LOT of programs like to store files th
 
 That will make sure to stop any possible errors or warnings. It also is where you need to make any changes, in case you don't use the default settings that are in the various init scripts. You can see the options inside of ``./tautulli/init-scripts/init.ubuntu`` if you're using Ubuntu.
 
+---------------------
 Create Tautulli User
-=====================
+---------------------
 
 Next, I do like to create and use a seperate, ``tautulli`` user for running Tautulli.
 
@@ -58,8 +62,9 @@ Next, I do like to create and use a seperate, ``tautulli`` user for running Taut
 
   sudo adduser --system --group tautulli --no-create-home tautulli
 
+---------------------------------
 Change Ownerships and Symlink
-================================
+---------------------------------
 
 First, we will change the ownership of the original location we stuck the repo at.
 
@@ -77,8 +82,9 @@ Next, we symlink from our ``git`` location to ``/opt``.
 
   sudo ln -s ~/git/tautulli /opt/tautulli
 
+-------------------------
 Testing the Program First
-=========================
+-------------------------
 
 First, we want to, basically, blindly run ``tautulli`` to see if any settings files need adjusting or anything in our systems.
 
@@ -90,15 +96,14 @@ So, we do:
 
 This will start Tautulli where it will output all of its startup functions, like when you turn on a linux machine, to the console so you can see any errors right there.
 
-Tautulli's port number is ``8181``. You can take a look at :ref:`initial-ip-addresses` for a more in-depth explainer.
-
+----------------------
 AutoStart System Files
-======================
+----------------------
 
 Next, we will perform a few different commands to add Tautulli to Ubuntu's autostart system - so that the program starts at boot correctly, and runs nicely in the system.
 
 init.d
-------
+=======
 
 The ``/etc/init.d`` directory is where the autostart scripts are stored. Thus, why I call them the ``init.d`` files. There is also a ``/etc/init`` location for Upstart scripts, which... Ubuntu seems to like to change their autostart programs every so often. And to add ontop of that, the base Debian system has THEIR own means, that is even useable inside Ubuntu - systemctl.
 
@@ -121,7 +126,7 @@ Then thats an ``init`` upstart file. Much shorter, and without all that required
 But, for now, we use ``/etc/init.d`` and the commands ``sudo service`` since its what I know to how to use.
 
 Make ``init.d`` file Executable
-_______________________________
+---------------------------------
 
 First, we need to make the ``init.d`` file executable by the system. This basically changes the way the script is called, while still being a bash shell script. Its how the system can use ``/etc/init.d`` files without having to use ``bash`` or ``sh`` in the terminal command - or even ANY file thats technically a script without first calling the scripts program/compiler in the command line.
 
@@ -132,7 +137,7 @@ First, we need to make the ``init.d`` file executable by the system. This basica
 The ``chmod`` is modifing the access flags for the file. The ``+x`` means 'add the executable flag'. There is also ``+w`` and ``+r`` which is write and read, in that order. And, there is another way to change that information as well. But thats for another document.
 
 Link or Copy
-____________
+--------------
 
 Then, link the ``init.ubuntu`` file to ``/etc/init.d``. Notice that, in the ``/etc/init.d`` part, we changed the files name.
 
@@ -141,7 +146,7 @@ Then, link the ``init.ubuntu`` file to ``/etc/init.d``. Notice that, in the ``/e
   sudo ln -s ~/git/tautulli/init-scripts/init.ubuntu /etc/init.d/tautulli
 
 Update Ubuntu's Autostart Program
-_________________________________
+---------------------------------
 
 And now we add Tautulli to the autostart system that Ubuntu uses, ``update-rc.d`` being the command to add it. If you want to remove it, you run ``sudo update-rc.d tautulli remove`` AFTER deleting the ``tautulli`` file from ``/etc/init.d``.
 
@@ -151,7 +156,7 @@ And now we add Tautulli to the autostart system that Ubuntu uses, ``update-rc.d`
   sudo service tautulli start
 
 SystemCTL
-----------
+=========
 
 If you want to use Ubuntu/Debian's newest startup system, SystemCTL (`systemctl` being the command), follow these instructions.
 
@@ -164,7 +169,7 @@ These files do not need to be flagged as executable, as the ``init.d`` scripts d
 If you want to look at some example files, the ``/lib/systemd/system`` directory is where the files are stored.
 
 Link or Copy
-_____________
+--------------
 
 Tautulli's premade ``systemd`` script is located at ``~/git/tautulli/init-scripts/init.systemd``. Of which, there are some items you'll probably want to change, depending on your setup.
 
@@ -178,13 +183,14 @@ To link the existing file from Tautlli's repo on your filesystem:
 
 making sure to add the ``.service`` to the end of the name.
 
-Update SystemCTL's Autostart Program
-_____________________________________
+Update ``SystemCTL``'s Autostart Program
+------------------------------------------
 
 And now, adding the service file to ``systemctl`` system, you use:
 
 .. code-block:: bash
 
+  sudo systemctl daemon-reload
   sudo systemctl enable tautulli.service
 
 The ``systemctl`` command has a bunch of command line options. If you want to dive into how to use it, you can ``man systemctl`` to start you down the rabit hole.
@@ -192,7 +198,7 @@ The ``systemctl`` command has a bunch of command line options. If you want to di
 The above command will actually create another symlink from ``/lib/systemd/system`` to ``/etc/systemd/system``, which enables the service script to run.
 
 Accessing
----------
+=========
 
 Now, you can access the web interface at `http://localhost:8181 <http://localhost:8181>`_ with ``8181`` being the port it is running on.
 

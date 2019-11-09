@@ -14,8 +14,9 @@ Plenty of websites will halfway get you to the fix, and then complain that you h
 
 Well, I'm not going to be doing that here today.... I'll be giving you the MAIN fix, along with the commands you can also run while inside mysql/mariaDB.
 
+--------
 tl;dr
-======
+--------
 
 Place the below block into your ``/etc/mysql/mariadb.conf.d/50-server.cnf``, within the ``[mysqld]`` section of the configuration file.
 

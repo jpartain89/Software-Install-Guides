@@ -6,8 +6,9 @@ When you have a git repo locally downloaded on your machine, the comand line ``g
 
 And, you can view that repo's saved address as well, in case you have forgotten or lost that.
 
+-----------------------------
 Viewing the Repo's Address
-==========================
+-----------------------------
 
 First, while in your terminal program, you want to be sitting in the repo's directory to begin. I am assuming you know how to do that.
 
@@ -27,8 +28,9 @@ You will see, at minimum, two lines showing the fetch and push addresses, along 
     origin	https://github.com/JPCDI/git-map.git (fetch)
     origin	https://github.com/JPCDI/git-map.git (push)
 
+-----------
 Background
-==========
+-----------
 
 In that above code-block, you'll notice four lines, rather than 2. Along with an additional name other than ``origin``. Thats because there is one remote location that I've named ``icefox`` and then my personal location named ``origin``.
 
@@ -36,8 +38,9 @@ Origin is the defacto name ``git`` gives to cloned repos. You'll also see it ref
 
 You are able to, say, pull from icefox, make a branch and changes, and rather than pushing or making a pull request for icefox, you can instead push out to origin.
 
+--------------------
 Changing The Address
-====================
+--------------------
 
 Now, if you are wanting to change the address to another http(s) or utilize an SSH address with your SSH keys, you are able and allowed to change that.
 
@@ -49,8 +52,9 @@ Now, onto the commands.
 
 Each online git service has their own address layout specific to them. And, its obvious what those are as you begin using them.
 
+--------------------
 Code Breakdown
-==============
+--------------------
 
 First, ``git`` doesn't require the use of dashes, but rather allows empty spaces to delimit different options. So, don't freak out about the lack of ``-`` in these lines.
 
@@ -60,8 +64,9 @@ First, ``git`` doesn't require the use of dashes, but rather allows empty spaces
 #. ``origin`` - This is the name you are giving to the repo. If you want something other than ``origin``, you're welcome to but don't forget that.
 #. ``https://<remote-address>`` - Obviously, this is the remote repo's address. The one  you utilize will be longer, as most services break down that location between the given username/company name and the specific repo name.
 
+--------------------
 Final Steps
-===========
+--------------------
 
 Then, verify that the info has been updated with another:
 

@@ -6,8 +6,9 @@ This is a general catch-all doc for any smaller errors you might come across inv
 
 .. _statoverride_fatal:
 
+-----------------
 StatOverride File
-=================
+-----------------
 
 Sometimes, for a reason unknown to me, you'll get an error while installing, updating/upgrading - what have you - about the ``statoverride`` file having an unknown user:
 
@@ -20,12 +21,12 @@ Sometimes, for a reason unknown to me, you'll get an error while installing, upd
 For me, it usually happens after uninstalling a program - which makes sense, seeing as something extra has decided to hang around in our installation program files.
 
 File Name
----------
+=========
 
 The specific file that is giving us issues is :file:`/var/lib/dpkg/statoverride`.
 
 How To Fix
------------
+==========
 
 There are 2 different ways I found to remove the extra bit of info from the offending file, of which, both require you to at least see the contents of the file:
 
@@ -40,7 +41,7 @@ There are 2 different ways I found to remove the extra bit of info from the offe
   sudo nano /var/lib/dpkg/statoverride
 
 First Way
----------
+=========
 
 The second option is the first way we can fix this issue, by removing the offending information, which in the above case - :ref:`statoverride_fatal` - the issue is about ``cockpit-ws``. Below is the output of the :file:`/var/lib/dpkg/statoverride` file.
 
@@ -63,7 +64,7 @@ The second option is the first way we can fix this issue, by removing the offend
 You can see the line that includes ``cockpit-ws`` above. If you have the above file open in your text editor, you can simply delete that line out, and rerun your prior apt command again.
 
 Second Way
-----------
+==========
 
 The second way to fix it is a more official way, using one of :command:`dpkg`'s commands, :command:`dpkg-statoverride` - which makes even more sense....
 

@@ -8,10 +8,11 @@ One big, generalized note to keep in mind is each line ends with ``;``
 
 These following steps are almost singularly taken from `Bjornjohansen`_  website. His `NGINX Configuration`_ how-to's were the singular guides I used for securing my setup. I cannot recommend his website more!
 
+-----------------
 Basic HTTPS Setup
-=================
+-----------------
 Obtaining the Certificate
--------------------------
+=========================
 
 First off, in order to actually have a secure connection to a website, that website has to have a trusted certificate. Its fine and dandy for you to be your own Certificate Authority, or CA, if only you or people who will trust your certs will access your site. If you want anyone else ever to access your site, services or apps, you need to use an already-trusted CA. Of which, you no longer have to pay for this, if you so choose.
 
@@ -38,7 +39,7 @@ You'll also see letsencrypt floating around, that was the original name, and is 
 Take note of the location of the saved certs.
 
 Server Redirect
----------------
+===============
 
 To default-direct all requests to the secured, 443 items, you can use the following in your ``80`` server section.
 
@@ -49,12 +50,12 @@ To default-direct all requests to the secured, 443 items, you can use the follow
     listen [::]:80 default_server;
     server_name jpcdi.com www.jpcdi.com;
     return 301 https://$server_name$request_uri;
-    }
+  }
 
 The ``return 301 https://$server_name$request_uri;`` tells the requesting browser or program to use ``https``, which then routes to the next server block, which is ``https``
 
 adding ``http2``
------------------
+=================
 
 The ``http2`` is the new standard for the ``http`` protocol. This is the first update to the protocol in over 15 years, and adds important updates.
 
@@ -81,7 +82,7 @@ On your 443 ``listen`` directives, add ``http2;``, as in:
 The second line being the ipv6 version of the listen directive
 
 Certificate Locations in NGINX
-------------------------------
+==============================
 
 There are 2 specific items you need to start.
 
@@ -93,14 +94,16 @@ The ``ssl_certificate_key`` is the ``privkey.pem`` file in the same location as 
 Normally, with almost ANY other CA, there are a million and one steps between start and finish. Between creating accounts, paying them, downloading maybe one file and then sussing out the certificate chains, and all sorts of other things.
 
 Foward Secrecy
---------------
+==============
 
 Luckily, and most likely the ONLY, NGINX has Forward Secrecy (FS) enabled by default on its connections. So, awesome on less manual steps.
 
+------------------------------------
 Optimizing NGINX's Secure Connection
-====================================
+------------------------------------
+
 Connection Credentials Caching
-------------------------------
+==============================
 
 Almost all of the overhead with SSL/TLS is during the initial connection. So, we setup caching parameters.
 
@@ -118,7 +121,7 @@ builtin
   a cache built in OpenSSL; used by one worker process only. The cache size is specified in sessions. If size is not given, it is equal to 20480 sessions. Use of the built-in cache can cause memory fragmentation.
 
 SSL Protocols
--------------
+=============
 
 So, here is where we disable SSL. (?)
 
@@ -134,7 +137,7 @@ We add:::
 to cite the specific secure protocols we use on our site.
 
 Optimizing the Cipher Suites
-----------------------------
+============================
 
 The cipher suites are how the data is encrypted. We list which suites we will use with the browsers.
 
@@ -148,7 +151,7 @@ The ``ssl_prefer_server_ciphers on;`` is to tell the client we have a preferred 
 For the long list they present, you can make a seperate file, save it inside your ``/etc/nginx`` directory, and reference it in your nginx configuration ``include cipher_suites``, and it will use the contents of that file.
 
 Generate DH Parameters
-----------------------
+======================
 
 Create the DH Parameters file with 2048 bit long safe prime:
 
@@ -164,7 +167,10 @@ And add it to your config with
   ssl_dhparam /etc/nginx/cert/dhparam.pem;
 
 Enable OCSP Stapling
---------------------
+====================
+
+.. note::
+  WARNING! If you are currently trying to do any type of setup or development work internally that will be utilizing some form of your public-facing URL, like ``home.your.url.com`` where ``home`` is the internal piece, this step will throw a HUGE WRENCH into this process!! Essentially, it'll force you to have an SSL cert on even a newly-installed application or program, because ALL web browsers will be expecting one for however long you put down in your configuration below. YOU'VE BEEN WARNED!!
 
 Online Certificate Status Protocol (OCSP) is a protocol for checking the revocation status of the presented certificate. When a proper browser is presented a certificate, it will contact the issuer of that certificate to check that it hasn’t been revoked. This, of course, adds overhead to the connection initialization and also presents a privacy issue involving a 3rd party. Thus, the reason for OCSP Stapling:
 
@@ -184,7 +190,7 @@ So, for the NGINX configuration:
 The resolver uses whatever DNS server you specify, so NGINX can find the resolver through the internet.If you want to use another public DNS, use them.
 
 Strict Transport Security
--------------------------
+===========================
 
 This setting tells your browser, after its attempted an unsecure connection once, will default to the secure connections only within the cached timeframe you have listed.
 
@@ -196,8 +202,9 @@ The preload is if you want to add your server to the Google Maintained list of s
 
 The includeSubDomains, obviously is to include all subdomains. And I have this in my ``http`` block, above the ``server`` block.
 
+----------------------
 Configuration Example
-=====================
+----------------------
 
 Here is the tl;dr configuration, with the above in one place, plus more lines from my personal config file:
 

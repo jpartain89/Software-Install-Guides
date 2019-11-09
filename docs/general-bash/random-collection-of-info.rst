@@ -12,8 +12,9 @@ This page is a decent place for me to put my collection of information like shel
 
 .. _find-chmod-files:
 
+--------------------------------------------
 Using ``find`` to ``chmod`` multiple files
-===========================================
+--------------------------------------------
 
 When you find yourself needing to change a plethora of items within the current working directory - but only the files or directories and not both - one way is to use ``find``
 
@@ -22,7 +23,7 @@ When you find yourself needing to change a plethora of items within the current 
   find . -type f -exec chmod 644 {} \;
 
 Break Down
-----------
+==========
 
 #. ``find`` - this is obviously the specific program/command here. It is an incredibly useful tool, but we're only covering a small portion of its abilities here.
 #. ``.`` - the ``.`` signifies we're searching in the current working directory, or if you typed ``pwd``, its the same idea. You can change this to any location in your directory you so choose.
@@ -30,8 +31,9 @@ Break Down
 
 .. _awk_out:
 
+------------------------------
 Using ``awk`` to Modify Output
-==============================
+------------------------------
 
 When a program outputs information in a standardized way, like ``pip freeze`` or ``pip list``, you can manipulate that output to fit your wants and needs.
 
@@ -61,14 +63,18 @@ But, lets say we want to pipe all of that to a :ref:`pip-requirements-file` for 
 
 So, what do we do?
 
- ``pip list | awk '{ print $1 }'``
+.. code-block:: bash
+
+  pip list | awk '{ print $1 }'``
 
 or
 
- ``pip freeze | awk -F'==' '{ print $1 }'``
+.. code-block:: bash
+
+  pip freeze | awk -F'==' '{ print $1 }'``
 
 Breakdown
----------
+==========
 
 #. the ``pip freeze`` and ``pip list`` we've established.
 #. awk - is a language in and of itself, as complicated and large and useful as a language as well.
@@ -81,8 +87,9 @@ Again, ``awk`` is a massive language. This is a simple explainer here.
 
 .. _using-forwardslash:
 
+------------------------
 Using ``\`` as New Lines
-========================
+------------------------
 
 Often times, you'll see ``\`` used at the end of code lines and you've wondered what on EARTH thats about??
 
@@ -90,8 +97,9 @@ Well, those are used as so-called ``new line`` signifiers, or on the naked comma
 
 .. _shell_script_self:
 
+----------------------
 Shell Script Location
-=====================
+----------------------
 
 Are you wanting an easy way for your shell script to know where its at in the plethora of unix directories? Use the below line!
 
@@ -101,8 +109,9 @@ Are you wanting an easy way for your shell script to know where its at in the pl
 
 Its able to give you that info, no matter where its called from, which is a typical issue with almost all other so-called "one-liners".
 
+-----------------------
 Random Number Generator
-=======================
+-----------------------
 
 tl;dr::
 
@@ -113,7 +122,7 @@ tl;dr::
   SLEEP="$(($RANDOM%3600+3600))"
 
 Details
--------
+=======
 
 The ``$RANDOM`` bash variable is a builtin variable for generating random numbers, random options between :guilabel:`&True` and :guilabel:`&False`, mimic rolling a dice, drawing cards, etc.
 
@@ -121,8 +130,9 @@ its a nice and simple way to use a randomized :guilabel:`&Sleep` length, or anyt
 
 .. _sed_edit:
 
-Using sed to Make Updates
-=========================
+-----------------------------
+Using ``sed`` to Make Updates
+-----------------------------
 
 If you are wanting to make the same change in multiple files, ``sed`` is the way to go!
 

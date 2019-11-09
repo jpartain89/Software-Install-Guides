@@ -1,11 +1,14 @@
+.. _nginx-from-source:
+
 ===========================================
 Compiling NGINX From Source [NGINX-Copied]_
 ===========================================
 
-The way listed here uses apt-get to our advantage. By adding the NGINX PPA repo, we get a baseline of required files, configuration files, and other things that make this much easier for us all!
+The way listed here uses ``apt-get`` to our advantage. By adding the NGINX PPA repo, we get a baseline of required files, configuration files, and other things that make this much easier for us all!
 
+-------------
 Add NGINX PPA
-=============
+-------------
 
 For the ``$nginx`` variable at the end of the first code line, replace it with either ``stable`` for their Stable line or ``development`` for their Mainline.
 
@@ -25,11 +28,12 @@ Then update apt-get.
 
   sudo apt-get update
 
+--------------------------
 Download Source Packages
-==========================
+--------------------------
 
 Prerequisites
------------------
+=================
 
 First, we install the pre-requisites. AKA the package creation tools. This helps in building from source using apt.
 
@@ -38,7 +42,7 @@ First, we install the pre-requisites. AKA the package creation tools. This helps
   sudo apt-get install dpkg-dev -y
 
 Build Directory
---------------------
+====================
 
 The directory ``/opt/rebuildnginx`` is simply a potential, central location for all of the building files that we are wanting to use. You can stick it anywhere you want, name it anything you want.
 
@@ -48,7 +52,7 @@ The directory ``/opt/rebuildnginx`` is simply a potential, central location for 
   cd /opt/rebuildnginx
 
 Source Files Download
-----------------------------
+============================
 
 Next, running ``apt-get source`` rather than ``apt-get install`` installs the source files for the program you've listed.
 
@@ -57,7 +61,7 @@ Next, running ``apt-get source`` rather than ``apt-get install`` installs the so
   sudo apt-get source nginx
 
 Install Build Dependencies
-----------------------------------
+==================================
 
 .. code-block:: bash
 
@@ -68,7 +72,7 @@ If the current, main NGINX build doesn't have the specific modules that you are 
 The detailed instructions for that specialized need is at `ServersForHackers.com`_
 
 Compile and Install
--------------------------
+=========================
 
 .. code-block:: bash
 
@@ -77,8 +81,9 @@ Compile and Install
 
 This will take around a few minutes.
 
+--------------
 Install NGINX
-=============
+--------------
 
 Once the build is complete, we'll find a bunch of ``.deb`` files added in ``/opt/rebuildnginx``. We can use these to install NGINX.
 
@@ -94,8 +99,9 @@ Do you have the file you wanna use? Lets install it then!
 
 Now, you can run ``nginx -V`` (capital V) and it'll show you the flags and modules and whatnot compiled with NGINX.
 
+----------------------------
 Block NGINX from Auto-Update
-============================
+----------------------------
 
 Next, mark NGINX to be blocked from further apt-get updates, as this potentially will remove the modules  you added.
 

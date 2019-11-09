@@ -17,7 +17,7 @@ I have these docs - both self-hosted and being hosted - on `ReadTheDocs.org`_ at
 To Install Sphinx Stuff
 =======================
 
-Its best to utilize `Homebrew <homebrew>`_ team's python and ``pip`` packages, making sure that its going to be python 3 that will be installed on your system. Python 2 is being phased out and Python 3 is just plain better. 
+Its best to utilize `Homebrew <homebrew>`_ team's python and ``pip`` packages, making sure that its going to be python 3 that will be installed on your system. Python 2 is being phased out and Python 3 is just plain better.
 
 Run ``./scripts/install.sh``. It utilizes ``pip3`` to install the required python programs.
 

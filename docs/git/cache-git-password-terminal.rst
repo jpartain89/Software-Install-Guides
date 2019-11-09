@@ -2,7 +2,7 @@
 Saving your Git Repo Password
 =============================
 
-When pushing back up to your own git repo, when using HTTPS for the address, it should ask for your password, and if you have your username in the repo address, it'll bypass that. But, you are able to cache your password, if you have fairly frequent pushes or trust the system you're using.
+When pushing back up to your own git repo - and you are using HTTPS for the address - it should ask for your password. And, if you have your username in the repo address, it'll bypass asking you for that info. But, you are able to cache your password; if you have fairly frequent pushes, and/or trust the system you're using.
 
 Of course, depending on the system you are using, depends on how long that info is cached:
 
@@ -11,8 +11,22 @@ Of course, depending on the system you are using, depends on how long that info 
 
 These caching programs have the moniker ``credential helpers``
 
+---
+OR
+---
+
+You can use the ssh version of the URL instead!:
+
+.. code-block:: bash
+
+  git clone git@github.com:username/your-repo
+  git clone git@gitlab.com:username/your-repo
+
+And that will utilize the SSH keys you have setup with those respective services, which you do have setup, right??? (You give them the public key, and then you can use your private key for authentication.)
+
+------
 macOS
-=====
+------
 
 In your macOS's terminal, to see if ``osxkeychain helper`` is already installed:
 

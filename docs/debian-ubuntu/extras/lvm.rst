@@ -6,8 +6,9 @@ LVM How To
 
 This how to, for now - like all the others - is more for my remembering how to do something, and as I learn more about ``LVM``, I'll try to add those nuggets here.
 
+---------------
 Old Hard Drive?
-===============
+---------------
 
 Do you have an old drive that you need to erase and reformat? There are several ways to erase a disk on debian-based systems, but we'll use good old :program:`fdisk` for this one.
 
@@ -26,8 +27,9 @@ Next, you'll want to use :kbd:`d` to delete all of the partitions, using the com
 
 Then, you can use the :kbd:`p` command to print the current table.
 
+------------------
 Cleaned Hard Drive
-==================
+------------------
 
 These steps are for a fresh hard drive, either brand new or freshly erased, and we'll be using :program:`fdisk` once again.
 
@@ -80,13 +82,14 @@ The id you're wanting to pick from here is ``Linux LVM``, which with the above o
 
 And, finally, use :kbd:`w` to write all of these changes to the drive, and then :program:`fdisk` exits you out.
 
+------------
 LVM Commands
-============
+------------
 
 Now, we start using the actual commands for ``LVM``.
 
 LVM Physical Volume
--------------------
+===================
 
 First, before we make the ``Volume Group``, we need to finish working on the freshly wiped hard drive.  You'll need to run :command:`pvcreate` to finish that off.
 
@@ -97,7 +100,7 @@ First, before we make the ``Volume Group``, we need to finish working on the fre
 It'll most likely throw a warning saying that an ``existing ext4 signature was detected. Are you sure you want to continue?`` Enter :kbd:`y` to confirm, and it formally formats it correctly for you to be able to use it in an LVM Volume Group.
 
 Volume Group
--------------
+=============
 
 We need to create the ``Volume Group`` first:
 
@@ -108,7 +111,7 @@ We need to create the ``Volume Group`` first:
 Replace the ``<pool_name>`` with the name you want to use. I like to use the computer's host name as the volume name, as I usually only have one volume on my systems.
 
 Logical Volume
---------------
+==============
 
 Next, we create the logical volume that LVM will use. This is the individual volumes within the group, like partitions on a hard drive.
 
@@ -123,7 +126,7 @@ Lets break this down a bit:
 #. Then, you finish it off with the ``<pool_name>`` from earlier.
 
 Filesystem
-----------
+==========
 
 And, finally, we have to format an actual file system inside the volume.
 
@@ -134,7 +137,7 @@ And, finally, we have to format an actual file system inside the volume.
 Here, the location of the Volume Group and Logical Volume are within the ``/dev`` directory. But, the first time you run this command, the normal bash-completion might not yet have this location ready for you, so you'll need to type out the entire location.
 
 Mount Point
------------
+===========
 
 Now, create the mount point and mount the volume!
 

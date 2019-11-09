@@ -8,8 +8,9 @@ Basically, just about all programs have at least two outputs; the textual output
 
 The ``if-else`` conditionals or ``for`` loops or what have you like to use simple numbers, ``0`` ``1`` etc. for, say, when searching for ``openvpn`` being installed, it says ``0`` for yes, ``1`` for no or error. Therefore, you can make a conditional that says ``if 0, yes, then do not attempt install. If NOT 0, then attempt install!``
 
+----------------------------
 Basic Use of grep in if-else
-============================
+----------------------------
 
 This would be a simple layout of how you could potentially use this in a shell script.
 
@@ -24,8 +25,9 @@ This would be a simple layout of how you could potentially use this in a shell s
     echo "Not Matched"
   fi
 
+----------------------------
 So, lets break that down
-========================
+----------------------------
 
 1. ``dpkg -l`` - this, by itself, will output all installed programs that dpkg manages.
 2. ``|`` - this is the ``pipe`` command.

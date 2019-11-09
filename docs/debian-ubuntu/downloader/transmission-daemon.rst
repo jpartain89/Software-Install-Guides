@@ -4,8 +4,9 @@ Transmission [TRANS-HTPC]_
 
 Transmission is my personal fav of all the Torrent Downloaders. For one, its the easiest I've found to use and setup. For two, it has a headless program for running on a server - and comes standard with a GUI interface that way. And three, its super light weight.
 
+--------------------
 Add Repo and Install
-====================
+--------------------
 
 Add the most up-to-date repo for transmission:
 
@@ -25,8 +26,9 @@ The last line, ``stopping the service``, is necessary for you to be able to edit
 
   See :ref:`user_management` for notes on adjusting user permissions with regards to programs and allowing the web access to your machines.
 
+--------------------------------
 User/Group Account Modifications
-================================
+--------------------------------
 
 Add the Transmission group to your regular user account, as well as the group that owns the directory that you will be saving the downloaded files, as this will - hopefully - prevent permission issues.
 
@@ -39,8 +41,9 @@ Add the Transmission group to your regular user account, as well as the group th
 
   If you are running this inside of a VirtualBox Linux Guest, and using VirtualBox's Folder Syncing Feature... You'll notice that the group owner of those mounts is `vboxsf`. Thats only inside of your Guest OS, but will futz with transmission's ability to save anything to those directories. Make sure to also include `vboxsf` with the above commands.
 
+-----------------------------------
 Editing the ``settings.conf`` File
-===================================
+-----------------------------------
 
 .. code-block:: bash
 
@@ -92,8 +95,6 @@ Save the file, and restart the service.
 .. code-block:: bash
 
   sudo service transmission-daemon restart
-
-Then, take a look at :ref:`initial-ip-addresses` for an in-depth explainer on internal IP addresses, but Transmission's specific port number is ``9091``. So for example, `<localhost:9091>`_ would be one way of accessing the web UI.
 
 .. [TRANS-HTPC] Copied from `HTPC-Guides`_ and `StackExchanges Raspberry Pi Forum on Transmission Permissions`_
 .. [TRANS-BlockList] Transmission BlockList from 'GiulioMacs Personal Blog'_

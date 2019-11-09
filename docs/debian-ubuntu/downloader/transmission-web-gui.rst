@@ -4,8 +4,9 @@ Alternate Transmission Web GUI
 
 The command line tools for Transmission also come with a directory that runs a web-based GUI for Transmission. Not only does this allow running a torrent program on a headless server, but say you have hardware that the graphics card isn't too quick. Rather than install the GUI Desktop version, install the command line version! Plus, if you run a reverse proxy web server in front of it, you can access it from anywhere.
 
+--------------------------------------
 Using Kettu's Web GUI for Transmission
-======================================
+--------------------------------------
 
 First, clone endor/kettu's custom-built `web GUI`_
 
@@ -15,8 +16,9 @@ First, clone endor/kettu's custom-built `web GUI`_
 
 .. include:: ../../gitreponote.rst
 
+-----------------------------------
 Transmission Web GUI File Locations
-===================================
+-----------------------------------
 
 Next, we need to link the clone repo to the spot that Transmission expects. Since I don't care for the look of the web GUI that comes with the tool, I just delete the entire directory, then symlink the github repo in its place, but naming it ``web``.
 

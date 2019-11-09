@@ -4,8 +4,9 @@ NZBGet [NZBGet-HTPC]_
 
 NZBGet is a downloading program specifically for downloading from [Usenet-Servers]_. They are inherintely more secure and are, in general, much quicker to download than torrents.
 
+-----
 UnRar
-=====
+-----
 
 First, install `UnRAR <unrar-link>`_. This is specifically for handingling what are called ``.rar`` files. Those mysterious crazy files that you randomly come across on the internets.
 
@@ -15,8 +16,9 @@ Rar files are usually large files, taken apart into seperate items, along with a
 
   sudo apt-get install unrar
 
+--------------------
 NZBGet Installation
-====================
+--------------------
 
 NZBGet Is installed... a bit different than other, apt-based applications.
 

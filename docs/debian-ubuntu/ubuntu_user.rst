@@ -1,7 +1,7 @@
 .. _user_management:
 
 User Management
----------------
+================
 
 Technically, for proper security and the Linux Way, you're supposed to have specific, security-neutered, non-home-directory-having users running these different programs. Helps stop any random, drive-by-login attempts, or rogue access if your password or keys were to ever get out.
 

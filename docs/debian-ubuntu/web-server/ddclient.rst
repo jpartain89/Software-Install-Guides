@@ -2,8 +2,9 @@
 DDClient [DDCLIENT-Source]_
 ==============================
 
+--------
 Preface
-========
+--------
 
 This guide is a bit more hands on, but is not only a good lesson to get through and learn, but ends up building a nice, very useful and light weight program!
 
@@ -12,7 +13,7 @@ DDClient, specifically, is a Dynamic DNS program. Through its config files, it l
 Plus, `Google Domains`_ also has a specific, easier-to-use config setup for DDClient, so it makes your life just that much easier.
 
 Software Requirements
------------------------------
+=============================
 
 Most of what is needed usually comes with Ubuntu, like Perl and CPAN.
 
@@ -23,7 +24,7 @@ But, one program that is needed is ``libio-socket-ssl-perl``, specifically to as
   sudo apt-get install libio-socket-ssl-perl
 
 Clone the Github Repo
--------------------------
+=====================
 
 Lets start off by cloning the github repo, so you have the most up-to-date code to build with.
 
@@ -36,7 +37,7 @@ Lets start off by cloning the github repo, so you have the most up-to-date code 
 Or, like with couchpotato, you are welcome to save the git directory where ever works best for you.
 
 Copying Files and Creating Directories
-----------------------------------------------
+==============================================
 
 Next, its a matter of sticking the ddclient program into the right place, creating its directories, backing up the existing configs and all that jazz.
 
@@ -52,7 +53,7 @@ Next, its a matter of sticking the ddclient program into the right place, creati
 #. Then, ``/var/cache/ddclient`` in order to save the programs caching files.
 
 The ``ddclient.conf`` File
---------------------------
+==========================
 
 If you already have a ``ddclient.conf`` file made - like  `Google Domains`_, since their support files explain exactly how to make a config file just for their service - copy that over to:::
 
@@ -65,7 +66,7 @@ Otherwise, most likely the service you have your URL hosted with will have a how
 Then, once you have a good config file you like, save it into a github repo of your own so you have it saved, sourced, and backed up to a cloud server if anything goes awry.
 
 Autostart
--------------
+=============
 
 Since we're on Ubuntu, copy the ``init.d`` file over and set it up to **always** autostart:
 
@@ -80,7 +81,7 @@ So, we're copying a sample file - specifically the ``init.d_ddclient.ubuntu`` fi
 Then, the ``chmod +x`` makes the file executable by the sytem, and ``update-rc.d`` adds it to upstart for autostarting.
 
 Perl/CPAN
---------------
+==============
 
 Now, DDClient is dependent on some Perl Libraries to help it run. So, the specific Perl Library Management tool we'll be using is CPAN.
 
@@ -97,7 +98,7 @@ Then, once thats done, you'll want to install the library DDClient requires:::
 Since I don't know hardly anything about Perl other than I need it, I simply press enter through the various questions CPAN asks, since it will autofill with the defaults.
 
 Running DDClient
------------------------
+=======================
 
 Once you have all that taken care of, you can run ``sudo ddclient`` and it'll run it once, it'll talk to the server you have configured, and respond with output. For me, it usually tells me that my IP address is unchanged, and to run DDClient unneccessarily is considered abusive.
 

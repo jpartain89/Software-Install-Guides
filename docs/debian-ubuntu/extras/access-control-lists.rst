@@ -4,13 +4,15 @@ Access Control Lists
 
 OR
 
+--------------------
 Default Permissions
-====================
+--------------------
 
 This is a how-to specifically for whats called ACL's or Access Control Lists. These dictate the default Username, Groupname, and/or permissions that apply to the top directory and back down, as you so choose. This is awesome for when you mount secondary hard drives, or will be using a directory as a shared folder and need unified permissions.
 
+-----
 tl;dr
-=====
+-----
 
 .. code-block:: bash
 

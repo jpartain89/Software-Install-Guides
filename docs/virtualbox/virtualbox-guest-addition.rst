@@ -19,8 +19,9 @@ VirtualBox Guest Additions is, more or less, VirtualBox's way of making it easie
 
 First, we will show how to begin the install on our Host machine, then directly into our guest machine.
 
+------------
 Host Machine
-============
+------------
 
 So, first we need to mount the Guest Additions CD Image, which you can find under the "Devices" menu in the Virtual Machines Menu Bar. (Make sure the Guest Machine window is in focus to show that machines menu bar.).
 
@@ -30,11 +31,12 @@ So, first we need to mount the Guest Additions CD Image, which you can find unde
 
 Then, depending on what OS your guest is running depends on what the next steps are. We will be concentrating on Ubuntu Server, Headless installs. Seeing as that needs a big more work on our part than any GUI-based system.
 
+-------------------------------------
 Ubuntu Server Guest Machine
-=====================================
+-------------------------------------
 
 Pre-Requirements
-----------------
+================
 
 First, lets install the pre-requirements.
 
@@ -43,7 +45,7 @@ First, lets install the pre-requirements.
   sudo apt-get install dkms make gcc -y
 
 Mount the CDROM
----------------
+===============
 
 Then, to install the Guest Additions onto your Headless Ubuntu Server addition, you first have to mount the cd onto your directories so you can access whats inside.
 
@@ -52,14 +54,14 @@ Then, to install the Guest Additions onto your Headless Ubuntu Server addition, 
   sudo mount /dev/cdrom /media/cdrom
 
 Mounting Info
--------------
+---------------
 
 The ``/dev/cdrom`` is where your cdrom "hardware" is located in order for the software to access it. As in this would be the actual, physical cdrom drive if your server was physical.
 
 Then, the ``/media/cdrom`` is where you're mounting your cdrom so you can access the files.
 
 Run the Installer
------------------
+===================
 
 It'll alert you to the fact that the mounted filesystem is ``read only``. You're good to ignore that since we wont be making edits to the files. Then, cd into the mounted location, and run the installer.
 
@@ -74,8 +76,8 @@ That will take a hot second, at least, to run the installer. But, once its finis
 
   Make sure you have setup all of the configuration options in the machine settings, as in the folders you want to have shared from host to guest.
 
-usermod
-------------
+``usermod``
+=============
 
 Now, you'll need to add the group name ``vboxsf`` to all of the different system and user accounts.
 
@@ -84,7 +86,7 @@ Now, you'll need to add the group name ``vboxsf`` to all of the different system
   ``vboxsf`` is VirtualBox's group-ownership-way of mounting these directories.
 
 Services Info
--------------
+=============
 
 If you have any services with custom user/group names, like ``transmission-daemon``, stop those services before the next step please.
 

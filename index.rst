@@ -70,7 +70,6 @@ Table of contents:
   :caption: Extra Documentation
 
   docs/extras/index
-  docs/initial-ip-addresses.rst
 
 .. _Software-Install-Guides GIthub Page: https://github.com/jpartain89/Software-Install-Guides
 

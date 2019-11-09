@@ -1,7 +1,0 @@
-.. toctree::
-  :maxdepth: 2
-  :caption: macOS Documentation
-
-  macOS-Sierra-xcode-update
-  Download-Xcode-with-wget
-  Other-Random-Tidbits

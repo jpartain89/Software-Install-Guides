@@ -10,8 +10,9 @@ But, we will be using it to forward all of the system emails to our personal ema
 
 This was lifted - quite almost literally - from HowToForge. [POSTFIX-HowTo]_
 
+---------------
 Install Postfix
-===============
+---------------
 
 .. code-block:: bash
 
@@ -31,13 +32,14 @@ Then, it will continue on with ``System Mail Name``, which, technically you woul
   :alt: PostFix Install Configuration Option 2
   :align: center
 
+-----------------
 Configure Postfix
-=================
+-----------------
 
 We will be setting the system to process emails only from "the server on which it is running," aka the ``localhost`` or ``loopback interface``. That way, when postfix "receives" an email from the system - for say, root - it will use Postfix to forward the email off through our specified smtp server. Thus, using the loopback as the "catch-all" for the emails.
 
 Generic File
--------------
+=============
 
 You'll want to create a ``generic`` file inside of the postfix configuration directory. This should contain your systems hostname and then your email address, aka:
 
@@ -46,7 +48,7 @@ You'll want to create a ``generic`` file inside of the postfix configuration dir
   ubuntu-server   admin@jpcdi.com
 
 Password File
--------------------
+===================
 
 First, we're going to make a seperate, locked down password file that Postfix will use to authenticate with gmail.
 
@@ -70,7 +72,7 @@ Now, lock that file down so only root can view it.
   sudo chown root:root /etc/postfix/sasl_passwd
 
 Process Password and Generic File
------------------------------------
+=================================
 
 Remember when you installed ``mailutils``? That was for ``postmap``, which compiles and hashes the contents of our ``sasl_passwd`` and ``generic`` files, and creates a new file in the same spot, with ``.db`` added to the end, making it a database file easier to parse as it runs.
 
@@ -80,7 +82,7 @@ Remember when you installed ``mailutils``? That was for ``postmap``, which compi
   sudo postmap /etc/postfix/generic
 
 Main Configure File
---------------------
+====================
 
 In the ``main.cf`` file, there are 6 specific parameters we will be using for the relay setup:
 
@@ -112,8 +114,9 @@ You will most likely have to add most of the above options, possibly deleting on
 
 The ``smtp_sasl_security_options`` is left empty.
 
+---------------
 Restart Postfix
-===============
+---------------
 
 Restart postfix, enabling our various changes:
 
@@ -127,8 +130,9 @@ Restart postfix, enabling our various changes:
 
   sudo service postfix restart
 
+----------------
 Send Test Emails
-================
+----------------
 
 This is testing if the actual forwarding part works, as you're able to send emails through the command line.
 

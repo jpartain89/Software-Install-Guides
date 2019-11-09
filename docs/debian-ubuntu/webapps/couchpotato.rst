@@ -4,17 +4,19 @@ CouchPotato Movie Downloader [HTPC-CP]_
 
 CouchPotato is a web program, built on python, specifically tailored towards automating Movie Downloads, either through public or private torrent sites or using Usenet Services.
 
-Its a beautifully written program, works amazingly well, and is honestly fun to use.
+I honestly don't even use CouchPotato anymore, as it became a huge process hog and super slow to do everything. I personally use :ref:`Radarr`.
 
+---------
 Shoutout
-=========
+---------
 
 First, I'd like to go ahead and say that I wouldn't have been able to learn as much as I have as quickly or easily without the help of HTPCGuide's  `CP-HowTo`_.
 
 They are an amazing site, they are slowly getting larger, and they are the real, awesome source.
 
+-------------------
 Base Requirements
-===================
+-------------------
 
 First, lets install the basic required programs to help run all-the-things
 
@@ -33,8 +35,9 @@ First, lets install the basic required programs to help run all-the-things
 
   Currently, I am not using virtualenv, so that is currently outside the scope of this document.
 
+---------------
 Clone the Repo
-===============
+---------------
 
 Now, to really kick things off, we're going to first clone the github repo, as this is the - well, only way right now - to install and run the software.
 
@@ -61,8 +64,9 @@ Which, again, your other option is to:
 
   See :ref:`user_management` for notes on adjusting user permissions with regards to programs and allowing the web access to your machines.
 
+-----------------
 Test if it Works
-=================
+-----------------
 
 Now, we'll run the python program just within the Command Line output, which shows all the text output, including any errors and what not.
 
@@ -74,8 +78,9 @@ This will run only as long as you allow it directly inside the terminal, and it 
 
 Then, to stop the CL output and control, hit ``ctrl-C`` to quit the program.
 
+----------------------
 Copy/Edit Default File
-======================
+----------------------
 
 .. note::
 
@@ -97,8 +102,9 @@ The below code field is not the entire file, but rather just an excerpt of items
 #. ``CP_HOME`` is where it runs from
 #. ``CP_DATA`` is where it stores files like the metadata for your movie directory. This one I like to have stored on a mounted, shared drive. This way, if I ever need to reinstall CouchPotato, or the VM fraks up and needs to be spun fresh, the big time stuff is saved elsewhere. So, mine is ``/media/sf_Ext1/shared/couchpotato``
 
+-----------------------------
 Copy or Edit the init.d File
-=============================
+-----------------------------
 
 Now, if you're running Ubuntu, the ``./init/ubuntu`` script gets copied and amended thusly:
 
