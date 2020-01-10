@@ -133,4 +133,4 @@ That then puts ``/anysite`` behind the basic HTTP authentication pop-up, but uti
 .. _modules: https://www.nginx.com/resources/wiki/modules/
 .. _ngx_http_auth_pam_module: https://github.com/sto/ngx_http_auth_pam_module
 .. _include: http://nginx.org/en/docs/ngx_core_module.html#include
-.. _sto's github page: https://github.com/sto/ngx_http_auth_pam_module#Examples
+.. _sto's github page: https://github.com/sto/ngx_http_auth_pam_module

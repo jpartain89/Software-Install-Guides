@@ -61,7 +61,7 @@ html_theme_options = {
     'sticky_navigation': False,
     'display_version': False,
     'style_external_links': True,
-
+    'navigation_depth': -1
     }
 html_logo = 'JPLogo-Header.png'
 html_favicon = 'favicon.ico'
