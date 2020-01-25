@@ -12,6 +12,6 @@ I'm calling this section "Extras" for two reasons, really:
 .. toctree::
   :maxdepth: 2
 
-  ansible-adhoc
+  random-ansible-snippets
   ansible-random-nuggets
   mysql-767-error-code
