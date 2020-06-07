@@ -115,7 +115,7 @@ Random Number Generator
 
 tl;dr::
 
-  Using the following code gets you a ``Random Number`` between ``0 and 3600`` :guilabel:`&Plus` ``3600`` or ``1 hour``
+Using the following code gets you a ``Random Number`` between ``0 and 3600`` :guilabel:`&Plus` ``3600`` or ``1 hour``
 
 .. code-block:: bash
 
