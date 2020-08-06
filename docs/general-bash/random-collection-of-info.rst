@@ -73,6 +73,17 @@ or
 
   pip freeze | awk -F'==' '{ print $1 }'``
 
+Remove text, like Commas
+--------------------------
+
+tl;dr
+
+.. code-block:: bash
+
+  awk -F'[, ]' '{print $2}'
+
+Where what is inside the ``[]`` is what you want removed.
+
 Breakdown
 ==========
 
