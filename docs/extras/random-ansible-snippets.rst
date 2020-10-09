@@ -2,7 +2,7 @@
 Random Ansible Snippets
 =================================
 
-My `Pass a List <pass_a_list>`_ snippet is probably the one reason I come back to my own docs site more than anything else, finding myself constantly forgetting how to properly pass a random list of objects - like a string of apps to install, on a whim of testing, across all three of my pi's at once - to ansible's CLI setup. As what I'll be doing isn't quite enough to facilitate a full play, as its not even tested yet!
+My :ref:`pass_a_list` snippet is probably the one reason I come back to my own docs site more than anything else, finding myself constantly forgetting how to properly pass a random list of objects - like a string of apps to install, on a whim of testing, across all three of my pi's at once - to ansible's CLI setup. As what I'll be doing isn't quite enough to facilitate a full play, as its not even tested yet!
 
 ---------------------------
 Ansible CLI - Basic Example
@@ -34,7 +34,9 @@ This doesn't require the ``-a`` flag, unless there are other options you want to
   :alt: Ansible Ping Module
   :align: center
 
+
 .. _pass_a_list:
+
 ---------------
 Pass a List
 ---------------

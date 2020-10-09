@@ -73,6 +73,7 @@ or
 
   pip freeze | awk -F'==' '{ print $1 }'``
 
+--------------------------
 Remove text, like Commas
 --------------------------
 
@@ -124,9 +125,7 @@ Its able to give you that info, no matter where its called from, which is a typi
 Random Number Generator
 -----------------------
 
-tl;dr::
-
-Using the following code gets you a ``Random Number`` between ``0 and 3600`` :guilabel:`&Plus` ``3600`` or ``1 hour``
+tl;dr:: Using the following code gets you a ``Random Number`` between ``0 and 3600`` :guilabel:`&Plus` ``3600`` or ``1 hour``
 
 .. code-block:: bash
 
@@ -159,4 +158,4 @@ or, if you are on a mac, you have to add ``''`` after the ``-i``, and before the
 
 A great website to go look at for a plethora of how-tos is `tldp_randomvar`_.
 
-.. _tldp_randomvar: http://tldp.org/LDP/abs/html/randomvar.html
+.. _tldp_randomvar: https://tldp.org/LDP/abs/html/randomvar.html

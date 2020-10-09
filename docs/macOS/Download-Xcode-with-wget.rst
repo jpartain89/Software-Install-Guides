@@ -4,7 +4,7 @@ Download Beta Xcode with ``wget``
 
 So, I was looking for a way to download the Beta version of Xcode over the terminal, using either ``wget`` or ``curl``, and almost every suggestion I found got it wrong somehow.... Some made it more complicated than it should be or was probably too old a suggestion for Apple's current login systems...
 
-Either way, I finally found a solution from `Codesd <codesd-home>`_'s website that worked wonderfully, and it was the tidbit at the bottom of their post that made the specific difference::
+Either way, I finally found a solution from `Codesd`_'s website that worked wonderfully, and it was the tidbit at the bottom of their post that made the specific difference::
 
     for some reason cookies.txt only works if I only export cookies for the developer.apple.com website and doesnt work if I export all cookies from browser.
 
@@ -12,16 +12,16 @@ Either way, I finally found a solution from `Codesd <codesd-home>`_'s website th
 How To
 ------
 
-1. First, you'll need to login to the developer portal at `Beta Xcode Download <xcode-beta>`
+1. First, you'll need to login to the developer portal at `Beta Xcode Download`_
 
 2. You'll want to copy the download link for whichever Xcode version you are wanting/have access to.
 
    #. start the download, then cancel it
    #. Then, go to your browser's "downloads" page, where you can copy the specific download URL
 
-3. You'll need to download the cookies specifically for Apple's Developer Webpage, after you've logged in. I don't think Safari has an extension for downloading cookies, but I know Google Chrome has a few. I personally used `cookies.txt <cookie-chrome>`_.
+3. You'll need to download the cookies specifically for Apple's Developer Webpage, after you've logged in. I don't think Safari has an extension for downloading cookies, but I know Google Chrome has a few. I personally used Chromes Cookies.
 
-As `Codesd's Blog Post <codesd-post>`_  put it:
+As `Codesds Blog Post`_  put it:
 
     I in no way endorse this product and many other solutions in different browsers should work just as well.
 
@@ -45,14 +45,13 @@ And, you should find that the download this way is much much quicker than throug
 Unzipping
 ---------
 
-For the final step of unzipping/unpacking/un-whatever-its-technical-term-is-for-xip-files, if you have a 3rd party "unzipping" utility like I do (`The Unarchiver <unarchiver>`_ is my personal favorite) you'll want to make sure that your system will NOT use it!
+For the final step of unzipping/unpacking/un-whatever-its-technical-term-is-for-xip-files, if you have a 3rd party "unzipping" utility like I do (`The Unarchiver`_ is my personal favorite) you'll want to make sure that your system will NOT use it!
 
 Due to the file being a "XIP Secure Archive", as it says in Finder.app, the other tools will fail or throw errors when trying to take care of this ``.xip`` file. So, use the system's ``Archive Utility.app`` to "inflate" the file.
 
 IT WILL TAKE A BIT OF TIME... I assume due it being "Secure", its having to unencrypt whilst expanding. Plus its huge.
 
-.. _codesd-home: https://www.codesd.com/item/how-to-download-xcode-or-other-development-tools-in-a-resumable-way.html
-.. _codesd-post: https://www.codesd.com/item/how-to-download-xcode-or-other-development-tools-in-a-resumable-way.html
-.. _cookie-chrome: https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg?hl=en
-.. _unarchiver: https://theunarchiver.com/
-.. _xcode-beta: https://developer.apple.com/xcode/downloads/
+.. _Codesd: https://www.codesd.com/item/how-to-download-xcode-or-other-development-tools-in-a-resumable-way.html
+.. _Codesds Blog Post: https://www.codesd.com/item/how-to-download-xcode-or-other-development-tools-in-a-resumable-way.html
+.. _The Unarchiver: https://theunarchiver.com/
+.. _Beta Xcode Download: https://developer.apple.com/xcode/downloads/

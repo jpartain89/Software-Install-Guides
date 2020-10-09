@@ -257,9 +257,9 @@ Here is the tl;dr configuration, with the above in one place, plus more lines fr
     ssl_trusted_certificate /etc/letsencrypt/live/jpcdi.com/chain.pem;
   }
 
-.. _Bjornjohansen: https://bjornjohansen.no/
-.. _NGINX Configuration: https://bjornjohansen.no/tag/nginx
-.. _Optimizing NGINX: https://bjornjohansen.no/optimizing-https-nginx
+.. _Bjornjohansen: https://www.bjornjohansen.no/
+.. _NGINX Configuration: https://www.bjornjohansen.no/tag/nginx
+.. _Optimizing NGINX: https://www.bjornjohansen.no/optimizing-https-nginx
 
 .. _CertBot: https://certbot.eff.org/
 

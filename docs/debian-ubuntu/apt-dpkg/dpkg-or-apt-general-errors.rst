@@ -4,7 +4,7 @@ DPKG or APT General Errors
 
 This is a general catch-all doc for any smaller errors you might come across involving the ``apt`` and ``dpkg`` installation systems.
 
-.. _statoverride_fatal:
+.. _statoverride_file:
 
 -----------------
 StatOverride File
@@ -12,7 +12,7 @@ StatOverride File
 
 Sometimes, for a reason unknown to me, you'll get an error while installing, updating/upgrading - what have you - about the ``statoverride`` file having an unknown user:
 
-.. code-block:: bash
+.. code-block:: 
 
   dpkg: unrecoverable fatal error, aborting:
   unknown user 'cockpit-ws' in statoverride file
@@ -43,7 +43,7 @@ There are 2 different ways I found to remove the extra bit of info from the offe
 First Way
 =========
 
-The second option is the first way we can fix this issue, by removing the offending information, which in the above case - :ref:`statoverride_fatal` - the issue is about ``cockpit-ws``. Below is the output of the :file:`/var/lib/dpkg/statoverride` file.
+The second option is the first way we can fix this issue, by removing the offending information, which in the above case - :ref:`statoverride_file` - the issue is about ``cockpit-ws``. Below is the output of the :file:`/var/lib/dpkg/statoverride` file.
 
 .. code-block:: bash
   :emphasize-lines: 11

@@ -10,7 +10,7 @@ NZBGet is a downloading program specifically for downloading from [Usenet-Server
 UnRar
 -----
 
-First, install `UnRAR <unrar-link>`_. This is specifically for handingling what are called ``.rar`` files. Those mysterious crazy files that you randomly come across on the internets.
+First, install `UnRAR <https://www.rarlab.com/>`_. This is specifically for handingling what are called ``.rar`` files. Those mysterious crazy files that you randomly come across on the internets.
 
 Rar files are usually large files, taken apart into seperate items, along with a couple extra, documentation files for how they should be pieced back together again. ``unrar`` handles these guys along with NZBGet.
 
@@ -40,11 +40,6 @@ But, if you want the installation command, thats:
 
 Sadly, a lot of times this command doesn't always work out, and its almost never a "one-size-fits-all" scenario on why. The best first step is to look at [NZBGet-GitHub]_ to see what they say, and if anyone else has had the same issues.
 
-.. [NZBGet-HTPC] Copied from `HTPCGuides on NZBGet <htpcguides-nzbget>`_
-.. [NZBGet-GitHub] `NZBGet GitHub Page <nzbget-github-page>`_
-.. [Usenet-Servers] Usenet Servers are the old-school Internet, more-or-less, before there was a real "internet." `Usenet Wikipedia <usenet-wikipedia>`_
-
-.. _unrar-link: http://rarlab.com/
-.. _htpcguides-nzbget: http://www.htpcguides.com/install-latest-nzbget-on-ubuntu-15-x-with-easy-updates/
-.. _nzbget-github-page: https://github.com/nzbget/nzbget/
-.. _usenet-wikipedia: https://en.wikipedia.org/wiki/Usenet/
+.. [NZBGet-HTPC] Copied from `HTPCGuides on NZBGet <https://www.htpcguides.com/install-latest-nzbget-on-ubuntu-15-x-with-easy-updates/>`_
+.. [NZBGet-GitHub] `NZBGet GitHub Page <https://github.com/nzbget/nzbget/>`_
+.. [Usenet-Servers] Usenet Servers are the old-school Internet, more-or-less, before there was a real "internet." `Usenet Wikipedia <https://en.wikipedia.org/wiki/Usenet_newsgroup>`_

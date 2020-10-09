@@ -58,7 +58,7 @@ Next, I do like to create and use a seperate, ``tautulli`` user for running Taut
 
   See :ref:`user_management` for notes on adjusting user permissions with regards to programs and allowing the web access to your machines.
 
-  But, use the ``adduser`` line below instead of from the `User Management <../ubuntu_user.rst>`_ doc
+  But, use the ``adduser`` line below instead of from the :ref:`user_management` doc
 
 .. code-block:: bash
 

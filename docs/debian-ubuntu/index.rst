@@ -11,7 +11,7 @@ I have this section broken down further into specific area's of interest:
 
   - PS. the OpenVPN guide is for setting up a client, not a server.
 
-#. :ref:`web-server-stuff` - This is for setting up the actual web server backend. This is the reverse proxy stuff so you can map your port numbers to web addresses for easy typing and remote access.
+#. :ref:`web_server_stuff` - This is for setting up the actual web server backend. This is the reverse proxy stuff so you can map your port numbers to web addresses for easy typing and remote access.
 
 #. :ref:`apt` - These guides are specifically geared towards Debian's ``apt-get``-based installation systems, including ``dpkg``
 

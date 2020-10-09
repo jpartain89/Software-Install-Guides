@@ -18,7 +18,7 @@ Install Postfix
 
   sudo apt-get install postfix mailutils
 
-Now, during this installation, the system will prompt you with Configuration Option's. Since we will be using an outside service to send our mail - aka `<smtp.gmail.com>`_ - we will select ``Internet Site``.
+Now, during this installation, the system will prompt you with Configuration Option's. Since we will be using an outside service to send our mail - aka ``smtp.gmail.com`` - we will select ``Internet Site``.
 
 If we were to use postfix in other ways, we'd pick another option.
 

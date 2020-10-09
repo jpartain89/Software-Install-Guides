@@ -19,4 +19,4 @@ What does it do?
 - ``logger -s -t "$(basename "$0")")`` the ``logger`` program is a means of piping output into your systems ``syslog`` or ``rsyslog`` or what have you. ``basename`` adds the file/scripts name onto the syslog entry.
 - ``2>&1`` is for piping ``2`` or ``stderr`` into the ``exec`` command
 
-This information was wonderfully pulled from `UrbanAutomation <https://urbanautomaton.com/blog/2014/09/09/redirecting-bash-script-output-to-syslog/>`_'s website.
+This information was wonderfully pulled from `UrbanAutomation <https://www.urbanautomaton.com/blog/2014/09/09/redirecting-bash-script-output-to-syslog/>`_'s website.
