@@ -2,6 +2,8 @@
 Securing NGINX
 ==============
 
+.. include:: ../../donotuse.rst
+
 This is a high level, very basic, more of a "config-only" document. There will be other docs that better explain the items listed here.
 
 One big, generalized note to keep in mind is each line ends with ``;``

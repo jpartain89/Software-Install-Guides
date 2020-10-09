@@ -39,6 +39,8 @@ This doesn't require the ``-a`` flag, unless there are other options you want to
 Pass a List
 ---------------
 
+.. note:: tl;dr ``ansible ipsec --become -m apt -a 'name={{ list }}' -e '{"list": [strongswan,strongswan-plugin-eap-mschapv2,moreutils,iptables-persistent]}'``
+
 I've been wanting to figure this one out for forever!
 
 Basically, how to pass multiple items into a command option when using ansible's ``ad-hoc`` mode on the command line.

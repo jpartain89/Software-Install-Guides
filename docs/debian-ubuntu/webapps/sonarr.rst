@@ -2,6 +2,8 @@
 Sonarr Installation [HTPC-Sonarr]_
 ==================================
 
+.. include:: ../../donotuse.rst
+
 Sonarr (old name was NzbDrone, which you will still see everywhere. Even in their startup file...) is, honestly, my favorite of all of the HTPC Apps. Even moreso than Plex because Plex can really be a huge resource hog.
 
 The day that Sonarr really hopped into my all time fav basket was when I had began downloading a TV show outside of Sonarr. Then, when I had started adding it to Sonarr, it started searching through my directories I had inputted into its settings as a possible final download location, found the files, moved them into their correct, final spot, renamed and everything. Without missing a beat.

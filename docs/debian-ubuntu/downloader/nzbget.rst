@@ -2,6 +2,8 @@
 NZBGet [NZBGet-HTPC]_
 ======================
 
+.. include:: ../../donotuse.rst
+
 NZBGet is a downloading program specifically for downloading from [Usenet-Servers]_. They are inherintely more secure and are, in general, much quicker to download than torrents.
 
 -----

@@ -2,6 +2,8 @@
 Transmission [TRANS-HTPC]_
 ==========================
 
+.. include:: ../../donotuse.rst
+
 Transmission is my personal fav of all the Torrent Downloaders. For one, its the easiest I've found to use and setup. For two, it has a headless program for running on a server - and comes standard with a GUI interface that way. And three, its super light weight.
 
 --------------------

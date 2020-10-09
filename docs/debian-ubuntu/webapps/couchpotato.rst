@@ -2,6 +2,8 @@
 CouchPotato Movie Downloader [HTPC-CP]_
 =======================================
 
+.. include:: ../../donotuse.rst
+
 CouchPotato is a web program, built on python, specifically tailored towards automating Movie Downloads, either through public or private torrent sites or using Usenet Services.
 
 I honestly don't even use CouchPotato anymore, as it became a huge process hog and super slow to do everything. I personally use :ref:`Radarr`.

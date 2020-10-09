@@ -2,7 +2,7 @@
 DDRescue
 ==========
 
-This is my personal, favorite means of imaging an SD Card through the command line - which is the easiest, most foolproof means of doing so. Plus, its also learning, which is reason #1 for doing this....
+.. include:: ../donotuse.rst
 
 .. image:: ddrescue_ex.jpg
   :alt: DDRescue Command Line GUI

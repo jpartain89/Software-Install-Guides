@@ -4,6 +4,8 @@
 Compiling NGINX From Source [NGINX-Copied]_
 ===========================================
 
+.. include:: ../../donotuse.rst
+
 The way listed here uses ``apt-get`` to our advantage. By adding the NGINX PPA repo, we get a baseline of required files, configuration files, and other things that make this much easier for us all!
 
 -------------

@@ -2,6 +2,8 @@
 OpenVPN [PIA-VPN]_
 ===================
 
+.. include:: ../../donotuse.rst
+
 ------------------
 Secure Downloading
 ------------------

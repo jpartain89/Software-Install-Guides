@@ -2,6 +2,8 @@
 Alternate Transmission Web GUI
 ==============================
 
+.. include:: ../../donotuse.rst
+
 The command line tools for Transmission also come with a directory that runs a web-based GUI for Transmission. Not only does this allow running a torrent program on a headless server, but say you have hardware that the graphics card isn't too quick. Rather than install the GUI Desktop version, install the command line version! Plus, if you run a reverse proxy web server in front of it, you can access it from anywhere.
 
 --------------------------------------

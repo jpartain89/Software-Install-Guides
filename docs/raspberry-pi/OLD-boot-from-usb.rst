@@ -2,7 +2,7 @@
 OLD Boot Raspberry Pi from USB
 ==============================
 
-This is now a deprecated, old means of doing this! Do not follow these steps!
+.. include:: ../donotuse.rst
 
 So why keep this? History... Posterity? Because I can?
 

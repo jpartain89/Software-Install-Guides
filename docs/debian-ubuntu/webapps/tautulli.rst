@@ -2,6 +2,8 @@
 Tautulli (previously PlexPy) [HTPC-Tautulli]_
 =============================================
 
+.. include:: ../../donotuse.rst
+
 Tautulli is specifically for monitoring Plex. Plus, you can setup notifications so you can see when Plex adds files, has updates, items are played and stopped and what not, as well as if you have any friends or family who have access.
 
 It also gives you a breakdown of what is played the most, how many concurrent streams have played at the same time, and a bunch of other things as well.

@@ -1,5 +1,3 @@
-.. _mounting-drive:
-
 ====================================
 Mounting Unformatted Drive in Ubuntu
 ====================================
@@ -34,7 +32,7 @@ So, we will be using ``fdisk`` for these next few steps:
 
 So, my 2nd hard drive is labeled as ``/dev/sdb``, and because I had just created the virtual drive on my host machine, there are no partitions.
 
-.. image:: hd-fdisk_list.jpg
+.. image:: images/hd-fdisk_list.jpg
   :alt: fdisk -l output
   :align: center
 

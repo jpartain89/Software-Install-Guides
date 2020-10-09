@@ -22,13 +22,13 @@ Now, during this installation, the system will prompt you with Configuration Opt
 
 If we were to use postfix in other ways, we'd pick another option.
 
-.. image:: pf_install_conf.jpg
+.. image:: images/pf_install_conf.jpg
   :alt: PostFix Install Configuration Option 1
   :align: center
 
 Then, it will continue on with ``System Mail Name``, which, technically you would normally want a ``FQDN`` address listed here. But, using your systems basic hostname is also fine, especially if you have just a couple of machines.
 
-.. image:: pf_mailname.jpg
+.. image:: images/pf_mailname.jpg
   :alt: PostFix Install Configuration Option 2
   :align: center
 
