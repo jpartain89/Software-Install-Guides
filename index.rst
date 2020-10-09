@@ -71,6 +71,6 @@ Table of contents:
 
   docs/extras/index
 
-.. _Software-Install-Guides GIthub Page: https://github.com/jpartain89/Software-Install-Guides
+.. _Software-Install-Guides Github Page: https://github.com/jpartain89/Software-Install-Guides
 
 .. _HTPC Guides: https://www.htpcguides.com/
