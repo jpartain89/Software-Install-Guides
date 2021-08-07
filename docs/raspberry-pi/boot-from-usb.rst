@@ -1,6 +1,6 @@
-===========================================
+=============================================
 Boot your Raspberry Pi from an External USB
-===========================================
+=============================================
 
 Tired of using an SD card for your raspberry pi? Have you found them to be incredibly unstable, forcing you to reinstall the OS from scratch all the time? Using write-intensive tasks, such as running a database, or a webserver with a ton of logfiles??
 
@@ -17,7 +17,7 @@ Basically, you're going to run through most of these steps just like you would t
 Some OS's sometimes need a little bit of extra TLC to make the hard drive approach work correctly, though, and can be a pain to get right. Make sure to do your homework as to which OS's are available for your particular Pi and if they can even be installed on an external drive.
 
 Debian/Raspberry Pi OS's
-====================
+============================
 
 When using Debian or Raspberry Pi OS's, its the simplest of processes, as you can follow the same steps as the SD Card steps.
 

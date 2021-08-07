@@ -90,3 +90,13 @@ Breakdown:
 #. ``-y`` - basically means ``yes, do this without asking like normal``
 
 .. include:: ./bash-logging.rst
+
+------------------------
+Using DD for Backup
+------------------------
+
+.. code-block:: bash
+
+  export DISKNAME=PUT_NAME_HERE; \
+  export BLOCKSIZE=$(sudo blockdev --getsize64 /dev/sdc) && \
+  sudo dd if=/dev/sdc bs=1MB | pv -s $BLOCKSIZE | gzip -9 > $DISKNAME.img.gz

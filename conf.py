@@ -52,7 +52,7 @@ author = u'Justin Partain'
 version = u'3.8.0'
 release = u'3.8.0'
 today_fmt = '%B %d, %Y'
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_drafts', 'README.rst']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_drafts', 'README.rst', 'venv']
 pygments_style = 'sphinx'
 html_theme_options = {
     'analytics_id': 'UA-75489042-1',

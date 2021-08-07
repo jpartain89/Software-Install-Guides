@@ -5,4 +5,4 @@ docutils
 Pygments
 mkdocs
 readthedocs-build
-urllib3<1.25,>=1.21.1
+urllib3

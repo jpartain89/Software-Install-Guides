@@ -10,3 +10,4 @@ These how-to's are directed toward using VirtualBox, geared moreso towards using
 
   virtualbox-autostart
   virtualbox-guest-addition
+  virtualbox-systemd

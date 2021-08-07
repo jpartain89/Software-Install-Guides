@@ -7,16 +7,10 @@ set -e
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if [[ "$(uname)" == "Linux" ]]; then
-    if [[ -n "$(command -v pip3)" ]]; then
-        PIPBIN="$(command -v pip3)"
-    fi
-else
-    if [[ -n "$(command -v pip3)" ]]; then
-        PIPBIN="$(command -v pip3)"
-    fi
+if [[ ! -e "${DIR}/../venv" ]]; then
+    virtualenv "${DIR}/../venv"
 fi
 
-SUDO="$(command -v sudo)"
+source "${DIR}/../venv/bin/activate"
 
-"${SUDO}" -H "${PIPBIN}" install --upgrade -r "${DIR}/requirements.txt"
+"${DIR}/../venv/bin/pip3" install --upgrade -r "${DIR}/requirements.txt"
