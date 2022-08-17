@@ -6,6 +6,6 @@ This section is going to be dedicated to my how-to's for my various Cloudflare u
 
 .. toctree::
 
-  argo
+  cloudflared
   api
   ddns

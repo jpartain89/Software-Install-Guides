@@ -7,8 +7,15 @@ set -e
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if [[ ! -e "${DIR}/../venv" ]]; then
-    virtualenv "${DIR}/../venv"
+if [[ "$(command -v virtualenv)" ]]; then
+    if [[ ! -e "${DIR}/../venv" ]]; then
+        virtualenv "${DIR}/../venv"
+    fi
+else
+    echo "Looks like 'virtualenv' is missing from your computer..."
+    echo "Please, install that program, first!"
+    echo "Thanks, and have a grand day!"
+    exit
 fi
 
 source "${DIR}/../venv/bin/activate"
