@@ -3,7 +3,7 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
+SPHINXBUILD   = ./venv/bin/sphinx-build
 PAPER         =
 BUILDDIR      = _build
 
@@ -65,6 +65,7 @@ dirhtml:
 
 .PHONY: text
 text:
+
 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text
 	@echo
 	@echo "Build finished. The text files are in $(BUILDDIR)/text."

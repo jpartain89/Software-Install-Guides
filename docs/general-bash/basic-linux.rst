@@ -91,6 +91,23 @@ Breakdown:
 
 .. include:: ./bash-logging.rst
 
+
+--------------------------
+Deprecation of ``apt-key``
+--------------------------
+
+As of Ubuntu 22.04, ``apt-key`` is now warning you - very explicitly - that it is deprecated, no longer considered "secure" in its main job: making sure the apt-repos that we utilize are who they claim to be. And that the apps contained within them are "the" apps, and not hijacked by someone with ill-intent.
+
+But, with this goes out the window the ability to easily, quickly, programmatically download all those lovely keys from their corresponding GPG Key servers out there in the cloud.
+
+Or does it?
+
+I finally found `this snippet on Gitlab`_ the other day, and it works wonderfully!
+
+.. raw:: html
+
+  <script src="https://gitlab.com/-/snippets/2320252.js"></script>
+
 ------------------------
 Using DD for Backup
 ------------------------
@@ -100,3 +117,5 @@ Using DD for Backup
   export DISKNAME=PUT_NAME_HERE; \
   export BLOCKSIZE=$(sudo blockdev --getsize64 /dev/sdc) && \
   sudo dd if=/dev/sdc bs=1MB | pv -s $BLOCKSIZE | gzip -9 > $DISKNAME.img.gz
+
+.. _this snippet on Gitlab: https://gitlab.com/-/snippets/2320252
