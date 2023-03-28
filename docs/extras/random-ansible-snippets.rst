@@ -51,4 +51,4 @@ Basically, how to pass multiple items into a command option when using ansible's
 
   ansible ipsec --become -m apt -a 'name={{ list }}' -e '{"list": [strongswan,strongswan-plugin-eap-mschapv2,moreutils,iptables-persistent]}'
 
-.. _Ansible Documentation: https://docs.ansible.com/ansible/latest/user_guide/intro_adhoc.html#introduction-to-ad-hoc-commands
+.. _Ansible Documentation: https://docs.ansible.com/ansible/latest/command_guide/intro_adhoc.html#introduction-to-ad-hoc-commands

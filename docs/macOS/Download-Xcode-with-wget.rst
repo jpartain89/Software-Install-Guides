@@ -35,7 +35,7 @@ As `Codesds Blog Post`_  put it:
 
 .. code-block:: bash
 
-    wget --load-cookies=cookies.txt -c https://download.developer.apple.com/Developer_Tools/Xcode_9.2_Beta_2/Xcode_9.2_Beta_2.xip
+    wget --load-cookies=cookies.txt -c https://download.developer.apple.com/Developer_Tools/Xcode_14.3_Release_Candidate_2/Xcode_14.3_Release_Candidate_2.xip
 
 Replace the specific URL with the URL that you want/need to use, please.
 

@@ -23,12 +23,12 @@ When using Debian or Raspberry Pi OS's, its the simplest of processes, as you ca
 
 First, you'll want to `Download the version you want to use`_. Their website now has three different versions posted, two with the Desktop stuff (GUI) and one that they call `Lite`, or command line-only - essentially the server version, which is the one I use.
 
-Next, their `Basic Installation`_ steps say to download and use `Raspberry Pi Imager`_ to to install the OS onto whatever medium you want to install it on. 
+Next, their `Basic Installation`_ steps say to download and use `Raspberry Pi Imager`_ to to install the OS onto whatever medium you want to install it on.
 
 
 
-.. _Download the version you want to use: https://www.raspberrypi.org/downloads/raspberry-pi-os/
+.. _Download the version you want to use: https://www.raspberrypi.com/software/operating-systems/
 
-.. _Basic Installation: https://www.raspberrypi.org/documentation/installation/installing-images/README.md
+.. _Basic Installation: https://www.raspberrypi.com/documentation/computers/getting-started.html
 
-.. _Raspberry Pi Imager: https://www.raspberrypi.org/downloads/
+.. _Raspberry Pi Imager: https://www.raspberrypi.com/software/
