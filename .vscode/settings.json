@@ -1,4 +1,5 @@
 {
   "restructuredtext.confPath": "${workspaceFolder}",
-  "esbonio.sphinx.confDir": ""
+  "esbonio.sphinx.confDir": "",
+  "esbonio.sphinx.numJobs": 0
 }
