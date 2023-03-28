@@ -12,7 +12,7 @@ StatOverride File
 
 Sometimes, for a reason unknown to me, you'll get an error while installing, updating/upgrading - what have you - about the ``statoverride`` file having an unknown user:
 
-.. code-block:: 
+.. code-block::
 
   dpkg: unrecoverable fatal error, aborting:
   unknown user 'cockpit-ws' in statoverride file

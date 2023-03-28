@@ -12,4 +12,4 @@ I personally use the requirements file as a simple ``install/upgrade`` list. aka
 
   sudo -H pip install --upgrade -r requirements.txt
 
-This file is much more detailed and expansive than I care to currently go into. 
+This file is much more detailed and expansive than I care to currently go into.
