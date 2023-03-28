@@ -1,8 +1,8 @@
-.. _downloaders:
+.. _archived-downloaders:
 
-===========
-Downloaders
-===========
+====================
+Archived Downloaders
+====================
 
 This includes how to install Transmission's headless downloading program and how to install OpenVPN's stuff with direct use of `PIAs`_ service and files.
 

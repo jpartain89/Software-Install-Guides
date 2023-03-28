@@ -8,7 +8,7 @@ OpenVPN [PIA-VPN]_
 Secure Downloading
 ------------------
 
-This specific how-to is in the :ref:`downloaders` section of my how-to's because this is for setting up an OpenVPN connection to a paid-for service, not from your, say, cell phone back home again.
+This specific how-to is in the :ref:`archived-downloaders` section of my how-to's because this is for setting up an OpenVPN connection to a paid-for service, not from your, say, cell phone back home again.
 
 ----
 Info
