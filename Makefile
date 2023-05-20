@@ -6,6 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = ./venv/bin/sphinx-build
 PAPER         =
 BUILDDIR      = _build
+RSYNC         = /opt/homebrew/bin/rsync
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
@@ -33,6 +34,7 @@ dummy:
 	@echo "Build finished. Dummy builder generates no files."
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	$(RSYNC) $(BUILDDIR)/html /var/www/html/docs
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 

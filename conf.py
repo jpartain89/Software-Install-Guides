@@ -49,8 +49,8 @@ project = u'Software Install Guides'
 copyright = u'2016-' + str(date.today().year) + \
     u', Justin Partain, JPartain89, JPCDI'
 author = u'Justin Partain'
-version = u'3.8.0'
-release = u'3.8.0'
+version = u'4.0.0'
+release = u'4.0.0'
 today_fmt = '%B %d, %Y'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_drafts', 'README.rst', 'venv']
 pygments_style = 'sphinx'
@@ -61,7 +61,7 @@ html_theme_options = {
     'sticky_navigation': False,
     'display_version': False,
     'style_external_links': True,
-    'navigation_depth': -1
+    'navigation_depth': 4
     }
 html_logo = 'JPLogo-Header.png'
 html_favicon = 'favicon.ico'

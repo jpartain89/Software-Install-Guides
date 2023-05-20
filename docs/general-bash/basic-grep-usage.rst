@@ -4,9 +4,11 @@ Use grep Output as if-else Conditional
 
 This was my notation of how to use ``grep``'s standard output as an ``if-else`` conditional in a shell script.
 
-Basically, just about all programs have at least two outputs: the textual output that it sends to ``STDOUT`` - the stuff that you read - and a basic ``0`` ``1`` or more, which you use in shell scripts, ``if-else`` conditionals,  loops, etc.
+Basically, just about all programs have at least two outputs: the textual output that it sends to ``STDOUT`` - the stuff that you read - and a basic ``0``, ``1`` or higher, which you use in shell scripts, ``if-else`` conditionals,  loops, and other tests.
 
-The ``if-else`` conditionals or ``while`` loops like to use simple numbers: ``0`` or ``1`` and above for, testing for something. ``0`` meaning successful run, or ``1`` and above meaning failed. If we are testing for ``openvpn`` being installed, and it returns ``0`` for yes, ``1`` for error, you can make a conditional that says ``if 0, yes, then do not attempt install. If NOT 0, then attempt install.``
+The ``if-else`` conditionals or ``while`` loops like to use simple numbers: ``0`` or ``1`` and higher for testing for the success or failure of a once-running program. ``0`` meaning successful run, or ``1`` and above meaning failed. If we are testing for ``openvpn`` being installed, and it returns ``0`` for yes, ``1`` for error, you can make a conditional that says ``if 0, yes, then do not attempt install. If NOT 0, then attempt install.``
+
+Now, when I say "return", I mean it presents the output, by default, essentially in the background where you might not see it, but the computer certainly knows is there. And, depending on the program/programs running, they can see the result, too.
 
 ----------------------------
 Basic Use of grep in if-else

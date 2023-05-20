@@ -9,3 +9,4 @@ This is not, in any way, meant to be exhaustive - or even highly detailed or may
 
   git-repo-address
   cache-git-password-terminal
+  git_orphan
