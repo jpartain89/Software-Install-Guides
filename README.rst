@@ -26,7 +26,7 @@ If you want to just run the tests without the documents being built, run ``make 
 Version 5.0.0
 =============
 
-This version is a big jump due to RTD's new `.readthedocs.yaml` file requirements, which breaks this project, 'technicaly' from v4.0.0 to now.
+This version is a big jump due to RTD's new `.readthedocs.yaml` file requirements, which breaks this project, 'technicaly' from v4.0.0 to now. 
 
 .. _ReadTheDocs.org: http://readthedocs.org/
 .. _Software Installation Guides: docs.jpcdi.com_
