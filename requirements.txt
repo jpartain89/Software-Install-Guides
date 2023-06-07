@@ -28,6 +28,7 @@ PyYAML==6.0
 pyyaml_env_tag==0.1
 readthedocs-build==2.0.9
 readthedocs-sphinx-ext==2.2.1
+readthedocs-sphinx-search==0.1.1
 recommonmark==0.7.1
 requests==2.31.0
 six==1.16.0
