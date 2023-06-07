@@ -23,11 +23,61 @@ Table of contents:
 
   docs/debian-ubuntu/index
   docs/raspberry-pi/index
+<<<<<<< HEAD
   docs/macOS/index
   docs/virtualbox/index
   docs/general-bash/index
   docs/git/index
   docs/website-testing/index
+=======
+
+.. _macOS:
+
+.. toctree::
+  :maxdepth: 3
+  :caption: macOS Documentation
+
+  docs/macOS/index
+
+.. _virtualbox:
+
+.. toctree::
+  :maxdepth: 3
+  :caption: VirtualBox Documentation
+
+  docs/virtualbox/index
+
+.. _general_bash:
+
+.. toctree::
+  :maxdepth: 3
+  :caption: General Bash Documentation
+
+  docs/general-bash/index
+
+.. _git_docs:
+
+.. toctree::
+  :maxdepth: 3
+  :caption: Git Documentation
+
+  docs/git/index
+
+.. _website_testing:
+
+.. toctree::
+  :maxdepth: 3
+  :caption: Website Testing Documentation
+
+  docs/website-testing/index
+
+.. _extras_docs:
+
+.. toctree::
+  :maxdepth: 3
+  :caption: Extra Documentation
+
+>>>>>>> 236bdb2 (Update for 06-06-2023 22-14-39)
   docs/extras/index
 
 =================================
