@@ -65,6 +65,7 @@ html_theme_options = {
     }
 html_logo = 'JPLogo-Header.png'
 html_favicon = 'favicon.ico'
+html_extra_path = ['_extra_html']
 html_static_path = ['_static']
 html_last_updated_fmt = '%B %d, %Y'
 html_use_smartypants = True
