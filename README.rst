@@ -23,6 +23,11 @@ Run ``./scripts/install.sh``. It utilizes ``pip3`` to install the required pytho
 
 If you want to just run the tests without the documents being built, run ``make local-tests``. Otherwise, you can run ``make build`` to clean out any old documentation, then it runs linkcheck, tests building and then actually builds the documentation.
 
+Version 5.0.0
+=============
+
+This version is a big jump due to RTD's new `.readthedocs.yaml` file requirements, which breaks this project, 'technicaly' from v4.0.0 to now. 
+
 .. _ReadTheDocs.org: http://readthedocs.org/
 .. _Software Installation Guides: docs.jpcdi.com_
 .. _docs.jpcdi.com: https://docs.jpcdi.com/
