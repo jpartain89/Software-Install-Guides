@@ -55,7 +55,7 @@ today_fmt = '%B %d, %Y'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_drafts', 'README.rst', 'venv']
 pygments_style = 'sphinx'
 html_theme_options = {
-    'analytics_id': 'UA-75489042-1',
+    'analytics_id': 'G-N74JQEKLQN',
     'collapse_navigation': False,
     'prev_next_buttons_location': 'both',
     'sticky_navigation': False,
