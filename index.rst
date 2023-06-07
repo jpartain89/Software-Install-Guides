@@ -73,6 +73,10 @@ Table of contents:
 
   docs/extras/index
 
+=================================
+These docs are no longer updated:
+=================================
+
 .. _archive:
 
 .. toctree::
