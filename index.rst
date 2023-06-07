@@ -28,7 +28,7 @@ Table of contents:
 .. _macOS:
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 3
   :caption: macOS Documentation
 
   docs/macOS/index
@@ -36,7 +36,7 @@ Table of contents:
 .. _virtualbox:
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 3
   :caption: VirtualBox Documentation
 
   docs/virtualbox/index
@@ -44,7 +44,7 @@ Table of contents:
 .. _general_bash:
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 3
   :caption: General Bash Documentation
 
   docs/general-bash/index
@@ -52,7 +52,7 @@ Table of contents:
 .. _git_docs:
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 3
   :caption: Git Documentation
 
   docs/git/index
@@ -60,7 +60,7 @@ Table of contents:
 .. _website_testing:
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 3
   :caption: Website Testing Documentation
 
   docs/website-testing/index
@@ -68,7 +68,7 @@ Table of contents:
 .. _extras_docs:
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 3
   :caption: Extra Documentation
 
   docs/extras/index
