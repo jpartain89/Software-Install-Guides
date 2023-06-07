@@ -33,7 +33,7 @@ dummy:
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
-	$(RSYNC) $(BUILDDIR)/html /var/www/html/docs
+	#$(RSYNC) $(BUILDDIR)/html /var/www/html/docs
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
