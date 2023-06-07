@@ -10,7 +10,7 @@ build:
   tools:
     python: "3.11"
   jobs:
-    pre_system_dependencies:
+    post_create_environment:
       - make install
 
 # Build documentation in the docs/ directory with Sphinx
