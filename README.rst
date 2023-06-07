@@ -2,11 +2,11 @@
 Software Install Guides
 =======================
 
-===========  ==================
-RTD Build     Travis-CI Build
-===========  ==================
-|rtd_image|  |travis-ci_image|
-===========  ==================
+===========
+RTD Build
+===========
+|rtd_image|
+===========
 
 My personal reStructuredText - ``rst`` - files for my `Software Installation Guides`_.
 
@@ -26,14 +26,14 @@ If you want to just run the tests without the documents being built, run ``make 
 Version 5.0.0
 =============
 
-This version is a big jump due to RTD's new `.readthedocs.yaml` file requirements, which breaks this project, 'technicaly' from v4.0.0 to now. 
+This version is a big jump due to RTD's new `.readthedocs.yaml` file requirements, which breaks this project, 'technicaly' from v4.0.0 to now.
 
 .. _ReadTheDocs.org: http://readthedocs.org/
 .. _Software Installation Guides: docs.jpcdi.com_
 .. _docs.jpcdi.com: https://docs.jpcdi.com/
 .. _homebrew: https://brew.sh
-.. |rtd_image| image:: http://readthedocs.org/projects/software-install-guides/badge/?version=latest
-    :target: http://software-install-guides.readthedocs.io/en/latest/?badge=latest
+.. |rtd_image| image:: https://readthedocs.org/projects/software-install-guides/badge/?version=master
+    :target: https://docs.jpcdi.com/?badge=master
     :alt: Documentation Status
 .. |travis-ci_image| image:: https://travis-ci.org/jpartain89/Software-Install-Guides.svg?branch=master
     :target: https://travis-ci.org/jpartain89/Software-Install-Guides
