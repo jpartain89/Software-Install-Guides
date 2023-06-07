@@ -6,6 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = ./venv/bin/sphinx-build
 PAPER         =
 BUILDDIR      = _build
+RSYNC         = /opt/homebrew/bin/rsync
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
@@ -16,12 +17,10 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
 .PHONY: all
 all: install clean linkcheck dummy html
-install:
-	/bin/bash scripts/install.sh
-	@echo
-	@echo "Installation Finished."
+
 clean:
 	rm -rf $(BUILDDIR)/*
+
 linkcheck:
 	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
 	@echo
@@ -31,6 +30,7 @@ dummy:
 	$(SPHINXBUILD) -b dummy $(ALLSPHINXOPTS) $(BUILDDIR)/dummy
 	@echo
 	@echo "Build finished. Dummy builder generates no files."
+
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
@@ -65,7 +65,6 @@ dirhtml:
 
 .PHONY: text
 text:
-
 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text
 	@echo
 	@echo "Build finished. The text files are in $(BUILDDIR)/text."
@@ -76,4 +75,7 @@ text:
 
 .PHONY: dummy
 
-.PHONY: install
+install:
+	/bin/bash scripts/install.sh
+	@echo
+	@echo "Installation Finished."

@@ -20,4 +20,4 @@ fi
 
 source "${DIR}/../venv/bin/activate"
 
-"${DIR}/../venv/bin/pip3" install --upgrade -r "${DIR}/requirements.txt"
+"${DIR}/../venv/bin/pip3" install --upgrade -r "${DIR}/../requirements.txt"

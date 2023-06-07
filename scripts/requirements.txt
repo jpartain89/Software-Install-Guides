@@ -1,8 +1,0 @@
-Sphinx
-sphinx-autobuild
-sphinx-rtd-theme
-docutils
-Pygments
-mkdocs
-readthedocs-build
-urllib3
