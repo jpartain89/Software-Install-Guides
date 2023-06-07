@@ -20,57 +20,14 @@ Table of contents:
 
 .. toctree::
   :maxdepth: 3
-  :caption: Debian-Based Documentation
 
   docs/debian-ubuntu/index
   docs/raspberry-pi/index
-
-.. _macOS:
-
-.. toctree::
-  :maxdepth: 3
-  :caption: macOS Documentation
-
   docs/macOS/index
-
-.. _virtualbox:
-
-.. toctree::
-  :maxdepth: 3
-  :caption: VirtualBox Documentation
-
   docs/virtualbox/index
-
-.. _general_bash:
-
-.. toctree::
-  :maxdepth: 3
-  :caption: General Bash Documentation
-
   docs/general-bash/index
-
-.. _git_docs:
-
-.. toctree::
-  :maxdepth: 3
-  :caption: Git Documentation
-
   docs/git/index
-
-.. _website_testing:
-
-.. toctree::
-  :maxdepth: 3
-  :caption: Website Testing Documentation
-
   docs/website-testing/index
-
-.. _extras_docs:
-
-.. toctree::
-  :maxdepth: 3
-  :caption: Extra Documentation
-
   docs/extras/index
 
 =================================

@@ -17,12 +17,10 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
 .PHONY: all
 all: install clean linkcheck dummy html
-install:
-	/bin/bash scripts/install.sh
-	@echo
-	@echo "Installation Finished."
+
 clean:
 	rm -rf $(BUILDDIR)/*
+
 linkcheck:
 	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
 	@echo
@@ -32,9 +30,9 @@ dummy:
 	$(SPHINXBUILD) -b dummy $(ALLSPHINXOPTS) $(BUILDDIR)/dummy
 	@echo
 	@echo "Build finished. Dummy builder generates no files."
+
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
-	#$(RSYNC) $(BUILDDIR)/html /var/www/html/docs
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
@@ -67,7 +65,6 @@ dirhtml:
 
 .PHONY: text
 text:
-
 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text
 	@echo
 	@echo "Build finished. The text files are in $(BUILDDIR)/text."
@@ -78,4 +75,7 @@ text:
 
 .PHONY: dummy
 
-.PHONY: install
+install:
+	/bin/bash scripts/install.sh
+	@echo
+	@echo "Installation Finished."
