@@ -11,6 +11,7 @@ The `apt-key` deprecated fiasco
 -------------------------------
 
 .. note:: tl;dr
+
   ``curl -sS <url to the key to download> | gpg --dearmor | sudo tee /usr/share/keyrings/<program/repo name>.gpg``
 
 As of, I believe, the start of 2022 or 2023, everyone started getting a wonderful ``Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).`` message when updating their systems. The manual didn't provide a simple solution, for sure, and there were little to no how-to's online on what to do to mitigate this issue.
