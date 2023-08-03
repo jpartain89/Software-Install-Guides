@@ -54,4 +54,4 @@ IT WILL TAKE A BIT OF TIME... I assume due it being "Secure", its having to unen
 .. _Codesd: https://www.codesd.com/item/how-to-download-xcode-or-other-development-tools-in-a-resumable-way.html
 .. _Codesds Blog Post: https://www.codesd.com/item/how-to-download-xcode-or-other-development-tools-in-a-resumable-way.html
 .. _The Unarchiver: https://theunarchiver.com/
-.. _Beta Xcode Download: https://developer.apple.com/xcode/downloads/
+.. _Beta Xcode Download: https://developer.apple.com/xcode/
