@@ -16,7 +16,7 @@ The `apt-key` deprecated fiasco
 
 As of, I believe, the start of 2022 or 2023, everyone started getting a wonderful ``Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).`` message when updating their systems. The manual didn't provide a simple solution, for sure, and there were little to no how-to's online on what to do to mitigate this issue.
 
-Currently, there are a ton of "how-to's" that may or may not be accurate in handling this, as well, as there are a few different ways to "properly" handle the signing keys that are required with installing through `apt` and its variants.
+Currently, there are a ton of "how-to's" that may or may not be accurate in handling this, as well as a few different ways to "properly" handle the signing keys that are required with installing through `apt` and its variants.
 
 I have modified the rest of this document, and included explicit directions on how to download and properly list the apt repositories in your lists.
 
@@ -25,46 +25,74 @@ The ways
 
 First, there's the proper way to add the key to your Ubuntu/Debian system. We'll use `Brave`_'s install directions as an example.
 
+First, you make sure you have curl installed
+
 .. code-block:: bash
 
-  # First, you make sure you have curl installed
   sudo apt install curl
 
-  # Then, using curl, you pipe the URL at the end to the file location under ``/usr/share/keyrings/``
-  # This is only one way of downloading the key.
+Then, using curl, you pipe the URL at the end to the file location under ``/usr/share/keyrings/``.
+
+.. note::
+
+  There will be plenty of sites and how-to's that say you can use ``/etc/apt/keyrings`` to store your keys. While its not the "preferred" spot, its not against the rules, so to speak.
+
+This is only one way of downloading the key. And we're using sudo due to the file location we're dropping the gpg key to.
+
+.. code-block:: bash
+
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 
-  # Next, with this format, you have to include the "[signed-by=...]" bit, and it has to point to the downloaded file from above
+Next, with this format, you have to include the "[signed-by=...]" bit, and it has to point to the downloaded file from above.
+
+.. code-block:: bash
+
   echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 
   sudo apt update && sudo apt install brave-browser
 
-Next, there's having to ``dearmor`` the apt-key, if its in the incorrect format. Using the example from `itsfoss`_'s site:
+Dearmor the Key... Sometimes?
+------------------------------
+
+Sometimes you have to ``dearmor`` the apt-key, if its in the incorrect format. Using the example from `itsfoss`_'s site:
 
 .. code-block:: bash
 
-  curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/spotify.gpg
+  curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/spotify.gpg
 
 `itsfoss`_'s site has a nifty, and detailed way of taking keys that you add via `apt-key`, and then export it to a file location. That was the process I used earlier for an older repo that I was trying to install from, that neither of the above methods worked for.
 
+First, I went ahead and used the apt-key add command:
+
 .. code-block:: bash
 
-  # First, I went ahead and used the apt-key add command:
   curl -sS  https://download.opensuse.org/repositories/home:/Hezekiah/xUbuntu_20.04/Release.gpg | sudo apt-key add -
 
-  # Then, I exported the key to its own file. first by finding the keyid:
+Then, I exported the key to its own file. first by finding the keyid:
+
+.. code-block:: bash
+
   sudo apt-key list
 
-  # Which gave this output:
+Which gave this output:
+
+.. code-block:: bash
+
   pub   rsa2048 2020-07-02 [SC] [expires: 2025-01-26]
       9D8C 3420 2C34 5C69 8A70  BF52 C609 6B07 DE3A E8C0
   uid           [ unknown] home:Hezekiah OBS Project <home:Hezekiah@build.opensuse.org>
 
-  # The info we need is the last eight characters from the second line above: DE3A E8C0
-  # Copy and paste that into the following command:
+The info we need is the last eight characters from the second line above: DE3A E8C0
+Copy and paste that into the following command:
+
+.. code-block:: bash
+
   sudo apt-key export DE3AE8C0 | sudo gpg --dearmour -o /usr/share/keyrings/Cockpit-Samba-AD-DC.gpg
 
-  # Then, if you havent yet created the .list file, enter:
+Then, if you havent yet created the .list file, enter:
+
+.. code-block:: bash
+
   echo "deb [signed-by=/usr/share/keyrings/Cockpit-Samba-AD-DC.gpg] https://download.opensuse.org/repositories/home:/Hezekiah/xUbuntu_20.04 ./" | sudo tee /etc/apt/list.d/Cockpit-Samba-AD-DC.list
 
 And then update and install the software you want to use.
