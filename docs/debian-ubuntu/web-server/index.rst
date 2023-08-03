@@ -10,6 +10,8 @@ I use NGINX mostly as a reverse proxy server to my downloading programs. This wa
 
 Now, I'm also not going to pretend that I am some kind of expert with NGINX. Moreover, most would probably consider me a half-step above newbie, as I do lack a more fundamental unerstanding of the different options inside an NGINX configuration.
 
+My Cloudflared documents are still under construction...
+
 .. toctree::
 
   nginx-from-ubuntu-ppa
