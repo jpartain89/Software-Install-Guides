@@ -29,6 +29,7 @@ Table of contents:
   docs/git/index
   docs/website-testing/index
   docs/extras/index
+  docs/homelabChangelog/index
 
 =================================
 These docs are no longer updated:
