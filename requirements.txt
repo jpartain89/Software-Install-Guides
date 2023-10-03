@@ -52,6 +52,6 @@ sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.5
 tornado==6.3.3
 typeguard==3.0.2
-urllib3==2.0.3
+urllib3==2.0.6
 virtualenv==20.23.1
 watchdog==3.0.0
