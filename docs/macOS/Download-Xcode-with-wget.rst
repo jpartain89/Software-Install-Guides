@@ -4,7 +4,7 @@ Download Beta Xcode with ``wget``
 
 So, I was looking for a way to download the Beta version of Xcode over the terminal, using either ``wget`` or ``curl``, and almost every suggestion I found got it wrong somehow.... Some made it more complicated than it should be or was probably too old a suggestion for Apple's current login systems...
 
-Either way, I finally found a solution from `Codesd`_'s website that worked wonderfully, and it was the tidbit at the bottom of their post that made the specific difference::
+Either way, I finally found a solution from a now-defunct website that worked wonderfully, and it was the tidbit at the bottom of their post that made the specific difference::
 
     for some reason cookies.txt only works if I only export cookies for the developer.apple.com website and doesnt work if I export all cookies from browser.
 
@@ -21,7 +21,7 @@ How To
 
 3. You'll need to download the cookies specifically for Apple's Developer Webpage, after you've logged in. I don't think Safari has an extension for downloading cookies, but I know Google Chrome has a few. I personally used Chromes Cookies.
 
-As `Codesds Blog Post`_  put it:
+As the site put it:
 
     I in no way endorse this product and many other solutions in different browsers should work just as well.
 
@@ -51,7 +51,5 @@ Due to the file being a "XIP Secure Archive", as it says in Finder.app, the othe
 
 IT WILL TAKE A BIT OF TIME... I assume due it being "Secure", its having to unencrypt whilst expanding. Plus its huge.
 
-.. _Codesd: https://www.codesd.com/item/how-to-download-xcode-or-other-development-tools-in-a-resumable-way.html
-.. _Codesds Blog Post: https://www.codesd.com/item/how-to-download-xcode-or-other-development-tools-in-a-resumable-way.html
 .. _The Unarchiver: https://theunarchiver.com/
 .. _Beta Xcode Download: https://developer.apple.com/xcode/

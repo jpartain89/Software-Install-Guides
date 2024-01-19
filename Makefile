@@ -3,7 +3,7 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = ./venv/bin/sphinx-build
+SPHINXBUILD   = pipenv run sphinx-build
 PAPER         =
 BUILDDIR      = _build
 RSYNC         = /opt/homebrew/bin/rsync
