@@ -37,7 +37,7 @@ readthedocs-build==2.0.9
 readthedocs-sphinx-ext==2.2.2
 readthedocs-sphinx-search==0.3.2
 recommonmark==0.7.1
-requests==2.32.0
+requests==2.32.2
 six==1.16.0
 snowballstemmer==2.2.0
 Sphinx==6.2.1
