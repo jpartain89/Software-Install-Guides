@@ -22,6 +22,8 @@ clean:
 	rm -rf $(BUILDDIR)/*
 
 linkcheck:
+	mkdir -p $(ALLSPHINXOPTS)
+	mkdir -p $(BUILDDIR)/linkcheck
 	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
