@@ -22,10 +22,12 @@ sys.path.insert(0, os.path.abspath('.'))
 # on_rtd is whether we are on readthedocs.org, this line of code grabbed from
 # docs.readthedocs.org
 
-on_rtd = os.environ.get('READTHEDOCS') == 'True'
+# Define the canonical URL if you are using a custom domain on Read the Docs
+html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
 
-if on_rtd:
-    html_theme = 'default'
+# Tell Jinja2 templates the build is running on Read the Docs
+if os.environ.get("READTHEDOCS", "") == "True":
+    html_context["READTHEDOCS"] = True
 else:
     import sphinx_rtd_theme
     html_theme = 'sphinx_rtd_theme'
