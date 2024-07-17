@@ -1,4 +1,5 @@
 _build/
+_readthedocs/
 git-auto.log
 # Byte-compiled / optimized / DLL files
 __pycache__/

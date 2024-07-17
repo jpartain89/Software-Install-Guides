@@ -5,7 +5,7 @@
 SPHINXOPTS    =
 SPHINXBUILD   = pipenv run sphinx-build
 PAPER         =
-BUILDDIR      = _build
+BUILDDIR      = _readthedocs
 RSYNC         = /opt/homebrew/bin/rsync
 
 # Internal variables.

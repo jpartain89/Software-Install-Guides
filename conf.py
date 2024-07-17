@@ -43,6 +43,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.extlinks',
     'sphinx_rtd_theme',
+    'sphinx_copybutton'
     ]
 templates_path = ['_templates']
 source_suffix = ['.rst']

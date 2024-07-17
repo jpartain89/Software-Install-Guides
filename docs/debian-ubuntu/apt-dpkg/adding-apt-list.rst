@@ -117,7 +117,7 @@ You'll notice the use of ``$(lsb_release -cs)`` in this example, which utilizes 
 There are a few other means of getting the desired info, all depending on that repo's specific requirements and layout that they have chosen.
 
 Breakdown
-==========
+---------
 
 #. Most all apt-get ``.list`` lines begin with ``deb`` or ``deb-src``
 #. Then, you need to include the key's file location: ``[signed-by=/usr/share/keyrings/<filename>.gpg]`` or ``[signed-by=/etc/apt/keyring.d/<filename>.gpg]``
@@ -133,7 +133,7 @@ Breakdown
 PPA
 ----
 or more of Ubuntu's Shenanigans
-===============================
+-------------------------------
 
 Ubuntu seems to have a small habit of taking industry- and community-standardized processes and libraries and applications and putting - or sometimes shoving - their own special twist on things.
 
