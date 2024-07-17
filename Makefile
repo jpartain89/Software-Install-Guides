@@ -22,7 +22,7 @@ clean:
 	rm -rf $(BUILDDIR)/*
 
 linkcheck:
-	mkdir -p $(ALLSPHINXOPTS)
+	mkdir -p $(BUILDDIR)/doctrees
 	mkdir -p $(BUILDDIR)/linkcheck
 	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
 	@echo
