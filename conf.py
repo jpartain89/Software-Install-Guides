@@ -23,15 +23,11 @@ sys.path.insert(0, os.path.abspath('.'))
 # docs.readthedocs.org
 
 # Define the canonical URL if you are using a custom domain on Read the Docs
-html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
+html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "https://docs.jpcdi.com")
 
-# Tell Jinja2 templates the build is running on Read the Docs
-if os.environ.get("READTHEDOCS", "") == "True":
-    html_context["READTHEDOCS"] = True
-else:
-    import sphinx_rtd_theme
-    html_theme = 'sphinx_rtd_theme'
-    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+import sphinx_rtd_theme
+html_theme = 'sphinx_rtd_theme'
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # --------- END RTD SECTION ----------------------------------------------
 
@@ -55,7 +51,7 @@ author = u'Justin Partain'
 version = u'7.0.0'
 release = u'7.0.0'
 today_fmt = '%B %d, %Y'
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_drafts', 'README.rst', 'venv']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_drafts', 'README.rst', 'venv', '_readthedocs']
 pygments_style = 'sphinx'
 html_theme_options = {
     'analytics_id': 'G-N74JQEKLQN',
