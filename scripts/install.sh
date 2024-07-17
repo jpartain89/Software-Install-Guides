@@ -22,6 +22,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 #
 #"${DIR}/../venv/bin/pip3" install --upgrade -r "${DIR}/../requirements.txt"
 
+pip3 install --upgrade pip
 pip3 install -U pipenv
 
-pipenv install
+$(command -v pipenv) install
