@@ -5,7 +5,7 @@
 SPHINXOPTS    =
 SPHINXBUILD   = pipenv run sphinx-build
 PAPER         =
-BUILDDIR      = _readthedocs
+BUILDDIR      = _doc
 RSYNC         = /opt/homebrew/bin/rsync
 
 # Internal variables.
@@ -22,7 +22,7 @@ clean:
 	rm -rf $(BUILDDIR)/*
 
 linkcheck:
-	mkdir -p $(BUILDDIR)/doctrees
+	mkdir -p $(BUILDDIR)/doc
 	mkdir -p $(BUILDDIR)/linkcheck
 	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
 	@echo

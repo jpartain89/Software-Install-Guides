@@ -10,6 +10,8 @@ build:
   tools:
     python: "3.12"
   commands:
+    - mkdir --parents $READTHEDOCS_OUTPUT/html/
+    - pip install pipenv
     - make
 
 # Build documentation in the docs/ directory with Sphinx
