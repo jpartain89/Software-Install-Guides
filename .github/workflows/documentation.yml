@@ -1,9 +1,6 @@
 name: documentation
 
-on: [push, pull_request, workflow_dispatch]
-
-permissions:
-  contents: write
+on: [pull_request, workflow_dispatch]
 
 jobs:
   docs:
@@ -39,7 +36,7 @@ jobs:
           make all
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/primary' }}
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
