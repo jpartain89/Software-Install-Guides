@@ -3,9 +3,9 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = pipenv run sphinx-build
+SPHINXBUILD   = sphinx-build
 PAPER         =
-BUILDDIR      = _readthedocs
+BUILDDIR      = _doc
 RSYNC         = /opt/homebrew/bin/rsync
 
 # Internal variables.
@@ -22,6 +22,8 @@ clean:
 	rm -rf $(BUILDDIR)/*
 
 linkcheck:
+	mkdir -p $(BUILDDIR)/doc
+	mkdir -p $(BUILDDIR)/linkcheck
 	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
