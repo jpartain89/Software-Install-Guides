@@ -1,5 +1,0 @@
-User-agent: *
-
-Allow: / # Hidden version
-
-Sitemap: https://docs.jpcdi.com/sitemap.xml

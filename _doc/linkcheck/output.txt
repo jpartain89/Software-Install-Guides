@@ -1,4 +1,0 @@
-docs/archive/webapps/couchpotato.rst:125: [redirected permanently] https://htpcguides.com to https://www.htpcguides.com/
-docs/git/git_orphan.rst:23: [redirected with Found] https://stackoverflow.com/a/34100189 to https://stackoverflow.com/questions/34100048/create-empty-branch-on-github/34100189#34100189
-docs/archive/downloader/openvpn.rst:31: [redirected permanently] https://www.privateinternetaccess.com/pages/browse-anonymously/ to https://www.privateinternetaccess.com/blog/browse-anonymously/
-docs/debian-ubuntu/web-server/nginx-basic-auth.rst:68: [redirected permanently] https://www.nginx.com/resources/wiki/modules/ to https://docs.nginx.com
