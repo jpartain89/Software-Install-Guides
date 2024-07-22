@@ -10,7 +10,7 @@ build:
   tools:
     python: "3.12"
   commands:
-    - mkdir --parents $READTHEDOCS_OUTPUT/html/
+    - mkdir --parents $READTHEDOCS_OUTPUT/
     - pip install pipenv
     - make
 

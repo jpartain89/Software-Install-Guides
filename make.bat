@@ -8,10 +8,6 @@ if "%SPHINXBUILD%" == "" (
 set BUILDDIR=_build
 set ALLSPHINXOPTS=-d %BUILDDIR%/doctrees %SPHINXOPTS% .
 set I18NSPHINXOPTS=%SPHINXOPTS% .
-if NOT "%PAPER%" == "" (
-	set ALLSPHINXOPTS=-D latex_paper_size=%PAPER% %ALLSPHINXOPTS%
-	set I18NSPHINXOPTS=-D latex_paper_size=%PAPER% %I18NSPHINXOPTS%
-)
 
 if "%1" == "" goto help
 
@@ -49,7 +45,6 @@ if "%1" == "clean" (
 	goto end
 )
 
-
 REM Check if sphinx-build is available and fallback to Python version if any
 %SPHINXBUILD% 1>NUL 2>NUL
 if errorlevel 9009 goto sphinx_python
@@ -75,10 +70,10 @@ if errorlevel 9009 (
 
 
 if "%1" == "html" (
-	%SPHINXBUILD% -b html %ALLSPHINXOPTS% %BUILDDIR%/html
+	%SPHINXBUILD% -b html %ALLSPHINXOPTS% %BUILDDIR%/
 	if errorlevel 1 exit /b 1
 	echo.
-	echo.Build finished. The HTML pages are in %BUILDDIR%/html.
+	echo.Build finished. The HTML pages are in %BUILDDIR%/.
 	goto end
 )
 
