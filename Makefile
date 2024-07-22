@@ -5,7 +5,7 @@
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
-BUILDDIR      = _doc
+BUILDDIR      = _build/
 RSYNC         = /opt/homebrew/bin/rsync
 
 # Internal variables.
