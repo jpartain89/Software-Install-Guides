@@ -34,7 +34,7 @@ dummy:
 	@echo "Build finished. Dummy builder generates no files."
 
 html:
-	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/
 	#$(RSYNC) $(BUILDDIR)/html /var/www/html/docs
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
