@@ -85,5 +85,8 @@ texinfo_documents = [
 linkcheck_ignore = [
     r'http://localhost:\d+/',
     r'http://localhost',
-    r'http://127.0.0.1'
+    r'http://127.0.0.1',
+    r'https://atom.io',
+    r'http://askubuntu.com',
+    r'https://theunarchiver.com/'
 ]

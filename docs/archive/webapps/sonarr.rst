@@ -53,7 +53,7 @@ Now, to stop the program, ``ctrl-C`` sends the SIGHUP signal to try to gracefull
 Create Autostart init.d File
 ----------------------------
 
-Now, we need to make the autostart file, of which, one is not supplied by the installer. I also didn't have much luck with the ones listed on their `github site <https://github.com/Sonarr/Sonarr/wiki/Autostart-on-Linux>`_. But the text below was coped from `HTPCGuides.com site <https://www.htpcguides.com/install-nzbdrone-ubuntu/>`_ , [HTPC-Sonarr]_ which has served me very well.
+Now, we need to make the autostart file, of which, one is not supplied by the installer. I also didn't have much luck with the ones listed on their `github site <https://github.com/Sonarr/Sonarr>`_. But the text below was coped from `HTPCGuides.com site <https://www.htpcguides.com/install-nzbdrone-ubuntu/>`_ , [HTPC-Sonarr]_ which has served me very well.
 
 First, edit the init.d file.
 
