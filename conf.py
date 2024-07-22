@@ -38,8 +38,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.extlinks',
-    'sphinx_rtd_theme',
-    'sphinx_copybutton'
+    'sphinx_rtd_theme'
     ]
 templates_path = ['_templates']
 source_suffix = ['.rst']
