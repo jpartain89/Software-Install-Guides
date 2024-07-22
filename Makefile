@@ -3,17 +3,15 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
+SPHINXBUILD   = venv/bin/sphinx-build
 PAPER         =
-BUILDDIR      = _build/
-RSYNC         = /opt/homebrew/bin/rsync
+BUILDDIR      = _build
+TMPDIR        = _tmp
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
 PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
-# the i18n builder cannot share the environment and doctrees with the others
-I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
 .PHONY: all
 all: install clean linkcheck dummy html
@@ -22,22 +20,21 @@ clean:
 	rm -rf $(BUILDDIR)/*
 
 linkcheck:
-	mkdir -p $(BUILDDIR)/doc
-	mkdir -p $(BUILDDIR)/linkcheck
-	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
+	mkdir -p $(TMPDIR)/linkcheck
+	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(TMPDIR)/linkcheck
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
-	      "or in $(BUILDDIR)/linkcheck/output.txt."
+	      "or in $(TMPDIR)/linkcheck/output.txt."
 dummy:
-	$(SPHINXBUILD) -b dummy $(ALLSPHINXOPTS) $(BUILDDIR)/dummy
+	$(SPHINXBUILD) -b dummy $(ALLSPHINXOPTS) $(TMPDIR)/dummy
 	@echo
 	@echo "Build finished. Dummy builder generates no files."
 
 html:
-	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/
 	#$(RSYNC) $(BUILDDIR)/html /var/www/html/docs
 	@echo
-	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/."
 
 .PHONY: help
 help:
@@ -68,9 +65,9 @@ dirhtml:
 
 .PHONY: text
 text:
-	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text
+	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(TMPDIR)/text
 	@echo
-	@echo "Build finished. The text files are in $(BUILDDIR)/text."
+	@echo "Build finished. The text files are in $(TMPDIR)/text."
 
 .PHONY: linkcheck
 
