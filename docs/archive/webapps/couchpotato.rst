@@ -122,7 +122,7 @@ Then, the ``update-rc.d`` inputs the startup script into the actual upstart, sta
 
 Then, you can run ``sudo service couchpotato start``, and so long as it doesn't output errors, you can now access it at `<http://127.0.0.1:5050>`_
 
-I will have reverse-proxying stuff posted in the future, but for now you can look at `HTPCGuides <https://HTPCGuides.com>`_ as they have a lot of those specific how-to's.
+I will have reverse-proxying stuff posted in the future, but for now you can look at `HTPCGuides <https://htpcguides.com>`_ as they have a lot of those specific how-to's.
 
 .. [HTPC-CP] These directions were liberally copied from HTPCGuides's `CP-HowTo <https://www.htpcguides.com/install-couchpotato-ubuntu/>`_
 
