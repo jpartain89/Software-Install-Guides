@@ -200,9 +200,12 @@ sphinx==7.4.5
     #   readthedocs-build
     #   recommonmark
     #   sphinx-autobuild
+    #   sphinx-copybutton
     #   sphinx-rtd-theme
     #   sphinxcontrib-jquery
 sphinx-autobuild==2024.4.16
+    # via -r requirements.in
+sphinx-copybutton==0.5.2
     # via -r requirements.in
 sphinx-rtd-theme==2.0.0
     # via -r requirements.in

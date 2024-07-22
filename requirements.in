@@ -50,6 +50,7 @@ sphinxcontrib-jquery
 sphinxcontrib-jsmath
 sphinxcontrib-qthelp
 sphinxcontrib-serializinghtml
+sphinx_copybutton
 tornado
 typeguard
 urllib3
