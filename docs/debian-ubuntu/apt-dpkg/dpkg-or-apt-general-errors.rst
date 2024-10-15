@@ -43,7 +43,7 @@ There are 2 different ways I found to remove the extra bit of info from the offe
 First Way
 =========
 
-The second option is the first way we can fix this issue, by removing the offending information, which in the above case - :ref:`statoverride_file` - the issue is about ``cockpit-ws``. Below is the output of the :file:`/var/lib/dpkg/statoverride` file.
+The second option is the first way we can fix this issue: by removing the offending information. Which, in the above case - :ref:`statoverride_file` - the issue is about ``cockpit-ws``. Below is the output of the :file:`/var/lib/dpkg/statoverride` file.
 
 .. code-block:: bash
   :emphasize-lines: 11

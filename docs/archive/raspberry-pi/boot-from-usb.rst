@@ -25,8 +25,6 @@ First, you'll want to `Download the version you want to use`_. Their website now
 
 Next, their `Basic Installation`_ steps say to download and use `Raspberry Pi Imager`_ to to install the OS onto whatever medium you want to install it on.
 
-
-
 .. _Download the version you want to use: https://www.raspberrypi.com/software/operating-systems/
 
 .. _Basic Installation: https://www.raspberrypi.com/documentation/computers/getting-started.html

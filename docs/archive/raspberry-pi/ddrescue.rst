@@ -2,7 +2,7 @@
 DDRescue
 ==========
 
-.. include:: ../donotuse.rst
+.. include:: ../../donotuse.rst
 
 .. image:: ddrescue_ex.jpg
   :alt: DDRescue Command Line GUI
