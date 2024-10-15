@@ -4,7 +4,9 @@ VirtualBox
 
 .. include:: ../donotuse.rst
 
-These how-to's are directed toward using VirtualBox, geared moreso towards using it on a macOS host, as that is how I use my VirtualBox. So, apologies to anyone not using macOS as their host.
+These how-to's are directed toward using VirtualBox on an Ubuntu machine, as that is the OS I personally use the most.
+
+You can find the old version of these articles in the ``archive`` folder.
 
 .. toctree::
 

@@ -24,9 +24,15 @@ You can use the ssh version of the URL instead!:
 
 And that will utilize the SSH keys you have setup with those respective services, which you do have setup, right??? (You give them the public key, and then you can use your private key for authentication.)
 
-------
-macOS
-------
+--------------------
+macOS and 1Password
+--------------------
+
+`1Password`_ now has ssh key management built into their desktop program! You can either import your existing keys or create brand new ones from within 1Password's interface. And it even has the capability of inserting your public keys into websites - Like Github and Gitlab - when necessary.
+
+-----------
+macOS Keys
+-----------
 
 In your macOS's terminal, to see if ``osxkeychain helper`` is already installed:
 
@@ -45,3 +51,5 @@ Next, you have to tell ``git``, through config files, to utilize the credential 
   git config --global credential.helper osxkeychain
 
 Now, the next time you try to do anything requiring that git password, it'll prompt you for the info, and then automatically save it in your keychain.
+
+.. _1Password: https://developer.1password.com/docs/ssh/manage-keys/

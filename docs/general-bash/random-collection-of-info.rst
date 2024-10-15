@@ -89,11 +89,11 @@ Breakdown
 ==========
 
 #. the ``pip freeze`` and ``pip list`` we've established.
-#. awk - is a language in and of itself, as complicated and large and useful as a language as well.
-#. -F - this says "use the following text inside the ' ' as the break point or escape character to seperate out all of the info."
-#. '{ print $1 }' - this tells awk to show the first column of information only.
+#. ``awk`` - is a language in and of itself, as complicated and large and useful as a language as well.
+#. ``-F`` - this says "use the following text inside the ' ' as the break point or escape character to seperate out all of the info."
+#. ``\`{ print $1 }\``` - this tells awk to show the first column of information only.
 
-If you were to say ``pip list | awk '{print $1,$2}'`` you would get the original information once again. Why? becuase the (#.#.#) is ``$2`` or option 2 or what have you. The , says "insert space". Without the comma, no space.
+If you were to say ``pip list | awk `{print $1,$2}``` you would get the original information once again. Why? becuase the (#.#.#) is ``$2`` or option 2 or what have you. The ``,`` says "insert space". Without the comma, no space.
 
 Again, ``awk`` is a massive language. This is a simple explainer here.
 
@@ -105,7 +105,7 @@ Using ``\`` as New Lines
 
 Often times, you'll see ``\`` used at the end of code lines and you've wondered what on EARTH thats about??
 
-Well, those are used as so-called ``new line`` signifiers, or on the naked command line, it tells the system to keep expecting more text/code input.
+Well, those are used as so-called ``next line`` signifiers, or on the naked command line, it tells the system to keep expecting more text/code input on the next line.
 
 .. _shell_script_self:
 
@@ -125,7 +125,9 @@ Its able to give you that info, no matter where its called from, which is a typi
 Random Number Generator
 -----------------------
 
-tl;dr:: Using the following code gets you a ``Random Number`` between ``0 and 3600`` :guilabel:`&Plus` ``3600`` or ``1 hour``
+.. tl;dr::
+
+  Using the following code gets you a ``Random Number`` between ``0 and 3600`` :guilabel:`&Plus` ``3600`` or ``1 hour``
 
 .. code-block:: bash
 
