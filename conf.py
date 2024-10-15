@@ -90,3 +90,4 @@ linkcheck_ignore = [
     r'http://askubuntu.com',
     r'https://theunarchiver.com/'
 ]
+linkcheck_exclude_documents = [r'.*/archive/.*']
