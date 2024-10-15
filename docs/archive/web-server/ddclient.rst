@@ -2,6 +2,8 @@
 DDClient [DDCLIENT-Source]_
 ==============================
 
+.. include:: ../../donotuse.rst
+
 --------
 Preface
 --------

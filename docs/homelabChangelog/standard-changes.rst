@@ -7,9 +7,9 @@ These are the same changes/updates/modifications I always make to my systems, al
 After Installation
 ===================
 
-Immediately after installing any OS, I sign in first, as I do not have any pre-seeding - or MDM for Apple devices - setup for any of my OS's at this time. 
+Immediately after installing any OS, I sign in first, as I do not have any pre-seeding - or MDM for Apple devices - setup for any of my OS's at this time.
 
-I make sure to have my personal user account, `jpartain89`, created and at least present on the system. 
+I make sure to have my personal user account, `jpartain89`, created and at least present on the system.
 
 I then create a `sudoers` file at `/etc/sudoers.d/jpartain89` using the line:
 

@@ -2,7 +2,7 @@
 OLD Boot Raspberry Pi from USB
 ==============================
 
-.. include:: ../donotuse.rst
+.. include:: ../../donotuse.rst
 
 So why keep this? History... Posterity? Because I can?
 

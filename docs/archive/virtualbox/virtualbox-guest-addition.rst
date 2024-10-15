@@ -23,7 +23,7 @@ First, we will show how to begin the install on our Host machine, then directly 
 Host Machine
 ------------
 
-So, first we need to mount the Guest Additions CD Image, which you can find under the "Devices" menu in the Virtual Machines Menu Bar on a macOS device. (Make sure the Guest Machine window is in focus to show that machines menu bar)
+So, first we need to mount the Guest Additions CD Image, which you can find under the "Devices" menu in the Virtual Machines Menu Bar. (Make sure the Guest Machine window is in focus to show that machines menu bar.)
 
 .. image:: virtualbox_guestCD.png
   :alt: Virtualbox Guest Additions Mount
@@ -74,12 +74,12 @@ That will take a hot second, at least, to run the installer. But, once its finis
 
 .. note::
 
-  Make sure you have setup all of the configuration options in the machine settings, as in the folders you want to have shared from host to guest, before starting it up again, as you'll just have to shut it back down.
+  Make sure you have setup all of the configuration options in the machine settings, as in the folders you want to have shared from host to guest.
 
 ``usermod``
 =============
 
-Now, you'll need to add the group name ``vboxsf`` to all of the different system and user accounts that own the files you want to share to the VM.
+Now, you'll need to add the group name ``vboxsf`` to all of the different system and user accounts.
 
 .. note::
 

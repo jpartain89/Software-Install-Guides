@@ -18,6 +18,6 @@ Now, mind you, you wont be able to *easily* merge the two branches, if you were 
 
 Or, you can add files to the branch and then commit like normal.
 
-.. note:: 
+.. note::
 
   I totally took this from `Stack Overflow's website <https://stackoverflow.com/a/34100189>`_
