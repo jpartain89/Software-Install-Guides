@@ -237,7 +237,7 @@ sphinxcontrib-serializinghtml==1.1.10
     # via
     #   -r requirements.in
     #   sphinx
-starlette==0.37.2
+starlette==0.40.0
     # via sphinx-autobuild
 tornado==6.4.1
     # via
