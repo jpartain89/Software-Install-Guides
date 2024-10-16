@@ -22,14 +22,13 @@ Table of contents:
   :maxdepth: 3
 
   docs/debian-ubuntu/index
-  docs/raspberry-pi/index
-  docs/macOS/index
-  docs/virtualbox/index
+  docs/extras/index
   docs/general-bash/index
   docs/git/index
-  docs/website-testing/index
-  docs/extras/index
   docs/homelabChangelog/index
+  docs/macOS/index
+  docs/virtualbox/index
+  docs/website-testing/index
 
 =================================
 These docs are no longer updated:
@@ -44,5 +43,4 @@ These docs are no longer updated:
   docs/archive/index
 
 .. _Software-Install-Guides Github Page: https://github.com/jpartain89/Software-Install-Guides
-
 .. _HTPC Guides: https://www.htpcguides.com/

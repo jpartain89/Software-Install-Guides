@@ -16,14 +16,14 @@ The `apt-key` deprecated fiasco
 
 As of, I believe, the start of 2022 or 2023, everyone started getting a wonderful ``Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).`` message when updating their systems. The manual didn't provide a simple solution, for sure, and there were little to no how-to's online on what to do to mitigate this issue.
 
-Currently, there are a ton of "how-to's" that may or may not be accurate in handling this, as well as a few different ways to "properly" handle the signing keys that are required with installing through `apt` and its variants.
+Now, though, there are a ton of "how-to's" that may or may not be accurate in handling this, as well as a few different ways to "properly" handle the signing keys that are required with installing through ``apt`` and its variants.
 
 I have modified the rest of this document, and included explicit directions on how to download and properly list the apt repositories in your lists.
 
 The ways
 --------
 
-First, there's the proper way to add the key to your Ubuntu/Debian system. We'll use `Brave`_'s install directions as an example.
+Lets start with the proper way to add the key to your Debian/Ubuntu system. We'll use `Brave`_'s install directions as an example:
 
 First, you make sure you have curl installed
 
@@ -35,7 +35,7 @@ Then, using curl, you pipe the URL at the end to the file location under ``/usr/
 
 .. note::
 
-  There will be plenty of sites and how-to's that say you can use ``/etc/apt/keyrings`` to store your keys. While its not the "preferred" spot, its not against the rules, so to speak.
+  There will be plenty of sites and how-to's that say you can use ``/etc/apt/keyrings`` to store your keys. While its not the "preferred" spot, its not against the rules, so to speak, so you're allowed the freedom of personal preference/whatever you find easiest.
 
 This is only one way of downloading the key. And we're using sudo due to the file location we're dropping the gpg key to.
 
@@ -43,7 +43,7 @@ This is only one way of downloading the key. And we're using sudo due to the fil
 
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 
-Next, with this format, you have to include the "[signed-by=...]" bit, and it has to point to the downloaded file from above.
+Next, with this format, you have to include the "[signed-by=...]" bit in the ``apt-get`` .list file. And, it has to point to the downloaded file from above.
 
 .. code-block:: bash
 
@@ -60,7 +60,7 @@ Sometimes you have to ``dearmor`` the apt-key, if its in the incorrect format. U
 
   curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/spotify.gpg
 
-`itsfoss`_'s site has a nifty, and detailed way of taking keys that you add via `apt-key`, and then export it to a file location. That was the process I used earlier for an older repo that I was trying to install from, that neither of the above methods worked for.
+`itsfoss`_'s site has a nifty, and detailed, way of taking keys that you add via ``apt-key``, and then export it to a file location. That was the process I used earlier for an older repo that I was trying to install from, that neither of the above methods worked for.
 
 First, I went ahead and used the apt-key add command:
 
@@ -112,7 +112,7 @@ Using `NGINX`_'s directions for adding their repo to your linux server (I wont i
 
   echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu $(lsb_release -cs) nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
 
-You'll notice the use of ``$(lsb_release -cs)`` in this example, which utilizes the program ``lsb_release`` in Ubuntu in order to get the desired verbiage for your particular OS.
+You'll notice the use of ``$(lsb_release -cs)`` in this example, which utilizes the program ``lsb_release`` in Debian/Ubuntu in order to get the desired verbiage for your particular OS.
 
 There are a few other means of getting the desired info, all depending on that repo's specific requirements and layout that they have chosen.
 
@@ -127,17 +127,22 @@ Breakdown
 
 .. note::
 
-  The key text is ``$(lsb_release -sc)``. When you input ``$( )`` it tells bash to execute the command inside the parenthesis, and use the output inside the echo text.
+  The key text is ``$(lsb_release -sc)``.
+
+.. note::
+
+  When you input ``$( )``, it tells bash to execute the command inside the parenthesis, and use the output inside the echo text.
 
 ----
 PPA
 ----
+
 or more of Ubuntu's Shenanigans
 -------------------------------
 
-Ubuntu seems to have a small habit of taking industry- and community-standardized processes and libraries and applications and putting - or sometimes shoving - their own special twist on things.
+Ubuntu seems to have a small habit of taking industry- and community-standardized processes, libraries, and applications, and putting - or sometimes shoving - their own special twist on things.
 
-Take Ubuntu's `PPA`_ system. As a developer on Ubuntu's Launchpad website, you get your own PPA address, apt repository, and a central means of distributing your code to Ubuntu Users.
+Take Ubuntu's `PPA`_ system: as a developer on Ubuntu's Launchpad website, you get your own PPA address, apt repository, and a central means of distributing your code to Ubuntu Users.
 
 Its super simple to add these repo's to Ubuntu:
 
@@ -152,19 +157,18 @@ You'll want to always run ``apt-get update`` to pull the lists of available prog
 Personal Standards
 ------------------
 
-When I add apt-get lists that are seperate from the standard or even non-standard Ubuntu Lists and Libraries, such as NGINX's lists, nodesource lists for Node and NPM, etc., I have them in seperate, short lists.
+When I add ``apt-get`` lists that are seperate from the standard - or even non-standard - Ubuntu Lists and Libraries, such as NGINX's lists, nodesource lists for Node and NPM, etc., I keep them in seperate, short file ``.lists``.
 
 The directory tree breakdown is as follows:
 
-.. code-block:: bash
+::
 
   /etc/apt/sources.list
   /etc/apt/sources.list.d/
-  ├── mono-xamarin.list
-  ├── nginx-amplify.list
-  ├── nginx-ubuntu-development-xenial.list
-  ├── nodesource.list
-  └── ondrej-ubuntu-php-xenial.list
+  ├── nginx-amplify.list  <------------------- NGINX`s ``Amplify``_ monitoring program
+  ├── nginx-ubuntu-development-xenial.list <-- NGINX's Development repo for Ubuntu's Xenial
+  ├── nodesource.list <----------------------- NPM's Repo
+  └── ondrej-ubuntu-php-xenial.list <--------- `Ondrej\`s`_ PHP Repo for Ubuntu's Xenial
 
 This way, removing specific repo items is MUCH easier.
 
@@ -172,3 +176,5 @@ This way, removing specific repo items is MUCH easier.
 .. _Brave: https://brave.com/linux/?ref=itsfoss.com
 .. _itsfoss: https://itsfoss.com/apt-key-deprecated/#you-haven-t-added-the-external-keys-yet
 .. _NGINX: https://nginx.org/en/linux_packages.html#Ubuntu
+.. _Amplify: https://amplify.nginx.com/
+.. _Ondrej's: https://launchpad.net/~ondrej/+archive/ubuntu/php

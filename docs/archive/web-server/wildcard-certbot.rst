@@ -2,20 +2,21 @@
 Certbot WildCard SSL Cert
 =========================
 
+.. include:: ../../old-or-outdated.rst
+
 This how-to is specific for grabbing a wildcard certificate for your domain using `Certbot`_ and `Letsencrypt`_, with `Certbot`_'s dns system. Specifically using their manual system.
 
 It is fairly difficult to find an all-in-one how-to for getting a wildcard cert manually using `Certbot`_.
 
-------------
 Installation
-------------
+=============
 
 Depending on the route you'd like to take, there's plenty of ways to install `Certbot`_ for use. Even the installer script listed on their site is self-updating and, obviously, the most up-to-date way to use it.
 
 I, currently, am using the ``Stretch-Backports`` installation route rather than downloading the binary directly. Installation through the ``apt`` system sets up a few behind-the-scenes steps for automating your renewal.
 
 Debian
-==============
+--------
 
 .. code-block:: bash
 
@@ -29,9 +30,8 @@ If you are using a DNS provider that has a wonderful API, like Cloudflare (which
 
 This will install `Certbot`_, along with the ``nginx`` plugins through python, along with the manual DNS flag that we're planning on using here.
 
-------
 Setup
-------
+=======
 
 Most everything online will give you stupidly long command lines with a TON of flags and what not. I'd much rather use a nice configuration file!
 
@@ -55,7 +55,7 @@ Most everything online will give you stupidly long command lines with a TON of f
 So, to break all that down:
 
 Break Down
-===========
+-----------
 
 #. ``manual`` - means to run with the ``--manual`` flag that you will see in a ton of commands online
 #. ``preferred-challenges`` - This is the challenge you're wanting certbot to use, which for this how to is ``dns``
@@ -68,9 +68,8 @@ Break Down
 #. ``server`` - This one is more specific to our DNS address requesting, as a way to make sure we are getting a wildcard certificate. They are only available through the V2 Acme Protocol, so you have to specify the address to use. I've included the testing address as well, if you want to run certbot a bunch of times and not let it count against your weekly alotment.
 #. ``domains`` - This is where you include the domain addresses you want to use. Make sure you don't JUST include the wildcard, but the root of the domain as well.
 
---------------------
 Running Certbot
---------------------
+=================
 
 When you use the manual DNS system, it will give you an address and TXT record that you'll need to add to your main DNS Server's addressing. It'll be a good idea to make sure you're logged into their website, or have the configuration pulled up to where you can make the addition and have it propogate out.
 
