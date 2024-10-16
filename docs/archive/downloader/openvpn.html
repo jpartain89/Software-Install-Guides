@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenVPN [PIA-VPN] &mdash; Software Install Guides 7.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="canonical" href="https://docs.jpcdi.com/docs/archive/downloader/openvpn.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=efe5be6f"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="NZBGet [NZBGet-HTPC]" href="nzbget.html" />
+    <link rel="prev" title="Alternate Transmission Web GUI" href="transmission-web-gui.html" />
+ 
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'G-N74JQEKLQN']);
+  _gaq.push(['_trackPageview']);
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Software Install Guides
+              <img src="../../../_static/JPLogo-Header.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../debian-ubuntu/index.html">Debian / Ubuntu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../debian-ubuntu/index.html#chapters">Chapters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../debian-ubuntu/apt-dpkg/index.html">APT or DPKG</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/apt-dpkg/adding-apt-list.html">Adding Extra apt-get Lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/apt-dpkg/apt-repo.html">Personal APT Repo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/apt-dpkg/dpkg-package-states.html">dpkg -l Package States</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/apt-dpkg/insert-os-edition-name.html">OS Edition Name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/apt-dpkg/dpkg-or-apt-general-errors.html">DPKG or APT General Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../debian-ubuntu/extras/index.html">Extra Items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/extras/lvm.html">LVM How To</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/extras/mount-drive-ubuntu.html">Mounting Unformatted Drive in Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/extras/postfix.html">Using Postfix as Mail Relay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/extras/renaming-network-devices.html">Renaming Network Devices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/extras/access-control-lists.html">Access Control Lists</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../debian-ubuntu/ubuntu_user.html">User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../debian-ubuntu/ubuntu_user.html#old-or-outdated">Old or Outdated</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../extras/index.html">Extras</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/random-ansible-snippets.html">Random Ansible Snippets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../extras/random-ansible-snippets.html#ansible-cli-basic-example">Ansible CLI - Basic Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../extras/random-ansible-snippets.html#pass-a-list">Pass a List</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/ansible-random-nuggets.html">Ansible Random Nuggets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/mysql-767-error-code.html">Fixing mysql/mariaDB 767 Character Error Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../extras/mysql-767-error-code.html#tl-dr">tl;dr</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-bash/index.html">General Bash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/bash-if-conditionals.html">Bash Conditional Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/bash-if-conditionals.html#breakdown">Breakdown</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/bash-if-conditionals.html#conditional-expression-primaries">Conditional Expression Primaries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/bash-logging.html">Bash Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/bash-logging.html#what-does-it-do">What does it do?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/basic-linux.html">Some Basic Linux Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-or-remote-use">SSH or Remote Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-keys">SSH Keys</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-key-generate">SSH-Key Generate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-key-location">SSH Key Location</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-copy-id-or-sending-your-public-key">SSH-Copy-ID or Sending Your Public Key</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#restarting-the-machine">Restarting the Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#updating-the-apps">Updating the Apps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/basic-linux.html#bash-logging">Bash Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#what-does-it-do">What does it do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#deprecation-of-apt-key">Deprecation of <code class="docutils literal notranslate"><span class="pre">apt-key</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#using-dd-for-backup">Using DD for Backup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/basic-grep-usage.html">Use grep Output as if-else Conditional</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-grep-usage.html#basic-use-of-grep-in-if-else">Basic Use of grep in if-else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-grep-usage.html#so-lets-break-that-down">So, lets break that down</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/here-docs.html">Here Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/pip-requirements-file.html">pip Requirements File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/random-collection-of-info.html">Random Collection of Info</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#using-find-to-chmod-multiple-files">Using <code class="docutils literal notranslate"><span class="pre">find</span></code> to <code class="docutils literal notranslate"><span class="pre">chmod</span></code> multiple files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#break-down">Break Down</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#using-awk-to-modify-output">Using <code class="docutils literal notranslate"><span class="pre">awk</span></code> to Modify Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#remove-text-like-commas">Remove text, like Commas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#breakdown">Breakdown</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#using-as-new-lines">Using <code class="docutils literal notranslate"><span class="pre">\</span></code> as New Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#shell-script-location">Shell Script Location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#random-number-generator">Random Number Generator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#details">Details</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#using-sed-to-make-updates">Using <code class="docutils literal notranslate"><span class="pre">sed</span></code> to Make Updates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/signals-and-traps.html">Signals and Traps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/optional-parameter.html">Default Optional Agruments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../git/index.html">Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../git/git-repo-address.html">Local Git Repo Address</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#viewing-the-repo-s-address">Viewing the Repo’s Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#changing-the-address">Changing The Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#code-breakdown">Code Breakdown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#final-steps">Final Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../git/cache-git-password-terminal.html">Saving your Git Repo Password</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../git/cache-git-password-terminal.html#or">OR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/cache-git-password-terminal.html#macos-and-1password">macOS and 1Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/cache-git-password-terminal.html#macos-keys">macOS Keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../git/git_orphan.html">Git –orphan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../homelabChangelog/index.html">HomeLab Change Log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homelabChangelog/standard-changes.html">Standard Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../homelabChangelog/standard-changes.html#after-installation">After Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../homelabChangelog/standard-changes.html#ssh-keys">SSH Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../homelabChangelog/standard-changes.html#ansible">Ansible</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../macOS/index.html">macOS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../macOS/macOS-xcode-update.html">Updating X-Code After Big Updates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/macOS-xcode-update.html#tl-dr">tl;dr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/macOS-xcode-update.html#the-story">The Story</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../macOS/Download-Xcode-with-wget.html">Download Beta Xcode with <code class="docutils literal notranslate"><span class="pre">wget</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/Download-Xcode-with-wget.html#how-to">How To</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/Download-Xcode-with-wget.html#unzipping">Unzipping</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../macOS/Other-Random-Tidbits.html">Other Random Tidbits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/Other-Random-Tidbits.html#local-webpage-wont-load-anywhere">Local WebPage Wont Load Anywhere!!!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../virtualbox/index.html">VirtualBox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html">VirtualBox AutoStart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#autostart-cfg-file">AutoStart.cfg File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#linux-autostart">Linux Autostart</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#file-permissions">File Permissions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#linux-file-permissions">Linux File Permissions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#vboxmanage-modifyvm"><code class="docutils literal notranslate"><span class="pre">VBoxManage</span> <span class="pre">modifyvm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html">VirtualBox Guest Additions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#host-machine">Host Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#ubuntu-server-guest-machine">Ubuntu Server Guest Machine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#pre-requirements">Pre-Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#mount-the-cdrom">Mount the CDROM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#run-the-installer">Run the Installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#usermod"><code class="docutils literal notranslate"><span class="pre">usermod</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#services-info">Services Info</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../virtualbox/virtualbox-systemd.html">VirtualBox Systemd</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website-testing/index.html">Website Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../website-testing/testing-services.html">Testing your Web Server Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../website-testing/testing-services.html#list">List</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Older, now unused how to's</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Archive</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Archived Downloaders</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="transmission-daemon.html">Transmission <span>[TRANS-HTPC]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="transmission-daemon.html#add-repo-and-install">Add Repo and Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transmission-daemon.html#user-group-account-modifications">User/Group Account Modifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transmission-daemon.html#editing-the-settings-conf-file">Editing the <code class="docutils literal notranslate"><span class="pre">settings.conf</span></code> File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="transmission-web-gui.html">Alternate Transmission Web GUI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="transmission-web-gui.html#using-kettu-s-web-gui-for-transmission">Using Kettu’s Web GUI for Transmission</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transmission-web-gui.html#transmission-web-gui-file-locations">Transmission Web GUI File Locations</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">OpenVPN <span>[PIA-VPN]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#secure-downloading">Secure Downloading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#info">Info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pia-openvpn-files">PIA OpenVPN Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#copy-the-files">Copy the Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-login-file">Create the Login File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-the-config-file">Edit the Config File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-vpn">Test VPN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup-openvpn-s-autostart-configuration">Setup OpenVPN’s Autostart Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nzbget.html">NZBGet <span>[NZBGet-HTPC]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nzbget.html#unrar">UnRar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nzbget.html#nzbget-installation">NZBGet Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../general-bash/index.html">Archived General Bash</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../general-bash/ratom.html">Ratom <span>[RATOM-src]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../general-bash/ratom.html#archival">Archival</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../raspberry-pi/index.html">Raspberry Pi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../raspberry-pi/boot-from-usb.html">Boot your Raspberry Pi from an External USB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/boot-from-usb.html#first-steps">First Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../raspberry-pi/ddrescue.html">DDRescue</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/ddrescue.html#installing">Installing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/ddrescue.html#how-is-it-used">How is it Used?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/ddrescue.html#break-it-down">Break it Down</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html">OLD Boot Raspberry Pi from USB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#find-the-usb-drive">Find the USB Drive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#install-adafruit-s-usb-program">Install Adafruit’s USB Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#adafruit-s-repo-the-long-way-round">Adafruit’s Repo the Long Way Round</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#installing-usb-program">Installing USB Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#running-the-program">Running the Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#after-running">After Running</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#recovering-from-a-failed-boot">Recovering from a Failed Boot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../virtualbox/index.html">VirtualBox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../virtualbox/virtualbox-autostart.html">VirtualBox AutoStart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-autostart.html#autostart-systems">AutoStart Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-autostart.html#autostart-cfg-file">AutoStart.cfg File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-autostart.html#file-permissions">File Permissions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-autostart.html#vboxmanage-modifyvm"><code class="docutils literal notranslate"><span class="pre">VBoxManage</span> <span class="pre">modifyvm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-autostart.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../virtualbox/virtualbox-guest-addition.html">VirtualBox Guest Additions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-guest-addition.html#host-machine">Host Machine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-guest-addition.html#ubuntu-server-guest-machine">Ubuntu Server Guest Machine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../virtualbox/virtualbox-systemd.html">VirtualBox Systemd</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web-server/index.html">Web Server Stuff</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web-server/nginx-from-ubuntu-ppa.html">NGINX from PPA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-from-ubuntu-ppa.html#nginx-s-ppa">NGINX’s PPA</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../web-server/nginx-from-source.html">Compiling NGINX From Source <span>[NGINX-Copied]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-from-source.html#add-nginx-ppa">Add NGINX PPA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-from-source.html#download-source-packages">Download Source Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-from-source.html#install-nginx">Install NGINX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-from-source.html#block-nginx-from-auto-update">Block NGINX from Auto-Update</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../web-server/nginx-basic-auth.html">NGINX Basic Password Auth</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-basic-auth.html#htpasswd"><code class="docutils literal notranslate"><span class="pre">htpasswd</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-basic-auth.html#auth-pam">Auth Pam</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../web-server/securing-nginx.html">Securing NGINX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/securing-nginx.html#basic-https-setup">Basic HTTPS Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/securing-nginx.html#optimizing-nginx-s-secure-connection">Optimizing NGINX’s Secure Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/securing-nginx.html#configuration-example">Configuration Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../web-server/ddclient.html">DDClient <span>[DDCLIENT-Source]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/ddclient.html#preface">Preface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../web-server/wildcard-certbot.html">Certbot WildCard SSL Cert</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/wildcard-certbot.html#old-or-outdated">Old or Outdated</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/wildcard-certbot.html#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/wildcard-certbot.html#setup">Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/wildcard-certbot.html#running-certbot">Running Certbot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../webapps/index.html">WebApps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../webapps/radarr.html">Radarr Movie Downloader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../webapps/couchpotato.html">CouchPotato Movie Downloader <span>[HTPC-CP]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/couchpotato.html#shoutout">Shoutout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/couchpotato.html#base-requirements">Base Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/couchpotato.html#clone-the-repo">Clone the Repo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/couchpotato.html#test-if-it-works">Test if it Works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/couchpotato.html#copy-edit-default-file">Copy/Edit Default File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/couchpotato.html#copy-or-edit-the-init-d-file">Copy or Edit the init.d File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../webapps/tautulli.html">Tautulli (previously PlexPy) <span>[HTPC-Tautulli]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/tautulli.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/tautulli.html#clone-the-repo">Clone the Repo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/tautulli.html#edit-the-default-file">Edit the Default File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/tautulli.html#create-tautulli-user">Create Tautulli User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/tautulli.html#change-ownerships-and-symlink">Change Ownerships and Symlink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/tautulli.html#testing-the-program-first">Testing the Program First</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/tautulli.html#autostart-system-files">AutoStart System Files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../webapps/sonarr.html">Sonarr Installation <span>[HTPC-Sonarr]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/sonarr.html#base-requirements">Base Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/sonarr.html#add-the-apt-source-and-install">Add the Apt Source and Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/sonarr.html#first-run">First Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/sonarr.html#create-autostart-init-d-file">Create Autostart init.d File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/sonarr.html#add-to-autostart-program">Add to Autostart Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webapps/sonarr.html#final-steps">Final Steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Software Install Guides</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Archive</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Archived Downloaders</a></li>
+      <li class="breadcrumb-item active">OpenVPN <span>[PIA-VPN]</span></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/docs/archive/downloader/openvpn.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="transmission-web-gui.html" class="btn btn-neutral float-left" title="Alternate Transmission Web GUI" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nzbget.html" class="btn btn-neutral float-right" title="NZBGet [NZBGet-HTPC]" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="openvpn-pia-vpn">
+<h1>OpenVPN <a class="reference internal" href="#pia-vpn" id="id1"><span>[PIA-VPN]</span></a><a class="headerlink" href="#openvpn-pia-vpn" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These directions are way out of date. Do not use these!
+I have since switched to a different process or tool since writing this particular article, but keeping it up for posterities sake, until I can properly replace it.</p>
+</div>
+<p>What have I changed to you ask?
+Anything building I’ve tried switching over to Ansible to handle in a much more programatic way.
+Others might be tools that I just don’t use at all anymore, due to changing DNS hosts.</p>
+<section id="secure-downloading">
+<h2>Secure Downloading<a class="headerlink" href="#secure-downloading" title="Link to this heading"></a></h2>
+<p>This specific how-to is in the <a class="reference internal" href="index.html#archived-downloaders"><span class="std std-ref">Archived Downloaders</span></a> section of my how-to’s because this is for setting up an OpenVPN connection to a paid-for service, not from your, say, cell phone back home again.</p>
+</section>
+<section id="info">
+<h2>Info<a class="headerlink" href="#info" title="Link to this heading"></a></h2>
+<p>OpenVPN is basically the defacto standard for open source VPN software. You are able to both connect to other VPN servers OR make your own, private VPN service.</p>
+</section>
+<section id="install">
+<h2>Install<a class="headerlink" href="#install" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>openvpn<span class="w"> </span>unzip
+</pre></div>
+</div>
+</section>
+<section id="pia-openvpn-files">
+<h2>PIA OpenVPN Files<a class="headerlink" href="#pia-openvpn-files" title="Link to this heading"></a></h2>
+<p>PIA is <a class="reference external" href="https://www.privateinternetaccess.com">Private Internet Access</a>, a widely used and referenced VPN service for the fact that they advertise themselves as one of the more secure and anonymous VPN services on the internet. <a class="reference external" href="https://www.privateinternetaccess.com/pages/browse-anonymously/">This page</a> is a good jump-off point for explaining their services and why you need a VPN.</p>
+<p>The OpenVPN files are configuration files tailored to be used with OpenVPN for PIA, making that ENTIRE setup SO much easier!</p>
+<p>Download and uncompress the PIA OpenVPN profiles:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://www.privateinternetaccess.com/openvpn/openvpn.zip
+unzip<span class="w"> </span>openvpn.zip<span class="w"> </span>-d<span class="w"> </span>openvpn
+</pre></div>
+</div>
+<p>Make sure you include the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag, as it’ll just uncompress into the current directory, flinging files all over it.</p>
+</section>
+<section id="copy-the-files">
+<h2>Copy the Files<a class="headerlink" href="#copy-the-files" title="Link to this heading"></a></h2>
+<p>Copy the PIA OpenVPN certificates and profile to the OpenVPN configuration location.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I’m using <cite>Japan.ovpn</cite> as an example location. You can/should change that to whichever location you want to use.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>cp<span class="w"> </span>openvpn/ca.rsa.2048.crt<span class="w"> </span>openvpn/crl.rsa.2048.pem<span class="w"> </span>/etc/openvpn/
+sudo<span class="w"> </span>cp<span class="w"> </span>openvpn/Japan.ovpn<span class="w"> </span>/etc/openvpn/Japan.conf
+</pre></div>
+</div>
+<p>You’ll notice I changed the file extension from <code class="docutils literal notranslate"><span class="pre">.ovpn</span></code> to <code class="docutils literal notranslate"><span class="pre">.conf</span></code>. OpenVPN likes <code class="docutils literal notranslate"><span class="pre">.conf</span></code> files.</p>
+</section>
+<section id="create-the-login-file">
+<h2>Create the Login File<a class="headerlink" href="#create-the-login-file" title="Link to this heading"></a></h2>
+<p>Create <code class="docutils literal notranslate"><span class="pre">/etc/openvpn/login</span></code> containing only your username and password, one per line. Of which, PIA randomly creates your username and password, which is extra-awesome for both security and anonymity</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user12345678
+MyGreatPassword
+</pre></div>
+</div>
+<p>Change the permissions on this file so only the root user can read it, keeping anyone else from snooping.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/openvpn/login
+</pre></div>
+</div>
+</section>
+<section id="edit-the-config-file">
+<h2>Edit the Config File<a class="headerlink" href="#edit-the-config-file" title="Link to this heading"></a></h2>
+<p>Setup OpenVPN to use your stored username and password by editing the the config file for the VPN location, as well as our <code class="docutils literal notranslate"><span class="pre">ca</span></code> and <code class="docutils literal notranslate"><span class="pre">crl</span></code> files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/openvpn/Japan.conf
+</pre></div>
+</div>
+<p>Change the following lines:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>From This</p></th>
+<th class="head"><p>To This</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ca ca.crt</p></td>
+<td><p>ca /etc/openvpn/ca.rsa.2048.crt</p></td>
+</tr>
+<tr class="row-odd"><td><p>auth-user-pass</p></td>
+<td><p>auth-user-pass /etc/openvpn/login</p></td>
+</tr>
+<tr class="row-even"><td><p>crl-verify crl.pem</p></td>
+<td><p>crl-verify /etc/openvpn/crl.rsa.2048.pem</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="test-vpn">
+<h2>Test VPN<a class="headerlink" href="#test-vpn" title="Link to this heading"></a></h2>
+<p>At this point you should be able to test that the VPN actually works.</p>
+<p>Running it this way outputs the program info, as its running, into the terminal prompt. This way, you see up front without hunting in the logs for if/when/where there is any issues.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>openvpn<span class="w"> </span>--config<span class="w"> </span>/etc/openvpn/Japan.conf
+</pre></div>
+</div>
+<p>If all is well, you’ll see something like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>openvpn<span class="w"> </span>--config<span class="w"> </span>/etc/openvpn/Japan.conf
+Sat<span class="w"> </span>Oct<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:10:54<span class="w"> </span><span class="m">2015</span><span class="w"> </span>OpenVPN<span class="w"> </span><span class="m">2</span>.3.4<span class="w"> </span>arm-unknown-linux-gnueabihf<span class="w"> </span><span class="o">[</span>SSL<span class="w"> </span><span class="o">(</span>OpenSSL<span class="o">)]</span><span class="w"> </span><span class="o">[</span>LZO<span class="o">]</span><span class="w"> </span><span class="o">[</span>EPOLL<span class="o">]</span><span class="w"> </span><span class="o">[</span>PKCS11<span class="o">]</span><span class="w"> </span><span class="o">[</span>MH<span class="o">]</span><span class="w"> </span><span class="o">[</span>IPv6<span class="o">]</span><span class="w"> </span>built<span class="w"> </span>on<span class="w"> </span>Dec<span class="w">  </span><span class="m">5</span><span class="w"> </span><span class="m">2014</span>
+Sat<span class="w"> </span>Oct<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:10:54<span class="w"> </span><span class="m">2015</span><span class="w"> </span>library<span class="w"> </span>versions:<span class="w"> </span>OpenSSL<span class="w"> </span><span class="m">1</span>.0.1k<span class="w"> </span><span class="m">8</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">2015</span>,<span class="w"> </span>LZO<span class="w"> </span><span class="m">2</span>.08
+Sat<span class="w"> </span>Oct<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:10:54<span class="w"> </span><span class="m">2015</span><span class="w"> </span>UDPv4<span class="w"> </span>link<span class="w"> </span>local:<span class="w"> </span><span class="o">[</span>undef<span class="o">]</span>
+Sat<span class="w"> </span>Oct<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:10:54<span class="w"> </span><span class="m">2015</span><span class="w"> </span>UDPv4<span class="w"> </span>link<span class="w"> </span>remote:<span class="w"> </span><span class="o">[</span>AF_INET<span class="o">]</span><span class="m">123</span>.123.123.123:1194
+Sat<span class="w"> </span>Oct<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:10:54<span class="w"> </span><span class="m">2015</span><span class="w"> </span>WARNING:<span class="w"> </span>this<span class="w"> </span>configuration<span class="w"> </span>may<span class="w"> </span>cache<span class="w"> </span>passwords<span class="w"> </span><span class="k">in</span><span class="w"> </span>memory<span class="w"> </span>--<span class="w"> </span>use<span class="w"> </span>the<span class="w"> </span>auth-nocache<span class="w"> </span>option<span class="w"> </span>to<span class="w"> </span>prevent<span class="w"> </span>this
+Sat<span class="w"> </span>Oct<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:10:56<span class="w"> </span><span class="m">2015</span><span class="w"> </span><span class="o">[</span>Private<span class="w"> </span>Internet<span class="w"> </span>Access<span class="o">]</span><span class="w"> </span>Peer<span class="w"> </span>Connection<span class="w"> </span>Initiated<span class="w"> </span>with<span class="w"> </span><span class="o">[</span>AF_INET<span class="o">]</span><span class="m">123</span>.123.123.123:1194
+Sat<span class="w"> </span>Oct<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:10:58<span class="w"> </span><span class="m">2015</span><span class="w"> </span>TUN/TAP<span class="w"> </span>device<span class="w"> </span>tun0<span class="w"> </span>opened
+Sat<span class="w"> </span>Oct<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:10:58<span class="w"> </span><span class="m">2015</span><span class="w"> </span>do_ifconfig,<span class="w"> </span>tt-&gt;ipv6<span class="o">=</span><span class="m">0</span>,<span class="w"> </span>tt-&gt;did_ifconfig_ipv6_setup<span class="o">=</span><span class="m">0</span>
+Sat<span class="w"> </span>Oct<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:10:58<span class="w"> </span><span class="m">2015</span><span class="w"> </span>/sbin/ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>dev<span class="w"> </span>tun0<span class="w"> </span>up<span class="w"> </span>mtu<span class="w"> </span><span class="m">1500</span>
+Sat<span class="w"> </span>Oct<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:10:58<span class="w"> </span><span class="m">2015</span><span class="w"> </span>/sbin/ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span>dev<span class="w"> </span>tun0<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">10</span>.10.10.6<span class="w"> </span>peer<span class="w"> </span><span class="m">10</span>.10.10.5
+Sat<span class="w"> </span>Oct<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:10:59<span class="w"> </span><span class="m">2015</span><span class="w"> </span>Initialization<span class="w"> </span>Sequence<span class="w"> </span>Completed
+</pre></div>
+</div>
+<p>With the <code class="docutils literal notranslate"><span class="pre">Initialization</span> <span class="pre">Sequence</span> <span class="pre">Completed</span></code> being the most important.</p>
+<p>Exit this with <code class="docutils literal notranslate"><span class="pre">ctrl+C</span></code></p>
+</section>
+<section id="setup-openvpn-s-autostart-configuration">
+<h2>Setup OpenVPN’s Autostart Configuration<a class="headerlink" href="#setup-openvpn-s-autostart-configuration" title="Link to this heading"></a></h2>
+<p>Edit the <code class="docutils literal notranslate"><span class="pre">/etc/default/openvpn</span></code> file</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/default/openvpn
+</pre></div>
+</div>
+<p>Next, since I use only the one <code class="docutils literal notranslate"><span class="pre">.conf</span></code> file,  I uncomment the <code class="docutils literal notranslate"><span class="pre">AUTOSTART-&quot;all&quot;</span></code> line. If you have a different setup, go through and make those changes.</p>
+<p>Then, to start the service:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>service<span class="w"> </span>openvpn<span class="w"> </span>start
+</pre></div>
+</div>
+<p>Then, to check that my public-facing IP address has changed - since I usually am running this on a headless machine as a downloader - I have an alias assigned in one of my dotfiles. Of which, my breakdown of dotfiles is:</p>
+<ul class="simple">
+<li><p>aliases</p></li>
+<li><p>bash_profile</p></li>
+<li><p>bashrc</p></li>
+<li><p>exports</p></li>
+<li><p>functions</p></li>
+<li><p>gitconfig</p></li>
+<li><p>gitignore</p></li>
+<li><p>profile</p></li>
+</ul>
+<p>So, my <code class="docutils literal notranslate"><span class="pre">.aliases</span></code> file is, well, my aliases that I use. So, for checking my public-facing IP address:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">pubip</span><span class="o">=</span><span class="s2">&quot;dig +short myip.opendns.com @resolver1.opendns.com&quot;</span>
+</pre></div>
+</div>
+<p>Add that to either your <code class="docutils literal notranslate"><span class="pre">.aliases</span></code> or <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file, whichever you are currenty using, and source the file. It adds the alias entry to the active session.</p>
+<p>Then, type <code class="docutils literal notranslate"><span class="pre">pubIP</span></code> and hit enter. You should get your public IP address.</p>
+<div role="list" class="citation-list">
+<div class="citation" id="pia-vpn" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">PIA-VPN</a><span class="fn-bracket">]</span></span>
+<p>Copied from the bottom half of <a class="reference external" href="https://gist.github.com/superjamie/ac55b6d2c080582a3e64">Superjamies gist</a></p>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="transmission-web-gui.html" class="btn btn-neutral float-left" title="Alternate Transmission Web GUI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nzbget.html" class="btn btn-neutral float-right" title="NZBGet [NZBGet-HTPC]" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2024, Justin Partain, JPartain89, JPCDI.
+      <span class="lastupdated">Last updated on October 16, 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N74JQEKLQN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-N74JQEKLQN', {
+          'anonymize_ip': false,
+      });
+    </script>
+ 
+<div class="footer">This page uses <a href="https://analytics.google.com/">
+Google Analytics</a> to collect statistics. You can disable it by blocking
+the JavaScript coming from www.google-analytics.com.
+<script>
+  (function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ?
+              'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+  })();
+</script>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonarr Installation [HTPC-Sonarr] &mdash; Software Install Guides 7.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="canonical" href="https://docs.jpcdi.com/docs/archive/webapps/sonarr.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=efe5be6f"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="Tautulli (previously PlexPy) [HTPC-Tautulli]" href="tautulli.html" />
+ 
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'G-N74JQEKLQN']);
+  _gaq.push(['_trackPageview']);
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Software Install Guides
+              <img src="../../../_static/JPLogo-Header.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../debian-ubuntu/index.html">Debian / Ubuntu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../debian-ubuntu/index.html#chapters">Chapters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../debian-ubuntu/apt-dpkg/index.html">APT or DPKG</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/apt-dpkg/adding-apt-list.html">Adding Extra apt-get Lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/apt-dpkg/apt-repo.html">Personal APT Repo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/apt-dpkg/dpkg-package-states.html">dpkg -l Package States</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/apt-dpkg/insert-os-edition-name.html">OS Edition Name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/apt-dpkg/dpkg-or-apt-general-errors.html">DPKG or APT General Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../debian-ubuntu/extras/index.html">Extra Items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/extras/lvm.html">LVM How To</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/extras/mount-drive-ubuntu.html">Mounting Unformatted Drive in Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/extras/postfix.html">Using Postfix as Mail Relay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/extras/renaming-network-devices.html">Renaming Network Devices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../debian-ubuntu/extras/access-control-lists.html">Access Control Lists</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../debian-ubuntu/ubuntu_user.html">User Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../debian-ubuntu/ubuntu_user.html#old-or-outdated">Old or Outdated</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../extras/index.html">Extras</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/random-ansible-snippets.html">Random Ansible Snippets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../extras/random-ansible-snippets.html#ansible-cli-basic-example">Ansible CLI - Basic Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../extras/random-ansible-snippets.html#pass-a-list">Pass a List</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/ansible-random-nuggets.html">Ansible Random Nuggets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/mysql-767-error-code.html">Fixing mysql/mariaDB 767 Character Error Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../extras/mysql-767-error-code.html#tl-dr">tl;dr</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-bash/index.html">General Bash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/bash-if-conditionals.html">Bash Conditional Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/bash-if-conditionals.html#breakdown">Breakdown</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/bash-if-conditionals.html#conditional-expression-primaries">Conditional Expression Primaries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/bash-logging.html">Bash Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/bash-logging.html#what-does-it-do">What does it do?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/basic-linux.html">Some Basic Linux Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-or-remote-use">SSH or Remote Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-keys">SSH Keys</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-key-generate">SSH-Key Generate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-key-location">SSH Key Location</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-copy-id-or-sending-your-public-key">SSH-Copy-ID or Sending Your Public Key</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#restarting-the-machine">Restarting the Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#updating-the-apps">Updating the Apps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/basic-linux.html#bash-logging">Bash Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#what-does-it-do">What does it do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#deprecation-of-apt-key">Deprecation of <code class="docutils literal notranslate"><span class="pre">apt-key</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#using-dd-for-backup">Using DD for Backup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/basic-grep-usage.html">Use grep Output as if-else Conditional</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-grep-usage.html#basic-use-of-grep-in-if-else">Basic Use of grep in if-else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-grep-usage.html#so-lets-break-that-down">So, lets break that down</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/here-docs.html">Here Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/pip-requirements-file.html">pip Requirements File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/random-collection-of-info.html">Random Collection of Info</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#using-find-to-chmod-multiple-files">Using <code class="docutils literal notranslate"><span class="pre">find</span></code> to <code class="docutils literal notranslate"><span class="pre">chmod</span></code> multiple files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#break-down">Break Down</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#using-awk-to-modify-output">Using <code class="docutils literal notranslate"><span class="pre">awk</span></code> to Modify Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#remove-text-like-commas">Remove text, like Commas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#breakdown">Breakdown</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#using-as-new-lines">Using <code class="docutils literal notranslate"><span class="pre">\</span></code> as New Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#shell-script-location">Shell Script Location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#random-number-generator">Random Number Generator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#details">Details</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#using-sed-to-make-updates">Using <code class="docutils literal notranslate"><span class="pre">sed</span></code> to Make Updates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/signals-and-traps.html">Signals and Traps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/optional-parameter.html">Default Optional Agruments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../git/index.html">Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../git/git-repo-address.html">Local Git Repo Address</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#viewing-the-repo-s-address">Viewing the Repo’s Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#changing-the-address">Changing The Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#code-breakdown">Code Breakdown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#final-steps">Final Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../git/cache-git-password-terminal.html">Saving your Git Repo Password</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../git/cache-git-password-terminal.html#or">OR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/cache-git-password-terminal.html#macos-and-1password">macOS and 1Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/cache-git-password-terminal.html#macos-keys">macOS Keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../git/git_orphan.html">Git –orphan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../homelabChangelog/index.html">HomeLab Change Log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homelabChangelog/standard-changes.html">Standard Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../homelabChangelog/standard-changes.html#after-installation">After Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../homelabChangelog/standard-changes.html#ssh-keys">SSH Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../homelabChangelog/standard-changes.html#ansible">Ansible</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../macOS/index.html">macOS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../macOS/macOS-xcode-update.html">Updating X-Code After Big Updates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/macOS-xcode-update.html#tl-dr">tl;dr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/macOS-xcode-update.html#the-story">The Story</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../macOS/Download-Xcode-with-wget.html">Download Beta Xcode with <code class="docutils literal notranslate"><span class="pre">wget</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/Download-Xcode-with-wget.html#how-to">How To</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/Download-Xcode-with-wget.html#unzipping">Unzipping</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../macOS/Other-Random-Tidbits.html">Other Random Tidbits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/Other-Random-Tidbits.html#local-webpage-wont-load-anywhere">Local WebPage Wont Load Anywhere!!!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../virtualbox/index.html">VirtualBox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html">VirtualBox AutoStart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#autostart-cfg-file">AutoStart.cfg File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#linux-autostart">Linux Autostart</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#file-permissions">File Permissions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#linux-file-permissions">Linux File Permissions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#vboxmanage-modifyvm"><code class="docutils literal notranslate"><span class="pre">VBoxManage</span> <span class="pre">modifyvm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html">VirtualBox Guest Additions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#host-machine">Host Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#ubuntu-server-guest-machine">Ubuntu Server Guest Machine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#pre-requirements">Pre-Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#mount-the-cdrom">Mount the CDROM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#run-the-installer">Run the Installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#usermod"><code class="docutils literal notranslate"><span class="pre">usermod</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#services-info">Services Info</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../virtualbox/virtualbox-systemd.html">VirtualBox Systemd</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website-testing/index.html">Website Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../website-testing/testing-services.html">Testing your Web Server Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../website-testing/testing-services.html#list">List</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Older, now unused how to's</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Archive</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../downloader/index.html">Archived Downloaders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../downloader/transmission-daemon.html">Transmission <span>[TRANS-HTPC]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/transmission-daemon.html#add-repo-and-install">Add Repo and Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/transmission-daemon.html#user-group-account-modifications">User/Group Account Modifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/transmission-daemon.html#editing-the-settings-conf-file">Editing the <code class="docutils literal notranslate"><span class="pre">settings.conf</span></code> File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../downloader/transmission-web-gui.html">Alternate Transmission Web GUI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/transmission-web-gui.html#using-kettu-s-web-gui-for-transmission">Using Kettu’s Web GUI for Transmission</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/transmission-web-gui.html#transmission-web-gui-file-locations">Transmission Web GUI File Locations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../downloader/openvpn.html">OpenVPN <span>[PIA-VPN]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/openvpn.html#secure-downloading">Secure Downloading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/openvpn.html#info">Info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/openvpn.html#install">Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/openvpn.html#pia-openvpn-files">PIA OpenVPN Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/openvpn.html#copy-the-files">Copy the Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/openvpn.html#create-the-login-file">Create the Login File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/openvpn.html#edit-the-config-file">Edit the Config File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/openvpn.html#test-vpn">Test VPN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/openvpn.html#setup-openvpn-s-autostart-configuration">Setup OpenVPN’s Autostart Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../downloader/nzbget.html">NZBGet <span>[NZBGet-HTPC]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/nzbget.html#unrar">UnRar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../downloader/nzbget.html#nzbget-installation">NZBGet Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../general-bash/index.html">Archived General Bash</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../general-bash/ratom.html">Ratom <span>[RATOM-src]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../general-bash/ratom.html#archival">Archival</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../raspberry-pi/index.html">Raspberry Pi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../raspberry-pi/boot-from-usb.html">Boot your Raspberry Pi from an External USB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/boot-from-usb.html#first-steps">First Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../raspberry-pi/ddrescue.html">DDRescue</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/ddrescue.html#installing">Installing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/ddrescue.html#how-is-it-used">How is it Used?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/ddrescue.html#break-it-down">Break it Down</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html">OLD Boot Raspberry Pi from USB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#find-the-usb-drive">Find the USB Drive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#install-adafruit-s-usb-program">Install Adafruit’s USB Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#adafruit-s-repo-the-long-way-round">Adafruit’s Repo the Long Way Round</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#installing-usb-program">Installing USB Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#running-the-program">Running the Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#after-running">After Running</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../raspberry-pi/OLD-boot-from-usb.html#recovering-from-a-failed-boot">Recovering from a Failed Boot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../virtualbox/index.html">VirtualBox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../virtualbox/virtualbox-autostart.html">VirtualBox AutoStart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-autostart.html#autostart-systems">AutoStart Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-autostart.html#autostart-cfg-file">AutoStart.cfg File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-autostart.html#file-permissions">File Permissions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-autostart.html#vboxmanage-modifyvm"><code class="docutils literal notranslate"><span class="pre">VBoxManage</span> <span class="pre">modifyvm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-autostart.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../virtualbox/virtualbox-guest-addition.html">VirtualBox Guest Additions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-guest-addition.html#host-machine">Host Machine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../virtualbox/virtualbox-guest-addition.html#ubuntu-server-guest-machine">Ubuntu Server Guest Machine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../virtualbox/virtualbox-systemd.html">VirtualBox Systemd</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web-server/index.html">Web Server Stuff</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web-server/nginx-from-ubuntu-ppa.html">NGINX from PPA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-from-ubuntu-ppa.html#nginx-s-ppa">NGINX’s PPA</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../web-server/nginx-from-source.html">Compiling NGINX From Source <span>[NGINX-Copied]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-from-source.html#add-nginx-ppa">Add NGINX PPA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-from-source.html#download-source-packages">Download Source Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-from-source.html#install-nginx">Install NGINX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-from-source.html#block-nginx-from-auto-update">Block NGINX from Auto-Update</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../web-server/nginx-basic-auth.html">NGINX Basic Password Auth</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-basic-auth.html#htpasswd"><code class="docutils literal notranslate"><span class="pre">htpasswd</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/nginx-basic-auth.html#auth-pam">Auth Pam</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../web-server/securing-nginx.html">Securing NGINX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/securing-nginx.html#basic-https-setup">Basic HTTPS Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/securing-nginx.html#optimizing-nginx-s-secure-connection">Optimizing NGINX’s Secure Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/securing-nginx.html#configuration-example">Configuration Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../web-server/ddclient.html">DDClient <span>[DDCLIENT-Source]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/ddclient.html#preface">Preface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../web-server/wildcard-certbot.html">Certbot WildCard SSL Cert</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/wildcard-certbot.html#old-or-outdated">Old or Outdated</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/wildcard-certbot.html#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/wildcard-certbot.html#setup">Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web-server/wildcard-certbot.html#running-certbot">Running Certbot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">WebApps</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="radarr.html">Radarr Movie Downloader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="couchpotato.html">CouchPotato Movie Downloader <span>[HTPC-CP]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="couchpotato.html#shoutout">Shoutout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="couchpotato.html#base-requirements">Base Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="couchpotato.html#clone-the-repo">Clone the Repo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="couchpotato.html#test-if-it-works">Test if it Works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="couchpotato.html#copy-edit-default-file">Copy/Edit Default File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="couchpotato.html#copy-or-edit-the-init-d-file">Copy or Edit the init.d File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tautulli.html">Tautulli (previously PlexPy) <span>[HTPC-Tautulli]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tautulli.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tautulli.html#clone-the-repo">Clone the Repo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tautulli.html#edit-the-default-file">Edit the Default File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tautulli.html#create-tautulli-user">Create Tautulli User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tautulli.html#change-ownerships-and-symlink">Change Ownerships and Symlink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tautulli.html#testing-the-program-first">Testing the Program First</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tautulli.html#autostart-system-files">AutoStart System Files</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Sonarr Installation <span>[HTPC-Sonarr]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#base-requirements">Base Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-the-apt-source-and-install">Add the Apt Source and Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-run">First Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-autostart-init-d-file">Create Autostart init.d File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-to-autostart-program">Add to Autostart Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#final-steps">Final Steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Software Install Guides</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Archive</a></li>
+          <li class="breadcrumb-item"><a href="index.html">WebApps</a></li>
+      <li class="breadcrumb-item active">Sonarr Installation <span>[HTPC-Sonarr]</span></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/docs/archive/webapps/sonarr.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="tautulli.html" class="btn btn-neutral float-left" title="Tautulli (previously PlexPy) [HTPC-Tautulli]" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sonarr-installation-htpc-sonarr">
+<h1>Sonarr Installation <a class="reference internal" href="#htpc-sonarr" id="id1"><span>[HTPC-Sonarr]</span></a><a class="headerlink" href="#sonarr-installation-htpc-sonarr" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These directions are way out of date. Do not use these!
+I have since switched to a different process or tool since writing this particular article, but keeping it up for posterities sake, until I can properly replace it.</p>
+</div>
+<p>What have I changed to you ask?
+Anything building I’ve tried switching over to Ansible to handle in a much more programatic way.
+Others might be tools that I just don’t use at all anymore, due to changing DNS hosts.</p>
+<p>Sonarr (old name was NzbDrone, which you will still see everywhere. Even in their startup file…) is, honestly, my favorite of all of the HTPC Apps. Even moreso than Plex because Plex can really be a huge resource hog.</p>
+<p>The day that Sonarr really hopped into my all time fav basket was when I had began downloading a TV show outside of Sonarr. Then, when I had started adding it to Sonarr, it started searching through my directories I had inputted into its settings as a possible final download location, found the files, moved them into their correct, final spot, renamed and everything. Without missing a beat.</p>
+<p>Its not without its issues, of course. But they often get fixed quickly, or they aren’t with this program, but another site or service.</p>
+<section id="base-requirements">
+<h2>Base Requirements<a class="headerlink" href="#base-requirements" title="Link to this heading"></a></h2>
+<p>Make sure apt-transport-https is installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>apt-transport-https
+</pre></div>
+</div>
+</section>
+<section id="add-the-apt-source-and-install">
+<h2>Add the Apt Source and Install<a class="headerlink" href="#add-the-apt-source-and-install" title="Link to this heading"></a></h2>
+<p>Luckily, here, they have a repo we can add to our apt-get lists (of which I always have seperate list files for the “outside of ubuntu/debian” standards) so we get to have easy updates and whatnot.</p>
+<p>First, gotta add the key, then the repo, and then update and install.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-key<span class="w"> </span>adv<span class="w"> </span>--keyserver<span class="w"> </span>keyserver.ubuntu.com<span class="w"> </span>--recv-keys<span class="w"> </span>FDA5DFFC
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb https://apt.sonarr.tv/ master main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/apt/sources.list.d/sonarr.list
+
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>nzbdrone<span class="w"> </span>-y
+</pre></div>
+</div>
+<p>Now, you’ll notice there was a TON of apps installing here… Don’t panic. This is because Sonarr - aka NzbDrone here - is actually ran using an .exe file! Can you believe it?!? But, there is an open source program called mono that, I believe if the program is compiled for it only, can we run .exe’s here! So that was all the Mono modules installing.</p>
+<p>But, now we need to run Sonarr, with it outputting the actual output to your shell. This way, you can easily spot any errors, read when it tells you to fix something. Plus, its honestly cool to watch that output live as you click around in a program.</p>
+</section>
+<section id="first-run">
+<h2>First Run<a class="headerlink" href="#first-run" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mono<span class="w"> </span>/opt/NzbDrone/NzbDrone.exe
+</pre></div>
+</div>
+<p>Now, to stop the program, <code class="docutils literal notranslate"><span class="pre">ctrl-C</span></code> sends the SIGHUP signal to try to gracefully quit the program.</p>
+</section>
+<section id="create-autostart-init-d-file">
+<h2>Create Autostart init.d File<a class="headerlink" href="#create-autostart-init-d-file" title="Link to this heading"></a></h2>
+<p>Now, we need to make the autostart file, of which, one is not supplied by the installer. I also didn’t have much luck with the ones listed on their <a class="reference external" href="https://github.com/Sonarr/Sonarr">github site</a>. But the text below was coped from <a class="reference external" href="https://www.htpcguides.com/install-nzbdrone-ubuntu/">HTPCGuides.com site</a> , <a class="reference internal" href="#htpc-sonarr" id="id2"><span>[HTPC-Sonarr]</span></a> which has served me very well.</p>
+<p>First, edit the init.d file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/init.d/nzbdrone
+</pre></div>
+</div>
+<p>Then, copy and paste the text from below. You’ll notice the big <cite>EDIT ME</cite> text in there. Take a looksee, make your edits as you see fit.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>#! /bin/sh
+### BEGIN INIT INFO
+# Provides: NzbDrone
+# Required-Start: $local_fs $network $remote_fs
+# Required-Stop: $local_fs $network $remote_fs
+# Should-Start: $NetworkManager
+# Should-Stop: $NetworkManager
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: starts instance of NzbDrone
+# Description: starts instance of NzbDrone using start-stop-daemon
+### END INIT INFO
+
+############### EDIT ME ##################
+# path to app
+APP_PATH=/opt/NzbDrone
+
+# user
+RUN_AS=&lt;Your UserName&gt;
+
+# path to mono bin
+DAEMON=$(which mono)
+
+# Path to store PID file
+PID_FILE=/var/run/nzbdrone/nzbdrone.pid
+PID_PATH=$(dirname $PID_FILE)
+
+# script name
+NAME=nzbdrone
+
+# app name
+DESC=NzbDrone
+
+# startup args
+EXENAME=&quot;NzbDrone.exe&quot;
+DAEMON_OPTS=&quot; &quot;$EXENAME
+
+############### END EDIT ME ##################
+
+NZBDRONE_PID=`ps auxf | grep NzbDrone.exe | grep -v grep | awk &#39;{print $2}&#39;`
+
+test -x $DAEMON || exit 0
+
+set -e
+
+#Look for PID and create if doesn&#39;t exist
+if [ ! -d $PID_PATH ]; then
+    mkdir -p $PID_PATH
+    chown $RUN_AS $PID_PATH
+fi
+
+if [ ! -d $DATA_DIR ]; then
+    mkdir -p $DATA_DIR
+    chown $RUN_AS $DATA_DIR
+fi
+
+if [ -e $PID_FILE ]; then
+    PID=`cat $PID_FILE`
+    if ! kill -0 $PID &gt; /dev/null 2&gt;&amp;1; then
+        echo &quot;Removing stale $PID_FILE&quot;
+        rm $PID_FILE
+    fi
+fi
+
+echo $NZBDRONE_PID &gt; $PID_FILE
+
+case &quot;$1&quot; in
+    start)
+    if [ -z &quot;${NZBDRONE_PID}&quot; ]; then
+        echo &quot;Starting $DESC&quot;
+        rm -rf $PID_PATH || return 1
+        install -d --mode=0755 -o $RUN_AS $PID_PATH || return 1
+        start-stop-daemon -d $APP_PATH -c $RUN_AS --start --background --pidfile    $PID_FILE --exec $DAEMON -- $DAEMON_OPTS
+    else
+        echo &quot;NzbDrone already running.&quot;
+    fi
+    ;;
+    stop)
+        echo &quot;Stopping $DESC&quot;
+        echo $NZBDRONE_PID &gt; $PID_FILE
+        start-stop-daemon --stop --pidfile $PID_FILE --retry 15
+    ;;
+    restart|force-reload)
+        echo &quot;Restarting $DESC&quot;
+        start-stop-daemon --stop --pidfile $PID_FILE --retry 15
+        start-stop-daemon -d $APP_PATH -c $RUN_AS --start --background --pidfile $PID_FILE --exec $DAEMON -- $DAEMON_OPTS
+    ;;
+    status)
+        # Use LSB function library if it exists
+        if [ -f /lib/lsb/init-functions ]; then
+            . /lib/lsb/init-functions
+            if [ -e $PID_FILE ]; then
+                status_of_proc -p $PID_FILE &quot;$DAEMON&quot; &quot;$NAME&quot; &amp;&amp; exit 0 || exit $?
+            else
+                log_daemon_msg &quot;$NAME is not running&quot;
+                exit 3
+            fi
+        else
+            # Use basic functions
+            if [ -e $PID_FILE ]; then
+                PID=`cat $PID_FILE`
+                if kill -0 $PID &gt; /dev/null 2&gt;&amp;1; then
+                    echo &quot; * $NAME is running&quot;
+                    exit 0
+                fi
+            else
+                echo &quot; * $NAME is not running&quot;
+                exit 3
+            fi
+        fi
+    ;;
+    *)
+        N=/etc/init.d/$NAME
+        echo &quot;Usage: $N {start|stop|restart|force-reload|status}&quot; &gt;&amp;2
+        exit 1
+        ;;
+    esac
+
+exit 0
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <a class="reference internal" href="../../debian-ubuntu/ubuntu_user.html#user-management"><span class="std std-ref">User Management</span></a> for notes on adjusting user permissions with regards to programs and allowing the web access to your machines.</p>
+</div>
+</section>
+<section id="add-to-autostart-program">
+<h2>Add to Autostart Program<a class="headerlink" href="#add-to-autostart-program" title="Link to this heading"></a></h2>
+<p>Then, make the script executable and add to your autostart program. In the below example, its using Ubuntu’s <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">&lt;program&gt;</span> <span class="pre">start</span></code> program.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/etc/init.d/nzbdrone
+sudo<span class="w"> </span>update-rc.d<span class="w"> </span>nzbdrone<span class="w"> </span>defaults
+</pre></div>
+</div>
+</section>
+<section id="final-steps">
+<h2>Final Steps<a class="headerlink" href="#final-steps" title="Link to this heading"></a></h2>
+<p>Then, start the program with <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nzbdrone</span> <span class="pre">start</span></code> and if you see no error codes - which for some reason Ubuntu 16 wont always show on init.d scripts… Check your HTOP processes to see if its running. If not, <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nzbdrone</span> <span class="pre">status</span></code> - then the program should be running.</p>
+<p>You can see it at <a class="reference external" href="http://localhost:8989">http://localhost:8989</a> if its running on the same machine as your browser. Otherwise put in the machines IP address instead of <code class="docutils literal notranslate"><span class="pre">localhost</span></code>.</p>
+<div role="list" class="citation-list">
+<div class="citation" id="htpc-sonarr" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>HTPC-Sonarr<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>These directions were liberally copied from <a class="reference external" href="https://www.htpcguides.com/install-nzbdrone-ubuntu">HTPCGuides.com</a></p>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tautulli.html" class="btn btn-neutral float-left" title="Tautulli (previously PlexPy) [HTPC-Tautulli]" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2024, Justin Partain, JPartain89, JPCDI.
+      <span class="lastupdated">Last updated on October 16, 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N74JQEKLQN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-N74JQEKLQN', {
+          'anonymize_ip': false,
+      });
+    </script>
+ 
+<div class="footer">This page uses <a href="https://analytics.google.com/">
+Google Analytics</a> to collect statistics. You can disable it by blocking
+the JavaScript coming from www.google-analytics.com.
+<script>
+  (function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ?
+              'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+  })();
+</script>
+</div>
+
+
+</body>
+</html>
