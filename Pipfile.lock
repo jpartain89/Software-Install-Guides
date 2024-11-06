@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "98a7c35c937a64834f9611e5ba33350704336573a3567cd28ae8154e868a54da"
+            "sha256": "b4e1885ab93abb529524007ec1d3c2994c8dd4d8961d49f73726ad781089dcff"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -27,11 +27,12 @@
         },
         "anyio": {
             "hashes": [
-                "sha256:4c8bc31ccdb51c7f7bd251f51c609e038d63e34219b44aa86e47576389880b4c",
-                "sha256:6d170c36fba3bdd840c73d3868c1e777e33676a69c3a72cf0a0d5d6d8009b61d"
+                "sha256:5aadc6a1bbb7cdb0bede386cac5e2940f5e2ff3aa20277e991cf028e0585ce94",
+                "sha256:c1b2d8f46a8a812513012e1107cb0e68c17159a7a594208005a57dc776e1bdc7"
             ],
-            "markers": "python_version >= '3.9'",
-            "version": "==4.6.2.post1"
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==4.4.0"
         },
         "appdirs": {
             "hashes": [
@@ -659,12 +660,12 @@
         },
         "sphinx-autobuild": {
             "hashes": [
-                "sha256:1c0ed37a1970eed197f9c5a66d65759e7c4e4cba7b5a5d77940752bf1a59f2c7",
-                "sha256:f2522779d30fcbf0253e09714f274ce8c608cb6ebcd67922b1c54de59faba702"
+                "sha256:158e16c36f9d633e613c9aaf81c19b0fc458ca78b112533b20dafcda430d60fa",
+                "sha256:248150f8f333e825107b6d4b86113ab28fa51750e5f9ae63b59dc339be951fb1"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.9'",
-            "version": "==2024.4.16"
+            "version": "==2024.10.3"
         },
         "sphinx-copybutton": {
             "hashes": [
