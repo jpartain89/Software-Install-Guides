@@ -239,7 +239,7 @@ sphinxcontrib-serializinghtml==1.1.10
     #   sphinx
 starlette==0.40.0
     # via sphinx-autobuild
-tornado==6.4.1
+tornado==6.4.2
     # via
     #   -r requirements.in
     #   livereload
