@@ -8,7 +8,7 @@ OR
 Default Permissions
 --------------------
 
-This is a how-to specifically for whats called ACL's or Access Control Lists. These dictate the default Username, Groupname, and/or permissions that apply to the top directory and back down, as you so choose. This is awesome for when you mount secondary hard drives, or will be using a directory as a shared folder and need unified permissions.
+This is a how-to specifically for 'ACL's or 'Access Control Lists'. These dictate the default Username, Groupname, and/or permissions that apply to the top directory and back down, as you so choose. This is awesome for when you mount secondary hard drives, or will be using a directory as a shared folder and need unified permissions beyond the built-in simple linux permissions.
 
 -----
 tl;dr
@@ -18,13 +18,26 @@ tl;dr
 
   sudo setfacl -Rdm u:usernamehere:rwx /path/to/file
   sudo setfacl -Rm u:usernamehere:rwx /path/to/file
-  sudo setfacl -Rdm g:groupnamehere:rwx /base/path/members/
-  sudo setfacl -Rm g:groupnamehere:rwx /base/path/members/
+  sudo setfacl -Rdm g:groupnamehere:rwx /path/to/file
+  sudo setfacl -Rm g:groupnamehere:rwx /path/to/file
 
 :command:`setfacl` is to set the acl.
-:command:`-R` is for recursively acting on all files from ``/whatever/file`` down
+:command:`-R` is for recursively acting on all files from ``/path/to/dir`` down
 :command:`d` is for default, setting the defaults first time round
 :command:`m` is for "modifying" the acl
 
-Then, to make sure all files, recursively, receive the update, run it again without the d
-    
+Setting the ``default`` flag first changes the default behavior of new files or directories to be created below the directory you're modifying.
+
+.. code-block:: bash
+
+  sudo setfacl -Rdm u:usernamehere:rwx /path/to/file
+  sudo setfacl -Rdm g:groupnamehere:rwx /path/to/file
+
+Then, to make sure all files, recursively, receive the update, run it again without the ``d`` option in the command flag.
+
+.. code-block:: bash
+
+  sudo setfacl -Rm u:usernamehere:rwx /path/to/file
+  sudo setfacl -Rm g:groupnamehere:rwx /path/to/file
+
+And to read the ACL, you simply use ``getfacl /path/to/file``.
