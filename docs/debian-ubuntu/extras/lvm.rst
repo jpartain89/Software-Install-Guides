@@ -39,7 +39,7 @@ These steps are for a fresh hard drive, either brand new or freshly erased, and 
 
   sudo fdisk -l
 
-This command lists the hard drives that the OS can find, whether actually mounted or not. And, it outputs a LOT of information. An alternative command  you can use, that I usually prefer:
+This command lists the hard drives that the OS can find, whether actually mounted or not. And, it outputs a LOT of information. An alternative Command you can use, that I usually prefer:
 
 .. code-block:: bash
 
@@ -57,23 +57,17 @@ This one is really great for if you already have drives mounted somewhere, so yo
   sdc                   8:32   0 465.8G  0 disk
   ├─sdc1                8:33   0   456G  0 part /
   └─sdc2                8:34   0   9.8G  0 part [SWAP]
-  sdd                   8:48   0   1.8T  0 disk
-  └─sdd1                8:49   0   1.8T  0 part
-    └─mdusa-externals 252:0    0   2.7T  0 lvm  /media/mdusa
-  sde                   8:64   0 931.5G  0 disk
-  └─sde1                8:65   0 931.5G  0 part
-    └─mdusa-externals 252:0    0   2.7T  0 lvm  /media/mdusa
   sr0                  11:0    1  1024M  0 rom
 
 Next, you'll use the ID of the drive in the command:
 
 .. code-block:: bash
 
-  sudo fdisk /dev/<disk_id>
+  sudo fdisk /dev/<disk name>
 
 This starts :program:`fdisk` with your disk selected. If you want to see all of the commands, :kbd:`m` is the help option.
 
-We are wanting to add a new partition, so type :kbd:`n` and press enter, and then select :kbd:`p` for ``primary``.  Next, it'll ask for the sector locations of where you want the partitions to exist. You'll notice that the program gives you a default selection to choose from. For the sector locations, you can choose the default options that :program:`fdisk` provides, pressing :kbd:`enter` to keep going.
+We are wanting to add a new partition, so type :kbd:`n` and press enter, and then select :kbd:`p` for ``primary``. Next, it'll ask for the sector locations of where you want the partitions to exist. You'll notice that the program gives you a default selection to choose from. For the sector locations, you can choose the default options that :program:`fdisk` provides, pressing :kbd:`enter` to keep going.
 
 Next, you'll use the :kbd:`t` option, which changes the partition type/id. In here, there is a super long list of options, and how you select the id can change from version to version, so you'll need to list the options.
 
@@ -93,11 +87,11 @@ Now, we start using the actual commands for ``LVM``.
 LVM Physical Volume
 ===================
 
-First, before we make the ``Volume Group``, we need to finish working on the freshly wiped hard drive.  You'll need to run :command:`pvcreate` to finish that off.
+First, before we make the ``Volume Group``, we need to finish working on the freshly wiped hard drive You'll need to run :command:`pvcreate` to finish that off.
 
 .. code-block:: bash
 
-  sudo pvcreate /dev/<disk_id>
+  sudo pvcreate /dev/<disk name>
 
 It'll most likely throw a warning saying that an ``existing ext4 signature was detected. Are you sure you want to continue?`` Enter :kbd:`y` to confirm, and it formally formats it correctly for you to be able to use it in an LVM Volume Group.
 

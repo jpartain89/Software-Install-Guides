@@ -16,7 +16,6 @@ AKA:
   lvm
   mount-drive-ubuntu
   postfix
-  renaming-network-devices
   access-control-lists
 
 .. _btrfs: https://btrfs.readthedocs.io/en/latest/
