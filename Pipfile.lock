@@ -37,7 +37,6 @@
                 "sha256:8f5c07333d543103541ba7be0e2ce16eeee8130cb0b3f9238ab904ce1e85baff",
                 "sha256:ac96cd038792094f438ad1f6ff80837353805ac950cd2aa0e0625ef19850c308"
             ],
-            "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==24.3.0"
         },
@@ -54,6 +53,7 @@
                 "sha256:67c7495b760168d931a10233f979b28dc04daf853b30752246f4f8471c6d68d0",
                 "sha256:8028cfe1ff5382df59dd36474a86e02d817b06eaf8af84555441bac915d2ef85"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==24.1.2"
         },
@@ -181,6 +181,7 @@
                 "sha256:63c132bbbed01578a06712a2d1f497bb62d9c1c0d329b7903a866228027263b2",
                 "sha256:ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.7'",
             "version": "==8.1.8"
         },
@@ -287,6 +288,7 @@
                 "sha256:2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2",
                 "sha256:7eb6df5690b81a1d7942992c97fad2938e956e79df20cbc6186e9c3a77b1c803"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==3.7"
         },
@@ -512,7 +514,6 @@
                 "sha256:f753120cb8181e736c57ef7636e83f31b9c0d1722c516f7e86cf15b7aa57ff12",
                 "sha256:ff3824dc5261f50c9b0dfb3be22b4567a6f938ccce4587b38952d85fd9e9afe4"
             ],
-            "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==6.0.2"
         },
@@ -753,7 +754,6 @@
                 "sha256:e7631a77ffb1f7d2eefa4445ebbee491c720a5661ddf6df3498ebecae5ed375c",
                 "sha256:ef810fbf7b781a5a593894e4f439773830bdecb885e6880d957d5b9382a960d2"
             ],
-            "index": "pypi",
             "markers": "python_version >= '3.9'",
             "version": "==6.0.0"
         },
