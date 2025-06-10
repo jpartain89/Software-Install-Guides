@@ -29,7 +29,7 @@ First, you make sure you have curl installed
 
 .. code-block:: bash
 
-  sudo apt install curl
+  sudo apt install curlx
 
 Then, using curl, you pipe the URL at the end to the file location under ``/usr/share/keyrings/``.
 

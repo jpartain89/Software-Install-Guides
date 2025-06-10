@@ -13,9 +13,10 @@ docutils
 esbonio
 filelock
 ghp-import
+h11>=0.16.0
 idna
 imagesize
-Jinja2=>3.1.6
+Jinja2
 livereload
 lsprotocol
 Markdown
