@@ -516,11 +516,12 @@
         },
         "pyyaml-env-tag": {
             "hashes": [
-                "sha256:70092675bda14fdec33b31ba77e7543de9ddc88f2e5b99160396572d11525bdb",
-                "sha256:af31106dec8a4d68c60207c1886031cbf839b68aa7abccdb19868200532c2069"
+                "sha256:17109e1a528561e32f026364712fee1264bc2ea6715120891174ed1b980d2e04",
+                "sha256:2eb38b75a2d21ee0475d6d97ec19c63287a7e140231e4214969d0eac923cd7ff"
             ],
-            "markers": "python_version >= '3.6'",
-            "version": "==0.1"
+            "index": "pypi",
+            "markers": "python_version >= '3.9'",
+            "version": "==1.1"
         },
         "readthedocs-sphinx-ext": {
             "hashes": [
