@@ -432,12 +432,12 @@
         },
         "pyspellchecker": {
             "hashes": [
-                "sha256:2b026be14a162ba810bdda8e5454c56e364f42d3b9e14aeff31706e5ebcdc78f",
-                "sha256:4fee22e1859c5153c3bc3953ac3041bf07d4541520b7e01901e955062022290a"
+                "sha256:cb06eeafe124837f321e0d02f8e21deab713e966e28e0360319a28a089c43978",
+                "sha256:e993076e98b0da5a99b7cc31085c3022c77a9dc37c5e95f5cf6304b5dbb8b9d2"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.7'",
-            "version": "==0.8.2"
+            "markers": "python_version >= '3.8'",
+            "version": "==0.8.3"
         },
         "python-dateutil": {
             "hashes": [
