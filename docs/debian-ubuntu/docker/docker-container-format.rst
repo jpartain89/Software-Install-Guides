@@ -8,7 +8,9 @@ Docker Container Formatting for the CLI
 
 Outputs:
 
-.. json::
+.. csv-table:: Docker Container List
+  :header: "Name", "State", "ID"
+  :widths: 30, 10, 20
 
   "your_spotify" "running" "4f477f1d6c61"
   "mongox" "running" "79927585f45a"
@@ -21,8 +23,6 @@ Outputs:
   "hoarder-workers-1" "running" "47c8d6de9eeb"
   "hoarder-web-1" "running" "02ba6b21ef1b"
 
-The key to this specific format is the ``--format='{{json .Names}} {{json .State}} {{json .ID}}'`` portion. You can change what is displayed by changing what is inside the curly braces. You can find a full list of options over at `Docker's Reference Pages`_.
+The key to this specific format is the ``--format='{{json .Names}} {{json .State}} {{json .ID}}'`` portion. You can change what is displayed by changing what is inside the curly braces. You can find a full list of options over at `Dockers Reference Pages`_.
 
-
-
-.. _Docker's Refence Pages: https://docs.docker.com/engine/reference/commandline/container_ls/#formatting
+.. _Dockers Refence Pages: https://docs.docker.com/engine/reference/commandline/container_ls/#formatting

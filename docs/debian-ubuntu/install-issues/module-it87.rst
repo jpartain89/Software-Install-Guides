@@ -19,3 +19,6 @@ Then, I stumbled upon `Proxmox's Forum Post`_ about a similar issue, that said t
   cp /sys/kernel/btf/vmlinux /usr/src/linux-headers-$(uname -r)/build
 
 And that was it! I was able to install the module without any issues after that.
+
+.. _it87: https://github.com/frankcrawford/it87
+.. _Proxmox's Forum Post: https://forum.proxmox.com/threads/kernel-module-not-found-when-compile-skipping-btf-generation.100974/#post-440473
