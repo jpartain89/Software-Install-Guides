@@ -10,7 +10,7 @@ I was having the worst time since upgrading to Ubuntu 24.04 with trying to insta
 
 And for the life of me, I was unable to figure out where vmlinux had disappeared to or how to get it back again!
 
-Then, I stumbled upon `Proxmox's Forum Post`_ about a similar issue, that said to:
+Then, I stumbled upon `Proxmoxs Forum Post`_ about a similar issue, that said to:
 
 .. code-block:: bash
 
@@ -21,4 +21,4 @@ Then, I stumbled upon `Proxmox's Forum Post`_ about a similar issue, that said t
 And that was it! I was able to install the module without any issues after that.
 
 .. _it87: https://github.com/frankcrawford/it87
-.. _Proxmox's Forum Post: https://forum.proxmox.com/threads/kernel-module-not-found-when-compile-skipping-btf-generation.100974/#post-440473
+.. _Proxmoxs Forum Post: https://forum.proxmox.com/threads/kernel-module-not-found-when-compile-skipping-btf-generation.100974/#post-440473

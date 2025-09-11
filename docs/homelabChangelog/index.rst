@@ -9,3 +9,6 @@ I will most likely partition out each program I either install or attempt to ins
 .. toctree::
 
   standard-changes
+  changelog_after_new
+  rough_ubuntu_config
+  
