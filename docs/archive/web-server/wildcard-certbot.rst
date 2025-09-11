@@ -2,8 +2,6 @@
 Certbot WildCard SSL Cert
 =========================
 
-.. include:: ../../old-or-outdated.rst
-
 This how-to is specific for grabbing a wildcard certificate for your domain using `Certbot`_ and `Letsencrypt`_, with `Certbot`_'s dns system. Specifically using their manual system.
 
 It is fairly difficult to find an all-in-one how-to for getting a wildcard cert manually using `Certbot`_.
