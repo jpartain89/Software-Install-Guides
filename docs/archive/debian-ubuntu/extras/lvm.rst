@@ -4,8 +4,6 @@
 LVM How To
 ==========
 
-.. include:: ../../old-or-outdated.rst
-
 This how to, for now - like all the others - is more for my remembering how to do something, and as I learn more about ``LVM``, I'll try to add those nuggets here.
 
 ---------------

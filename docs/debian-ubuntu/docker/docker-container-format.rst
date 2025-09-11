@@ -2,7 +2,7 @@
 Docker Container Formatting for the CLI
 =======================================
 
-.. bash::
+.. code-block:: bash
 
   docker container ls --format='{{json .Names}} {{json .State}} {{json .ID}}'
 
