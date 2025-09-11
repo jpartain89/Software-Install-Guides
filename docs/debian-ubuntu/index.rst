@@ -26,3 +26,5 @@ I have this section broken down further into specific area's of interest:
   apt-dpkg/index
   extras/index
   ubuntu_user
+  docker/index
+  install-issues/index
