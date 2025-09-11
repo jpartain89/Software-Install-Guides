@@ -89,6 +89,7 @@ linkcheck_ignore = [
     r'https://atom.io',
     r'http://askubuntu.com',
     r'https://theunarchiver.com/',
-    r'https://securityheaders.com'
+    r'https://securityheaders.com',
+    r'https://www.linode.com'
 ]
 linkcheck_exclude_documents = [r'.*/archive/.*']
