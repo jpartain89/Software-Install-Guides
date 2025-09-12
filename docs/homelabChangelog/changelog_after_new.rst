@@ -4,8 +4,9 @@ Changelog
 
 Ran my ansible `linux.yml` playbook.
 
-Install `hishtory`_ using: 
-.. bash:: 
+Install `hishtory`_ using:
+
+.. code-block:: bash
 
   curl https://hishtory.dev/install.py | python3 -
   hishtory init $YOUR_HISHTORY_SECRET
@@ -13,7 +14,7 @@ Install `hishtory`_ using:
 
 2025-07-05: jpserver:
 
-.. bash::
+.. code-block::bash
 
   sudo apt install libpam-ssh-agent-auth
   Reading package lists... Done
@@ -49,7 +50,7 @@ Install `hishtory`_ using:
   No VM guests are running outdated hypervisor (qemu) binaries on this host.
 
 
-.. bash::
+.. code-block:: bash
 
   sudo visudo
 
@@ -58,7 +59,7 @@ Install `hishtory`_ using:
   Added to `visudo` file:
   Defaults env_keep += "SSH_AUTH_SOCK"
 
-.. bash::
+.. code-block:: bash
 
   sudo nano /etc/pam.d/sudo
 
@@ -67,3 +68,4 @@ Install `hishtory`_ using:
   Added to `/etc/pam.d/sudo` file:
   auth sufficient pam_ssh_agent_auth.so
 
+.. _hishtory: https://hishtory.dev/

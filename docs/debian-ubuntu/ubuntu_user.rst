@@ -3,10 +3,6 @@
 User Management
 ================
 
-Starting off with a warning:
-
-.. include:: ../old-or-outdated.rst
-
 Technically, for proper security and the Linux Way, you're supposed to have specific, security-neutered, non-home-directory-having users running these different programs. Helps stop any random, drive-by-login attempts, or rogue access if your password or keys were to ever get out.
 
 So, if we want to go the right way, we would create a user that has no shell access, isn't allowed to actually log in, but is able to run programs.
