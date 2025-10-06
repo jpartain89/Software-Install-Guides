@@ -398,6 +398,7 @@
                 "sha256:abd01743f24e5287cd7a5db3752faf1a2d65353f38ec26d98e25a6db65958c85",
                 "sha256:ca753cf4d81dc309bc67b0ea38fd15dc97bc30ce419a7f58d13eb3bf14c4febf"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.9'",
             "version": "==4.4.0"
         },
@@ -672,12 +673,12 @@
         },
         "typeguard": {
             "hashes": [
-                "sha256:0d22a89d00b453b47c49875f42b6601b961757541a2e1e0ef517b6e24213c21b",
-                "sha256:9324ec07a27ec67fc54a9c063020ca4c0ae6abad5e9f0f9804ca59aee68c6e21"
+                "sha256:3a7fd2dffb705d4d0efaed4306a704c89b9dee850b688f060a8b1615a79e5f74",
+                "sha256:b5f562281b6bfa1f5492470464730ef001646128b180769880468bd84b68b09e"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.9'",
-            "version": "==4.4.1"
+            "version": "==4.4.4"
         },
         "typing-extensions": {
             "hashes": [
