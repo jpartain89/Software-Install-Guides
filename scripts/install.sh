@@ -1,28 +1,42 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 # Installation file for Software-Install-Guides
-## Not installing the documentation itself, but the `Sphinx-Docs` program parts
-## that you need to build the docs.
+# Ensures pipenv is available and installs/updates the project's dependencies
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if [[ "$(command -v virtualenv)" ]]; then
-    if [[ ! -e "${DIR}/../venv" ]]; then
-        virtualenv "${DIR}/../venv"
-    fi
-else
-    echo "Looks like 'virtualenv' is missing from your computer..."
-    echo "Please, install that program, first!"
-    echo "Thanks, and have a grand day!"
-    exit
+echo "Checking for pipenv..."
+if ! command -v pipenv >/dev/null 2>&1; then
+	echo "pipenv not found. Attempting to install pipenv using pip."
+	if command -v pip3 >/dev/null 2>&1; then
+		PIP_CMD=pip3
+	elif command -v pip >/dev/null 2>&1; then
+		PIP_CMD=pip
+	else
+		echo "No pip or pip3 found. Please install Python pip and re-run this script."
+		exit 1
+	fi
+
+	echo "Installing pipenv via ${PIP_CMD} --user"
+	${PIP_CMD} install --user pipenv
+
+	if ! command -v pipenv >/dev/null 2>&1; then
+		# Try to add user base bin to PATH for this script execution
+		USER_BASE=$(${PIP_CMD} --version >/dev/null 2>&1 || true)
+		echo "Warning: pipenv still not found after install. You may need to add the user's local bin to PATH."
+		echo "Typically: export PATH=\"\$(python3 -m site --user-base)/bin:\$PATH\""
+		exit 1
+	fi
 fi
 
-source "${DIR}/../venv/bin/activate"
+echo "Installing project dependencies with pipenv..."
+pipenv install --dev
 
-"${DIR}/../venv/bin/pip3" install --upgrade -r "${DIR}/../requirements.txt"
+echo "Updating project dependencies with pipenv..."
+pipenv update || true
 
-#pip3 install --upgrade pip
-#pip3 install -U pipenv
-#
-#$(command -v pipenv) install
+echo
+echo "Pipenv environment ready. To build the docs run:" \
+		 "pipenv run sphinx-build -b html . _build/" \
+		 "or use 'make html' which calls pipenv run sphinx-build."

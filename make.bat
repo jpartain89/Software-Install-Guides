@@ -3,7 +3,7 @@
 REM Command file for Sphinx documentation
 
 if "%SPHINXBUILD%" == "" (
-	set SPHINXBUILD=sphinx-build
+	set SPHINXBUILD=pipenv run sphinx-build
 )
 set BUILDDIR=_build
 set ALLSPHINXOPTS=-d %BUILDDIR%/doctrees %SPHINXOPTS% .
@@ -42,6 +42,33 @@ if "%1" == "help" (
 if "%1" == "clean" (
 	for /d %%i in (%BUILDDIR%\*) do rmdir /q /s %%i
 	del /q /s %BUILDDIR%\*
+	goto end
+)
+
+if "%1" == "install" (
+	REM Ensure pipenv is installed; try pip first
+	where pipenv 1>NUL 2>NUL
+	if errorlevel 1 (
+		echo.pipenv not found. Attempting to install pipenv using pip.
+		where pip 1>NUL 2>NUL
+		if errorlevel 1 (
+			echo.pip executable not found. Please install pip and run this script again.
+			exit /b 1
+		)
+		pip install --user pipenv
+		if errorlevel 1 (
+			echo.Failed to install pipenv. Please install pipenv manually and re-run.
+			exit /b 1
+		)
+	)
+	echo.Running pipenv install --dev
+	pipenv install --dev
+	if errorlevel 1 exit /b 1
+	echo.Running pipenv update
+	pipenv update
+	if errorlevel 1 exit /b 1
+	echo.
+	echo.Installation finished. You can now run `make html` or other targets.
 	goto end
 )
 
