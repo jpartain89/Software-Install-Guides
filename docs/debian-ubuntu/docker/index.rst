@@ -12,3 +12,5 @@ And very obviously a rough, quick addition...
    :caption: Contents:
 
    docker-container-format
+   random-snippets
+   upgrade-paperless-database
