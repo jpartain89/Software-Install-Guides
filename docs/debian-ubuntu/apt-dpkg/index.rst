@@ -13,4 +13,3 @@ The docs here apply to the Debian family of ``apt``, ``apt-get``, and ``dpkg``, 
   dpkg-package-states
   insert-os-edition-name
   dpkg-or-apt-general-errors
-  dbus-calls-on-update
