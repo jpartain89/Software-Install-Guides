@@ -55,7 +55,6 @@ html_theme_options = {
     'collapse_navigation': False,
     'prev_next_buttons_location': 'both',
     'sticky_navigation': False,
-    'display_version': False,
     'style_external_links': True,
     'navigation_depth': 4
     }
