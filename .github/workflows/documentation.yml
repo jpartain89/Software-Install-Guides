@@ -2,6 +2,9 @@ name: documentation
 
 on: 
   pull_request:
+  pull_request_target:
+    types:
+      - closed
 
 jobs:
   doc_test:
@@ -25,7 +28,7 @@ jobs:
           make html
   final_doc_creation:
     needs: doc_test
-    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
