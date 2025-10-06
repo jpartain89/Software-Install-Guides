@@ -1,9 +1,10 @@
 name: documentation
 
-on: [pull_request, workflow_dispatch]
+on: 
+  pull_request:
 
 jobs:
-  docs:
+  doc_test:
     permissions:
       contents: write
     concurrency:
@@ -22,6 +23,13 @@ jobs:
       - name: Sphinx build
         run: |
           make html
+  final_doc_creation:
+    needs: doc_test
+    if: github.event_name == 'pull_request' && \
+      github.event.action == 'closed' && \
+      github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         if: ${{ github.ref == 'refs/heads/primary' }}
