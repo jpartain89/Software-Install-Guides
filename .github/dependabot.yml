@@ -5,10 +5,10 @@
 
 version: 2
 updates:
-  - package-ecosystem: "pip" # See documentation for possible values
+  - package-ecosystem: "pipenv" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "weekly"  
+      interval: "weekly"
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
