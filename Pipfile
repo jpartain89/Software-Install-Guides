@@ -4,18 +4,19 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-jinja2 = "*"
-readthedocs-sphinx-ext = "*"
-sphinx-autobuild = "*"
 sphinx = "*"
-docutils = "*"
+sphinx-autobuild = "*"
 sphinx-rtd-theme = "*"
-setuptools = ">=78.1.1"
-requests = ">=2.32.4"
+sphinxcontrib-applehelp = "*"
+readthedocs-sphinx-search = "*"
+readthedocs-sphinx-ext = "*"
+mkdocs = "*"
+markdown = "*"
+jinja2 = "*"
+requests = "===2.32.4"
 
 [dev-packages]
-setuptools = ">=78.1.1"
-requests = ">=2.32.4"
 
 [requires]
-python_version = "3.11"
+python_version = "3.13"
+python_full_version = "3.13.7"
