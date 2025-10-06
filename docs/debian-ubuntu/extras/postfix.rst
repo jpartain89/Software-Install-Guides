@@ -8,7 +8,7 @@ So, postfix is a fairly full-featured, backend mailserver software, that, to be 
 
 But, we will be using it to forward all of the system emails to our personal email address. I use gmail, so my examples will be more geared towards gmails smtp address and port.
 
-This was lifted - quite almost literally - from HowToForge. [POSTFIX-HowTo]_
+This **was** lifted - quite almost literally - from HowToForge, back when I first created this document. [POSTFIX-HowTo]_ Its now been updated per `Linode's Postfix Guide`_.
 
 ---------------
 Install Postfix
@@ -16,7 +16,7 @@ Install Postfix
 
 .. code-block:: bash
 
-  sudo apt-get install postfix mailutils
+  sudo apt-get install libsasl2-modules postfix
 
 Now, during this installation, the system will prompt you with Configuration Option's. Since we will be using an outside service to send our mail - aka ``smtp.gmail.com`` - we will select ``Internet Site``.
 
@@ -31,6 +31,12 @@ Then, it will continue on with ``System Mail Name``, which, technically you woul
 .. image:: images/pf_mailname.jpg
   :alt: PostFix Install Configuration Option 2
   :align: center
+
+Then check that it saved to the main config file:
+
+.. code-block:: bash
+
+  cat /etc/postfix/main.cf | grep myhostname
 
 -----------------
 Configure Postfix
@@ -54,13 +60,13 @@ First, we're going to make a seperate, locked down password file that Postfix wi
 
 .. code-block:: bash
 
-  sudo nano /etc/postfix/sasl_passwd
+  sudo nano /etc/postfix/sasl/sasl_passwd
 
 And add the line:
 
 .. code-block:: bash
 
-  smtp.gmail.com:587  username@gmail.com:password
+  [smtp.gmail.com]:587  username@gmail.com:password
 
 Which, of course, if you use a different mail service, input their info and it should work just the same. And, also, ``username@gmail.com:password`` needs to be replaced with your info.
 
@@ -68,18 +74,17 @@ Now, lock that file down so only root can view it.
 
 .. code-block:: bash
 
-  sudo chmod 600 /etc/postfix/sasl_passwd
-  sudo chown root:root /etc/postfix/sasl_passwd
+  sudo chmod 600 /etc/postfix/sasl/sasl_passwd
+  sudo chown root:root /etc/postfix/sasl/sasl_passwd
 
 Process Password and Generic File
 =================================
 
-Remember when you installed ``mailutils``? That was for ``postmap``, which compiles and hashes the contents of our ``sasl_passwd`` and ``generic`` files, and creates a new file in the same spot, with ``.db`` added to the end, making it a database file easier to parse as it runs.
-
 .. code-block:: bash
 
-  sudo postmap /etc/postfix/sasl_passwd
-  sudo postmap /etc/postfix/generic
+  sudo postmap /etc/postfix/sasl/sasl_passwd
+
+This creates a hashed version of the password file, which postfix will use to authenticate with the smtp server.
 
 Main Configure File
 ====================
@@ -104,15 +109,13 @@ You will most likely have to add most of the above options, possibly deleting on
 
 .. code-block:: bash
 
-  relayhost = smtp.gmail.com:587
+  relayhost = [smtp.gmail.com]:587
   smtp_use_tls = yes
   smtp_sasl_auth_enable = yes
-  smtp_sasl_security_options =
-  smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+  smtp_sasl_security_options = noanonymous
+  smtp_sasl_password_maps = hash:/etc/postfix/sasl/sasl_passwd
   smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
   smtp_generic_maps = hash:/etc/postfix/generic
-
-The ``smtp_sasl_security_options`` is left empty.
 
 ---------------
 Restart Postfix
@@ -123,12 +126,6 @@ Restart postfix, enabling our various changes:
 .. code-block:: bash
 
   sudo systemctl restart postfix.service
-
--- or --
-
-.. code-block:: bash
-
-  sudo service postfix restart
 
 ----------------
 Send Test Emails
@@ -147,3 +144,5 @@ Making sure to put your email address in place of ``user@example.com``. You shou
 .. [POSTFIX-HowTo] Copied very liberally from `HowToForge Postfix How-To`_
 
 .. _HowToForge Postfix How-To: https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/
+
+.. _Linode's Postfix Guide: https://www.linode.com/docs/guides/configure-postfix-to-send-mail-using-gmail-and-google-workspace-on-debian-or-ubuntu/
