@@ -27,7 +27,6 @@ html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "https://docs.jpcdi.c
 
 import sphinx_rtd_theme
 html_theme = 'sphinx_rtd_theme'
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # --------- END RTD SECTION ----------------------------------------------
 
@@ -47,13 +46,12 @@ project = u'Software Install Guides'
 copyright = u'2016-' + str(date.today().year) + \
     u', Justin Partain, JPartain89, JPCDI'
 author = u'Justin Partain'
-version = u'7.0.0'
-release = u'7.0.0'
+version = u'8.6.0'
+release = u'8.6.0'
 today_fmt = '%B %d, %Y'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_drafts', 'README.rst', 'venv', '_readthedocs']
 pygments_style = 'sphinx'
 html_theme_options = {
-    'analytics_id': 'G-N74JQEKLQN',
     'collapse_navigation': False,
     'prev_next_buttons_location': 'both',
     'sticky_navigation': False,
