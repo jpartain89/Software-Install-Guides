@@ -11,7 +11,7 @@ When using Paperless with a PostgreSQL database, it may be necessary to upgrade 
 Correct Version:
 ================
 
-Ensure you are using the correct version of PostgreSQL as required by the version of Paperless you are upgrading to. Refer to the `Paperless-NGX Official Changelog`_ for version requirements. Thought, as of the writing of this post - 10/6/2025 - the latest version of Paperless-NGX requires PostgreSQL 13 or higher.
+Ensure you are using the correct version of PostgreSQL as required by the version of Paperless you are upgrading to. Refer to the `Paperless-NGX Official Changelog`_ for version requirements. Though, as of the writing of this post - 10/6/2025 - the latest version of Paperless-NGX requires PostgreSQL 13 or higher.
 
 I personally am running PostgreSQL 17 via docker compose. Previously, I was running PostgreSQL 12, which is no longer supported. Luckily there are a couple of ways to upgrade the database! Either via a: dump and then restore of the database [PostgresStackOverflow_Dump]_; via the pg_upgrade tool [docker-pgautoupgrade]_; or by exporting and then importing through Paperless-NGX itself [Paperless-NGXExportImport]_.
 
@@ -27,7 +27,7 @@ Make sure and stop the corresponding containers that helps Paperless run.
 
 `cd` into the directory that holds your Paperless `compose` file and `docker compose down`.
 
-Step 2: Startup and Dump Just Your Database
+Step 2: Start and Dump Just Your Database
 -------------------------------------------
 
 Start the old database container and then dump it to a file (it helps if your database container is ONLY for Paperless. If you're using a PostgreSQL container for multiple purposes, then this is not going to cover something that complicated). Also, the containers in my `compose` file match the directions from the official `Paperless-NGX Github`_.
@@ -41,7 +41,7 @@ While still `cd`'d into your `compose` directory:
   docker compose down
 
 Step 3: Update Your `docker-compose.yml` File
-==============================================
+---------------------------------------------
 
 Next, we will be changing the `db` container from PostgreSQL 12 or 13 to 17, while also changing the directory the database is saving itself to.
 
@@ -67,7 +67,7 @@ Now, I have a habit of taking my own routes when it comes to naming my volumes i
       - paperless
 
 Step 4: Start the New DB, Import the Old DB and Update the Paperless User
-=========================================================================
+-------------------------------------------------------------------------
 
 Again, start just the `db`, and since your container's environment included the `db`, `user` and `password` line items, the database should include the paperless user.
 
@@ -91,7 +91,7 @@ If you got the above, then lets go ahead and perform a password reset on that us
 
 The errors we ended up seeing were this:
 
-.. code-block::
+.. code-block:: bash
 
   db-1         | 2025-08-29 07:45:44.175 UTC [34] FATAL:  password authentication failed for user "paperless"
   db-1         | 2025-08-29 07:45:44.175 UTC [34] DETAIL:  User "paperless" does not have a valid SCRAM secret.
@@ -108,14 +108,14 @@ Make sure the password you use here is the same as what you used in your docker-
 where :var:`${PAPERLESS_DBPASS}` is the password you need to make sure matches your :file:`docker-compose.yml` file.
 
 Step 5: Restore Your Database Dump
-==================================
+----------------------------------
 
 .. code-block:: bash
 
   cat old_paperless_db.sql | docker compose exec -T db psql -U paperless
 
 Step 6: Restart 'em All!
-========================
+------------------------
 
 .. code-block:: bash
 
