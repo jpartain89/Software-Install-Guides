@@ -139,13 +139,13 @@ Step 6: Restart 'em All!
     docker compose up -d && \
     docker compose logs
 
-You should now have a super quick output of all the logs of all of the containers related to your Paperless container. Or you can simply add :option:`-f db` to the end of the `docker compose logs` line to watch the output of your `db` container.
+You should now have a super quick output of all the logs of all of the containers related to your Paperless container. Or you can simply add :option:`-f db` to the end of the :command:`docker compose logs` line to watch the output of your `db` container.
 
 .. option:: -f db
 
   This will "follow the log output", as in it streams the log lines as they are generated, rather than just displaying the logs that were already created and then stopping.
 
-Lastly, don't just go deleting the old directory just yet. Open Paperless, make sure its all working as expected. Then, after thorough testing and you're comfy with the outcome, then and only then can you even CONTEMPLATE removing the directory. If anything, move it to your backup folder for posterity's sake, or as a point-in-time backup that wont ever be deleted, along with the rest of your Paperless directory. 
+Lastly, don't just go deleting the old directory just yet. Open Paperless, make sure its all working as expected. Then, after thorough testing and you're comfy with the outcome, then and only then can you even CONTEMPLATE removing the directory. If anything, move it to your backup folder for posterity's sake, or as a point-in-time backup that wont ever be deleted, along with the rest of your Paperless directory.
 
 .. _Paperless broken after upgrade: https://solariz.de/posts/25/paperless-broken-after-upgrade-postgress/
 .. _Paperless-NGX Official Changelog: https://docs.paperless-ngx.com/changelog/
