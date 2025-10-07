@@ -97,9 +97,11 @@ And the result should show:
   -----------+------------------------------------------------------------
    paperless | Superuser, Create role, Create DB, Replication, Bypass RLS
 
-If you got the above, then lets go ahead and perform a password reset on that user, since I and several other people have reported an issue where PostgreSQL fails to have the user with the password you chose in your compose file.
+If you got the above, then lets go ahead and perform a password reset on that user.
 
-The errors we ended up seeing were this:
+.. warning::
+
+  Several people have reported an issue where PostgreSQL fails to have your chosen user use the assigned password you chose in your compose file correctly, presenting the following error:
 
 .. code-block:: bash
 
@@ -113,7 +115,8 @@ Make sure the password you use here is the same as what you used in your docker-
 
 .. code-block:: bash
 
-  docker compose exec db psql -U paperless -d postgres -c "ALTER ROLE paperless WITH PASSWORD '${PAPERLESS_DBPASS}';"
+  docker compose exec db psql -U paperless -d postgres \
+    -c "ALTER ROLE paperless WITH PASSWORD :confval:'${PAPERLESS_DBPASS}';"
 
 .. confval:: PAPERLESS_DBPASS
   :type: ``string`` (a *password*)
