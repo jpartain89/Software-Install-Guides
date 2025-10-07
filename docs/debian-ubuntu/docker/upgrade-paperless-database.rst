@@ -25,12 +25,22 @@ Step 1: Stop Your Containers!
 
 Make sure and stop the corresponding containers that helps Paperless run.
 
-:command:`cd` into the directory that holds your Paperless `compose` file and :command:`docker compose down`.
+:command:`cd` into the directory that holds your Paperless `compose` file and 
+
+.. code-block:: bash
+
+  docker compose down
 
 Step 2: Start and Dump Just Your Database
 -------------------------------------------
 
-Start the old database container and then dump it to a file (it helps if your database container is ONLY for Paperless. If you're using a PostgreSQL container for multiple purposes, then this is not going to cover something that complicated). Also, the containers in my `compose` file match the directions from the official `Paperless-NGX Github`_.
+Start the old database container and then dump it to a file
+
+.. note::
+
+  it helps if your database container is ONLY for Paperless. If you're using a PostgreSQL container for multiple purposes, then this is not going to cover something that complicated
+
+Also, the containers in my :file:`compose` file match the directions from the official `Paperless-NGX Github`_.
 
 While still :command:`cd`'d into your `compose` directory:
 
@@ -40,7 +50,7 @@ While still :command:`cd`'d into your `compose` directory:
   docker compose exec db pg_dumpall -U paperless | old_paperless_db.sql
   docker compose down
 
-Step 3: Update Your `docker-compose.yml` File
+Step 3: Update Your :file:`docker-compose.yml` File
 ---------------------------------------------
 
 Next, we will be changing the `db` container from PostgreSQL 12 or 13 to 17, while also changing the directory the database is saving itself to.
