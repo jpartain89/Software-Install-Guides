@@ -79,7 +79,7 @@ Now, I have a habit of taking my own routes when it comes to naming my volumes i
 Step 4: Start the New DB, Import the Old DB and Update the Paperless User
 -------------------------------------------------------------------------
 
-Again, start just the `db`, and since your container's environment included the `db`, `user` and `password` line items, the database should include the paperless user.
+Again, start just the `db` container, and since your container's environment included the :confval:`db`, :confval:`user` and :confval:`password` line items, the database should include the paperless user.
 
 Not sure? Lets check it!
 
