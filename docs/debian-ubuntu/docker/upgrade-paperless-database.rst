@@ -25,12 +25,22 @@ Step 1: Stop Your Containers!
 
 Make sure and stop the corresponding containers that helps Paperless run.
 
-:command:`cd` into the directory that holds your Paperless `compose` file and :command:`docker compose down`.
+:command:`cd` into the directory that holds your Paperless `compose` file and 
+
+.. code-block:: bash
+
+  docker compose down
 
 Step 2: Start and Dump Just Your Database
 -------------------------------------------
 
-Start the old database container and then dump it to a file (it helps if your database container is ONLY for Paperless. If you're using a PostgreSQL container for multiple purposes, then this is not going to cover something that complicated). Also, the containers in my `compose` file match the directions from the official `Paperless-NGX Github`_.
+Start the old database container and then dump it to a file
+
+.. note::
+
+  it helps if your database container is ONLY for Paperless. If you're using a PostgreSQL container for multiple purposes, then this is not going to cover something that complicated
+
+Also, the containers in my :file:`compose` file match the directions from the official `Paperless-NGX Github`_.
 
 While still :command:`cd`'d into your `compose` directory:
 
@@ -40,7 +50,7 @@ While still :command:`cd`'d into your `compose` directory:
   docker compose exec db pg_dumpall -U paperless | old_paperless_db.sql
   docker compose down
 
-Step 3: Update Your `docker-compose.yml` File
+Step 3: Update Your :file:`docker-compose.yml` File
 ---------------------------------------------
 
 Next, we will be changing the `db` container from PostgreSQL 12 or 13 to 17, while also changing the directory the database is saving itself to.
@@ -69,7 +79,7 @@ Now, I have a habit of taking my own routes when it comes to naming my volumes i
 Step 4: Start the New DB, Import the Old DB and Update the Paperless User
 -------------------------------------------------------------------------
 
-Again, start just the `db`, and since your container's environment included the `db`, `user` and `password` line items, the database should include the paperless user.
+Again, start just the `db` container, and since your container's environment included the :confval:`db`, :confval:`user` and :confval:`password` line items, the database should include the paperless user.
 
 Not sure? Lets check it!
 
@@ -87,9 +97,11 @@ And the result should show:
   -----------+------------------------------------------------------------
    paperless | Superuser, Create role, Create DB, Replication, Bypass RLS
 
-If you got the above, then lets go ahead and perform a password reset on that user, since I and several other people have reported an issue where PostgreSQL fails to have the user with the password you chose in your compose file.
+If you got the above, then lets go ahead and perform a password reset on that user.
 
-The errors we ended up seeing were this:
+.. warning::
+
+  Several people have reported an issue where PostgreSQL fails to have your chosen user use the assigned password you chose in your compose file correctly, presenting the following error:
 
 .. code-block:: bash
 
@@ -103,7 +115,8 @@ Make sure the password you use here is the same as what you used in your docker-
 
 .. code-block:: bash
 
-  docker compose exec db psql -U paperless -d postgres -c "ALTER ROLE paperless WITH PASSWORD '${PAPERLESS_DBPASS}';"
+  docker compose exec db psql -U paperless -d postgres \
+    -c "ALTER ROLE paperless WITH PASSWORD :confval:'${PAPERLESS_DBPASS}';"
 
 .. confval:: PAPERLESS_DBPASS
   :type: ``string`` (a *password*)
@@ -126,13 +139,13 @@ Step 6: Restart 'em All!
     docker compose up -d && \
     docker compose logs
 
-You should now have a super quick output of all the logs of all of the containers related to your Paperless container. Or you can simply add :option:`-f db` to the end of the `docker compose logs` line to watch the output of your `db` container.
+You should now have a super quick output of all the logs of all of the containers related to your Paperless container. Or you can simply add :option:`-f db` to the end of the :command:`docker compose logs` line to watch the output of your `db` container.
 
 .. option:: -f db
 
   This will "follow the log output", as in it streams the log lines as they are generated, rather than just displaying the logs that were already created and then stopping.
 
-Lastly, don't just go deleting the old directory just yet. Open Paperless, make sure its all working as expected. Then, after thorough testing and you're comfy with the outcome, then and only then can you even CONTEMPLATE removing the directory. If anything, move it to your backup folder for posterity's sake, or as a point-in-time backup that wont ever be deleted, along with the rest of your Paperless directory. 
+Lastly, don't just go deleting the old directory just yet. Open Paperless, make sure its all working as expected. Then, after thorough testing and you're comfy with the outcome, then and only then can you even CONTEMPLATE removing the directory. If anything, move it to your backup folder for posterity's sake, or as a point-in-time backup that wont ever be deleted, along with the rest of your Paperless directory.
 
 .. _Paperless broken after upgrade: https://solariz.de/posts/25/paperless-broken-after-upgrade-postgress/
 .. _Paperless-NGX Official Changelog: https://docs.paperless-ngx.com/changelog/
