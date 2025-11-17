@@ -9,6 +9,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo "Checking for pipenv..."
 if ! command -v pipenv >/dev/null 2>&1; then
 	echo "pipenv not found. Attempting to install pipenv using pip."
+	pip3 install --user pipenv
 	if command -v pip3 >/dev/null 2>&1; then
 		PIP_CMD=pip3
 	elif command -v pip >/dev/null 2>&1; then
@@ -17,9 +18,6 @@ if ! command -v pipenv >/dev/null 2>&1; then
 		echo "No pip or pip3 found. Please install Python pip and re-run this script."
 		exit 1
 	fi
-
-	echo "Installing pipenv via ${PIP_CMD} --user"
-	${PIP_CMD} install --user pipenv
 
 	if ! command -v pipenv >/dev/null 2>&1; then
 		# Try to add user base bin to PATH for this script execution
