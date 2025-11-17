@@ -25,7 +25,7 @@ Step 1: Stop Your Containers!
 
 Make sure and stop the corresponding containers that helps Paperless run.
 
-:command:`cd` into the directory that holds your Paperless `compose` file and 
+:command:`cd` into the directory that holds your Paperless `compose` file and
 
 .. code-block:: bash
 
@@ -76,10 +76,25 @@ Now, I have a habit of taking my own routes when it comes to naming my volumes i
     networks:
       - paperless
 
+.. confval:: PAPERLESS_DBNAME
+  :type: ``string``
+
+  The variable name of the database to create when the container is first started.
+
+.. confval:: PAPERLESS_DBUSER
+  :type: ``string``
+
+  The variable name of the user to create when the container is first started.
+
+.. confval:: PAPERLESS_DBPASS
+  :type: ``string`` (a *password*)
+
+  This is the variable password to assign to the database user when the container is first started.
+
 Step 4: Start the New DB, Import the Old DB and Update the Paperless User
 -------------------------------------------------------------------------
 
-Again, start just the `db` container, and since your container's environment included the :confval:`db`, :confval:`user` and :confval:`password` line items, the database should include the paperless user.
+Again, start just the `db` container, and since your container's environment references the variables included in the :confval:`PAPERLESS_DBNAME`, :confval:`PAPERLESS_DBUSER` and :confval:`PAPERLESS_DBPASS` line items, the database should include the paperless user.
 
 Not sure? Lets check it!
 
@@ -117,11 +132,6 @@ Make sure the password you use here is the same as what you used in your docker-
 
   docker compose exec db psql -U paperless -d postgres \
     -c "ALTER ROLE paperless WITH PASSWORD :confval:'${PAPERLESS_DBPASS}';"
-
-.. confval:: PAPERLESS_DBPASS
-  :type: ``string`` (a *password*)
-
-  This is the password you need to make sure matches your :file:`docker-compose.yml` file.
 
 Step 5: Restore Your Database Dump
 ----------------------------------
