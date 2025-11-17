@@ -51,7 +51,7 @@ While still :command:`cd`'d into your `compose` directory:
   docker compose down
 
 Step 3: Update Your :file:`docker-compose.yml` File
----------------------------------------------
+-----------------------------------------------------
 
 Next, we will be changing the `db` container from PostgreSQL 12 or 13 to 17, while also changing the directory the database is saving itself to.
 
