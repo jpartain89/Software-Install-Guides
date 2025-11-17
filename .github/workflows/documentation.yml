@@ -1,6 +1,6 @@
 name: documentation
 
-on: 
+on:
   pull_request:
   pull_request_target:
     types:
@@ -22,7 +22,7 @@ jobs:
         run: pip install pipenv
       - name: Install dependencies
         run: |
-          pipenv install sphinx sphinx_rtd_theme myst_parser
+          pipenv --python /opt/hostedtoolcache/Python/3.13.9/x64 install sphinx sphinx_rtd_theme myst_parser
       - name: Sphinx build
         run: |
           make html
