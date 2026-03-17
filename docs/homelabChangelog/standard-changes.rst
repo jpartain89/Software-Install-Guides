@@ -43,3 +43,26 @@ Ansible
 This then paves the way for my ansible playbooks to run.
 
 TODO: Complete the ansible documentation
+
+3/6/2026: Installing SmallStep:
+
+.. code-block:: bash
+
+  sudo sh -c 'apt-get update && apt-get install -y --no-install-recommends curl gpg ca-certificates
+  curl -fsSL https://packages.smallstep.com/keys/apt/repo-signing-key.gpg -o /etc/apt/keyrings/smallstep.asc
+  cat << EOF > /etc/apt/sources.list.d/smallstep.sources
+  Types: deb
+  URIs: https://packages.smallstep.com/stable/debian
+  Suites: debs
+  Components: main
+  Signed-By: /etc/apt/keyrings/smallstep.asc
+  EOF
+  chmod 644 /etc/apt/keyrings/smallstep.asc /etc/apt/sources.list.d/smallstep.sources
+  apt-get update && apt-get -y install step-cli step-ca'
+
+Then, add a step-ca system user:
+
+.. code-block:: bash
+
+  sudo useradd --user-group --system --home /etc/step-ca --shell /bin/false step
+
