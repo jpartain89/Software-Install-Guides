@@ -94,9 +94,9 @@ To protect everything under ``/secure`` you will add the following to the nginx.
 ... code-block:: bash
 
   location /secure {
-      auth_pam "Secure Zone";
-      auth_pam_service_name "nginx";
-      }
+    auth_pam "Secure Zone";
+    auth_pam_service_name "nginx";
+  }
 
 .. Note::
   The module runs as the web server user, so the PAM modules used must be able to authenticate the users without being root; that means that if you want to use the ``pam_unix.so`` module to autenticate users you need to let the web server user to read the ``/etc/shadow`` file, if that does not scare you (on Debian like systems you can add the ``www-data`` user to the shadow group).
@@ -124,8 +124,8 @@ inside of any part that I want behind a password, such as:
 .. code-block:: bash
 
   /anysite {
-      .. code goes here ..;
-      include /etc/nginx/snippets/basic-auth.conf;
+    .. code goes here ..;
+    include /etc/nginx/snippets/basic-auth.conf;
   }
 
 That then puts ``/anysite`` behind the basic HTTP authentication pop-up, but utilizing the ID's and Passwords saved on the local OS.

@@ -23,10 +23,10 @@ You will see, at minimum, two lines showing the fetch and push addresses, along 
 .. code-block:: bash
 
   git remote -v
-    icefox	https://github.com/icefox/git-map.git (fetch)
-    icefox	https://github.com/icefox/git-map.git (push)
-    origin	https://github.com/JPCDI/git-map.git (fetch)
-    origin	https://github.com/JPCDI/git-map.git (push)
+    icefox  https://github.com/icefox/git-map.git (fetch)
+    icefox  https://github.com/icefox/git-map.git (push)
+    origin  https://github.com/JPCDI/git-map.git (fetch)
+    origin  https://github.com/JPCDI/git-map.git (push)
 
 -----------
 Background

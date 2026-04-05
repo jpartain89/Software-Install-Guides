@@ -6,7 +6,7 @@ For when you are wanting to add a specific, custom apt sources list item (becaus
 
 .. code-block:: bash
 
-    sudo sh -c 'echo "deb http://archive.getdeb.net/ubuntu $(lsb_release -sc)-getdeb apps" >> /etc/apt/sources.list.d/getdeb.list'
+  sudo sh -c 'echo "deb http://archive.getdeb.net/ubuntu $(lsb_release -sc)-getdeb apps" >> /etc/apt/sources.list.d/getdeb.list'
 
 Lets break that down:
 

@@ -162,8 +162,8 @@ The key lines are:
 .. code-block:: bash
 
   Ok, your system should be ready. You may wish to check:
-      /mnt/etc/fstab
-      /boot/cmdline.txt
+    /mnt/etc/fstab
+    /boot/cmdline.txt
 
 It really means you need to check ``/etc/fstab``. Not sure why they included the extra ``/mnt`` in there.
 

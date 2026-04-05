@@ -25,7 +25,7 @@ The output will show something similar to:
 .. code-block:: bash
 
   3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DORMANT group default qlen 1000
-        link/ether 20:68:9d:xx:xx:xx brd ff:ff:ff:ff:ff:ff
+    link/ether 20:68:9d:xx:xx:xx brd ff:ff:ff:ff:ff:ff
 
 The important info is after ``link/ether``, with 5 ``:`` between 6 sets of 2 numbers. Thats the devices MAC address.
 
