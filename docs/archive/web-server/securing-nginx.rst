@@ -64,7 +64,7 @@ The ``http2`` is the new standard for the ``http`` protocol. This is the first u
 From their `FAQs`_:
 
   **What are the key differences to HTTP/1.x?**
-    At a high level, HTTP/2:
+  At a high level, HTTP/2:
 
     * is binary, instead of textual
     * is fully multiplexed, instead of ordered and blocking
@@ -213,9 +213,7 @@ Here is the tl;dr configuration, with the above in one place, plus more lines fr
 .. code-block:: bash
 
   http {
-
     # beginning of your config file
-
     add_header Strict-Transport-Security 'max-age=31536000; includeSubDomains; preload';
     add_header X-Content-Type-Options "nosniff" always;
     add_header X-Frame-Options "SAMEORIGIN" always;
@@ -232,15 +230,16 @@ Here is the tl;dr configuration, with the above in one place, plus more lines fr
     # Using list of ciphers from https://bjornjohansen.no/optimizing-https-nginx
     ssl_prefer_server_ciphers on;
     ssl_ciphers ECDH+AESGCM:ECDH+AES256:ECDH+AES128:DH+3DES:!ADH:!AECDH:!MD5;
-
     # rest of http block
   }
+
   server {
     listen 80 default_server;
     listen [::]:80 default_server;
     server_name jpcdi.com www.jpcdi.com;
     return 301 https://$server_name$request_uri;
   }
+
   server {
     listen 443 default_server ssl http2;
     listen [::]:443 default_server ssl http2;

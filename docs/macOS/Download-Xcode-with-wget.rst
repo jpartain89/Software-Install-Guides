@@ -6,7 +6,7 @@ So, I was looking for a way to download the Beta version of Xcode over the termi
 
 Either way, I finally found a solution from a now-defunct website that worked wonderfully, and it was the tidbit at the bottom of their post that made the specific difference::
 
-    for some reason cookies.txt only works if I only export cookies for the developer.apple.com website and doesnt work if I export all cookies from browser.
+  for some reason cookies.txt only works if I only export cookies for the developer.apple.com website and doesnt work if I export all cookies from browser.
 
 ------
 How To
@@ -23,7 +23,7 @@ How To
 
 As the site put it:
 
-    I in no way endorse this product and many other solutions in different browsers should work just as well.
+  I in no way endorse this product and many other solutions in different browsers should work just as well.
 
 4. Once the extension is installed, go back to Apple's page and hit the extension's button. If, like me, the extension's little popup thing doesn't fully expand, these instructions will help:
 
@@ -35,11 +35,11 @@ As the site put it:
 
 .. code-block:: bash
 
-    wget --load-cookies=cookies.txt -c https://download.developer.apple.com/Developer_Tools/Xcode_14.3_Release_Candidate_2/Xcode_14.3_Release_Candidate_2.xip
+  wget --load-cookies=cookies.txt -c https://download.developer.apple.com/Developer_Tools/Xcode_14.3_Release_Candidate_2/Xcode_14.3_Release_Candidate_2.xip
 
 .. note::
 
-    Replace the specific URL with the URL that you want/need to use, please.
+  Replace the specific URL with the URL that you want/need to use, please.
 
 And, you should find that the download this way is much much quicker than through the browser. Which is wonderful when the file is so gargantuan.
 

@@ -48,8 +48,8 @@ Linking The .plist
 .. code-block:: bash
 
   sudo ln -s  \
-    "/Application/VirtualBox.app/Contents/MacOS/org.virtualbox.vboxautostart.plist" \
-    /Library/LaunchDaemons/
+  "/Application/VirtualBox.app/Contents/MacOS/org.virtualbox.vboxautostart.plist" \
+  /Library/LaunchDaemons/
 
 There is another directory that has similar files - ``/Library/Application Support/VirtualBox/LaunchDaemons/`` - but those don't seem to like to work properly... So, we're ignoring those.
 
@@ -137,8 +137,8 @@ And, of course, you can also use ``allow`` in lieu of ``deny``, if you so choose
   default_policy = deny
 
   berto = {
-      allow = true
-      startup_delay = 30
+    allow = true
+    startup_delay = 30
   }
 
 The ``startup_delay`` line is a means of controlling whether your Virtual Machines attempt to start exactly with the system or delayed, in seconds, afterwards. Which, I have it set to a 30 second delay, so it isn't competing with the rest of the bulk of the startup items.
@@ -173,8 +173,8 @@ And, of course, you can also use ``allow`` in lieu of ``deny``, if you so choose
   default_policy = deny
 
   berto = {
-      allow = true
-      startup_delay = 30
+    allow = true
+    startup_delay = 30
   }
 
 The ``startup_delay`` line is a means of controlling whether your Virtual Machines attempt to start exactly with the system or delayed, in seconds, afterwards. Which, I have it set to a 30 second delay, so it isn't competing with the rest of the bulk of the startup items.

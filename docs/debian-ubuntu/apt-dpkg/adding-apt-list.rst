@@ -78,8 +78,7 @@ Which gave this output:
 
 .. code-block:: bash
 
-  pub   rsa2048 2020-07-02 [SC] [expires: 2025-01-26]
-      9D8C 3420 2C34 5C69 8A70  BF52 C609 6B07 DE3A E8C0
+  pub rsa2048 2020-07-02 [SC] [expires: 2025-01-26] 9D8C 3420 2C34 5C69 8A70 BF52 C609 6B07 DE3A E8C0
   uid           [ unknown] home:Hezekiah OBS Project <home:Hezekiah@build.opensuse.org>
 
 The info we need is the last eight characters from the second line above: DE3A E8C0
