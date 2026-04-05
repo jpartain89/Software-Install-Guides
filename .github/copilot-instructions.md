@@ -67,9 +67,9 @@ Each `docs/<topic>/` subdirectory contains:
 
 ```bash
 bash scripts/install.sh
-# or manually:
-pip install pipenv
-pipenv install
+# or manually, matching scripts/install.sh:
+pip install --user pipenv
+pipenv install --dev
 ```
 
 ### Common Make targets
