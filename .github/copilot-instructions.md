@@ -2,9 +2,9 @@
 
 ## Repository Overview
 
-This repository is a **Sphinx-based documentation site** containing software installation and configuration guides authored by Justin Partain (JPartain89). All content is written in **reStructuredText (RST)** format. The site is hosted on [ReadTheDocs](https://docs.jpcdi.com) and mirrored to GitHub Pages.
+This repository is a **Sphinx-based documentation site** containing software installation and configuration guides authored by Justin Partain (JPartain89). The documentation site pages are primarily written in **reStructuredText (RST)** format, while the repository also includes supporting files in other formats (for example, Markdown, YAML, shell scripts, and build/config files). The site is hosted on [ReadTheDocs](https://docs.jpcdi.com) and mirrored to GitHub Pages.
 
-There is **no application source code** — every contribution is documentation.
+There is **no application source code** — contributions are focused on documentation content plus the supporting configuration and automation needed to build and publish the site.
 
 ---
 
