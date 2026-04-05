@@ -130,9 +130,10 @@ Configured in `.github/dependabot.yml`:
 
 ## Known Ignored Links
 
-The following URL patterns are configured to be ignored during link checks (`conf.py: linkcheck_ignore`):
+The following URL patterns are configured to be ignored during link checks (`conf.py: linkcheck_ignore`). These include regex patterns copied from the Sphinx configuration:
 
-- `http://localhost:*`
+- `http://localhost:\\d+/`
+- `http://localhost`
 - `http://127.0.0.1`
 - `https://atom.io`
 - `http://askubuntu.com`
