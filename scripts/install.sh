@@ -6,8 +6,22 @@ set -euo pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+echo "Checking for python"
+if ! type -P python3 >/dev/null 2>&1; then
+	echo "Python 3 not found. Trying to install..."
+	if type -P apt-get >/dev/null 2>&1; then
+		sudo apt-get update
+		sudo apt-get install -y python3 python3-pip
+	elif type -P brew >/dev/null 2>&1; then
+		brew install python
+	else
+		echo "No supported package manager found. Please install Python 3 and re-run this script."
+		exit 1
+	fi
+fi
+
 echo "Checking for pipenv..."
-if ! command -v pipenv >/dev/null 2>&1; then
+if ! type -P pipenv >/dev/null 2>&1; then
 	echo "pipenv not found. Attempting to install pipenv using pip."
 	pip3 install --user pipenv
 	if command -v pip3 >/dev/null 2>&1; then
@@ -19,7 +33,7 @@ if ! command -v pipenv >/dev/null 2>&1; then
 		exit 1
 	fi
 
-	if ! command -v pipenv >/dev/null 2>&1; then
+	if ! type -P pipenv >/dev/null 2>&1; then
 		# Try to add user base bin to PATH for this script execution
 		USER_BASE=$(${PIP_CMD} --version >/dev/null 2>&1 || true)
 		echo "Warning: pipenv still not found after install. You may need to add the user's local bin to PATH."
@@ -29,10 +43,10 @@ if ! command -v pipenv >/dev/null 2>&1; then
 fi
 
 echo "Installing project dependencies with pipenv..."
-pipenv install --dev
+pipenv --python /opt/homebrew/bin/python3.13 install --dev
 
 echo "Updating project dependencies with pipenv..."
-pipenv update || true
+pipenv --python /opt/homebrew/bin/python3.13  update || true
 
 echo
 echo "Pipenv environment ready. To build the docs run:" \

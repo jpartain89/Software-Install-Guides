@@ -1,0 +1,22 @@
+name: Update GitHub Actions
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  update-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Renovate for GitHub Actions
+        uses: renovatebot/github-action@v43.0.17
+        with:
+          configurationFile: .github/renovate.json
+        env:
+          RENOVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}

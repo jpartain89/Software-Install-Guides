@@ -5,6 +5,7 @@ VirtualBox Systemd
 Run systemctl edit vbox@.service --full --force and paste the following content in, updating User and Group to your username.
 
 .. code-block:: ini
+  
   [Unit]
   Description=Virtual Box Guest %I
   After=network.target vboxdrv.service

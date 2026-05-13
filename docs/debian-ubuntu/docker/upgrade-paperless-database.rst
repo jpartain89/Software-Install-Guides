@@ -162,7 +162,7 @@ Lastly, don't just go deleting the old directory just yet. Open Paperless, make 
 .. _solariz.de - Tech & Thoughts: https://solariz.de/about/
 .. _Paperless-NGX Github: https://github.com/paperless-ngx/paperless-ngx/blob/main/docker/compose/docker-compose.postgres-tika.yml
 
-.. [Paperless-NGXExportImport] https://docs.paperless-ngx.com/usage/export-import/
+.. [Paperless-NGXExportImport] https://docs.paperless-ngx.com/administration/#exporter
 .. [PostgresStackOverflow_Dump] https://stackoverflow.com/a/29913462
 .. [docker-pgautoupgrade] https://github.com/pgautoupgrade/docker-pgautoupgrade
 

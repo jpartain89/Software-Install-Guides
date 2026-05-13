@@ -15,3 +15,4 @@ macOS is my primary computer that I use for everyday use - aka, everything. But,
   macOS-xcode-update
   Download-Xcode-with-wget
   Other-Random-Tidbits
+  macOS-Launchpad-Apps.app
