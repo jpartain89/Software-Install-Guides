@@ -6,8 +6,22 @@ set -euo pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+echo "Checking for python"
+if ! type -P python3 >/dev/null 2>&1; then
+	echo "Python 3 not found. Trying to install..."
+	if type -P apt-get >/dev/null 2>&1; then
+		sudo apt-get update
+		sudo apt-get install -y python3 python3-pip
+	elif type -P brew >/dev/null 2>&1; then
+		brew install python
+	else
+		echo "No supported package manager found. Please install Python 3 and re-run this script."
+		exit 1
+	fi
+fi
+
 echo "Checking for pipenv..."
-if ! command -v pipenv >/dev/null 2>&1; then
+if ! type -P pipenv >/dev/null 2>&1; then
 	echo "pipenv not found. Attempting to install pipenv using pip."
 	pip3 install --user pipenv
 	if command -v pip3 >/dev/null 2>&1; then
@@ -19,7 +33,7 @@ if ! command -v pipenv >/dev/null 2>&1; then
 		exit 1
 	fi
 
-	if ! command -v pipenv >/dev/null 2>&1; then
+	if ! type -P pipenv >/dev/null 2>&1; then
 		# Try to add user base bin to PATH for this script execution
 		USER_BASE=$(${PIP_CMD} --version >/dev/null 2>&1 || true)
 		echo "Warning: pipenv still not found after install. You may need to add the user's local bin to PATH."
@@ -28,11 +42,30 @@ if ! command -v pipenv >/dev/null 2>&1; then
 	fi
 fi
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	# Check if Homebrew's Python is available and use it for pipenv
+	if type -P python3 >/dev/null 2>&1; then
+		echo "Using Homebrew's Python 3.13 for pipenv."
+		PYTHON_PATH="$(type -P python3)"
+	else
+		echo "Homebrew's Python 3.13 not found. Using system Python."
+		PYTHON_PATH="python3"
+	fi
+elif [[ "$OSTYPE" == "linux"* ]]; then
+	if type -P python3 >/dev/null 2>&1; then
+		echo "Using system Python 3 for pipenv."
+		PYTHON_PATH="$(type -P python3)"
+	else
+		echo "Python 3 not found. Please install Python 3 and re-run this script."
+		exit 1
+	fi
+fi
+
 echo "Installing project dependencies with pipenv..."
-pipenv install --dev
+pipenv --python "${PYTHON_PATH}" install --dev
 
 echo "Updating project dependencies with pipenv..."
-pipenv update || true
+pipenv --python "${PYTHON_PATH}"  update || true
 
 echo
 echo "Pipenv environment ready. To build the docs run:" \
