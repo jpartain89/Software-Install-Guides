@@ -18,5 +18,5 @@ requests = "2.33.1"
 [dev-packages]
 
 [requires]
-python_version = "3.13.9"
-python_full_version = "3.13.9"
+python_version = "3.13.13"
+python_full_version = "3.13.13"

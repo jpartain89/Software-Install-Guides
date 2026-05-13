@@ -30,24 +30,3 @@ updates:
       prefix: "pip"
       include: "scope"
 
-  # GitHub Actions workflow dependencies
-  # Location: .github/workflows/ directory
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-      timezone: "America/New_York"
-    # Group all GitHub Actions updates together
-    groups:
-      github-actions:
-        patterns:
-          - "*"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "github-actions"
-    commit-message:
-      prefix: "ci"
-      include: "scope"
