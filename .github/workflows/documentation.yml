@@ -2,6 +2,17 @@ name: documentation
 
 on:
   pull_request:
+    paths:
+      - 'docs/**'
+      - 'conf.py'
+      - 'Pipfile'
+      - 'Pipfile.lock'
+      - 'Makefile'
+      - 'scripts/install.sh'
+      - '_static/**'
+      - '_extra_html/**'
+      - '.readthedocs.yaml'
+      - '.github/workflows/documentation.yml'
   pull_request_target:
     types:
       - closed
