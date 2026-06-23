@@ -4,7 +4,23 @@
     "config:recommended"
   ],
   "enabledManagers": [
-    "github-actions"
+    "github-actions",
+    "custom.regex"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "^Pipfile$"
+      ],
+      "matchStrings": [
+        "python_full_version\\s*=\\s*\"(?<currentValue>[^\"]+)\"",
+        "python_version\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "depNameTemplate": "python",
+      "datasourceTemplate": "python-version",
+      "versioningTemplate": "python"
+    }
   ],
   "labels": [
     "dependencies",
@@ -16,6 +32,15 @@
         "github-actions"
       ],
       "groupName": "github-actions"
+    },
+    {
+      "matchManagers": [
+        "custom.regex"
+      ],
+      "matchDepNames": [
+        "python"
+      ],
+      "groupName": "python"
     }
   ],
   "prConcurrentLimit": 5,

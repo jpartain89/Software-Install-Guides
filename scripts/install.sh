@@ -5,6 +5,32 @@ set -euo pipefail
 # Ensures pipenv is available and installs/updates the project's dependencies
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PIPFILE_PATH="${DIR}/../Pipfile"
+
+get_required_python_version() {
+	awk -F'"' '
+		/^python_full_version[[:space:]]*=/ { print $2; exit }
+		/^python_version[[:space:]]*=/ { print $2; exit }
+	' "${PIPFILE_PATH}"
+}
+
+python_version_matches_requirement() {
+	local required_version="$1"
+	local installed_version="$2"
+
+	if [[ "${required_version}" == *.*.* ]]; then
+		[[ "${installed_version}" == "${required_version}" ]]
+	else
+		[[ "${installed_version}" == "${required_version}".* ]]
+	fi
+}
+
+REQUIRED_PYTHON_VERSION="$(get_required_python_version)"
+
+if [[ -z "${REQUIRED_PYTHON_VERSION}" ]]; then
+	echo "Unable to determine the required Python version from ${PIPFILE_PATH}."
+	exit 1
+fi
 
 echo "Checking for python"
 if ! type -P python3 >/dev/null 2>&1; then
@@ -20,43 +46,36 @@ if ! type -P python3 >/dev/null 2>&1; then
 	fi
 fi
 
+PYTHON_PATH="$(type -P python3)"
+INSTALLED_PYTHON_VERSION="$("${PYTHON_PATH}" -c 'import sys; print(".".join(str(part) for part in sys.version_info[:3]))')"
+
+if ! python_version_matches_requirement "${REQUIRED_PYTHON_VERSION}" "${INSTALLED_PYTHON_VERSION}"; then
+	echo "Installed Python version ${INSTALLED_PYTHON_VERSION} does not match the required version ${REQUIRED_PYTHON_VERSION} from ${PIPFILE_PATH}."
+	echo "Update ${PIPFILE_PATH} if the project is moving to a newer Python release, or install the required Python version and re-run this script."
+	exit 1
+fi
+
+export PATH="$("${PYTHON_PATH}" -m site --user-base)/bin:${PATH}"
+
 echo "Checking for pipenv..."
 if ! type -P pipenv >/dev/null 2>&1; then
 	echo "pipenv not found. Attempting to install pipenv using pip."
-	pip3 install --user pipenv
-	if command -v pip3 >/dev/null 2>&1; then
-		PIP_CMD=pip3
+	if "${PYTHON_PATH}" -m pip --version >/dev/null 2>&1; then
+		PIP_CMD=("${PYTHON_PATH}" -m pip)
+	elif command -v pip3 >/dev/null 2>&1; then
+		PIP_CMD=(pip3)
 	elif command -v pip >/dev/null 2>&1; then
-		PIP_CMD=pip
+		PIP_CMD=(pip)
 	else
 		echo "No pip or pip3 found. Please install Python pip and re-run this script."
 		exit 1
 	fi
 
+	"${PIP_CMD[@]}" install --user pipenv
+
 	if ! type -P pipenv >/dev/null 2>&1; then
-		# Try to add user base bin to PATH for this script execution
-		USER_BASE=$(${PIP_CMD} --version >/dev/null 2>&1 || true)
 		echo "Warning: pipenv still not found after install. You may need to add the user's local bin to PATH."
 		echo "Typically: export PATH=\"\$(python3 -m site --user-base)/bin:\$PATH\""
-		exit 1
-	fi
-fi
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	# Check if Homebrew's Python is available and use it for pipenv
-	if type -P python3 >/dev/null 2>&1; then
-		echo "Using Homebrew's Python 3.13 for pipenv."
-		PYTHON_PATH="$(type -P python3)"
-	else
-		echo "Homebrew's Python 3.13 not found. Using system Python."
-		PYTHON_PATH="python3"
-	fi
-elif [[ "$OSTYPE" == "linux"* ]]; then
-	if type -P python3 >/dev/null 2>&1; then
-		echo "Using system Python 3 for pipenv."
-		PYTHON_PATH="$(type -P python3)"
-	else
-		echo "Python 3 not found. Please install Python 3 and re-run this script."
 		exit 1
 	fi
 fi
@@ -65,7 +84,7 @@ echo "Installing project dependencies with pipenv..."
 pipenv --python "${PYTHON_PATH}" install --dev
 
 echo "Updating project dependencies with pipenv..."
-pipenv --python "${PYTHON_PATH}"  update || true
+pipenv --python "${PYTHON_PATH}" update || true
 
 echo
 echo "Pipenv environment ready. To build the docs run:" \
