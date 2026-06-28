@@ -46,7 +46,7 @@ jobs:
         run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
       - run: pipenv install
       - name: Install dependencies
-        run: pipenv install sphinx sphinx-rtd-theme myst-parser
+        run: pipenv install sphinx sphinx-rtd-theme
       - name: Sphinx build
         run: make html
 
