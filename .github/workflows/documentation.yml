@@ -54,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sphinx-html
-          path: _build/html
+          path: _build/
           if-no-files-found: error
 
   final_doc_creation:
@@ -69,7 +69,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: sphinx-html
-          path: _build/html
+          path: _build/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
