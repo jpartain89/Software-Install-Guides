@@ -57,10 +57,8 @@ fi
 
 export PATH="$("${PYTHON_PATH}" -m site --user-base)/bin:${PATH}"
 
-echo "Checking for pipenv..."
-if ! type -P pipenv >/dev/null 2>&1; then
-	echo "pipenv not found. Attempting to install pipenv using pip."
-	if "${PYTHON_PATH}" -m pip --version >/dev/null 2>&1; then
+echo "Checking for pip..."
+if "${PYTHON_PATH}" -m pip --version >/dev/null 2>&1; then
 		PIP_CMD=("${PYTHON_PATH}" -m pip)
 	elif command -v pip3 >/dev/null 2>&1; then
 		PIP_CMD=(pip3)
@@ -69,8 +67,10 @@ if ! type -P pipenv >/dev/null 2>&1; then
 	else
 		echo "No pip or pip3 found. Please install Python pip and re-run this script."
 		exit 1
-	fi
+fi
 
+if ! type -P pipenv >/dev/null 2>&1; then
+	echo "pipenv not found. Attempting to install pipenv using pip."
 	"${PIP_CMD[@]}" install --user pipenv
 
 	if ! type -P pipenv >/dev/null 2>&1; then
