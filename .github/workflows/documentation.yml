@@ -29,7 +29,7 @@ jobs:
           echo "value=${python_version}" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-python@v6
         with:
-            python-version: ${{ steps.python-version.outputs.value }}
+            python-version: ${{ steps['python-version'].outputs.value }}
             cache: 'pipenv'
       - name: Install pipenv
         run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
