@@ -39,29 +39,41 @@ jobs:
           echo "value=${python_version}" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-python@v6
         with:
-            python-version: ${{ steps['python-version'].outputs.value }}
-            cache: 'pipenv'
+          python-version: ${{ steps.python-version.outputs.value }}
+          cache: 'pipenv'
       - name: Install pipenv
         run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
       - run: pipenv install
       - name: Install dependencies
-        run: |
-          pipenv install sphinx sphinx_rtd_theme myst_parser
+        run: pipenv install sphinx sphinx_rtd_theme myst_parser
       - name: Sphinx build
-        run: |
-          make html
+        run: make html
+
+      - name: Upload docs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sphinx-html
+          path: _build/html
+          if-no-files-found: error
+
   final_doc_creation:
     needs: doc_test
-    if: github.event.pull_request.merged == true
+    if: github.event_name == 'pull_request_target' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'primary'
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
+      - uses: actions/checkout@v6
+      - name: Download docs artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: sphinx-html
+          path: _build/html
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
-        if: ${{ github.ref == 'refs/heads/primary' }}
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _build/
+          publish_dir: _build/html
           force_orphan: true
