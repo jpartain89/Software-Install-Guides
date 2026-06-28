@@ -26,6 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+<<<<<<< HEAD
       - name: Read Python version from Pipfile
         id: python-version
         run: |
@@ -38,6 +39,8 @@ jobs:
             exit 1
           fi
           echo "value=${python_version}" >> "$GITHUB_OUTPUT"
+=======
+>>>>>>> origin/primary
       - uses: actions/setup-python@v6
         with:
             python-version: ${{ steps.python-version.outputs.value }}
