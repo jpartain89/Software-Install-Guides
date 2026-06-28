@@ -1,5 +1,4 @@
 name: documentation
-
 on:
   pull_request:
     paths:
@@ -25,7 +24,7 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v6
       - name: Read Python version from Pipfile
         id: python-version
         run: |
