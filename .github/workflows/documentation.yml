@@ -15,9 +15,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - name: Read Python version from Pipfile
+        id: python-version
+        run: |
+          python_version="$(awk -F'"' '
+            /^python_full_version[[:space:]]*=/ { print $2; exit }
+            /^python_version[[:space:]]*=/ { print $2; exit }
+          ' Pipfile)"
+          if [[ -z "${python_version}" ]]; then
+            echo "Could not find a Python version in Pipfile" >&2
+            exit 1
+          fi
+          echo "value=${python_version}" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-python@v6
         with:
-            python-version: '3.13.13'
+            python-version: ${{ steps.python-version.outputs.value }}
             cache: 'pipenv'
       - name: Install pipenv
         run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
