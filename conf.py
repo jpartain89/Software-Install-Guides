@@ -47,8 +47,8 @@ project = u'Software Install Guides'
 copyright = u'2016-' + str(date.today().year) + \
     u', Justin Partain, JPartain89, JPCDI'
 author = u'Justin Partain'
-version = u'8.6.0'
-release = u'8.6.0'
+version = u'9.0.0'
+release = u'9.0.0'
 today_fmt = '%B %d, %Y'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_drafts', 'README.rst', 'venv', '_readthedocs']
 pygments_style = 'sphinx'
@@ -88,6 +88,7 @@ linkcheck_ignore = [
     r'http://askubuntu.com',
     r'https://theunarchiver.com/',
     r'https://securityheaders.com',
-    r'https://www.linode.com'
+    r'https://www.linode.com',
+    r'https://docs.paperless-ngx.com'
 ]
 linkcheck_exclude_documents = [r'.*/archive/.*']

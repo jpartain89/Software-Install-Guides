@@ -91,7 +91,7 @@ For this, I will be liberally copying and pasting from `sto's github page`_:
 
 To protect everything under ``/secure`` you will add the following to the nginx.conf file:
 
-... code-block:: bash
+.. code-block:: bash
 
   location /secure {
     auth_pam "Secure Zone";

@@ -52,4 +52,4 @@ Next, you have to tell ``git``, through config files, to utilize the credential 
 
 Now, the next time you try to do anything requiring that git password, it'll prompt you for the info, and then automatically save it in your keychain.
 
-.. _1Password: https://developer.1password.com/docs/ssh/manage-keys/
+.. _1Password: https://www.1password.dev/ssh/manage-keys
