@@ -15,6 +15,17 @@ on:
   pull_request_target:
     types:
       - closed
+    paths:
+      - 'docs/**'
+      - 'conf.py'
+      - 'Pipfile'
+      - 'Pipfile.lock'
+      - 'Makefile'
+      - 'scripts/install.sh'
+      - '_static/**'
+      - '_extra_html/**'
+      - '.readthedocs.yaml'
+      - '.github/workflows/documentation.yml'
 
 jobs:
   doc_test:
