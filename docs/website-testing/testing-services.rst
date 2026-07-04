@@ -31,4 +31,4 @@ Compatibility Notes
   Links and tools are current web security references as of this documentation update.
 
 Tested On
-  Documentation review only (external services not executed from this repo).
+  Documentation review only (commands not executed in this repo).

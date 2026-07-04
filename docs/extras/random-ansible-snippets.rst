@@ -10,15 +10,20 @@ Ansible CLI - Basic Example
 
 Yes, I know this is like, the first thing that the `Ansible Documentation`_ site teaches you. But, again, it IS, like, the first thing this massive thing teaches you, and not in too much detail.
 
-So, here's a repeat, refresher, with screenshots!!
+So, here's a repeat refresher with representative output examples.
 
 .. code-block:: bash
 
   ansible ubuntu -a 'free -m'
 
-.. image:: ansible_command_module.jpg
-  :alt: Ansible Basic Command Module
-  :align: center
+Example output:
+
+.. code-block:: text
+
+  192.168.1.34 | SUCCESS | rc=0 >>
+               total        used        free      shared  buff/cache   available
+  Mem:          1973         354         618           7         1000        1450
+  Swap:         2045           0        2045
 
 This just runs ansible's ``command`` module. As in it doesn't support shell variables and things like piping. Thus, why the only flag given is the ``-a`` flag. If you wanted to change the module used, you'd include the ``-m`` flag before ``-a``, as the ``-a`` flag tells ansible the text within the \` \` is the actual text for the module requested.
 
@@ -30,9 +35,14 @@ Next, we change the module to ``ping``
 
 This doesn't require the ``-a`` flag, unless there are other options you want to include with the ``ping`` module. Otherwise, this will run a simple ping on the hosts you requested.
 
-.. image:: ansible_ping_all.jpg
-  :alt: Ansible Ping Module
-  :align: center
+Example output:
+
+.. code-block:: text
+
+  192.168.1.20 | SUCCESS => {
+      "changed": false,
+      "ping": "pong"
+  }
 
 
 .. _pass_a_list:
@@ -61,9 +71,10 @@ Changed On
 Summary of Updates
   - Updated ad-hoc apt list example to use explicit ``state=present``.
   - Updated list variable naming and JSON quoting for clearer modern CLI usage.
+  - Replaced screenshot-based command output references with inline text output examples.
 
 Reason for Change
-  Improve reliability and readability of ad-hoc package installation examples.
+  Improve reliability and readability of ad-hoc package installation examples while removing stale image dependencies.
 
 Compatibility Notes
   Compatible with modern Ansible ad-hoc CLI usage on current Ansible core releases.

@@ -69,4 +69,4 @@ Compatibility Notes
   Unit example assumes systemd and a valid VBoxManage path on the host.
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).

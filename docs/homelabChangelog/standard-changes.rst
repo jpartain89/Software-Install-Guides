@@ -88,4 +88,4 @@ Compatibility Notes
   Commands target modern Debian/Ubuntu apt-based systems.
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).

@@ -88,4 +88,4 @@ Compatibility Notes
   Entries are primarily based on Ubuntu 24.04 LTS behavior.
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).

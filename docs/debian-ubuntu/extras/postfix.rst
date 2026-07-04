@@ -24,19 +24,23 @@ Install Postfix
   For Gmail, use a Google account with 2-step verification enabled and an app password for Postfix authentication.
   Do not use your primary account password directly in ``sasl_passwd``.
 
-Now, during this installation, the system will prompt you with Configuration Option's. Since we will be using an outside service to send our mail - aka ``smtp.gmail.com`` - we will select ``Internet Site``.
+Now, during this installation, the system will prompt you with configuration options. Since we will be using an outside service to send our mail - aka ``smtp.gmail.com`` - select ``Internet Site``.
 
 If we were to use postfix in other ways, we'd pick another option.
 
-.. image:: images/pf_install_conf.jpg
-  :alt: PostFix Install Configuration Option 1
-  :align: center
+Prompt choice summary:
+
+.. code-block:: text
+
+  General type of mail configuration: Internet Site
 
 Then, it will continue on with ``System Mail Name``, which, technically you would normally want a ``FQDN`` address listed here. But, using your systems basic hostname is also fine, especially if you have just a couple of machines.
 
-.. image:: images/pf_mailname.jpg
-  :alt: PostFix Install Configuration Option 2
-  :align: center
+Example:
+
+.. code-block:: text
+
+  System mail name: mail.example.org
 
 Then check that it saved to the main config file:
 
@@ -162,9 +166,10 @@ Changed On
 Summary of Updates
   - Added missing ``mailutils`` package install for the ``mail`` test command.
   - Added Gmail security guidance for 2-step verification and app passwords.
+  - Replaced interactive installer screenshots with explicit text-based prompt selections.
 
 Reason for Change
-  Prevent broken test-mail steps and align SMTP credential guidance with current Gmail security requirements.
+  Prevent broken test-mail steps, align SMTP guidance with current Gmail security requirements, and remove stale image dependency.
 
 Compatibility Notes
   Compatible with current Debian/Ubuntu Postfix setups and Gmail SMTP policies requiring app passwords.

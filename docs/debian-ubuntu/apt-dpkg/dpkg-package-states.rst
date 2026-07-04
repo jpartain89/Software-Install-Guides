@@ -4,11 +4,14 @@ dpkg -l Package States
 
 This is specifically in reference to the flags at the start of each line when you perform ``dpkg -l``.
 
-.. image:: dpkg-state.jpg
-  :alt: dpkg -l Example Info
-  :align: center
+Example output (left-most status column):
 
-In the above image, far left, you can see the column that has ``ii`` or ``rc``. That would be the specific info I'm referencing, and knowing this info doesn't hurt!
+.. code-block:: text
+
+  ii  bash        5.2.21-2ubuntu4   amd64   GNU Bourne Again SHell
+  rc  oldpackage  1.0.0-1           amd64   (removed, config files remain)
+
+The first two letters (for example ``ii`` or ``rc``) are the key status flags referenced below.
 
 -----------
 Definitions
@@ -34,13 +37,14 @@ Changed On
   2026-07-04
 
 Summary of Updates
-  - Page reviewed for modernization baseline and footer standardization setup.
+  - Replaced stale screenshot dependency with a text-based ``dpkg -l`` status example.
+  - Clarified where to read ``ii``/``rc`` style status flags in command output.
 
 Reason for Change
-  Standardize per-page change tracking and prepare for phased documentation modernization.
+  Keep the page accurate and maintainable without relying on outdated image captures.
 
 Compatibility Notes
-  Not Applicable (administrative documentation footer addition).
+  Status-flag reference is compatible with modern ``dpkg`` output.
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).

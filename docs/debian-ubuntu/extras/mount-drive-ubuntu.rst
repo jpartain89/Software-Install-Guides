@@ -34,9 +34,18 @@ So, we will be using ``fdisk`` for these next few steps:
 
 So, my 2nd hard drive is labeled as ``/dev/sdb``, and because I had just created the virtual drive on my host machine, there are no partitions.
 
-.. image:: images/hd-fdisk_list.jpg
-  :alt: fdisk -l output
-  :align: center
+Example ``fdisk -l`` output (truncated):
+
+.. code-block:: text
+
+  Disk /dev/sda: 120 GiB
+  Device     Start       End   Sectors   Size Type
+  /dev/sda1   2048   1050623   1048576   512M EFI System
+  /dev/sda2 1050624 251658206 250607583 119.5G Linux filesystem
+
+  Disk /dev/sdb: 400 GiB
+  Device     Start       End   Sectors   Size Type
+  /dev/sdb1   2048 838860766 838858719   400G Linux filesystem
 
 -----------------
 Create Partitions
@@ -159,9 +168,10 @@ Summary of Updates
   - Replaced insecure ``chmod -R 777`` with safer ownership and ``755`` permissions.
   - Corrected permanent mount reference from ``/etc/fdisk`` to ``/etc/fstab``.
   - Added a concrete ``/etc/fstab`` example entry for an additional ext4 disk.
+  - Replaced stale ``fdisk`` screenshot with inline sample output.
 
 Reason for Change
-  Reduce security risk from world-writable permissions and clarify correct persistent mount configuration.
+  Reduce security risk from world-writable permissions, clarify persistent mount configuration, and remove stale image dependency.
 
 Compatibility Notes
   Applies to modern Debian/Ubuntu systems using ext4 and ``systemd``-era fstab behavior.

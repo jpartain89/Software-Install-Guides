@@ -25,4 +25,4 @@ Compatibility Notes
   Legacy link is preserved for context; modern deployment guidance should target supported Debian/Ubuntu releases.
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).

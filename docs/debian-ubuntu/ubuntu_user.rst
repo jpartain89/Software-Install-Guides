@@ -66,4 +66,4 @@ Compatibility Notes
   Applies to modern Linux user/group behavior in VM and non-VM environments.
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).

@@ -27,4 +27,4 @@ Compatibility Notes
   Guidance targets current NVIDIA Container Toolkit workflows.
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).

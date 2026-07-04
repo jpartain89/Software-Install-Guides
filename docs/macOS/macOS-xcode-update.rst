@@ -6,7 +6,7 @@ Updating Xcode After macOS Updates
 tl;dr
 -------
 
-.. Reminder::
+.. note::
 
   After major macOS upgrades, confirm your developer toolchain is still installed and selected.
 

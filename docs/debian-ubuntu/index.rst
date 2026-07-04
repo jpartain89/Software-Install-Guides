@@ -44,4 +44,4 @@ Compatibility Notes
   Section scope now explicitly targets current Debian/Ubuntu administration workflows.
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).
