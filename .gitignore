@@ -1,3 +1,7 @@
+# new vale style ignores
+.vale-config/
+styles/
+
 _tmp/
 _build/
 _readthedocs/
