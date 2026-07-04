@@ -20,7 +20,7 @@ When you find yourself needing to change a plethora of items within the current 
 
 .. code-block:: bash
 
-  find . -type f -exec chmod 644 {} \;
+  find . -type f -exec chmod 644 {} +
 
 Break Down
 ==========
@@ -65,13 +65,13 @@ So, what do we do?
 
 .. code-block:: bash
 
-  pip list | awk '{ print $1 }'``
+  pip list | awk '{ print $1 }'
 
 or
 
 .. code-block:: bash
 
-  pip freeze | awk -F'==' '{ print $1 }'``
+  pip freeze | awk -F'==' '{ print $1 }'
 
 --------------------------
 Remove text, like Commas
@@ -158,6 +158,12 @@ or, if you are on a mac, you have to add ``''`` after the ``-i``, and before the
 
   sed -i '' 's/brightyellow/,yellow/g' /usr/share/nano-syntax-highlighting/*.nanorc
 
+For safer edits on either GNU or BSD sed, keep a backup while testing:
+
+.. code-block:: bash
+
+  sed -i.bak 's/brightyellow/,yellow/g' /usr/share/nano-syntax-highlighting/*.nanorc
+
 A great website to go look at for a plethora of how-tos is `tldp_randomvar`_.
 
 .. _tldp_randomvar: https://tldp.org/LDP/abs/html/randomvar.html
@@ -169,13 +175,14 @@ Changed On
   2026-07-04
 
 Summary of Updates
-  - Page reviewed for modernization baseline and footer standardization setup.
+  - Updated ``find ... -exec`` example to the efficient ``{} +`` form.
+  - Added safer ``sed -i.bak`` pattern for reversible in-place edits.
 
 Reason for Change
-  Standardize per-page change tracking and prepare for phased documentation modernization.
+  Improve command efficiency, parsing reliability, and edit safety across environments.
 
 Compatibility Notes
-  Not Applicable (administrative documentation footer addition).
+
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).

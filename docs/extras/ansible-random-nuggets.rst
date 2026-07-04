@@ -6,9 +6,9 @@ Setting a default to a variable, in order to test if its set or not:
 
 .. code-block:: bash
 
-  when: secret_gmail_passwd|default(None) != None
+  when: secret_gmail_passwd is defined and secret_gmail_passwd is not none
 
-This will allow the task to run if and only if the variable ``secret_gmail_passwd`` is NOT None. 
+This will allow the task to run if and only if the variable ``secret_gmail_passwd`` is both defined and not ``None``.
 
 .. rubric:: Update Changelog
 
@@ -17,13 +17,13 @@ Changed On
   2026-07-04
 
 Summary of Updates
-  - Page reviewed for modernization baseline and footer standardization setup.
+  - Replaced legacy default-based ``when`` test with explicit ``is defined`` and ``is not none`` checks.
 
 Reason for Change
-  Standardize per-page change tracking and prepare for phased documentation modernization.
+  Use clearer modern Ansible conditional style and avoid ambiguous None checks.
 
 Compatibility Notes
-  Not Applicable (administrative documentation footer addition).
+  Compatible with modern Ansible/Jinja conditional evaluation.
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).

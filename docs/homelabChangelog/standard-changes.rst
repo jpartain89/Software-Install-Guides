@@ -23,6 +23,10 @@ that contains the following:
 
   jpartain89 ALL=(ALL) NOPASSWD: ALL
 
+.. warning::
+
+  ``NOPASSWD: ALL`` is very broad. For tighter security, scope this to required commands only.
+
 After saving the file, I then use `chown root:root /etc/sudoers.d/jpartain89` to confirm the appropriate ownership, else it could bork all of sudoers, and end up borking the entire OS.
 
 SSH Keys
@@ -48,7 +52,7 @@ TODO: Complete the ansible documentation
 
 .. code-block:: bash
 
-  sudo sh -c 'apt-get update && apt-get install -y --no-install-recommends curl gpg ca-certificates
+  sudo sh -c 'apt update && apt install -y --no-install-recommends curl gpg ca-certificates
   curl -fsSL https://packages.smallstep.com/keys/apt/repo-signing-key.gpg -o /etc/apt/keyrings/smallstep.asc
   cat << EOF > /etc/apt/sources.list.d/smallstep.sources
   Types: deb
@@ -58,7 +62,7 @@ TODO: Complete the ansible documentation
   Signed-By: /etc/apt/keyrings/smallstep.asc
   EOF
   chmod 644 /etc/apt/keyrings/smallstep.asc /etc/apt/sources.list.d/smallstep.sources
-  apt-get update && apt-get -y install step-cli step-ca'
+  apt update && apt -y install step-cli step-ca'
 
 Then, add a step-ca system user:
 
@@ -74,13 +78,14 @@ Changed On
   2026-07-04
 
 Summary of Updates
-  - Page reviewed for modernization baseline and footer standardization setup.
+  - Added a security warning for broad ``NOPASSWD: ALL`` sudoers usage.
+  - Updated SmallStep install snippet from ``apt-get`` to modern ``apt`` commands.
 
 Reason for Change
-  Standardize per-page change tracking and prepare for phased documentation modernization.
+  Improve security clarity and align package management examples with current apt usage.
 
 Compatibility Notes
-  Not Applicable (administrative documentation footer addition).
+  Commands target modern Debian/Ubuntu apt-based systems.
 
 Tested On
   Documentation review only.

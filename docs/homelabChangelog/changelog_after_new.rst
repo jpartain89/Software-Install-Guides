@@ -4,6 +4,8 @@ Changelog
 
 Ran my ansible `linux.yml` playbook.
 
+Baseline for this log: Ubuntu 24.04 LTS (Noble) unless otherwise stated.
+
 Install `hishtory`_ using:
 
 .. code-block:: bash
@@ -77,13 +79,13 @@ Changed On
   2026-07-04
 
 Summary of Updates
-  - Page reviewed for modernization baseline and footer standardization setup.
+  - Added explicit Ubuntu baseline version context for this changelog.
 
 Reason for Change
-  Standardize per-page change tracking and prepare for phased documentation modernization.
+  Reduce ambiguity about which distro/version this changelog entry applies to.
 
 Compatibility Notes
-  Not Applicable (administrative documentation footer addition).
+  Entries are primarily based on Ubuntu 24.04 LTS behavior.
 
 Tested On
   Documentation review only.

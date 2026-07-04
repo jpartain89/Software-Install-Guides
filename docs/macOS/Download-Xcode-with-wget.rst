@@ -2,7 +2,13 @@
 Download Beta Xcode with ``wget``
 =================================
 
-So, I was looking for a way to download the Beta version of Xcode over the terminal, using either ``wget`` or ``curl``, and almost every suggestion I found got it wrong somehow.... Some made it more complicated than it should be or was probably too old a suggestion for Apple's current login systems...
+For modern macOS systems, the supported and most reliable workflows are:
+
+1. App Store for full Xcode.
+2. ``xcode-select --install`` for Command Line Tools only.
+3. Apple Developer downloads via browser when you specifically need a beta build.
+
+The old cookie-export + ``wget`` flow can still work in some cases, but it is brittle against Apple auth/session changes.
 
 Either way, I finally found a solution from a now-defunct website that worked wonderfully, and it was the tidbit at the bottom of their post that made the specific difference::
 
@@ -12,9 +18,17 @@ Either way, I finally found a solution from a now-defunct website that worked wo
 How To
 ------
 
-1. First, you'll need to login to the developer portal at `Beta Xcode Download`_
+1. Preferred: install/update Command Line Tools from terminal
 
-2. You'll want to copy the download link for whichever Xcode version you are wanting/have access to.
+.. code-block:: bash
+
+  xcode-select --install
+
+2. Preferred for full Xcode: use App Store updates.
+
+3. If you need a specific beta build, sign in to `Beta Xcode Download`_ and download from the official portal.
+
+4. Advanced fallback (not preferred): cookie-based ``wget`` download.
 
    #. start the download, then cancel it
    #. Then, go to your browser's "downloads" page, where you can copy the specific download URL
@@ -31,17 +45,17 @@ As the site put it:
    #. That will download the website's cookies into a ``txt`` file for you automatically
    #. This information is in the extension's ``help`` page if you right click the extension and select ``Options``
 
-5. And now the actual bash stuff:
+5. Example ``wget`` command:
 
 .. code-block:: bash
 
-  wget --load-cookies=cookies.txt -c https://download.developer.apple.com/Developer_Tools/Xcode_14.3_Release_Candidate_2/Xcode_14.3_Release_Candidate_2.xip
+  wget --load-cookies=cookies.txt -c <apple-developer-xip-url>
 
 .. note::
 
-  Replace the specific URL with the URL that you want/need to use, please.
+  Replace with the exact URL from your Apple Developer download session.
 
-And, you should find that the download this way is much much quicker than through the browser. Which is wonderful when the file is so gargantuan.
+If this method fails, go back to App Store/official browser flow; it is more stable over time.
 
 ---------
 Unzipping
@@ -63,13 +77,15 @@ Changed On
   2026-07-04
 
 Summary of Updates
-  - Page reviewed for modernization baseline and footer standardization setup.
+  - Reframed page to prioritize supported Xcode install/update paths.
+  - Added modern ``xcode-select --install`` and App Store-first guidance.
+  - Kept cookie-based ``wget`` as an advanced fallback only.
 
 Reason for Change
-  Standardize per-page change tracking and prepare for phased documentation modernization.
+  Reduce reliance on brittle login-cookie workflows and align with current Apple-supported install methods.
 
 Compatibility Notes
-  Not Applicable (administrative documentation footer addition).
+  Primary guidance targets current macOS workflows; cookie-based wget behavior may vary by Apple auth/session changes.
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).

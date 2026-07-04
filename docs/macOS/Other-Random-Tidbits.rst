@@ -12,11 +12,19 @@ Local WebPage Wont Load Anywhere!!!
 
 A locally-hosted site refused to load in any web browser on the same computer, but it would load in my iPhone...
 
-Essentially the DNS cache was poisoned and needed to be flushed. The only command that worked was:
+Essentially the DNS cache was poisoned and needed to be flushed.
+
+Start with:
 
 .. code-block:: bash
 
-  dscacheutil -flushcache && sudo killall -HUP mDNSResponder
+  sudo dscacheutil -flushcache
+
+If issues persist, also restart mDNSResponder:
+
+.. code-block:: bash
+
+  sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder
 
 which I have saved as an alias.
 
@@ -27,13 +35,14 @@ Changed On
   2026-07-04
 
 Summary of Updates
-  - Page reviewed for modernization baseline and footer standardization setup.
+  - Added stepwise DNS cache flush guidance with modern command ordering.
+  - Added explicit ``sudo`` on ``dscacheutil`` examples.
 
 Reason for Change
-  Standardize per-page change tracking and prepare for phased documentation modernization.
+  Improve clarity for modern macOS DNS troubleshooting and avoid permission-related command confusion.
 
 Compatibility Notes
-  Not Applicable (administrative documentation footer addition).
+  Applies to modern macOS systems using mDNSResponder.
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).

@@ -2,7 +2,11 @@
 Personal APT Repo
 =================
 
+Legacy reference (historical):
+
 https://www.howtoforge.com/setting-up-an-apt-repository-with-reprepro-and-nginx-on-debian-wheezy
+
+Modern Debian/Ubuntu users should prefer current reprepro/apt repository guidance and avoid Wheezy-era assumptions.
 
 .. rubric:: Update Changelog
 
@@ -11,13 +15,14 @@ Changed On
   2026-07-04
 
 Summary of Updates
-  - Page reviewed for modernization baseline and footer standardization setup.
+  - Marked Wheezy-era link as legacy/historical reference.
+  - Added guidance to use current reprepro/apt repository practices.
 
 Reason for Change
-  Standardize per-page change tracking and prepare for phased documentation modernization.
+  Prevent outdated Debian release guidance from being interpreted as current best practice.
 
 Compatibility Notes
-  Not Applicable (administrative documentation footer addition).
+  Legacy link is preserved for context; modern deployment guidance should target supported Debian/Ubuntu releases.
 
 Tested On
   Documentation review only.

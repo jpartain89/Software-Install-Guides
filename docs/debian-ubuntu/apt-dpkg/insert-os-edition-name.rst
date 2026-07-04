@@ -2,7 +2,7 @@
 OS Edition Name
 ===============
 
-For when you are wanting to add a specific, custom apt sources list item (because its best to have custom items in their own, specific `.list` file) and the string asks for the Ubuntu/Debian Edition Name (Xenial, Jessie, etc.), you are able to run commands within the `echo` line.
+For when you are wanting to add a specific, custom apt sources list item (because its best to have custom items in their own, specific ``.list`` file) and the string asks for the Ubuntu/Debian codename (for example, ``jammy`` or ``noble``), you are able to run commands within the ``echo`` line.
 
 .. code-block:: bash
 
@@ -21,6 +21,13 @@ When you use this specific starting command, and then wrap everything after in a
 
 So, almost all apt sources addresses have the distribution's code name as one of the options, so using this really helps out in programatic coding.
 
+Modern alternative using ``/etc/os-release``:
+
+.. code-block:: bash
+
+  . /etc/os-release
+  echo "${VERSION_CODENAME:-$UBUNTU_CODENAME}"
+
 .. rubric:: Update Changelog
 
 
@@ -28,13 +35,14 @@ Changed On
   2026-07-04
 
 Summary of Updates
-  - Page reviewed for modernization baseline and footer standardization setup.
+  - Updated release examples from EOL-era codenames to modern codename framing.
+  - Added ``/etc/os-release`` codename retrieval as a modern alternative.
 
 Reason for Change
-  Standardize per-page change tracking and prepare for phased documentation modernization.
+  Keep codename substitution guidance aligned with current Debian/Ubuntu releases and tooling.
 
 Compatibility Notes
-  Not Applicable (administrative documentation footer addition).
+  Supports both ``lsb_release`` and ``/etc/os-release`` codename workflows.
 
 Tested On
   Documentation review only.

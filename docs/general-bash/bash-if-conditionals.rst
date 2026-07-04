@@ -15,7 +15,7 @@ Lets say you are wanting to copy over a file from one location to another, but d
 Breakdown
 =========
 
-#. ``[[ ]]`` So, the double brackets here are necessary for ``#!/bin/bash``, of which, to be honest, using the double brackets as the standard setup seems to be what makes the most sense.
+#. ``[[ ]]`` is Bash-specific and preferred when you are explicitly writing Bash scripts.
 #. ``!`` The exclamation point is how you negate expressions through a lot of bash in general. So, here, its testing if ``/etc/foo`` exists.
 #. ``-e`` True if File Exists. Its a very broad testing flag.
 #. After the brackets are closed, you use ``;`` to tell bash that your expression line is finished.
@@ -36,7 +36,7 @@ The following test flags go with:
     <some code>
   fi
 
-Use ``[[ ]]`` with double ``==`` and use ``[ ]`` with ``=``
+Use ``[[ ]]`` with ``==`` for Bash scripts and ``[ ]`` with ``=`` for POSIX ``sh`` compatibility.
 
 The first line, ``-e /bin/bash`` is the positive side of the ``-e FILE`` test.
 
@@ -97,6 +97,8 @@ There are a LOT of ways to test things, using either ``if-then-else``, ``case`` 
 
   But when using ``sh`` - ``#!/bin/sh`` - it prefers single-brackets - ``[ ]``. When you use the single-brackets, you use single-equals - ``=``.
 
+  ``[[ "10" < "2" ]]`` is a string comparison (lexicographic). For numeric comparisons, use ``-lt``, ``-gt``, etc.
+
 .. csv-table:: Test Expressions - File Comparison (3) MATH SPECIFIC
   :header: "Compare Strings", "Explainer"
   :widths: auto
@@ -122,13 +124,14 @@ Changed On
   2026-07-04
 
 Summary of Updates
-  - Page reviewed for modernization baseline and footer standardization setup.
+  - Clarified Bash-only ``[[ ]]`` usage versus POSIX ``[ ]`` compatibility guidance.
+  - Added note about string vs numeric comparison behavior.
 
 Reason for Change
-  Standardize per-page change tracking and prepare for phased documentation modernization.
+  Reduce portability confusion and prevent comparison-operator misuse in scripts.
 
 Compatibility Notes
-  Not Applicable (administrative documentation footer addition).
+  Guidance covers both Bash-specific and POSIX-compatible conditional patterns.
 
 Tested On
-  Documentation review only.
+  Documentation review only (commands not executed in this repo).

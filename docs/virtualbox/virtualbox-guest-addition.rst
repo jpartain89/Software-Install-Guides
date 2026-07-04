@@ -42,7 +42,8 @@ First, lets install the pre-requirements.
 
 .. code-block:: bash
 
-  sudo apt-get install dkms make gcc -y
+  sudo apt update
+  sudo apt install -y dkms build-essential linux-headers-$(uname -r)
 
 Mount the CDROM
 ===============
@@ -98,6 +99,8 @@ If you have any services with custom user/group names, like ``transmission-daemo
 
 Then, it doesn't hurt to restart your machine. Just to make sure all accounts have signed out and back in again, so they can access any `vboxsf` group items.
 
+You can also restart only the affected service/session if a full reboot is not desirable.
+
 .. rubric:: Update Changelog
 
 
@@ -105,13 +108,14 @@ Changed On
   2026-07-04
 
 Summary of Updates
-  - Page reviewed for modernization baseline and footer standardization setup.
+  - Replaced legacy ``apt-get`` prereq example with modern ``apt`` plus headers/build tools.
+  - Added note that restarting only affected services/sessions can be sufficient.
 
 Reason for Change
-  Standardize per-page change tracking and prepare for phased documentation modernization.
+  Align Guest Additions prerequisites and post-install behavior with current Ubuntu practices.
 
 Compatibility Notes
-  Not Applicable (administrative documentation footer addition).
+  Targets current Debian/Ubuntu guest environments with VirtualBox Guest Additions builds.
 
 Tested On
   Documentation review only.
