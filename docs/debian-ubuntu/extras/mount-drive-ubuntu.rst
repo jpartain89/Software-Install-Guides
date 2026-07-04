@@ -103,12 +103,13 @@ So, make the directory, adjust the ownership info, then mount the ext4 filesyste
 .. code-block:: bash
 
   sudo mkdir /media/<name of folder>
-  sudo chmod -R 777 /media/<name of folder>
+  sudo chown -R $USER:$USER /media/<name of folder>
+  sudo chmod -R 755 /media/<name of folder>
   sudo mount /dev/sdb1 /media/<name of folder> -t ext4
 
 So, lets break that down:
 
-1. ``chmod`` - changing the ownership levels to the mode ``0777`` which translates to: anyone can do anything with this.
+1. ``chown`` and ``chmod`` - set ownership to your user and use safer default permissions.
 2. ``mount`` - obviously the mount program
 
   1. The first option has to be the device with partition number you want to mount
@@ -134,7 +135,7 @@ So, if those all worked, its mounted and you can read/write to it.
 Permanent Mounting
 ------------------
 
-The best way to be able to mount your drives using ``/etc/fdisk`` is by referencing the drive's UUID number. How do you check that?
+The best way to mount your drives permanently using ``/etc/fstab`` is by referencing the drive's UUID/PARTUUID. How do you check that?
 
 .. code-block:: bash
 
@@ -146,3 +147,24 @@ it will give you a line for every drive and partition that it can find. You can 
 
   PARTUUID=86e32033-01  /boot           vfat    defaults          0       2
   PARTUUID=86e32033-02  /               ext4    defaults,noatime  0       1
+  PARTUUID=<your-partuuid> /media/<name of folder> ext4 defaults,noatime 0 2
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Replaced insecure ``chmod -R 777`` with safer ownership and ``755`` permissions.
+  - Corrected permanent mount reference from ``/etc/fdisk`` to ``/etc/fstab``.
+  - Added a concrete ``/etc/fstab`` example entry for an additional ext4 disk.
+
+Reason for Change
+  Reduce security risk from world-writable permissions and clarify correct persistent mount configuration.
+
+Compatibility Notes
+  Applies to modern Debian/Ubuntu systems using ext4 and ``systemd``-era fstab behavior.
+
+Tested On
+  Documentation review only (commands not executed in this repo).

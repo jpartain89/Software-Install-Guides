@@ -46,3 +46,21 @@ Use the name returned in step 3 to manage the VM via systemd. For example, to ma
 
   sudo systemctl start vbox@Ubuntu     # Start the VM
   sudo systemctl enable vbox@Ubuntu    # Start the VM on boot
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Page reviewed for modernization baseline and footer standardization setup.
+
+Reason for Change
+  Standardize per-page change tracking and prepare for phased documentation modernization.
+
+Compatibility Notes
+  Not Applicable (administrative documentation footer addition).
+
+Tested On
+  Documentation review only.

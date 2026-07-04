@@ -29,7 +29,7 @@ First, you make sure you have curl installed
 
 .. code-block:: bash
 
-  sudo apt install curlx
+  sudo apt install curl
 
 Then, using curl, you pipe the URL at the end to the file location under ``/usr/share/keyrings/``.
 
@@ -86,13 +86,13 @@ Copy and paste that into the following command:
 
 .. code-block:: bash
 
-  sudo apt-key export DE3AE8C0 | sudo gpg --dearmour -o /usr/share/keyrings/Cockpit-Samba-AD-DC.gpg
+  sudo apt-key export DE3AE8C0 | sudo gpg --dearmor -o /usr/share/keyrings/Cockpit-Samba-AD-DC.gpg
 
 Then, if you havent yet created the .list file, enter:
 
 .. code-block:: bash
 
-  echo "deb [signed-by=/usr/share/keyrings/Cockpit-Samba-AD-DC.gpg] https://download.opensuse.org/repositories/home:/Hezekiah/xUbuntu_20.04 ./" | sudo tee /etc/apt/list.d/Cockpit-Samba-AD-DC.list
+  echo "deb [signed-by=/usr/share/keyrings/Cockpit-Samba-AD-DC.gpg] https://download.opensuse.org/repositories/home:/Hezekiah/xUbuntu_20.04 ./" | sudo tee /etc/apt/sources.list.d/Cockpit-Samba-AD-DC.list
 
 And then update and install the software you want to use.
 
@@ -109,19 +109,26 @@ Using `NGINX`_'s directions for adding their repo to your linux server (I wont i
 
   curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 
-  echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu $(lsb_release -cs) nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
+  echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu $(lsb_release -cs) nginx" | \
+    sudo tee /etc/apt/sources.list.d/nginx.list
 
-You'll notice the use of ``$(lsb_release -cs)`` in this example, which utilizes the program ``lsb_release`` in Debian/Ubuntu in order to get the desired verbiage for your particular OS.
+You'll notice the use of ``$(lsb_release -cs)`` in this example, which asks ``lsb_release`` for your distro codename.
 
-There are a few other means of getting the desired info, all depending on that repo's specific requirements and layout that they have chosen.
+There are a few other means of getting the desired info, all depending on that repo's specific requirements and layout that they have chosen. For instance: on modern systems, ``/etc/os-release`` is also a reliable source:
+
+.. code-block:: bash
+
+  . /etc/os-release
+  echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu ${VERSION_CODENAME:-$UBUNTU_CODENAME} nginx" | \
+    sudo tee /etc/apt/sources.list.d/nginx.list
 
 Breakdown
 ---------
 
 #. Most all apt-get ``.list`` lines begin with ``deb`` or ``deb-src``
-#. Then, you need to include the key's file location: ``[signed-by=/usr/share/keyrings/<filename>.gpg]`` or ``[signed-by=/etc/apt/keyring.d/<filename>.gpg]``
+#. Then, you need to include the key's file location: ``[signed-by=/usr/share/keyrings/<filename>.gpg]`` (or ``/etc/apt/keyrings/<filename>.gpg`` if you manage local keys there)
 #. Then, the html address of the library
-#. Next, usually the name of the release you are using, such as ``xenial`` for 16.04 Ubuntu or ``jessie`` for Debian 8, which in Debian/Ubuntu world is usually accessible via ``lsb_release -cs``
+#. Next, usually the release codename (for example ``jammy`` or ``noble`` on Ubuntu), often available via ``lsb_release -cs`` or ``/etc/os-release``.
 #. And last, there are names for the various extra sections you can discern between - ``main``, ``extras`` or whatever else the library maintainer uses.
 
 .. note::
@@ -148,9 +155,9 @@ Its super simple to add these repo's to Ubuntu:
 .. code-block:: bash
 
   sudo add-apt-repository ppa:nginx/main
-  sudo apt-get update && sudo apt-get install $application
+  sudo apt update && sudo apt install $application
 
-You'll want to always run ``apt-get update`` to pull the lists of available programs to install, and then install the additional program or to upgrade existing programs already installed.
+You'll want to always run ``apt update`` to pull the lists of available programs to install, and then install the additional program or to upgrade existing programs already installed.
 
 ------------------
 Personal Standards
@@ -177,3 +184,25 @@ This way, removing specific repo items is MUCH easier.
 .. _NGINX: https://nginx.org/en/linux_packages.html#Ubuntu
 .. _Amplify: https://amplify.nginx.com/
 .. _Ondrej's: https://launchpad.net/~ondrej/+archive/ubuntu/php
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Fixed ``curlx`` typo to ``curl`` in the install example.
+  - Corrected ``gpg --dearmour`` to ``gpg --dearmor``.
+  - Fixed APT list path from ``/etc/apt/list.d`` to ``/etc/apt/sources.list.d``.
+  - Added ``/etc/os-release`` codename retrieval option for modern systems.
+  - Updated PPA examples from ``apt-get`` to ``apt``.
+
+Reason for Change
+  Resolve command/path breakages and align repository setup guidance with modern Debian/Ubuntu conventions.
+
+Compatibility Notes
+  Guidance targets current Debian/Ubuntu releases; includes both ``lsb_release`` and ``os-release`` codename methods.
+
+Tested On
+  Documentation review only (commands not executed in this repo).

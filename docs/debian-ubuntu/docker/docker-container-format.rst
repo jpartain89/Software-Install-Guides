@@ -26,3 +26,21 @@ Outputs:
 The key to this specific format is the ``--format='{{json .Names}} {{json .State}} {{json .ID}}'`` portion. You can change what is displayed by changing what is inside the curly braces. You can find a full list of options over at `Dockers Reference Pages`_.
 
 .. _Dockers Reference Pages: https://docs.docker.com/reference/cli/docker/container/ls/#format
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Page reviewed for modernization baseline and footer standardization setup.
+
+Reason for Change
+  Standardize per-page change tracking and prepare for phased documentation modernization.
+
+Compatibility Notes
+  Not Applicable (administrative documentation footer addition).
+
+Tested On
+  Documentation review only.

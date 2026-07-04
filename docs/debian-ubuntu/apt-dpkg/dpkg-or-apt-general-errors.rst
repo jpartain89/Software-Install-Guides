@@ -73,3 +73,21 @@ The second way to fix it is a more official way, using one of :command:`dpkg`'s 
   dpkg-statoverride --remove /usr/lib/cockpit/cockpit-session
 
 For this one - and ironically, this is the ONE item that makes NO sense - you have to use the path that is listed in the file, rather than the specific "user" that :command:`&apt` errors out with... And thats why I'm using this option as my second fix, because its more or less an extra step after viewing or editing the :file:`statoverride` file above.
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Page reviewed for modernization baseline and footer standardization setup.
+
+Reason for Change
+  Standardize per-page change tracking and prepare for phased documentation modernization.
+
+Compatibility Notes
+  Not Applicable (administrative documentation footer addition).
+
+Tested On
+  Documentation review only.

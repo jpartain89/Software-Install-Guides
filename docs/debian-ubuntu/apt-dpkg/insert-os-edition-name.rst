@@ -20,3 +20,21 @@ When you use this specific starting command, and then wrap everything after in a
 2. `-sc`-  the `-s` is "short", the `-c` is "codename"
 
 So, almost all apt sources addresses have the distribution's code name as one of the options, so using this really helps out in programatic coding.
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Page reviewed for modernization baseline and footer standardization setup.
+
+Reason for Change
+  Standardize per-page change tracking and prepare for phased documentation modernization.
+
+Compatibility Notes
+  Not Applicable (administrative documentation footer addition).
+
+Tested On
+  Documentation review only.

@@ -161,3 +161,21 @@ or, if you are on a mac, you have to add ``''`` after the ``-i``, and before the
 A great website to go look at for a plethora of how-tos is `tldp_randomvar`_.
 
 .. _tldp_randomvar: https://tldp.org/LDP/abs/html/randomvar.html
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Page reviewed for modernization baseline and footer standardization setup.
+
+Reason for Change
+  Standardize per-page change tracking and prepare for phased documentation modernization.
+
+Compatibility Notes
+  Not Applicable (administrative documentation footer addition).
+
+Tested On
+  Documentation review only.

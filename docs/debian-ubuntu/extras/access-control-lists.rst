@@ -41,3 +41,21 @@ Then, to make sure all files, recursively, receive the update, run it again with
   sudo setfacl -Rm g:groupnamehere:rwx /path/to/file
 
 And to read the ACL, you simply use ``getfacl /path/to/file``.
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Page reviewed for modernization baseline and footer standardization setup.
+
+Reason for Change
+  Standardize per-page change tracking and prepare for phased documentation modernization.
+
+Compatibility Notes
+  Not Applicable (administrative documentation footer addition).
+
+Tested On
+  Documentation review only.

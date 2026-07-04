@@ -81,3 +81,21 @@ Once verified,
  ``git pull`` or ``git fetch --all``
 
 The ``--all`` can also be amended to the repo name you gave it. So, if more than one repo address is included, you can fetch specific repo's rather than all of them.
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Page reviewed for modernization baseline and footer standardization setup.
+
+Reason for Change
+  Standardize per-page change tracking and prepare for phased documentation modernization.
+
+Compatibility Notes
+  Not Applicable (administrative documentation footer addition).
+
+Tested On
+  Documentation review only.

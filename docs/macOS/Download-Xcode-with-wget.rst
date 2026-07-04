@@ -55,3 +55,21 @@ IT WILL TAKE A BIT OF TIME... I assume due it being "Secure", its having to unen
 
 .. _The Unarchiver: https://theunarchiver.com/
 .. _Beta Xcode Download: https://developer.apple.com/xcode/
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Page reviewed for modernization baseline and footer standardization setup.
+
+Reason for Change
+  Standardize per-page change tracking and prepare for phased documentation modernization.
+
+Compatibility Notes
+  Not Applicable (administrative documentation footer addition).
+
+Tested On
+  Documentation review only.

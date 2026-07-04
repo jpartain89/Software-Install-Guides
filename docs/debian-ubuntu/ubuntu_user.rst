@@ -48,3 +48,21 @@ So, for running this inside of a VirtualBox instance locally, using a folder mou
   So, the -aG part is adding a user to a group by addition, not replacing. Then, the first name is the group, and the 2nd is the user.
 
 Usually in order to have the addition take in the filesystem, you would log the user out then back in, but the system users normally don't have login/out abilities. So, its best to just restart the actual virtual machine.
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Page reviewed for modernization baseline and footer standardization setup.
+
+Reason for Change
+  Standardize per-page change tracking and prepare for phased documentation modernization.
+
+Compatibility Notes
+  Not Applicable (administrative documentation footer addition).
+
+Tested On
+  Documentation review only.
