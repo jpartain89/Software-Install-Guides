@@ -1,27 +1,51 @@
-=================================
-Updating X-Code After Big Updates
-=================================
-
-Created/Published 9/11/16
+==================================
+Updating Xcode After macOS Updates
+==================================
 
 -------
 tl;dr
 -------
 
-Reminder! You need to:
+.. note::
+
+  After major macOS upgrades, confirm your developer toolchain is still installed and selected.
 
 .. code-block:: bash
 
   xcode-select --install
 
-after a big macOS update!
+And for full Xcode app updates, use App Store.
+
+You can also verify active developer path:
+
+.. code-block:: bash
+
+  xcode-select -p
 
 ----------
 The Story
 ----------
 
-So, after almost 2 days now of futzing with my different terminal apps and what not, and terminal giving me issues not wanting to compile anything... I TOTALLY forgot to run ``xcode-select --install`` to download the new developer tools.
+After big macOS updates, build tools can appear missing even when your shell/profile is fine.
+Running ``xcode-select --install`` usually restores required Command Line Tools quickly.
 
-Moral of the story?
+Moral of the story: verify Xcode and CLI tools early when compile errors appear right after OS upgrades.
 
-Love your X-Code!
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Updated wording and title to modern Xcode naming and workflows.
+  - Added guidance for App Store updates and ``xcode-select -p`` verification.
+
+Reason for Change
+  Keep macOS developer-tool troubleshooting accurate for current systems.
+
+Compatibility Notes
+  Applies to modern macOS releases using Xcode and Command Line Tools.
+
+Tested On
+  Documentation review only (commands not executed in this repo).

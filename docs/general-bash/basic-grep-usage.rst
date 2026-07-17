@@ -20,8 +20,7 @@ This would be a simple layout of how you could potentially use this in a shell s
 
   #!/bin/bash
 
-  dpkg -l | grep openvpn &> /dev/null
-  if [[ $? == 0 ]]; then
+  if dpkg -l | grep -q openvpn; then
     echo "matched"
   else
     echo "Not Matched"
@@ -38,8 +37,30 @@ So, lets break that down
     take the outputted text from the last thing and use it as input for the next thing
   - So, the entire list of installed apps then is searched using ``grep`` for ``openvpn``
 
-3. ``&> /dev/null`` - this is a redirection of the output, negating any textual output, leaving only the ``1`` or ``0`` or more outputs to use
-4. ``$?`` - this basically says ``take the numbered output, whatever it is, and stick it here``
-5. So, when you do ``$? == 0`` you're saying ``if the output was 0, then do this command``
+3. ``-q`` on ``grep`` means quiet mode. It suppresses normal output and uses the exit code for your conditional.
+4. Using ``if <command>; then`` directly is usually cleaner than checking ``$?`` on a separate line.
 
 AND be careful, 0 might not always be yes or confirm. Make sure to check the program's MAN - manual - pages for clarification, especially if it uses different error codes for different responses.
+
+.. note::
+
+  On macOS, ``grep`` is BSD grep. Some GNU-only options are not available there, but ``-q`` works on both.
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Replaced manual ``$?`` check pattern with direct ``if ... grep -q`` conditional style.
+  - Added cross-platform note for BSD vs GNU grep behavior.
+
+Reason for Change
+  Improve script readability and align examples with current shell scripting best practice.
+
+Compatibility Notes
+  ``grep -q`` example is compatible across GNU grep and BSD grep environments.
+
+Tested On
+  Documentation review only (commands not executed in this repo).

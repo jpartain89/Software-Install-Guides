@@ -34,9 +34,18 @@ So, we will be using ``fdisk`` for these next few steps:
 
 So, my 2nd hard drive is labeled as ``/dev/sdb``, and because I had just created the virtual drive on my host machine, there are no partitions.
 
-.. image:: images/hd-fdisk_list.jpg
-  :alt: fdisk -l output
-  :align: center
+Example ``fdisk -l`` output (truncated):
+
+.. code-block:: text
+
+  Disk /dev/sda: 120 GiB
+  Device     Start       End   Sectors   Size Type
+  /dev/sda1   2048   1050623   1048576   512M EFI System
+  /dev/sda2 1050624 251658206 250607583 119.5G Linux filesystem
+
+  Disk /dev/sdb: 400 GiB
+  Device     Start       End   Sectors   Size Type
+  /dev/sdb1   2048 838860766 838858719   400G Linux filesystem
 
 -----------------
 Create Partitions
@@ -103,12 +112,13 @@ So, make the directory, adjust the ownership info, then mount the ext4 filesyste
 .. code-block:: bash
 
   sudo mkdir /media/<name of folder>
-  sudo chmod -R 777 /media/<name of folder>
+  sudo chown -R $USER:$USER /media/<name of folder>
+  sudo chmod -R 755 /media/<name of folder>
   sudo mount /dev/sdb1 /media/<name of folder> -t ext4
 
 So, lets break that down:
 
-1. ``chmod`` - changing the ownership levels to the mode ``0777`` which translates to: anyone can do anything with this.
+1. ``chown`` and ``chmod`` - set ownership to your user and use safer default permissions.
 2. ``mount`` - obviously the mount program
 
   1. The first option has to be the device with partition number you want to mount
@@ -134,7 +144,7 @@ So, if those all worked, its mounted and you can read/write to it.
 Permanent Mounting
 ------------------
 
-The best way to be able to mount your drives using ``/etc/fdisk`` is by referencing the drive's UUID number. How do you check that?
+The best way to mount your drives permanently using ``/etc/fstab`` is by referencing the drive's UUID/PARTUUID. How do you check that?
 
 .. code-block:: bash
 
@@ -146,3 +156,25 @@ it will give you a line for every drive and partition that it can find. You can 
 
   PARTUUID=86e32033-01  /boot           vfat    defaults          0       2
   PARTUUID=86e32033-02  /               ext4    defaults,noatime  0       1
+  PARTUUID=<your-partuuid> /media/<name of folder> ext4 defaults,noatime 0 2
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Replaced insecure ``chmod -R 777`` with safer ownership and ``755`` permissions.
+  - Corrected permanent mount reference from ``/etc/fdisk`` to ``/etc/fstab``.
+  - Added a concrete ``/etc/fstab`` example entry for an additional ext4 disk.
+  - Replaced stale ``fdisk`` screenshot with inline sample output.
+
+Reason for Change
+  Reduce security risk from world-writable permissions, clarify persistent mount configuration, and remove stale image dependency.
+
+Compatibility Notes
+  Applies to modern Debian/Ubuntu systems using ext4 and ``systemd``-era fstab behavior.
+
+Tested On
+  Documentation review only (commands not executed in this repo).

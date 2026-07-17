@@ -22,3 +22,21 @@ And that was it! I was able to install the module without any issues after that.
 
 .. _it87: https://github.com/frankcrawford/it87
 .. _Proxmoxs Forum Post: https://forum.proxmox.com/threads/kernel-module-not-found-when-compile-skipping-btf-generation.100974/#post-440473
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Page reviewed for modernization baseline and footer standardization setup.
+
+Reason for Change
+  Standardize per-page change tracking and prepare for phased documentation modernization.
+
+Compatibility Notes
+  Not Applicable (administrative documentation footer addition).
+
+Tested On
+  Documentation review only (commands not executed in this repo).

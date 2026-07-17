@@ -108,10 +108,31 @@ Finally, we can now test our configs without having to restart our machine.
 
 .. code-block:: bash
 
-  sudo service vboxautostart-service start
+  sudo systemctl start vboxautostart-service
 
 At this point, your configured guest VM's should begin running. You can test what VM's are running by the command:
 
 .. code-block:: bash
 
   VBoxManage list runningvms
+
+If your distro still provides SysV compatibility wrappers, ``service`` may still work, but ``systemctl`` is preferred on modern systemd systems.
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Updated test start command from ``service`` to ``systemctl`` for modern systemd hosts.
+  - Added compatibility note for legacy SysV wrapper behavior.
+
+Reason for Change
+  Align VirtualBox autostart testing instructions with current Linux service management defaults.
+
+Compatibility Notes
+  Primary command targets systemd-based distributions; legacy ``service`` may still exist as compatibility wrapper.
+
+Tested On
+  Documentation review only (commands not executed in this repo).

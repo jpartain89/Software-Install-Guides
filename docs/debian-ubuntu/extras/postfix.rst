@@ -17,8 +17,14 @@ Install Postfix
 .. code-block:: bash
 
   sudo apt-get install libsasl2-modules postfix
+  sudo apt-get install mailutils
 
-Now, during this installation, the system will prompt you with Configuration Option's. Since we will be using an outside service to send our mail - aka ``smtp.gmail.com`` - we will select ``Internet Site``.
+.. warning::
+
+  For Gmail, use a Google account with 2-step verification enabled and an app password for Postfix authentication.
+  Do not use your primary account password directly in ``sasl_passwd``.
+
+Now, during this installation, the system will prompt you with configuration options. Since we will be using an outside service to send our mail - aka ``smtp.gmail.com`` - select ``Internet Site``.
 
 If we were to use postfix in other ways, we'd pick another option.
 
@@ -146,3 +152,22 @@ Making sure to put your email address in place of ``user@example.com``. You shou
 .. _HowToForge Postfix How-To: https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/
 
 .. _Linode's Postfix Guide: https://www.linode.com/docs/guides/configure-postfix-to-send-mail-using-gmail-and-google-workspace-on-debian-or-ubuntu/
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Added missing ``mailutils`` package install for the ``mail`` test command.
+  - Added Gmail security guidance for 2-step verification and app passwords.
+
+Reason for Change
+  Prevent broken test-mail steps and align SMTP credential guidance with current Gmail security requirements.
+
+Compatibility Notes
+  Compatible with current Debian/Ubuntu Postfix setups and Gmail SMTP policies requiring app passwords.
+
+Tested On
+  Documentation review only (commands not executed in this repo).

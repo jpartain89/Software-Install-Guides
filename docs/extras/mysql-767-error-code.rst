@@ -12,13 +12,25 @@ Type that into Google and even Alice herself would throw in the towel....
 
 Plenty of websites will halfway get you to the fix, and then complain that you have no idea how to fix it already....
 
-Well, I'm not going to be doing that here today.... I'll be giving you the MAIN fix, along with the commands you can also run while inside mysql/mariaDB.
+Well, I'm not going to be doing that here today.
+
+.. warning::
+
+  The old ``767 bytes`` workaround settings below are for legacy MySQL 5.7 and older MariaDB deployments.
+  On MySQL 8.0+ and modern MariaDB releases, these settings are deprecated/removed or unnecessary.
 
 --------
 tl;dr
 --------
 
-Place the below block into your ``/etc/mysql/mariadb.conf.d/50-server.cnf``, within the ``[mysqld]`` section of the configuration file.
+For modern versions first:
+
+.. code-block:: bash
+
+  # MySQL 8.0+ and modern MariaDB:
+  # keep utf8mb4 + InnoDB defaults and avoid legacy innodb_file_format options.
+
+Legacy workaround (MySQL 5.7 / older MariaDB): place the below block into your ``/etc/mysql/mariadb.conf.d/50-server.cnf``, within the ``[mysqld]`` section.
 
 .. code-block:: bash
 
@@ -30,7 +42,7 @@ Place the below block into your ``/etc/mysql/mariadb.conf.d/50-server.cnf``, wit
 
 This way, these settings are persistent on the server. These are specifically for the default installation that has the ``db charset`` set to ``utf8mb4``, table type of ``InnoDB`` and table charset of ``utf8mb4_unicode_ci``.
 
-You can also set them within the ``mysql/mariadb`` environment, but that seems as though it doesn't want to ever stay set this way.
+You can also set them within the ``mysql/mariadb`` environment, but those runtime settings may not persist across restart.
 
 .. code-block:: bash
 
@@ -43,3 +55,22 @@ You can also set them within the ``mysql/mariadb`` environment, but that seems a
 .. note::
 
   Make sure you restart the sql server after changing any settings in the configuration files.
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Added explicit version guidance separating modern MySQL/MariaDB behavior from legacy 767-byte fixes.
+  - Clarified that legacy ``innodb_file_format`` options are for older versions only.
+
+Reason for Change
+  Prevent outdated server parameters from being applied to modern MySQL/MariaDB versions.
+
+Compatibility Notes
+  Legacy block applies to MySQL 5.7/older MariaDB; modern guidance applies to MySQL 8.0+ and current MariaDB defaults.
+
+Tested On
+  Documentation review only (commands not executed in this repo).

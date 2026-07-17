@@ -166,3 +166,21 @@ Lastly, don't just go deleting the old directory just yet. Open Paperless, make 
 .. [PostgresStackOverflow_Dump] https://stackoverflow.com/a/29913462
 .. [docker-pgautoupgrade] https://github.com/pgautoupgrade/docker-pgautoupgrade
 
+
+.. rubric:: Update Changelog
+
+
+Changed On
+  2026-07-04
+
+Summary of Updates
+  - Page reviewed for modernization baseline and footer standardization setup.
+
+Reason for Change
+  Standardize per-page change tracking and prepare for phased documentation modernization.
+
+Compatibility Notes
+  Not Applicable (administrative documentation footer addition).
+
+Tested On
+  Documentation review only (commands not executed in this repo).
