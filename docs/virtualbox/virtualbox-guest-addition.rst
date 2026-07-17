@@ -25,11 +25,9 @@ Host Machine
 
 So, first we need to mount the Guest Additions CD Image, which you can find under the "Devices" menu in the Virtual Machines Menu Bar on a macOS device. (Make sure the Guest Machine window is in focus to show that machines menu bar)
 
-Menu path summary:
-
-.. code-block:: text
-
-  Devices -> Insert Guest Additions CD image...
+.. image:: virtualbox_guestCD.png
+  :alt: Virtualbox Guest Additions Mount
+  :align: center
 
 Then, depending on what OS your guest is running depends on what the next steps are. We will be concentrating on Ubuntu Server, Headless installs. Seeing as that needs a big more work on our part than any GUI-based system.
 
@@ -112,10 +110,9 @@ Changed On
 Summary of Updates
   - Replaced legacy ``apt-get`` prereq example with modern ``apt`` plus headers/build tools.
   - Added note that restarting only affected services/sessions can be sufficient.
-  - Replaced GUI screenshot dependency with explicit VirtualBox menu-path instructions.
 
 Reason for Change
-  Align Guest Additions prerequisites and post-install behavior with current Ubuntu practices while removing stale image dependencies.
+  Align Guest Additions prerequisites and post-install behavior with current Ubuntu practices.
 
 Compatibility Notes
   Targets current Debian/Ubuntu guest environments with VirtualBox Guest Additions builds.
