@@ -1,0 +1,643 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upgrade Paperless Database &mdash; Software Install Guides 9.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="canonical" href="https://docs.jpcdi.com/docs/debian-ubuntu/docker/upgrade-paperless-database.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=0b13d40c"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Synology Docker Permission Mod" href="SynologyDockerPermissionMod.html" />
+    <link rel="prev" title="Random Code Snippets" href="random-snippets.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Software Install Guides
+              <img src="../../../_static/JPLogo-Header.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Debian / Ubuntu</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#chapters">Chapters</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../apt-dpkg/index.html">APT or DPKG</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../apt-dpkg/adding-apt-list.html">Adding Extra apt-get Lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../apt-dpkg/apt-repo.html">Personal APT Repo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../apt-dpkg/dpkg-package-states.html">dpkg -l Package States</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../apt-dpkg/insert-os-edition-name.html">OS Edition Name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../apt-dpkg/dpkg-or-apt-general-errors.html">DPKG or APT General Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../apt-dpkg/dbus-calls-on-update.html">dbus Calls on Update</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../extras/index.html">Extra Items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../extras/mount-drive-ubuntu.html">Mounting Unformatted Drive in Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../extras/postfix.html">Using Postfix as Mail Relay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../extras/access-control-lists.html">Access Control Lists</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ubuntu_user.html">User Management</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">docker</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="docker-container-format.html">Docker Container Formatting for the CLI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="random-snippets.html">Random Code Snippets</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Upgrade Paperless Database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SynologyDockerPermissionMod.html">Synology Docker Permission Mod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#changed-on">Changed On</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#id1">Changed On</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../install-issues/index.html">Install Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../install-issues/module-it87.html">Module it87</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../extras/index.html">Extras</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/random-ansible-snippets.html">Random Ansible Snippets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../extras/random-ansible-snippets.html#ansible-cli-basic-example">Ansible CLI - Basic Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../extras/random-ansible-snippets.html#pass-a-list">Pass a List</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/ansible-random-nuggets.html">Ansible Random Nuggets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/mysql-767-error-code.html">Fixing mysql/mariaDB 767 Character Error Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../extras/mysql-767-error-code.html#tl-dr">tl;dr</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-bash/index.html">General Bash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/bash-if-conditionals.html">Bash Conditional Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/bash-if-conditionals.html#breakdown">Breakdown</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/bash-if-conditionals.html#conditional-expression-primaries">Conditional Expression Primaries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/bash-logging.html">Bash Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/bash-logging.html#what-does-it-do">What does it do?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/basic-linux.html">Some Basic Linux Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-or-remote-use">SSH or Remote Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-keys">SSH Keys</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-key-generate">SSH-Key Generate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/basic-linux.html#ssh-copy-id-or-sending-your-public-key">SSH-Copy-ID or Sending Your Public Key</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#restarting-the-machine">Restarting the Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#updating-the-apps">Updating the Apps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/basic-linux.html#bash-logging">Bash Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#what-does-it-do">What does it do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#deprecation-of-apt-key">Deprecation of <code class="docutils literal notranslate"><span class="pre">apt-key</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-linux.html#using-dd-for-backup">Using DD for Backup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/basic-grep-usage.html">Use grep Output as if-else Conditional</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-grep-usage.html#basic-use-of-grep-in-if-else">Basic Use of grep in if-else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/basic-grep-usage.html#so-lets-break-that-down">So, lets break that down</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/here-docs.html">Here Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/pip-requirements-file.html">pip Requirements File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/random-collection-of-info.html">Random Collection of Info</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#using-find-to-chmod-multiple-files">Using <code class="docutils literal notranslate"><span class="pre">find</span></code> to <code class="docutils literal notranslate"><span class="pre">chmod</span></code> multiple files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#break-down">Break Down</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#using-awk-to-modify-output">Using <code class="docutils literal notranslate"><span class="pre">awk</span></code> to Modify Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#remove-text-like-commas">Remove text, like Commas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#breakdown">Breakdown</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#using-as-new-lines">Using <code class="docutils literal notranslate"><span class="pre">\</span></code> as New Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#shell-script-location">Shell Script Location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#random-number-generator">Random Number Generator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#details">Details</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../general-bash/random-collection-of-info.html#using-sed-to-make-updates">Using <code class="docutils literal notranslate"><span class="pre">sed</span></code> to Make Updates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/signals-and-traps.html">Signals and Traps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general-bash/optional-parameter.html">Default Optional Agruments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../git/index.html">Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../git/git-repo-address.html">Local Git Repo Address</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#viewing-the-repo-s-address">Viewing the Repo’s Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#changing-the-address">Changing The Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#code-breakdown">Code Breakdown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/git-repo-address.html#final-steps">Final Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../git/cache-git-password-terminal.html">Saving your Git Repo Password</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../git/cache-git-password-terminal.html#or">OR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/cache-git-password-terminal.html#macos-and-1password">macOS and 1Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../git/cache-git-password-terminal.html#macos-keys">macOS Keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../git/git_orphan.html">Git –orphan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../homelabChangelog/index.html">HomeLab Change Log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homelabChangelog/standard-changes.html">Standard Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../homelabChangelog/standard-changes.html#after-installation">After Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../homelabChangelog/standard-changes.html#ssh-keys">SSH Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../homelabChangelog/standard-changes.html#ansible">Ansible</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../homelabChangelog/changelog_after_new.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../homelabChangelog/rough_ubuntu_config.html">My Rough Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../macOS/index.html">macOS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../macOS/macOS-xcode-update.html">Updating Xcode After macOS Updates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/macOS-xcode-update.html#tl-dr">tl;dr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/macOS-xcode-update.html#the-story">The Story</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../macOS/Download-Xcode-with-wget.html">Download Beta Xcode with <code class="docutils literal notranslate"><span class="pre">wget</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/Download-Xcode-with-wget.html#how-to">How To</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/Download-Xcode-with-wget.html#unzipping">Unzipping</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../macOS/Other-Random-Tidbits.html">Other Random Tidbits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../macOS/Other-Random-Tidbits.html#local-webpage-wont-load-anywhere">Local WebPage Wont Load Anywhere!!!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../macOS/macOS-Launchpad-Apps.app.html">macOS Launchpad/Apps.app</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../virtualbox/index.html">VirtualBox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html">VirtualBox AutoStart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#autostart-cfg-file">AutoStart.cfg File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#linux-autostart">Linux Autostart</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#file-permissions">File Permissions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#linux-file-permissions">Linux File Permissions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#vboxmanage-modifyvm"><code class="docutils literal notranslate"><span class="pre">VBoxManage</span> <span class="pre">modifyvm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-autostart.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html">VirtualBox Guest Additions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#host-machine">Host Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#ubuntu-server-guest-machine">Ubuntu Server Guest Machine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#pre-requirements">Pre-Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#mount-the-cdrom">Mount the CDROM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#run-the-installer">Run the Installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#usermod"><code class="docutils literal notranslate"><span class="pre">usermod</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../virtualbox/virtualbox-guest-addition.html#services-info">Services Info</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../virtualbox/virtualbox-systemd.html">VirtualBox Systemd</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website-testing/index.html">Website Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../website-testing/testing-services.html">Testing your Web Server Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../website-testing/testing-services.html#list">List</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Older, now unused how to's</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../archive/index.html">Archive</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../archive/debian-ubuntu/index.html">Debian / Ubuntu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/debian-ubuntu/extras/renaming-network-devices.html">Renaming Network Devices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/debian-ubuntu/extras/renaming-network-devices.html#how-to">How To</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/debian-ubuntu/extras/lvm.html">LVM How To</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/debian-ubuntu/extras/lvm.html#old-hard-drive">Old Hard Drive?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/debian-ubuntu/extras/lvm.html#cleaned-hard-drive">Cleaned Hard Drive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/debian-ubuntu/extras/lvm.html#lvm-commands">LVM Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../archive/downloader/index.html">Archived Downloaders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/downloader/transmission-daemon.html">Transmission <span>[TRANS-HTPC]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/transmission-daemon.html#add-repo-and-install">Add Repo and Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/transmission-daemon.html#user-group-account-modifications">User/Group Account Modifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/transmission-daemon.html#editing-the-settings-conf-file">Editing the <code class="docutils literal notranslate"><span class="pre">settings.conf</span></code> File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/downloader/transmission-web-gui.html">Alternate Transmission Web GUI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/transmission-web-gui.html#using-kettu-s-web-gui-for-transmission">Using Kettu’s Web GUI for Transmission</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/transmission-web-gui.html#transmission-web-gui-file-locations">Transmission Web GUI File Locations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/downloader/openvpn.html">OpenVPN <span>[PIA-VPN]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/openvpn.html#secure-downloading">Secure Downloading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/openvpn.html#info">Info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/openvpn.html#install">Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/openvpn.html#pia-openvpn-files">PIA OpenVPN Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/openvpn.html#copy-the-files">Copy the Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/openvpn.html#create-the-login-file">Create the Login File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/openvpn.html#edit-the-config-file">Edit the Config File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/openvpn.html#test-vpn">Test VPN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/openvpn.html#setup-openvpn-s-autostart-configuration">Setup OpenVPN’s Autostart Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/downloader/nzbget.html">NZBGet <span>[NZBGet-HTPC]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/nzbget.html#unrar">UnRar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/downloader/nzbget.html#nzbget-installation">NZBGet Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../archive/general-bash/index.html">Archived General Bash</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/general-bash/ratom.html">Ratom <span>[RATOM-src]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/general-bash/ratom.html#archival">Archival</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../archive/raspberry-pi/index.html">Raspberry Pi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/raspberry-pi/boot-from-usb.html">Boot your Raspberry Pi from an External USB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/raspberry-pi/boot-from-usb.html#first-steps">First Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/raspberry-pi/ddrescue.html">DDRescue</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/raspberry-pi/ddrescue.html#installing">Installing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/raspberry-pi/ddrescue.html#how-is-it-used">How is it Used?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/raspberry-pi/ddrescue.html#break-it-down">Break it Down</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/raspberry-pi/OLD-boot-from-usb.html">OLD Boot Raspberry Pi from USB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/raspberry-pi/OLD-boot-from-usb.html#find-the-usb-drive">Find the USB Drive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/raspberry-pi/OLD-boot-from-usb.html#install-adafruit-s-usb-program">Install Adafruit’s USB Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/raspberry-pi/OLD-boot-from-usb.html#adafruit-s-repo-the-long-way-round">Adafruit’s Repo the Long Way Round</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/raspberry-pi/OLD-boot-from-usb.html#installing-usb-program">Installing USB Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/raspberry-pi/OLD-boot-from-usb.html#running-the-program">Running the Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/raspberry-pi/OLD-boot-from-usb.html#after-running">After Running</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/raspberry-pi/OLD-boot-from-usb.html#recovering-from-a-failed-boot">Recovering from a Failed Boot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../archive/virtualbox/index.html">VirtualBox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/virtualbox/virtualbox-autostart.html">VirtualBox AutoStart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/virtualbox/virtualbox-autostart.html#autostart-systems">AutoStart Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/virtualbox/virtualbox-autostart.html#autostart-cfg-file">AutoStart.cfg File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/virtualbox/virtualbox-autostart.html#file-permissions">File Permissions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/virtualbox/virtualbox-autostart.html#vboxmanage-modifyvm"><code class="docutils literal notranslate"><span class="pre">VBoxManage</span> <span class="pre">modifyvm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/virtualbox/virtualbox-autostart.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/virtualbox/virtualbox-guest-addition.html">VirtualBox Guest Additions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/virtualbox/virtualbox-guest-addition.html#host-machine">Host Machine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/virtualbox/virtualbox-guest-addition.html#ubuntu-server-guest-machine">Ubuntu Server Guest Machine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/virtualbox/virtualbox-systemd.html">VirtualBox Systemd</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../archive/web-server/index.html">Web Server Stuff</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/web-server/nginx-from-ubuntu-ppa.html">NGINX from PPA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/nginx-from-ubuntu-ppa.html#nginx-s-ppa">NGINX’s PPA</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/web-server/nginx-from-source.html">Compiling NGINX From Source <span>[NGINX-Copied]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/nginx-from-source.html#add-nginx-ppa">Add NGINX PPA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/nginx-from-source.html#download-source-packages">Download Source Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/nginx-from-source.html#install-nginx">Install NGINX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/nginx-from-source.html#block-nginx-from-auto-update">Block NGINX from Auto-Update</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/web-server/nginx-basic-auth.html">NGINX Basic Password Auth</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/nginx-basic-auth.html#htpasswd"><code class="docutils literal notranslate"><span class="pre">htpasswd</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/nginx-basic-auth.html#auth-pam">Auth Pam</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/web-server/securing-nginx.html">Securing NGINX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/securing-nginx.html#basic-https-setup">Basic HTTPS Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/securing-nginx.html#optimizing-nginx-s-secure-connection">Optimizing NGINX’s Secure Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/securing-nginx.html#configuration-example">Configuration Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/web-server/ddclient.html">DDClient <span>[DDCLIENT-Source]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/ddclient.html#preface">Preface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/web-server/wildcard-certbot.html">Certbot WildCard SSL Cert</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/wildcard-certbot.html#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/wildcard-certbot.html#setup">Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/web-server/wildcard-certbot.html#running-certbot">Running Certbot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../archive/webapps/index.html">WebApps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/webapps/radarr.html">Radarr Movie Downloader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/webapps/couchpotato.html">CouchPotato Movie Downloader <span>[HTPC-CP]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/couchpotato.html#shoutout">Shoutout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/couchpotato.html#base-requirements">Base Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/couchpotato.html#clone-the-repo">Clone the Repo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/couchpotato.html#test-if-it-works">Test if it Works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/couchpotato.html#copy-edit-default-file">Copy/Edit Default File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/couchpotato.html#copy-or-edit-the-init-d-file">Copy or Edit the init.d File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/webapps/tautulli.html">Tautulli (previously PlexPy) <span>[HTPC-Tautulli]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/tautulli.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/tautulli.html#clone-the-repo">Clone the Repo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/tautulli.html#edit-the-default-file">Edit the Default File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/tautulli.html#create-tautulli-user">Create Tautulli User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/tautulli.html#change-ownerships-and-symlink">Change Ownerships and Symlink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/tautulli.html#testing-the-program-first">Testing the Program First</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/tautulli.html#autostart-system-files">AutoStart System Files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../archive/webapps/sonarr.html">Sonarr Installation <span>[HTPC-Sonarr]</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/sonarr.html#base-requirements">Base Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/sonarr.html#add-the-apt-source-and-install">Add the Apt Source and Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/sonarr.html#first-run">First Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/sonarr.html#create-autostart-init-d-file">Create Autostart init.d File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/sonarr.html#add-to-autostart-program">Add to Autostart Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../archive/webapps/sonarr.html#final-steps">Final Steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Software Install Guides</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Debian / Ubuntu</a></li>
+          <li class="breadcrumb-item"><a href="index.html">docker</a></li>
+      <li class="breadcrumb-item active">Upgrade Paperless Database</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/docs/debian-ubuntu/docker/upgrade-paperless-database.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="random-snippets.html" class="btn btn-neutral float-left" title="Random Code Snippets" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SynologyDockerPermissionMod.html" class="btn btn-neutral float-right" title="Synology Docker Permission Mod" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="upgrade-paperless-database">
+<h1>Upgrade Paperless Database<a class="headerlink" href="#upgrade-paperless-database" title="Link to this heading"></a></h1>
+<p>When using Paperless with a PostgreSQL database, it may be necessary to upgrade the database schema when upgrading Paperless itself. This guide provides steps to safely perform the upgrade.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more details, see: <a class="reference external" href="https://solariz.de/posts/25/paperless-broken-after-upgrade-postgress/">Paperless broken after upgrade</a>.</p>
+</div>
+<section id="correct-version">
+<h2>Correct Version:<a class="headerlink" href="#correct-version" title="Link to this heading"></a></h2>
+<p>Ensure you are using the correct version of PostgreSQL as required by the version of Paperless you are upgrading to. Refer to the <a class="reference external" href="https://docs.paperless-ngx.com/changelog/">Paperless-NGX Official Changelog</a> for version requirements. Though, as of the writing of this post - 10/6/2025 - the latest version of Paperless-NGX requires PostgreSQL 13 or higher.</p>
+<p>I personally am running PostgreSQL 17 via docker compose. Previously, I was running PostgreSQL 12, which is no longer supported. Luckily there are a couple of ways to upgrade the database! Either via a: dump and then restore of the database <a class="reference internal" href="#postgresstackoverflow-dump" id="id1"><span>[PostgresStackOverflow_Dump]</span></a>; via the pg_upgrade tool <a class="reference internal" href="#docker-pgautoupgrade" id="id2"><span>[docker-pgautoupgrade]</span></a>; or by exporting and then importing through Paperless-NGX itself <a class="reference internal" href="#paperless-ngxexportimport" id="id3"><span>[Paperless-NGXExportImport]</span></a>.</p>
+</section>
+<section id="database-dump-restore">
+<h2>Database Dump/Restore<a class="headerlink" href="#database-dump-restore" title="Link to this heading"></a></h2>
+<p>I am currently using <a class="reference external" href="https://solariz.de/about/">solariz.de - Tech &amp; Thoughts</a> blog post <a class="reference external" href="https://solariz.de/posts/25/paperless-broken-after-upgrade-postgress/">Paperless broken after upgrade</a> for the bulk of this section. Big kudos goes to them on helping me out with this issue!</p>
+<section id="step-1-stop-your-containers">
+<h3>Step 1: Stop Your Containers!<a class="headerlink" href="#step-1-stop-your-containers" title="Link to this heading"></a></h3>
+<p>Make sure and stop the corresponding containers that helps Paperless run.</p>
+<p><strong class="command">cd</strong> into the directory that holds your Paperless <cite>compose</cite> file and</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>down
+</pre></div>
+</div>
+</section>
+<section id="step-2-start-and-dump-just-your-database">
+<h3>Step 2: Start and Dump Just Your Database<a class="headerlink" href="#step-2-start-and-dump-just-your-database" title="Link to this heading"></a></h3>
+<p>Start the old database container and then dump it to a file</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>it helps if your database container is ONLY for Paperless. If you’re using a PostgreSQL container for multiple purposes, then this is not going to cover something that complicated</p>
+</div>
+<p>Also, the containers in my <code class="file docutils literal notranslate"><span class="pre">compose</span></code> file match the directions from the official <a class="reference external" href="https://github.com/paperless-ngx/paperless-ngx/blob/main/docker/compose/docker-compose.postgres-tika.yml">Paperless-NGX Github</a>.</p>
+<p>While still <strong class="command">cd</strong>’d into your <cite>compose</cite> directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>db
+docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>db<span class="w"> </span>pg_dumpall<span class="w"> </span>-U<span class="w"> </span>paperless<span class="w"> </span><span class="p">|</span><span class="w"> </span>old_paperless_db.sql
+docker<span class="w"> </span>compose<span class="w"> </span>down
+</pre></div>
+</div>
+</section>
+<section id="step-3-update-your-docker-compose-yml-file">
+<h3>Step 3: Update Your <code class="file docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> File<a class="headerlink" href="#step-3-update-your-docker-compose-yml-file" title="Link to this heading"></a></h3>
+<p>Next, we will be changing the <cite>db</cite> container from PostgreSQL 12 or 13 to 17, while also changing the directory the database is saving itself to.</p>
+<p>Since we’re upgrading via the dump and restore method, we have to start the new database with a new directory, else the new database will simply error out and fail to start at all.</p>
+<p>Now, I have a habit of taking my own routes when it comes to naming my volumes in my compose files, so my <cite>db</cite> directory for version 17 is named <code class="file docutils literal notranslate"><span class="pre">pgdata_17</span></code>. <code class="file docutils literal notranslate"><span class="pre">/your/directory/location/paperless/pgdata_17:/var/lib/postgresql/data</span></code>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">db</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:17</span>
+<span class="w">  </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+<span class="w">  </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">  </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${MEDIA_ROOT}/Paperless-NG/pgdata_17:/var/lib/postgresql/data</span>
+<span class="w">  </span><span class="nt">env_file</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env</span>
+<span class="w">  </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PAPERLESS_DBNAME}</span>
+<span class="w">    </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PAPERLESS_DBUSER}</span>
+<span class="w">    </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PAPERLESS_DBPASS}</span>
+<span class="w">  </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">paperless</span>
+</pre></div>
+</div>
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-PAPERLESS_DBNAME">
+<span class="sig-name descname"><span class="pre">PAPERLESS_DBNAME</span></span><a class="headerlink" href="#confval-PAPERLESS_DBNAME" title="Link to this definition"></a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><code class="docutils literal notranslate"><span class="pre">string</span></code></dd>
+</dl>
+<p>The variable name of the database to create when the container is first started.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-PAPERLESS_DBUSER">
+<span class="sig-name descname"><span class="pre">PAPERLESS_DBUSER</span></span><a class="headerlink" href="#confval-PAPERLESS_DBUSER" title="Link to this definition"></a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><code class="docutils literal notranslate"><span class="pre">string</span></code></dd>
+</dl>
+<p>The variable name of the user to create when the container is first started.</p>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-PAPERLESS_DBPASS">
+<span class="sig-name descname"><span class="pre">PAPERLESS_DBPASS</span></span><a class="headerlink" href="#confval-PAPERLESS_DBPASS" title="Link to this definition"></a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><code class="docutils literal notranslate"><span class="pre">string</span></code> (a <em>password</em>)</dd>
+</dl>
+<p>This is the variable password to assign to the database user when the container is first started.</p>
+</dd></dl>
+
+</section>
+<section id="step-4-start-the-new-db-import-the-old-db-and-update-the-paperless-user">
+<h3>Step 4: Start the New DB, Import the Old DB and Update the Paperless User<a class="headerlink" href="#step-4-start-the-new-db-import-the-old-db-and-update-the-paperless-user" title="Link to this heading"></a></h3>
+<p>Again, start just the <cite>db</cite> container, and since your container’s environment references the variables included in the <a class="reference internal" href="#confval-PAPERLESS_DBNAME"><code class="xref std std-confval docutils literal notranslate"><span class="pre">PAPERLESS_DBNAME</span></code></a>, <a class="reference internal" href="#confval-PAPERLESS_DBUSER"><code class="xref std std-confval docutils literal notranslate"><span class="pre">PAPERLESS_DBUSER</span></code></a> and <a class="reference internal" href="#confval-PAPERLESS_DBPASS"><code class="xref std std-confval docutils literal notranslate"><span class="pre">PAPERLESS_DBPASS</span></code></a> line items, the database should include the paperless user.</p>
+<p>Not sure? Lets check it!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>db<span class="w"> </span>-d
+docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>db<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>paperless<span class="w"> </span>-d<span class="w"> </span>paperless<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;\du&#39;</span>
+</pre></div>
+</div>
+<p>And the result should show:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>List<span class="w"> </span>of<span class="w"> </span>roles
+<span class="w"> </span>Role<span class="w"> </span>name<span class="w"> </span><span class="p">|</span><span class="w">                         </span>Attributes
+-----------+------------------------------------------------------------
+<span class="w"> </span>paperless<span class="w"> </span><span class="p">|</span><span class="w"> </span>Superuser,<span class="w"> </span>Create<span class="w"> </span>role,<span class="w"> </span>Create<span class="w"> </span>DB,<span class="w"> </span>Replication,<span class="w"> </span>Bypass<span class="w"> </span>RLS
+</pre></div>
+</div>
+<p>If you got the above, then lets go ahead and perform a password reset on that user.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Several people have reported an issue where PostgreSQL fails to have your chosen user use the assigned password you chose in your compose file correctly, presenting the following error:</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>db-1<span class="w">         </span><span class="p">|</span><span class="w"> </span><span class="m">2025</span>-08-29<span class="w"> </span><span class="m">07</span>:45:44.175<span class="w"> </span>UTC<span class="w"> </span><span class="o">[</span><span class="m">34</span><span class="o">]</span><span class="w"> </span>FATAL:<span class="w">  </span>password<span class="w"> </span>authentication<span class="w"> </span>failed<span class="w"> </span><span class="k">for</span><span class="w"> </span>user<span class="w"> </span><span class="s2">&quot;paperless&quot;</span>
+db-1<span class="w">         </span><span class="p">|</span><span class="w"> </span><span class="m">2025</span>-08-29<span class="w"> </span><span class="m">07</span>:45:44.175<span class="w"> </span>UTC<span class="w"> </span><span class="o">[</span><span class="m">34</span><span class="o">]</span><span class="w"> </span>DETAIL:<span class="w">  </span>User<span class="w"> </span><span class="s2">&quot;paperless&quot;</span><span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>have<span class="w"> </span>a<span class="w"> </span>valid<span class="w"> </span>SCRAM<span class="w"> </span>secret.
+db-1<span class="w">         </span><span class="p">|</span><span class="w">  </span>Connection<span class="w"> </span>matched<span class="w"> </span>file<span class="w"> </span><span class="s2">&quot;/var/lib/postgresql/data/pg_hba.conf&quot;</span><span class="w"> </span>line<span class="w"> </span><span class="m">128</span>:<span class="w"> </span><span class="s2">&quot;host all all all scram-sha-256&quot;</span>
+</pre></div>
+</div>
+<p>Now, you might be tempted to try and mess with <code class="file docutils literal notranslate"><span class="pre">/var/lib/postgresql/data/pg_hba.conf</span></code>, but that would introduce a security hole that is not necessary.</p>
+<p>Make sure the password you use here is the same as what you used in your docker-compose file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>db<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>paperless<span class="w"> </span>-d<span class="w"> </span>postgres<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span><span class="s2">&quot;ALTER ROLE paperless WITH PASSWORD :confval:&#39;</span><span class="si">${</span><span class="nv">PAPERLESS_DBPASS</span><span class="si">}</span><span class="s2">&#39;;&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="step-5-restore-your-database-dump">
+<h3>Step 5: Restore Your Database Dump<a class="headerlink" href="#step-5-restore-your-database-dump" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>old_paperless_db.sql<span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-T<span class="w"> </span>db<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>paperless
+</pre></div>
+</div>
+</section>
+<section id="step-6-restart-em-all">
+<h3>Step 6: Restart ‘em All!<a class="headerlink" href="#step-6-restart-em-all" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>docker<span class="w"> </span>compose<span class="w"> </span>logs
+</pre></div>
+</div>
+<p>You should now have a super quick output of all the logs of all of the containers related to your Paperless container. Or you can simply add <a class="reference internal" href="#cmdoption-f"><code class="xref std std-option docutils literal notranslate"><span class="pre">-f</span> <span class="pre">db</span></code></a> to the end of the <strong class="command">docker compose logs</strong> line to watch the output of your <cite>db</cite> container.</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-f">
+<span class="sig-name descname"><span class="pre">-f</span></span><span class="sig-prename descclassname"> <span class="pre">db</span></span><a class="headerlink" href="#cmdoption-f" title="Link to this definition"></a></dt>
+<dd><p>This will “follow the log output”, as in it streams the log lines as they are generated, rather than just displaying the logs that were already created and then stopping.</p>
+</dd></dl>
+
+<p>Lastly, don’t just go deleting the old directory just yet. Open Paperless, make sure its all working as expected. Then, after thorough testing and you’re comfy with the outcome, then and only then can you even CONTEMPLATE removing the directory. If anything, move it to your backup folder for posterity’s sake, or as a point-in-time backup that wont ever be deleted, along with the rest of your Paperless directory.</p>
+<div role="list" class="citation-list">
+<div class="citation" id="paperless-ngxexportimport" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Paperless-NGXExportImport</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://docs.paperless-ngx.com/administration/#exporter">https://docs.paperless-ngx.com/administration/#exporter</a></p>
+</div>
+<div class="citation" id="postgresstackoverflow-dump" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">PostgresStackOverflow_Dump</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://stackoverflow.com/a/29913462">https://stackoverflow.com/a/29913462</a></p>
+</div>
+<div class="citation" id="docker-pgautoupgrade" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">docker-pgautoupgrade</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://github.com/pgautoupgrade/docker-pgautoupgrade">https://github.com/pgautoupgrade/docker-pgautoupgrade</a></p>
+</div>
+</div>
+<p class="rubric">Update Changelog</p>
+<dl class="simple">
+<dt>Changed On</dt><dd><p>2026-07-04</p>
+</dd>
+<dt>Summary of Updates</dt><dd><ul class="simple">
+<li><p>Page reviewed for modernization baseline and footer standardization setup.</p></li>
+</ul>
+</dd>
+<dt>Reason for Change</dt><dd><p>Standardize per-page change tracking and prepare for phased documentation modernization.</p>
+</dd>
+<dt>Compatibility Notes</dt><dd><p>Not Applicable (administrative documentation footer addition).</p>
+</dd>
+<dt>Tested On</dt><dd><p>Documentation review only (commands not executed in this repo).</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="random-snippets.html" class="btn btn-neutral float-left" title="Random Code Snippets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SynologyDockerPermissionMod.html" class="btn btn-neutral float-right" title="Synology Docker Permission Mod" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, Justin Partain, JPartain89, JPCDI.
+      <span class="lastupdated">Last updated on August 11, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
