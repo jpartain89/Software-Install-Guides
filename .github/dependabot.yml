@@ -12,15 +12,13 @@ updates:
       interval: "weekly"
       day: "monday"
       time: "09:00"
-      timezone: "America/New_York"
+      timezone: "America/Chicago"
     # Group all minor and patch updates together to reduce PR noise
     groups:
-      python-dependencies:
+      pipenv:
         patterns:
-          - "*"
-        update-types:
-          - "minor"
-          - "patch"
+          - pipfile
+          - pipenv
     # Keep security updates separate for immediate attention
     open-pull-requests-limit: 10
     labels:
@@ -36,4 +34,7 @@ updates:
       interval: "weekly"
       day: "monday"
       time: "09:00"
-      timezone: "America/New_York"
+      timezone: "America/Chicago"
+    groups:
+      all-actions:
+        patterns: [ "*" ]
