@@ -24,22 +24,3 @@ Use a quoted delimiter when you do not want variable expansion inside the body:
   cat << 'EOF' > literal-output.sh
   PATH_LITERAL=$PATH
   EOF
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Replaced ``#!/bin/bash -e`` example with explicit shell safety options.
-  - Added quoted here-doc delimiter example to prevent variable expansion.
-
-Reason for Change
-  Improve reliability and clarify common here-doc expansion behavior.
-
-Compatibility Notes
-  Examples target Bash behavior on modern Linux/macOS systems.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

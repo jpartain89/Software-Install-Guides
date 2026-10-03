@@ -27,22 +27,3 @@ Modern alternative using ``/etc/os-release``:
 
   . /etc/os-release
   echo "${VERSION_CODENAME:-$UBUNTU_CODENAME}"
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Updated release examples from EOL-era codenames to modern codename framing.
-  - Added ``/etc/os-release`` codename retrieval as a modern alternative.
-
-Reason for Change
-  Keep codename substitution guidance aligned with current Debian/Ubuntu releases and tooling.
-
-Compatibility Notes
-  Supports both ``lsb_release`` and ``/etc/os-release`` codename workflows.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

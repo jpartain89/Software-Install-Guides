@@ -152,22 +152,3 @@ Making sure to put your email address in place of ``user@example.com``. You shou
 .. _HowToForge Postfix How-To: https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/
 
 .. _Linode's Postfix Guide: https://www.linode.com/docs/guides/configure-postfix-to-send-mail-using-gmail-and-google-workspace-on-debian-or-ubuntu/
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Added missing ``mailutils`` package install for the ``mail`` test command.
-  - Added Gmail security guidance for 2-step verification and app passwords.
-
-Reason for Change
-  Prevent broken test-mail steps and align SMTP credential guidance with current Gmail security requirements.
-
-Compatibility Notes
-  Compatible with current Debian/Ubuntu Postfix setups and Gmail SMTP policies requiring app passwords.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

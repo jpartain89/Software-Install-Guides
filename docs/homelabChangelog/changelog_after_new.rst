@@ -71,21 +71,3 @@ Install `hishtory`_ using:
   auth sufficient pam_ssh_agent_auth.so
 
 .. _hishtory: https://hishtory.dev/
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Added explicit Ubuntu baseline version context for this changelog.
-
-Reason for Change
-  Reduce ambiguity about which distro/version this changelog entry applies to.
-
-Compatibility Notes
-  Entries are primarily based on Ubuntu 24.04 LTS behavior.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

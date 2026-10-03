@@ -31,23 +31,3 @@ For command-line tools that should be installed outside a project environment, u
   pipx upgrade <tool-name>
 
 This file is much more detailed and expansive than I care to currently go into.
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Replaced unsafe ``sudo -H pip install`` guidance with a virtual environment workflow.
-  - Added a warning about modern system Python protections (PEP 668).
-  - Added ``pipx`` guidance for global CLI tool installation.
-
-Reason for Change
-  Prevent system Python breakage and align installation guidance with current Python packaging standards.
-
-Compatibility Notes
-  Compatible with Python 3 on modern Debian/Ubuntu and macOS environments using ``venv`` and ``pipx``.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

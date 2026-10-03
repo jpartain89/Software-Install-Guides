@@ -26,22 +26,3 @@ I have this section broken down further into specific area's of interest:
   ubuntu_user
   docker/index
   install-issues/index
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Reframed section intro to reflect active modernization instead of legacy-only status.
-  - Updated package-management wording from ``apt-get`` framing to modern ``apt`` framing.
-
-Reason for Change
-  Improve reader confidence and align section framing with current maintenance reality.
-
-Compatibility Notes
-  Section scope now explicitly targets current Debian/Ubuntu administration workflows.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

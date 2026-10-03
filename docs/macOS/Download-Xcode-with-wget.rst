@@ -69,23 +69,3 @@ IT WILL TAKE A BIT OF TIME... I assume due it being "Secure", its having to unen
 
 .. _The Unarchiver: https://theunarchiver.com/
 .. _Beta Xcode Download: https://developer.apple.com/xcode/
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Reframed page to prioritize supported Xcode install/update paths.
-  - Added modern ``xcode-select --install`` and App Store-first guidance.
-  - Kept cookie-based ``wget`` as an advanced fallback only.
-
-Reason for Change
-  Reduce reliance on brittle login-cookie workflows and align with current Apple-supported install methods.
-
-Compatibility Notes
-  Primary guidance targets current macOS workflows; cookie-based wget behavior may vary by Apple auth/session changes.
-
-Tested On
-  Documentation review only (commands not executed in this repo).
