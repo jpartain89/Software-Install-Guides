@@ -69,23 +69,3 @@ Then, add a step-ca system user:
 .. code-block:: bash
 
   sudo useradd --user-group --system --home /etc/step-ca --shell /bin/false step
-
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Added a security warning for broad ``NOPASSWD: ALL`` sudoers usage.
-  - Updated SmallStep install snippet from ``apt-get`` to modern ``apt`` commands.
-
-Reason for Change
-  Improve security clarity and align package management examples with current apt usage.
-
-Compatibility Notes
-  Commands target modern Debian/Ubuntu apt-based systems.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

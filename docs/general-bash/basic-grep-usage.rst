@@ -45,22 +45,3 @@ AND be careful, 0 might not always be yes or confirm. Make sure to check the pro
 .. note::
 
   On macOS, ``grep`` is BSD grep. Some GNU-only options are not available there, but ``-q`` works on both.
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Replaced manual ``$?`` check pattern with direct ``if ... grep -q`` conditional style.
-  - Added cross-platform note for BSD vs GNU grep behavior.
-
-Reason for Change
-  Improve script readability and align examples with current shell scripting best practice.
-
-Compatibility Notes
-  ``grep -q`` example is compatible across GNU grep and BSD grep environments.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

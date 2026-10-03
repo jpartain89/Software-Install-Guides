@@ -13,22 +13,3 @@ List
 #. `Mozilla HTTP Observatory <https://observatory.mozilla.org/>`_ broad web security checks (headers, TLS, and common hardening controls).
 #. `OWASP ZAP <https://www.zaproxy.org/>`_ open-source active/passive web app security scanner for deeper testing.
 #. `CFSSL <https://github.com/cloudflare/cfssl>`_ still useful as a PKI/TLS toolkit, but treat it as a tooling component rather than a primary web scanner.
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Expanded the testing list with modern maintained tools (Observatory and OWASP ZAP).
-  - Repositioned CFSSL as PKI tooling rather than a primary hosted site scanner.
-
-Reason for Change
-  Keep website testing recommendations aligned with currently active security tooling.
-
-Compatibility Notes
-  Links and tools are current web security references as of this documentation update.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

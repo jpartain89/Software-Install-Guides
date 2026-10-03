@@ -52,21 +52,3 @@ Use the name returned in step 3 to manage the VM via systemd. For example, to ma
 
   sudo systemctl start vbox@Ubuntu     # Start the VM
   sudo systemctl enable vbox@Ubuntu    # Start the VM on boot
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Added ``VBoxManage`` path verification step before creating the systemd unit.
-
-Reason for Change
-  Reduce path-related failures on systems where VBoxManage is not in the expected location.
-
-Compatibility Notes
-  Unit example assumes systemd and a valid VBoxManage path on the host.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

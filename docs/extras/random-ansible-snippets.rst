@@ -52,21 +52,3 @@ Basically, how to pass multiple items into a command option when using ansible's
   ansible ipsec --become -m apt -a 'name={{ pkg_list }} state=present' -e '{"pkg_list": ["strongswan","strongswan-plugin-eap-mschapv2","moreutils","iptables-persistent"]}'
 
 .. _Ansible Documentation: https://docs.ansible.com/projects/ansible/latest/command_guide/intro_adhoc.html
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Updated ad-hoc apt list example to use explicit ``state=present``.
-  - Updated list variable naming and JSON quoting for clearer modern CLI usage.
-
-Reason for Change
-  Improve reliability and readability of ad-hoc package installation examples.
-
-Compatibility Notes
-  Compatible with modern Ansible ad-hoc CLI usage on current Ansible core releases.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

@@ -27,22 +27,3 @@ If issues persist, also restart mDNSResponder:
   sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder
 
 which I have saved as an alias.
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Added stepwise DNS cache flush guidance with modern command ordering.
-  - Added explicit ``sudo`` on ``dscacheutil`` examples.
-
-Reason for Change
-  Improve clarity for modern macOS DNS troubleshooting and avoid permission-related command confusion.
-
-Compatibility Notes
-  Applies to modern macOS systems using mDNSResponder.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

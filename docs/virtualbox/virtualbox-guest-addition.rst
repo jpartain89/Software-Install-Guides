@@ -100,22 +100,3 @@ If you have any services with custom user/group names, like ``transmission-daemo
 Then, it doesn't hurt to restart your machine. Just to make sure all accounts have signed out and back in again, so they can access any `vboxsf` group items.
 
 You can also restart only the affected service/session if a full reboot is not desirable.
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Replaced legacy ``apt-get`` prereq example with modern ``apt`` plus headers/build tools.
-  - Added note that restarting only affected services/sessions can be sufficient.
-
-Reason for Change
-  Align Guest Additions prerequisites and post-install behavior with current Ubuntu practices.
-
-Compatibility Notes
-  Targets current Debian/Ubuntu guest environments with VirtualBox Guest Additions builds.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

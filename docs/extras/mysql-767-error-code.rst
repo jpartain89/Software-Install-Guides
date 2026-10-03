@@ -55,22 +55,3 @@ You can also set them within the ``mysql/mariadb`` environment, but those runtim
 .. note::
 
   Make sure you restart the sql server after changing any settings in the configuration files.
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Added explicit version guidance separating modern MySQL/MariaDB behavior from legacy 767-byte fixes.
-  - Clarified that legacy ``innodb_file_format`` options are for older versions only.
-
-Reason for Change
-  Prevent outdated server parameters from being applied to modern MySQL/MariaDB versions.
-
-Compatibility Notes
-  Legacy block applies to MySQL 5.7/older MariaDB; modern guidance applies to MySQL 8.0+ and current MariaDB defaults.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

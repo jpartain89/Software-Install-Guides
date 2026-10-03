@@ -63,25 +63,3 @@ Next, you have to tell ``git``, through config files, to utilize the credential 
 Now, the next time you try to do anything requiring HTTPS credentials, it'll prompt you for a PAT/token and then save it in your keychain.
 
 .. _1Password: https://www.1password.dev/ssh/manage-keys
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Updated HTTPS authentication guidance to modern token/PAT expectations.
-  - Added a GitHub-specific note about removed password authentication.
-  - Added ``gh auth login`` as a modern alternative workflow.
-  - Changed the display of the acronym ``PAT`` to use the :abbr: directive for consistency and clarity per rST formatting.
-
-Reason for Change
-  Align Git authentication guidance with current hosted Git security requirements.
-  Align the documentation with the use of the :abbr: directive for ``PAT`` throughout the text for consistency and clarity in rST formatting.
-
-Compatibility Notes
-  Applies to current GitHub/GitLab HTTPS auth models and macOS keychain credential helper behavior.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

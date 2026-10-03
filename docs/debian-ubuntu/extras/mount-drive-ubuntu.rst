@@ -157,24 +157,3 @@ it will give you a line for every drive and partition that it can find. You can 
   PARTUUID=86e32033-01  /boot           vfat    defaults          0       2
   PARTUUID=86e32033-02  /               ext4    defaults,noatime  0       1
   PARTUUID=<your-partuuid> /media/<name of folder> ext4 defaults,noatime 0 2
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Replaced insecure ``chmod -R 777`` with safer ownership and ``755`` permissions.
-  - Corrected permanent mount reference from ``/etc/fdisk`` to ``/etc/fstab``.
-  - Added a concrete ``/etc/fstab`` example entry for an additional ext4 disk.
-  - Replaced stale ``fdisk`` screenshot with inline sample output.
-
-Reason for Change
-  Reduce security risk from world-writable permissions, clarify persistent mount configuration, and remove stale image dependency.
-
-Compatibility Notes
-  Applies to modern Debian/Ubuntu systems using ext4 and ``systemd``-era fstab behavior.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

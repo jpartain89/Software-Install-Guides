@@ -184,25 +184,3 @@ This way, removing specific repo items is MUCH easier.
 .. _NGINX: https://nginx.org/en/linux_packages.html#Ubuntu
 .. _Amplify: https://amplify.nginx.com/
 .. _Ondrej's: https://launchpad.net/~ondrej/+archive/ubuntu/php
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Fixed ``curlx`` typo to ``curl`` in the install example.
-  - Corrected ``gpg --dearmour`` to ``gpg --dearmor``.
-  - Fixed APT list path from ``/etc/apt/list.d`` to ``/etc/apt/sources.list.d``.
-  - Added ``/etc/os-release`` codename retrieval option for modern systems.
-  - Updated PPA examples from ``apt-get`` to ``apt``.
-
-Reason for Change
-  Resolve command/path breakages and align repository setup guidance with modern Debian/Ubuntu conventions.
-
-Compatibility Notes
-  Guidance targets current Debian/Ubuntu releases; includes both ``lsb_release`` and ``os-release`` codename methods.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

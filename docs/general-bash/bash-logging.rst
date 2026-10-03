@@ -24,22 +24,3 @@ What does it do?
 - ``2>&1`` is for piping ``2`` or ``stderr`` into the ``exec`` command
 
 This information was wonderfully pulled from `UrbanAutomation <https://www.urbanautomaton.com/blog/2014/09/09/redirecting-bash-script-output-to-syslog/>`_'s website.
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Updated tl;dr example to use ``systemd-cat`` for journald-first logging.
-  - Added ``logger`` fallback guidance and simplified script-name expansion.
-
-Reason for Change
-  Align logging examples with modern systemd/journald-based Linux environments.
-
-Compatibility Notes
-  ``systemd-cat`` applies to systemd environments; ``logger`` fallback is broader and still valid.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

@@ -116,22 +116,3 @@ There are a LOT of ways to test things, using either ``if-then-else``, ``case`` 
 
 .. [1] Shell Option ``optname``: The list of options appears in the description of the -o option to the set builtin. (see The Set Builtin)
 .. [2] ``$VARNAME`` is replaceable with ANY **VARIABLE** name needed
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Clarified Bash-only ``[[ ]]`` usage versus POSIX ``[ ]`` compatibility guidance.
-  - Added note about string vs numeric comparison behavior.
-
-Reason for Change
-  Reduce portability confusion and prevent comparison-operator misuse in scripts.
-
-Compatibility Notes
-  Guidance covers both Bash-specific and POSIX-compatible conditional patterns.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

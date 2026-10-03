@@ -106,23 +106,3 @@ Using DD for Backup
   sudo dd if=/dev/sdc bs=1MB | pv -s $BLOCKSIZE | gzip -9 > $DISKNAME.img.gz
 
 .. _this snippet on Gitlab: https://gitlab.com/-/snippets/2320252
-
-.. rubric:: Update Changelog
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Updated SSH key generation guidance to modern ``ed25519`` defaults.
-  - Added a compatibility RSA example using ``rsa -b 4096``.
-  - Replaced ``shutdown -r now`` with ``reboot`` for clarity.
-  - Replaced ``apt-get`` update/upgrade examples with ``apt`` usage.
-
-Reason for Change
-  Align core Linux command examples with current security and package-management best practices.
-
-Compatibility Notes
-  Commands are aligned with modern Debian/Ubuntu releases; RSA fallback is included for legacy SSH compatibility.
-
-Tested On
-  Documentation review only (commands not executed in this repo).

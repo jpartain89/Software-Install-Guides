@@ -48,22 +48,3 @@ So, for running this inside of a VirtualBox instance locally, using a folder mou
   So, the -aG part is adding a user to a group by addition, not replacing. Then, the first name is the group, and the 2nd is the user.
 
 Usually in order for group additions to take effect, log out and back in (or restart the service/session using that user). For system users without direct login sessions, restarting the VM or the affected service is the practical approach.
-
-.. rubric:: Update Changelog
-
-
-Changed On
-  2026-07-04
-
-Summary of Updates
-  - Clarified how group membership changes take effect for normal users versus system users.
-  - Added modern guidance to restart affected service/session when full reboot is unnecessary.
-
-Reason for Change
-  Improve operational accuracy and reduce unnecessary full-system restarts.
-
-Compatibility Notes
-  Applies to modern Linux user/group behavior in VM and non-VM environments.
-
-Tested On
-  Documentation review only (commands not executed in this repo).
