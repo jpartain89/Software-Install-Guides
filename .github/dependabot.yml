@@ -17,8 +17,7 @@ updates:
     groups:
       pipenv:
         patterns:
-          - pipfile
-          - pipenv
+          - "*"
     # Keep security updates separate for immediate attention
     open-pull-requests-limit: 10
     labels:
